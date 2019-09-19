@@ -1,4 +1,5 @@
-import { Link } from 'gatsby'
+import { injectIntl, Link } from 'gatsby-plugin-intl'
+
 import styled from 'styled-components'
 import React from 'react'
 
@@ -43,7 +44,7 @@ const H1 = styled.h1`
   }
 `
 
-const Header = () => (
+const Header = ({ intl }) => (
   <HeaderStyle>
     <H1>
       <Link to="/" activeClassName="active">
@@ -51,17 +52,17 @@ const Header = () => (
       </Link>
     </H1>
     <nav>
-      <Link to="purpose" activeClassName="active">
-        Purpose
+      <Link to="/purpose" activeClassName="active">
+        {intl.formatMessage({ id: 'purpose' })}
       </Link>
-      <Link to="blog" activeClassName="active">
-        Blog
+      <Link to="/blog" activeClassName="active">
+        {intl.formatMessage({ id: 'blog' })}
       </Link>
-      <Link to="contact" activeClassName="active">
-        Contact
+      <Link to="/contact" activeClassName="active">
+        {intl.formatMessage({ id: 'contact' })}
       </Link>
     </nav>
   </HeaderStyle>
 )
 
-export default Header
+export default injectIntl(Header)

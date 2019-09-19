@@ -1,0 +1,24 @@
+{
+  "lang": "en",
+  "title": "Gaston",
+  "description": "The delightful service solution for restaurant hospitality.",
+  "author": "@ApptivaTeam",
+  "tagline": "The delightful service solution <br /> for restaurant hospitality.",
+  "purpose": "Purpose",
+  "blog": "Blog",
+  "contact": "Contact",
+  "ordering": "Ordering",
+  "service": "Service",
+  "payment": "Payment",
+  "index": {
+    "calltoaction": "Explore with us"
+  },
+  "footer": {
+    "by": "An exploration by",
+    "switzerland": "Switzerland"
+  },
+  "notfound": {
+    "header": "NOT FOUND",
+    "description": "You just hit a route that doesn't exist... the sadness."
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { FormattedHTMLMessage, injectIntl, Link } from 'gatsby-plugin-intl'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -9,7 +9,7 @@ import ordering from '../images/ordering.svg'
 import service from '../images/service.svg'
 import payment from '../images/payment.svg'
 
-const IndexPage = () => (
+const IndexPage = ({ intl }) => (
   <Layout>
     <SEO title="Home" />
     <Container
@@ -57,8 +57,7 @@ const IndexPage = () => (
         >
           <h2>Gaston</h2>
           <p>
-            The delightful service solution <br />
-            for restaurant hospitality.
+            <FormattedHTMLMessage id="tagline" />
           </p>
         </div>
         <ul
@@ -86,7 +85,7 @@ const IndexPage = () => (
               src={ordering}
               alt=""
             />
-            <h3>Ordering</h3>
+            <h3>{intl.formatMessage({ id: 'ordering' })}</h3>
           </li>
           <li>
             <img
@@ -97,7 +96,7 @@ const IndexPage = () => (
               src={service}
               alt=""
             />
-            <h3>Service</h3>
+            <h3>{intl.formatMessage({ id: 'service' })}</h3>
           </li>
           <li>
             <img
@@ -108,7 +107,7 @@ const IndexPage = () => (
               src={payment}
               alt=""
             />
-            <h3>Payment</h3>
+            <h3>{intl.formatMessage({ id: 'payment' })}</h3>
           </li>
         </ul>
         <Button
@@ -116,13 +115,13 @@ const IndexPage = () => (
             font-size: 1.4em;
           `}
           as={Link}
-          to="contact"
+          to="/contact"
         >
-          Get in contact
+          {intl.formatMessage({ id: 'index.calltoaction' })}
         </Button>
       </div>
     </Container>
   </Layout>
 )
 
-export default IndexPage
+export default injectIntl(IndexPage)

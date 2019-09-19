@@ -1,0 +1,24 @@
+{
+  "lang": "de",
+  "title": "Gaston",
+  "description": "Die genussvolle Servicelösung für die Gastronomie.",
+  "author": "@ApptivaTeam",
+  "tagline": "Die genussvolle Servicelösung <br /> für die Gastronomie.",
+  "purpose": "Zweck",
+  "blog": "Blog",
+  "contact": "Kontakt",
+  "ordering": "Bestellung",
+  "service": "Dienstleistung",
+  "payment": "Bezahlung",
+  "index": {
+    "calltoaction": "Kontakt aufnehmen"
+  },
+  "footer": {
+    "by": "Eine Initiative von",
+    "switzerland": "Schweiz"
+  },
+  "notfound": {
+    "header": "Nicht gefunden",
+    "description": "Sie haben gerade eine Route erreicht, die nicht existiert... die Traurigkeit."
+  }
+}

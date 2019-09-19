@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { injectIntl } from 'gatsby-plugin-intl'
 
 const FooterStyle = styled.footer`
   grid-area: Footer;
@@ -11,13 +12,14 @@ const FooterStyle = styled.footer`
   }
 `
 
-const Footer = () => (
+const Footer = ({ intl }) => (
   <FooterStyle>
     <p>
-      © 2019 • Gaston • An exploration by{' '}
-      <a href="https://apptiva.ch">Apptiva</a> • Switzerland
+      © 2019 • Gaston • {`${intl.formatMessage({ id: 'footer.by' })} `}
+      <a href="https://apptiva.ch">Apptiva</a> •{' '}
+      {intl.formatMessage({ id: 'footer.switzerland' })}
     </p>
   </FooterStyle>
 )
 
-export default Footer
+export default injectIntl(Footer)
