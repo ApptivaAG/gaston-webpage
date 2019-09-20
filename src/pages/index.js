@@ -85,7 +85,7 @@ const IndexPage = ({ intl }) => (
               src={ordering}
               alt=""
             />
-            <h3>{intl.formatMessage({ id: 'ordering' })}</h3>
+            <h3>{intl.formatMessage({ id: 'index.ordering' })}</h3>
           </li>
           <li>
             <img
@@ -96,7 +96,7 @@ const IndexPage = ({ intl }) => (
               src={service}
               alt=""
             />
-            <h3>{intl.formatMessage({ id: 'service' })}</h3>
+            <h3>{intl.formatMessage({ id: 'index.service' })}</h3>
           </li>
           <li>
             <img
@@ -107,7 +107,7 @@ const IndexPage = ({ intl }) => (
               src={payment}
               alt=""
             />
-            <h3>{intl.formatMessage({ id: 'payment' })}</h3>
+            <h3>{intl.formatMessage({ id: 'index.payment' })}</h3>
           </li>
         </ul>
         <Button

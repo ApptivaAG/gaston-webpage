@@ -1,24 +1,19 @@
 import React from 'react'
+import { injectIntl } from 'gatsby-plugin-intl'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../styles/Container'
 
-const PurposePage = () => (
+const PurposePage = ({ intl }) => (
   <Layout>
     <SEO title="Purpose" />
     <Container>
-      <h2>Purpose</h2>
-      <p>
-        Our purpose is to make every restaurant visit a delightful and modern
-        experience for its guests.
-      </p>
-      <p>
-        We support restaurants with the needs to serve customers in the digital
-        age.
-      </p>
+      <h2>{intl.formatMessage({ id: 'purpose.title' })}</h2>
+      <p>{intl.formatMessage({ id: 'purpose.paragraph1' })}</p>
+      <p>{intl.formatMessage({ id: 'purpose.paragraph2' })}</p>
     </Container>
   </Layout>
 )
 
-export default PurposePage
+export default injectIntl(PurposePage)

@@ -4,14 +4,28 @@
   "description": "Die genussvolle Servicelösung für die Gastronomie.",
   "author": "@ApptivaTeam",
   "tagline": "Die genussvolle Servicelösung <br /> für die Gastronomie.",
-  "purpose": "Zweck",
-  "blog": "Blog",
-  "contact": "Kontakt",
-  "ordering": "Bestellung",
-  "service": "Dienstleistung",
-  "payment": "Bezahlung",
   "index": {
+    "ordering": "Bestellung",
+    "service": "Dienstleistung",
+    "payment": "Bezahlung",
     "calltoaction": "Kontakt aufnehmen"
+  },
+  "purpose": {
+    "title": "Zweck",
+    "paragraph1": "Unser Ziel ist es, jeden Restaurantbesuch zu einem angenehmen und modernen Erlebnis für seine Gäste zu machen.",
+    "paragraph2": "Wir unterstützen Restaurants mit Allem, um ihre Kunden im digitalen Zeitalter zu bedienen."
+  },
+  "contact": {
+    "contact": "Kontakt",
+    "email": "Email",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "switzerland": "Schweiz"
+  },
+  "header": {
+    "purpose": "Zweck",
+    "blog": "Blog",
+    "contact": "Kontakt"
   },
   "footer": {
     "by": "Eine Initiative von",

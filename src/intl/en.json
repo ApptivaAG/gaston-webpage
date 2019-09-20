@@ -4,14 +4,28 @@
   "description": "The delightful service solution for restaurant hospitality.",
   "author": "@ApptivaTeam",
   "tagline": "The delightful service solution <br /> for restaurant hospitality.",
-  "purpose": "Purpose",
-  "blog": "Blog",
-  "contact": "Contact",
-  "ordering": "Ordering",
-  "service": "Service",
-  "payment": "Payment",
   "index": {
+    "ordering": "Ordering",
+    "service": "Service",
+    "payment": "Payment",
     "calltoaction": "Explore with us"
+  },
+  "purpose": {
+    "title": "Purpose",
+    "paragraph1": "Our purpose is to make every restaurant visit a delightful and modern experience for its guests.",
+    "paragraph2": "We support restaurants with the needs to serve customers in the digital age."
+  },
+  "contact": {
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "switzerland": "Switzerland"
+  },
+  "header": {
+    "purpose": "Purpose",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "footer": {
     "by": "An exploration by",
