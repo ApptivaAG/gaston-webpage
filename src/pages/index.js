@@ -40,7 +40,7 @@ const Hero = styled.section`
 `
 
 const IndexPage = ({ intl }) => (
-  <Layout>
+  <Layout dark>
     <SEO title="Home" />
     <Hero>
       <Container>
