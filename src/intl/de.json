@@ -10,11 +10,6 @@
     "payment": "Bezahlung",
     "calltoaction": "Kontakt aufnehmen"
   },
-  "purpose": {
-    "title": "Zweck",
-    "paragraph1": "Unser Ziel ist es, jeden Restaurantbesuch zu einem angenehmen und modernen Erlebnis für seine Gäste zu machen.",
-    "paragraph2": "Wir unterstützen Restaurants mit Allem, um ihre Kunden im digitalen Zeitalter zu bedienen."
-  },
   "contact": {
     "contact": "Kontakt",
     "email": "Email",
@@ -33,7 +28,6 @@
     "trainee":"Praktikant"
   },
   "header": {
-    "purpose": "Zweck",
     "blog": "Blog",
     "contact": "Kontakt",
     "about": "Über uns"

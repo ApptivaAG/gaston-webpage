@@ -52,14 +52,11 @@ const Header = ({ intl }) => (
       </Link>
     </H1>
     <nav>
-      <Link to="/purpose" activeClassName="active">
-        {intl.formatMessage({ id: 'header.purpose' })}
+      <Link to="/about" activeClassName="active">
+        {intl.formatMessage({ id: 'header.about' })}
       </Link>
       <Link to="/blog" activeClassName="active">
         {intl.formatMessage({ id: 'header.blog' })}
-      </Link>
-      <Link to="/about" activeClassName="active">
-        {intl.formatMessage({ id: 'header.about' })}
       </Link>
       <Link to="/contact" activeClassName="active">
         {intl.formatMessage({ id: 'header.contact' })}

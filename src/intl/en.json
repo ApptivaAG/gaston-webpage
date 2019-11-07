@@ -10,11 +10,6 @@
     "payment": "Payment",
     "calltoaction": "Explore with us"
   },
-  "purpose": {
-    "title": "Purpose",
-    "paragraph1": "Our purpose is to make every restaurant visit a delightful and modern experience for its guests.",
-    "paragraph2": "We support restaurants with the needs to serve customers in the digital age."
-  },
   "contact": {
     "contact": "Contact",
     "email": "Email",
@@ -33,7 +28,6 @@
     "trainee":"Trainee"
   },
   "header": {
-    "purpose": "Purpose",
     "blog": "Blog",
     "contact": "Contact",
     "about": "About us"
