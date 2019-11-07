@@ -20,10 +20,10 @@ const Grid = styled.div`
     'Header'
     'Content'
     'Footer';
-  height: 100vh;
+  height: 100%;
 `
 
-const Layout = ({ children,dark }) => {
+const Layout = ({ children, dark }) => {
   return (
     <ThemeProvider theme={theme}>
       <Grid>
