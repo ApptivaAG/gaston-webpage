@@ -8,7 +8,8 @@
     "ordering": "Ordering",
     "service": "Service",
     "payment": "Payment",
-    "calltoaction": "Explore with us"
+    "calltoaction": "Explore with us",
+    "menutag": "Digital Menu Card"
   },
   "purpose": {
     "title": "Purpose",
