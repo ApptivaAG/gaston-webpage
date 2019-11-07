@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { FormattedHTMLMessage, injectIntl, Link } from 'gatsby-plugin-intl'
 
 import Layout from '../components/Layout'
@@ -8,119 +9,187 @@ import Button from '../styles/Button'
 import ordering from '../images/ordering.svg'
 import service from '../images/service.svg'
 import payment from '../images/payment.svg'
+import spain from '../images/spain.jpg'
+import spainMenu from '../images/spain-menu.png'
+import ipad from '../images/ipad.png'
+import brush from "../images/paint-board-and-brush.svg"
+import menu from "../images/menu.svg"
+import tablet from "../images/tablet.svg"
+
+const Hero = styled.section`
+  margin-top: -5rem;
+  height: 70%;
+  position: relative;
+  color: white;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+
+    display: block;
+    background: url('${spain}') center/cover no-repeat;
+
+    filter: brightness(50%);
+  }
+
+`
 
 const IndexPage = ({ intl }) => (
-  <Layout>
+  <Layout dark>
     <SEO title="Home" />
-    <Container
-      css={`
-        padding-top: 8vh;
-        padding-bottom: 12vh;
-      `}
-    >
-      <div
-        css={`
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-around;
-          height: 100%;
-          max-height: 800px;
-        `}
-      >
+    <Hero>
+      <Container>
         <div
           css={`
-            text-align: center;
-            h2 {
-              font-size: 3em;
-              margin: 0;
-            }
-            p {
-              font-size: 1.5em;
-              font-weight: 300;
-              margin: 0;
-            }
-            @media (min-width: 600px) {
-              h2 {
-                font-size: 5em;
-              }
-              p {
-                font-size: 2em;
-              }
-            }
-            @media (max-width: 600px) {
-              br {
-                display: none;
-              }
-            }
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 6em 0;
           `}
         >
-          <h2>Gaston</h2>
-          <p>
-            <FormattedHTMLMessage id="tagline" />
-          </p>
+          <div>
+            <h2
+              css={`
+                margin: 0;
+              `}
+            >
+              Gaston Menu
+            </h2>
+            <h3>{intl.formatMessage({ id: 'index.menutag' })}</h3>
+            <ul>
+              <li>Your design</li>
+              <li>Easy menu customization</li>
+              <li>With or without tablet devices</li>
+              <li>Included Webpage</li>
+            </ul>
+            <br />
+            <Button
+              css={`
+
+              `}
+            >
+              Jetzt gratis testen
+            </Button>
+          </div>
+          <div>
+            <img src={spainMenu} alt="" />
+          </div>
         </div>
-        <ul
+      </Container>
+    </Hero>
+    <section>
+      <Container>
+        <div
           css={`
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            width: 100%;
-            list-style: none;
-            padding: 2em 0 1em;
-            li {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: flex-end;
-              padding: 0 1em;
-            }
+            display:flex;
+            align-items:stretch;
           `}
         >
-          <li>
-            <img
-              css={`
-                width: 4.5em;
-              `}
-              src={ordering}
-              alt=""
-            />
-            <h3>{intl.formatMessage({ id: 'index.ordering' })}</h3>
-          </li>
-          <li>
-            <img
-              css={`
-                width: 6em;
-                height: 5em;
-              `}
-              src={service}
-              alt=""
-            />
-            <h3>{intl.formatMessage({ id: 'index.service' })}</h3>
-          </li>
-          <li>
-            <img
-              css={`
-                width: 4em;
-                height: 5em;
-              `}
-              src={payment}
-              alt=""
-            />
-            <h3>{intl.formatMessage({ id: 'index.payment' })}</h3>
-          </li>
-        </ul>
+          <div
+            css={`
+              flex:1;
+              background-image:url(${brush});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>In Ihrem Design</h2>
+            <p>
+              Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus.
+            </p>
+          </div>
+
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container>
+        <div
+          css={`
+            display:flex;
+            align-items:stretch;
+          `}
+        >
+          <div
+            css={`
+              flex:1;
+              background-image:url(${menu});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>Einfache Menüverwaltung</h2>
+            <p>
+              Das Verwalten der Speisen & Getränke auf ihrer Menükarte war noch nie so bequem! Über unsere intuitive Web-Oberfläche geschieht jede Änderung im Handumdrehen.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container>
+        <div
+          css={`
+            display:flex;
+            align-items:stretch;
+          `}
+        >
+          <div
+            css={`
+              flex:1;
+              background-image:url(${tablet});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>Inklusive Tablets</h2>
+            <p>
+              Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns mit Speisekarten-Tablets aus und bieten ihnen deshalb die Möglichkeit diese einfach & ohne Risiko von uns zu Mieten. Kaputte Tablets werden kostenlos ausgetauscht. Bei einer Kündigung geben sie die Tablets einfach zurück.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container
+        css={`
+          text-align:center;
+        `}
+      >
         <Button
           css={`
-            font-size: 1.4em;
+            font-size:2em;
           `}
-          as={Link}
-          to="/contact"
         >
-          {intl.formatMessage({ id: 'index.calltoaction' })}
+          Jetzt gratis testen
         </Button>
-      </div>
-    </Container>
+      </Container>
+    </section>
   </Layout>
 )
 

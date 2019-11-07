@@ -4,9 +4,12 @@ import styled from 'styled-components'
 import React from 'react'
 
 const HeaderStyle = styled.header`
+  position: sticky;
   grid-area: Header;
   display: flex;
   justify-content: space-between;
+  top: 0;
+  z-index:2;
 
   font-weight: bold;
   height: 3.6em;
@@ -26,7 +29,7 @@ const HeaderStyle = styled.header`
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
-    color: ${p => p.theme.text};
+    color: ${p => p.dark?"white":p.theme.text};
     text-decoration: none;
     @media (min-width: 600px) {
       padding-left: 1.2em;
@@ -44,16 +47,16 @@ const H1 = styled.h1`
   }
 `
 
-const Header = ({ intl }) => (
-  <HeaderStyle>
+const Header = ({ intl,dark }) => (
+  <HeaderStyle dark={dark}>
     <H1>
       <Link to="/" activeClassName="active">
         Gaston
       </Link>
     </H1>
     <nav>
-      <Link to="/purpose" activeClassName="active">
-        {intl.formatMessage({ id: 'header.purpose' })}
+      <Link to="/about" activeClassName="active">
+        {intl.formatMessage({ id: 'header.about' })}
       </Link>
       <Link to="/blog" activeClassName="active">
         {intl.formatMessage({ id: 'header.blog' })}
