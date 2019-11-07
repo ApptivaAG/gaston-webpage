@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormattedMessage } from 'gatsby-plugin-intl'
+import { FormattedMessage,FormattedHTMLMessage } from 'gatsby-plugin-intl'
 import styled from "styled-components"
 
 import Layout from '../components/Layout'
@@ -14,7 +14,6 @@ import philip from "../images/philip-schoenholzer-prev.jpg"
 import renato from "../images/renato-wasescha-prev.jpg"
 import roman from "../images/roman-schaller-prev.jpg"
 import david from "../images/david-decker-prev.jpg"
-import { FormattedHTMLMessage } from 'react-intl'
 
 const employees = [
   {
