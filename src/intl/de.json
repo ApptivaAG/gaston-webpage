@@ -22,6 +22,9 @@
     "address": "Adresse",
     "switzerland": "Schweiz"
   },
+  "pricing": {
+    "heading": "Preise"
+  },
   "blog": {
     "title": "Die fünf nervigsten Dinge beim Essen in einem Restaurant",
     "lead": "Praktisch in jedem Restaurant gibt es ähnliche Dinge, die ärgerlich sind. In diesem Beitrag wollen wir untersuchen, was diese Dinge sind und warum sie ein Problem darstellen.",
@@ -30,7 +33,8 @@
   "header": {
     "purpose": "Zweck",
     "blog": "Blog",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "pricing": "Preise"
   },
   "footer": {
     "by": "Eine Initiative von",

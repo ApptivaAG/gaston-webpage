@@ -22,6 +22,9 @@
     "address": "Address",
     "switzerland": "Switzerland"
   },
+  "pricing": {
+    "heading": "Pricing"
+  },
   "blog": {
     "title": "The five most annoying things about eating in a restaurant",
     "lead": "Practically at every restaurant there are similar things that are annoying. In this post we want to explorer what does things are and why they are a problem.",
@@ -30,7 +33,8 @@
   "header": {
     "purpose": "Purpose",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "pricing": "Pricing"
   },
   "footer": {
     "by": "An exploration by",
