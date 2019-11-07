@@ -12,15 +12,20 @@ import payment from '../images/payment.svg'
 import spain from '../images/spain.jpg'
 import spainMenu from '../images/spain-menu.png'
 import ipad from '../images/ipad.png'
-import brush from "../images/paint-board-and-brush.svg"
-import menu from "../images/menu.svg"
-import tablet from "../images/tablet.svg"
+import brush from '../images/paint-board-and-brush.svg'
+import menu from '../images/menu.svg'
+import tablet from '../images/tablet.svg'
 
 const Hero = styled.section`
   margin-top: -5rem;
-  height: 70%;
+  padding-top: 4rem;
   position: relative;
   color: white;
+  @media (min-width: 768px){
+    height: 102vh;
+    max-height: 55em;
+  }
+
   
   &:before {
     content: "";
@@ -47,8 +52,12 @@ const IndexPage = ({ intl }) => (
         <div
           css={`
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin: 6em 0;
+            gap: 5em 1em;
+            height: 100%;
+            justify-content: center;
+            @media (min-width: 768px) {
+              grid-template-columns: 1fr 1fr;
+            }
           `}
         >
           <div>
@@ -67,17 +76,15 @@ const IndexPage = ({ intl }) => (
               <li>Included Webpage</li>
             </ul>
             <br />
-            <Button
-              css={`
-
-              `}
-            >
-              Jetzt gratis testen
-            </Button>
+            <Button css="">Jetzt gratis testen</Button>
           </div>
-          <div>
-            <img src={spainMenu} alt="" />
-          </div>
+          <img
+            css={`
+              max-width: 28em;
+            `}
+            src={spainMenu}
+            alt=""
+          />
         </div>
       </Container>
     </Hero>
@@ -85,31 +92,34 @@ const IndexPage = ({ intl }) => (
       <Container>
         <div
           css={`
-            display:flex;
-            align-items:stretch;
+            display: flex;
+            align-items: stretch;
           `}
         >
           <div
             css={`
-              flex:1;
-              background-image:url(${brush});
-              background-position:center;
-              background-repeat:no-repeat;
-              background-size:contain;
+              flex: 1;
+              background-image: url(${brush});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
             `}
           />
           <div
             css={`
-              flex:3;
-              padding-left:50px;
+              flex: 3;
+              padding-left: 50px;
             `}
           >
             <h2>In Ihrem Design</h2>
             <p>
-              Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus.
+              Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie
+              ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett
+              massgeschneiderte Designs entwerfen lassen, falls ihnen keines der
+              Standard-Designs gefällt. Dies geht weit über das simple verändern
+              von Farben und Bildern hinaus.
             </p>
           </div>
-
         </div>
       </Container>
     </section>
@@ -117,28 +127,30 @@ const IndexPage = ({ intl }) => (
       <Container>
         <div
           css={`
-            display:flex;
-            align-items:stretch;
+            display: flex;
+            align-items: stretch;
           `}
         >
           <div
             css={`
-              flex:1;
-              background-image:url(${menu});
-              background-position:center;
-              background-repeat:no-repeat;
-              background-size:contain;
+              flex: 1;
+              background-image: url(${menu});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
             `}
           />
           <div
             css={`
-              flex:3;
-              padding-left:50px;
+              flex: 3;
+              padding-left: 50px;
             `}
           >
             <h2>Einfache Menüverwaltung</h2>
             <p>
-              Das Verwalten der Speisen & Getränke auf ihrer Menükarte war noch nie so bequem! Über unsere intuitive Web-Oberfläche geschieht jede Änderung im Handumdrehen.
+              Das Verwalten der Speisen & Getränke auf ihrer Menükarte war noch
+              nie so bequem! Über unsere intuitive Web-Oberfläche geschieht jede
+              Änderung im Handumdrehen.
             </p>
           </div>
         </div>
@@ -148,28 +160,34 @@ const IndexPage = ({ intl }) => (
       <Container>
         <div
           css={`
-            display:flex;
-            align-items:stretch;
+            display: flex;
+            align-items: stretch;
           `}
         >
           <div
             css={`
-              flex:1;
-              background-image:url(${tablet});
-              background-position:center;
-              background-repeat:no-repeat;
-              background-size:contain;
+              flex: 1;
+              background-image: url(${tablet});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
             `}
           />
           <div
             css={`
-              flex:3;
-              padding-left:50px;
+              flex: 3;
+              padding-left: 50px;
             `}
           >
             <h2>Inklusive Tablets</h2>
             <p>
-              Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns mit Speisekarten-Tablets aus und bieten ihnen deshalb die Möglichkeit diese einfach & ohne Risiko von uns zu Mieten. Kaputte Tablets werden kostenlos ausgetauscht. Bei einer Kündigung geben sie die Tablets einfach zurück.
+              Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön
+              ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange
+              die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns
+              mit Speisekarten-Tablets aus und bieten ihnen deshalb die
+              Möglichkeit diese einfach & ohne Risiko von uns zu Mieten. Kaputte
+              Tablets werden kostenlos ausgetauscht. Bei einer Kündigung geben
+              sie die Tablets einfach zurück.
             </p>
           </div>
         </div>
@@ -178,12 +196,12 @@ const IndexPage = ({ intl }) => (
     <section>
       <Container
         css={`
-          text-align:center;
+          text-align: center;
         `}
       >
         <Button
           css={`
-            font-size:2em;
+            font-size: 2em;
           `}
         >
           Jetzt gratis testen
