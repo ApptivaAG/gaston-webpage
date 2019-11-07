@@ -23,7 +23,7 @@ const Hero = styled.section`
   color: white;
   @media (min-width: 768px){
     height: 102vh;
-    max-height: 55em;
+    max-height: 60em;
   }
 
   
@@ -80,7 +80,9 @@ const IndexPage = ({ intl }) => (
           </div>
           <img
             css={`
-              max-width: 28em;
+              @media (max-width: 768px) {
+                max-width: 28em;
+              }
             `}
             src={spainMenu}
             alt=""
