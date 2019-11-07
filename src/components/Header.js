@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import React from 'react'
 
 const HeaderStyle = styled.header`
+  position: sticky;
   grid-area: Header;
   display: flex;
   justify-content: space-between;
+  top: 0;
 
   font-weight: bold;
   height: 3.6em;
