@@ -4,6 +4,8 @@ import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import styled from 'styled-components'
 import Button from '../styles/Button'
+import brush from '../images/paint-board-and-brush.svg'
+import Container from '../styles/Container'
 
 const PlanWrapper = styled.div`
   display: flex;
@@ -28,9 +30,17 @@ const Plan = styled.div`
   width: 30%;
 `
 
+const PlanText = styled.p`
+  height: 7em;
+`
+
+const PlanFeature = styled.p`
+  height: 3em;
+`
+
 const Price = styled.div`
   color: ${p => p.theme.primary};
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
   padding: 1em 0em;
 `
@@ -39,16 +49,16 @@ const ContactPage = ({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
   const [plan, setPlan] = useState('pro')
 
-  const licensePrice = 2
+  const licensePrice = 3
   const maxTablets = 50
-  const iPadRentPrice = 80
-  const androidRentPrice = 20
+  const iPadRentPrice = 29
+  const androidRentPrice = 19
   const totalProPrice = tc => Math.max(0, tc - 10) * licensePrice + 39
 
   return (
-    <div>
-      <h2>{intl.formatMessage({ id: 'pricing.heading' })}</h2>
-      <h3>Gaston Menu</h3>
+    <>
+      <h1>{intl.formatMessage({ id: 'pricing.heading' })}</h1>
+      <h2>Gaston Menu</h2>
       <p>
         Unsere Preise richten sich nach der Anzahl Tablets, die Sie in Ihrem
         Betrieb verwenden.
@@ -56,20 +66,24 @@ const ContactPage = ({ intl }) => {
       <PlanWrapper>
         <Plan active={plan === 'trial'} onClick={() => setPlan('trial')}>
           <h3>Trial</h3>
-          <p>
+          <PlanText>
             Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um
             Gaston Menu unverbindlich zu testen.
-          </p>
-          <p>Lizenzen inbegriffen: 1</p>
+          </PlanText>
+          <PlanFeature>Lizenzen inbegriffen: 1</PlanFeature>
           <Price>CHF 0.- / Mt.</Price>
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
           <h3>Pro</h3>
-          <p>
-            Im Pro-Plan sind 10 Tablet-Lizenzen inbegriffen. Jedes weitere
-            Tablet kostet Sie {licensePrice} Franken.
-          </p>
-          <p>Lizenzen inbegriffen: 10</p>
+          <PlanText>
+            Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem
+            Betrieb einsetzen möchten.
+          </PlanText>
+          <PlanFeature>
+            Lizenzen inbegriffen: 10
+            <br />
+            Jede weitere Lizenz: CHF {licensePrice}.-
+          </PlanFeature>
           <Price>CHF 39.- / Mt.</Price>
         </Plan>
         <Plan
@@ -77,11 +91,11 @@ const ContactPage = ({ intl }) => {
           onClick={() => setPlan('enterprise')}
         >
           <h3>Enterprise</h3>
-          <p>
+          <PlanText>
             Benötigen Sie mehr als 50 Tablets? Wir machen Ihnen gerne ein auf
             Sie zugeschnittenes Angebot.
-          </p>
-          <p>Lizenzen inbetriffen: unbegrenzt</p>
+          </PlanText>
+          <PlanFeature>Lizenzen inbetriffen: unbegrenzt</PlanFeature>
           <Button>Kontaktieren Sie uns</Button>
         </Plan>
       </PlanWrapper>
@@ -108,13 +122,7 @@ const ContactPage = ({ intl }) => {
               {totalProPrice(tabletCount)}.- / Mt.
             </Price>
           </div>
-          <h3
-            css={`
-              margin-top: 3em;
-            `}
-          >
-            Tablet Vermietung
-          </h3>
+          <h2>Tablet Vermietung</h2>
           <p>
             Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie können
             die optimalen Modelle für Gaston Menu auch bei uns mieten.
@@ -123,19 +131,59 @@ const ContactPage = ({ intl }) => {
           <h3>Android-Tablets</h3>
           <p>
             Unsere Android-Tablets bieten Ihnen das beste
-            Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns. Defekte
-            Geräte ersetzen wir für Sie.
+            Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
+            <br />
+            Mindestmietdauer: 1 Jahr
           </p>
           <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
           <h3>iPads mieten</h3>
           <p>
             Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple iPads
-            von uns. Defekte Geräte ersetzen wir für Sie.
+            von uns.
+            <br />
+            Mindestmietdauer: 1 Jahr
           </p>
           <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
+
+          <section>
+            <Container>
+              <div
+                css={`
+                  display: flex;
+                  align-items: stretch;
+                `}
+              >
+                <div
+                  css={`
+                    flex: 1;
+                    background-image: url(${brush});
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                  `}
+                />
+                <div
+                  css={`
+                    flex: 3;
+                    padding-left: 50px;
+                  `}
+                >
+                  <h2>In Ihrem Design</h2>
+                  <p>
+                    Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall
+                    wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston
+                    komplett massgeschneiderte Designs entwerfen lassen, falls
+                    ihnen keines der Standard-Designs gefällt. Dies geht weit
+                    über das simple verändern von Farben und Bildern hinaus.
+                  </p>
+                  <Price>Ab CHF 1&apos;000.-</Price>
+                </div>
+              </div>
+            </Container>
+          </section>
         </>
       )}
-    </div>
+    </>
   )
 }
 
