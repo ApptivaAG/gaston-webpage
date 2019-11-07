@@ -12,6 +12,9 @@ import payment from '../images/payment.svg'
 import spain from '../images/spain.jpg'
 import spainMenu from '../images/spain-menu.png'
 import ipad from '../images/ipad.png'
+import brush from "../images/paint-board-and-brush.svg"
+import menu from "../images/menu.svg"
+import tablet from "../images/tablet.svg"
 
 const Hero = styled.section`
   margin-top: -5rem;
@@ -63,6 +66,14 @@ const IndexPage = ({ intl }) => (
               <li>With or without tablet devices</li>
               <li>Included Webpage</li>
             </ul>
+            <br />
+            <Button
+              css={`
+
+              `}
+            >
+              Jetzt gratis testen
+            </Button>
           </div>
           <div>
             <img src={spainMenu} alt="" />
@@ -72,7 +83,111 @@ const IndexPage = ({ intl }) => (
     </Hero>
     <section>
       <Container>
-        <h2>Section 2</h2>
+        <div
+          css={`
+            display:flex;
+            align-items:stretch;
+          `}
+        >
+          <div
+            css={`
+              flex:1;
+              background-image:url(${brush});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>In Ihrem Design</h2>
+            <p>
+              Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus.
+            </p>
+          </div>
+
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container>
+        <div
+          css={`
+            display:flex;
+            align-items:stretch;
+          `}
+        >
+          <div
+            css={`
+              flex:1;
+              background-image:url(${menu});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>Einfache Menüverwaltung</h2>
+            <p>
+              Das Verwalten der Speisen & Getränke auf ihrer Menükarte war noch nie so bequem! Über unsere intuitive Web-Oberfläche geschieht jede Änderung im Handumdrehen.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container>
+        <div
+          css={`
+            display:flex;
+            align-items:stretch;
+          `}
+        >
+          <div
+            css={`
+              flex:1;
+              background-image:url(${tablet});
+              background-position:center;
+              background-repeat:no-repeat;
+              background-size:contain;
+            `}
+          />
+          <div
+            css={`
+              flex:3;
+              padding-left:50px;
+            `}
+          >
+            <h2>Inklusive Tablets</h2>
+            <p>
+              Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns mit Speisekarten-Tablets aus und bieten ihnen deshalb die Möglichkeit diese einfach & ohne Risiko von uns zu Mieten. Kaputte Tablets werden kostenlos ausgetauscht. Bei einer Kündigung geben sie die Tablets einfach zurück.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section>
+      <Container
+        css={`
+          text-align:center;
+        `}
+      >
+        <Button
+          css={`
+            font-size:2em;
+          `}
+        >
+          Jetzt gratis testen
+        </Button>
       </Container>
     </section>
   </Layout>
