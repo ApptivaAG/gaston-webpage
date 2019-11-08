@@ -108,11 +108,11 @@ const PricingPage = ({ intl }) => {
           <PlanFeature>
             {intl.formatMessage({ id: 'pricing.plans.enterprise.features' })}
           </PlanFeature>
-          <Button>
-            <Link to="/contact" activeClassName="active">
+          <Link to="/contact" activeClassName="active">
+            <Button>
               {intl.formatMessage({ id: 'pricing.plans.enterprise.contact' })}
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </Plan>
       </PlanWrapper>
       {plan === 'pro' && (
@@ -148,11 +148,9 @@ const PricingPage = ({ intl }) => {
             </Price>
           </div>
           <div>
-            <Button>
-              <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
-                Pro-Plan jetzt bestellen
-              </Link>
-            </Button>
+            <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
+              <Button>Pro-Plan jetzt bestellen</Button>
+            </Link>
           </div>
         </>
       )}
@@ -197,13 +195,13 @@ const PricingPage = ({ intl }) => {
                 Mindestmietdauer: 1 Jahr
               </p>
               <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
-              <Button>
-                <Link to="/contact" activeClassName="active">
+              <Link to="/contact" activeClassName="active">
+                <Button>
                   {intl.formatMessage({
                     id: 'pricing.plans.enterprise.contact',
                   })}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
               <h3>iPads mieten</h3>
               <p>
                 Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
@@ -213,13 +211,13 @@ const PricingPage = ({ intl }) => {
               </p>
               <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
 
-              <Button>
-                <Link to="/contact" activeClassName="active">
+              <Link to="/contact" activeClassName="active">
+                <Button>
                   {intl.formatMessage({
                     id: 'pricing.plans.enterprise.contact',
                   })}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
@@ -259,13 +257,13 @@ const PricingPage = ({ intl }) => {
                 verändern von Farben und Bildern hinaus.
               </p>
               <Price>Einmalig ab CHF 1&apos;000.-</Price>
-              <Button>
-                <Link to="/contact" activeClassName="active">
+              <Link to="/contact" activeClassName="active">
+                <Button>
                   {intl.formatMessage({
                     id: 'pricing.plans.enterprise.contact',
                   })}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
