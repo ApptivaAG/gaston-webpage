@@ -181,20 +181,24 @@ const PricingPage = ({ intl }) => {
                 padding-left: 50px;
               `}
             >
-              <h2>Tablet Vermietung</h2>
+              <h2>{intl.formatMessage({ id: 'pricing.rent.title' })}</h2>
+              <p>{intl.formatMessage({ id: 'pricing.rent.description' })}</p>
+              <h3>
+                {intl.formatMessage({ id: 'pricing.rent.android.title' })}
+              </h3>
               <p>
-                Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie
-                können die optimalen Modelle für Gaston Menu auch bei uns
-                mieten.
-              </p>
-              <h3>Android-Tablets</h3>
-              <p>
-                Unsere Android-Tablets bieten Ihnen das beste
-                Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
+                {intl.formatMessage({ id: 'pricing.rent.android.description' })}
                 <br />
-                Mindestmietdauer: 1 Jahr
+                {intl.formatMessage({
+                  id: 'pricing.rent.android.minimalRental',
+                })}
               </p>
-              <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
+              <Price>
+                {intl.formatMessage(
+                  { id: 'pricing.rent.price' },
+                  { rentPrice: androidRentPrice }
+                )}
+              </Price>
               <Link to="/contact" activeClassName="active">
                 <Button>
                   {intl.formatMessage({
@@ -202,14 +206,20 @@ const PricingPage = ({ intl }) => {
                   })}
                 </Button>
               </Link>
-              <h3>iPads mieten</h3>
+              <h3>{intl.formatMessage({ id: 'pricing.rent.iPad.title' })}</h3>
               <p>
-                Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
-                iPads von uns.
+                {intl.formatMessage({ id: 'pricing.rent.iPad.description' })}
                 <br />
-                Mindestmietdauer: 1 Jahr
+                {intl.formatMessage({
+                  id: 'pricing.rent.iPad.minimalRental',
+                })}
               </p>
-              <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
+              <Price>
+                {intl.formatMessage(
+                  { id: 'pricing.rent.price' },
+                  { rentPrice: iPadRentPrice }
+                )}
+              </Price>
 
               <Link to="/contact" activeClassName="active">
                 <Button>
@@ -248,15 +258,11 @@ const PricingPage = ({ intl }) => {
                 padding-left: 50px;
               `}
             >
-              <h2>In Ihrem Design</h2>
-              <p>
-                Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie
-                ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett
-                massgeschneiderte Designs entwerfen lassen, falls ihnen keines
-                der Standard-Designs gefällt. Dies geht weit über das simple
-                verändern von Farben und Bildern hinaus.
-              </p>
-              <Price>Einmalig ab CHF 1&apos;000.-</Price>
+              <h2>{intl.formatMessage({ id: 'pricing.design.title' })}</h2>
+              <p>{intl.formatMessage({ id: 'pricing.design.description' })}</p>
+              <Price>
+                {intl.formatMessage({ id: 'pricing.design.price' })}
+              </Price>
               <Link to="/contact" activeClassName="active">
                 <Button>
                   {intl.formatMessage({

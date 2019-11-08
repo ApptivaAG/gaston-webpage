@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import queryString from 'querystring'
+import { injectIntl } from 'gatsby-plugin-intl'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../styles/Container'
@@ -20,7 +21,7 @@ const defaultState = params => ({
   message: '',
 })
 
-const EnrolPage = ({ location }) => {
+const EnrolPage = ({ location, intl }) => {
   const params = queryString.parse(location.search.slice(1))
   const [formValues, setFormValues] = useState(defaultState(params))
 
@@ -28,7 +29,7 @@ const EnrolPage = ({ location }) => {
     const { email, name, restaurant } = formValues
     if (email === '' || name === '' || restaurant === '') {
       /* eslint-disable-next-line no-alert */
-      alert('Ups, ein zwingendes Feld ist noch nicht ausgefüllt.')
+      alert(intl.formatMessage({ id: 'enrol.failure' }))
     } else if (formValues['bot-field'] === undefined) {
       const body = encode({
         'form-name': 'enrol',
@@ -42,18 +43,14 @@ const EnrolPage = ({ location }) => {
       })
         .then(() => {
           /* eslint-disable-next-line no-alert */
-          alert(
-            'Danke! Wir haben Ihre Nachricht erhalten und melden uns so bald wie möglich bei Ihnen.'
-          )
+          alert(intl.formatMessage({ id: 'enrol.thanks' }))
           setFormValues(defaultState(params))
         })
         .catch(error => {
           /* eslint-disable-next-line no-console */
           console.log('Error', error)
           /* eslint-disable-next-line no-alert */
-          alert(
-            `Leider hat dies nicht funktioniert. Entschuldigen Sie die Umstände. Wenn Sie uns auf info@apptiva.ch ein Email schicken melden wir uns sofort bei Ihnen.`
-          )
+          alert(intl.formatMessage({ id: EnrolPage.sorry }))
         })
     }
     e.preventDefault()
@@ -65,14 +62,11 @@ const EnrolPage = ({ location }) => {
 
   return (
     <Layout>
-      <SEO title="Enrol" />
+      <SEO title={intl.formatMessage({ id: 'enrol.title' })} />
       <Container>
         <section>
-          <h1>Pro-Plan bestellen</h1>
-          <p>
-            Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden
-            Angaben, damit wir Ihnen eine Offerte zustellen können.
-          </p>
+          <h1>{intl.formatMessage({ id: 'enrol.title' })}</h1>
+          <p>{intl.formatMessage({ id: 'enrol.description' })}</p>
           <form
             name="enrol"
             data-netlify="true"
@@ -88,14 +82,16 @@ const EnrolPage = ({ location }) => {
               <input type="text" name="tablets" onChange={handleChange} />
             </p>
             <p>
-              Abo-Plan: <strong>{params.plan}</strong>
+              {intl.formatMessage({ id: 'enrol.plan' })}:{' '}
+              <strong>{params.plan}</strong>
             </p>
             <p>
-              Anzahl Tablets: <strong>{params.tablets}</strong>
+              {intl.formatMessage({ id: 'enrol.tabletCount' })}:{' '}
+              <strong>{params.tablets}</strong>
             </p>
             <p>
               <FormLabel htmlFor="name">
-                Ihr Name (Pflichtfeld){' '}
+                {intl.formatMessage({ id: 'enrol.YourName' })}
                 <Input
                   type="text"
                   name="name"
@@ -106,7 +102,7 @@ const EnrolPage = ({ location }) => {
             </p>
             <p>
               <FormLabel htmlFor="email">
-                Ihre Email-Adresse (Pflichtfeld){' '}
+                {intl.formatMessage({ id: 'enrol.YourEMail' })}
                 <Input
                   type="email"
                   name="email"
@@ -117,7 +113,7 @@ const EnrolPage = ({ location }) => {
             </p>
             <p>
               <FormLabel htmlFor="restaurant">
-                Ihr Restaurant (Pflichtfeld){' '}
+                {intl.formatMessage({ id: 'enrol.YourRestaurant' })}
                 <Input
                   type="restaurant"
                   name="restaurant"
@@ -128,7 +124,7 @@ const EnrolPage = ({ location }) => {
             </p>
             <p>
               <FormLabel htmlFor="message">
-                Möchten Sie uns noch etwas sagen?{' '}
+                {intl.formatMessage({ id: 'enrol.YourMessage' })}
                 <Textarea
                   name="message"
                   value={formValues.message}
@@ -137,7 +133,9 @@ const EnrolPage = ({ location }) => {
               </FormLabel>
             </p>
             <p>
-              <Button type="submit">Offerte anfordern</Button>
+              <Button type="submit">
+                {intl.formatMessage({ id: 'enrol.submit' })}
+              </Button>
             </p>
           </form>
         </section>
@@ -166,4 +164,4 @@ const Textarea = styled.textarea`
   ${sharedInput};
 `
 
-export default EnrolPage
+export default injectIntl(EnrolPage)

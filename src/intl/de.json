@@ -25,7 +25,7 @@
       "trial": {
         "text": "Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um Gaston Menu unverbindlich zu testen.",
         "features": "Lizenzen inbegriffen: 1",
-        "price": "CHF 0.- / Mt."
+        "price": "Gratis"
       },
       "pro": {
         "text": "Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
@@ -40,7 +40,41 @@
         "features": "Lizenzen inbetriffen: unbegrenzt",
         "contact": "Kontaktieren Sie uns"
       }
+    },
+    "rent": {
+      "title": "Tablet Vermietung",
+      "description": "Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie können die optimalen Modelle für Gaston Menu auch bei uns mieten.",
+      "price": "{rentPrice}.- / Mt. / Tablet",
+      "android": {
+        "title": "Android-Tablets mieten",
+        "description": "Unsere Android-Tablets bieten Ihnen das beste Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.",
+        "minimalRental": "Mindestmietdauer: 1 Jahr"
+      },
+      "iPad": {
+        "title": "iPads mieten",
+        "description": "Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple iPads von uns.",
+        "minimalRental": "Mindestmietdauer: 1 Jahr"
+      }
+    },
+    "design": {
+      "title": "In Ihrem Design",
+      "description": "Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus.",
+      "price": "Einmalig ab CHF 1'000.-"
     }
+  },
+  "enrol": {
+    "title": "Pro-Plan bestellen",
+    "description": "Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen eine Offerte zustellen können.",
+    "plan": "Ihr Plan",
+    "tabletCount": "Anzahl Tablets",
+    "YourName": "Ihr Name (Pflichtfeld)",
+    "YourEMail": "Ihre Email-Adresse (Pflichtfeld)",
+    "YourRestaurant": "Ihr Restaurant (Pflichtfeld)",
+    "YourMessage": "Möchten Sie uns noch etwas sagen?",
+    "submit": "Offerte anfordern",
+    "failure": "Ups, ein zwingendes Feld ist noch nicht ausgefüllt.",
+    "thanks": "Danke! Wir haben Ihre Nachricht erhalten und melden uns so bald wie möglich bei Ihnen.",
+    "sorry": "Leider hat dies nicht funktioniert. Entschuldigen Sie die Umstände. Wenn Sie uns auf info@apptiva.ch ein Email schicken melden wir uns sofort bei Ihnen."
   },
   "blog": {
     "title": "Die fünf nervigsten Dinge beim Essen in einem Restaurant",
