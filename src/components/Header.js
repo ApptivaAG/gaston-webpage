@@ -64,6 +64,9 @@ const Header = ({ intl,dark }) => (
       <Link to="/contact" activeClassName="active">
         {intl.formatMessage({ id: 'header.contact' })}
       </Link>
+      <Link to="/pricing" activeClassName="active">
+        {intl.formatMessage({ id: 'header.pricing' })}
+      </Link>
     </nav>
   </HeaderStyle>
 )
