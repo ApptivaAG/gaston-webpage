@@ -92,7 +92,16 @@ const IndexPage = ({ intl }) => {
                 <li>Included Webpage</li>
               </ul>
               <br />
-              <Button css="">Jetzt gratis testen</Button>
+              <Button
+                css={`
+                  font-size: 1.2em;
+                  background-color: white;
+                `}
+                as={Link}
+                to="/pricing"
+              >
+                Jetzt kostenlos testen
+              </Button>
             </div>
             <div
               css={`
@@ -260,10 +269,12 @@ const IndexPage = ({ intl }) => {
         >
           <Button
             css={`
-              font-size: 2em;
+              font-size: 1.4em;
             `}
+            as={Link}
+            to="/pricing"
           >
-            Jetzt gratis testen
+            Jetzt kostenlos testen
           </Button>
         </Container>
       </section>
