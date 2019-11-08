@@ -19,6 +19,7 @@ const HeaderStyle = styled.header`
     font-size: 1.2rem;
     padding: 0 0.8rem;
   }
+  ${p => p.dark && 'mix-blend-mode: difference;'}
 
   nav {
     display: flex;
@@ -29,7 +30,7 @@ const HeaderStyle = styled.header`
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
-    color: ${p => (p.dark ? 'white' : p.theme.text)};
+    color: ${p => (p.dark ? 'rgb(0, 255, 100)' : p.theme.text)};
     text-decoration: none;
     @media (min-width: 600px) {
       padding-left: 1.2em;
