@@ -33,7 +33,7 @@
         "feature2": "Jede weitere Lizenz: CHF {licensePrice}.-",
         "price": "CHF {proPlanPrice}.- / Mt.",
         "howManyTablets": "Wieviele Tablets benötigen Sie?",
-        "totalPrice": "Total inklusive {tabletCount} Tablet-Lizenzen: CHF {totalProPrice}.- / Mt."
+        "totalPrice": "Pro-Plan inklusive {tabletCount} Tablet-Lizenzen: CHF {totalProPrice}.- / Mt."
       },
       "enterprise": {
         "text": "Benötigen Sie mehr als 50 Tablets? Wir machen Ihnen gerne ein auf Sie zugeschnittenes Angebot.",

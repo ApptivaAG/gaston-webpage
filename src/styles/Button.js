@@ -27,5 +27,9 @@ const Button = styled.button`
     width: 100%;
     text-align: center;
   }
+
+  a {
+    text-decoration: none;
+  }
 `
 export default Button

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { injectIntl } from 'gatsby-plugin-intl'
+import { injectIntl, Link } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import styled from 'styled-components'
@@ -47,7 +47,7 @@ const Price = styled.div`
   padding: 1em 0em;
 `
 
-const ContactPage = ({ intl }) => {
+const PricingPage = ({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
   const [plan, setPlan] = useState('pro')
 
@@ -108,7 +108,9 @@ const ContactPage = ({ intl }) => {
             <FormattedMessage id="pricing.plans.enterprise.features" />
           </PlanFeature>
           <Button>
-            <FormattedMessage id="pricing.plans.enterprise.contact" />
+            <Link to="/contact" activeClassName="active">
+              <FormattedMessage id="pricing.plans.enterprise.contact" />
+            </Link>
           </Button>
         </Plan>
       </PlanWrapper>
@@ -120,7 +122,7 @@ const ContactPage = ({ intl }) => {
           <Slider
             min={2}
             max={maxTablets}
-            defaultValue={10}
+            defaultValue={tabletCount}
             marks={{
               2: <div>2</div>,
               10: <div>10</div>,
@@ -142,101 +144,125 @@ const ContactPage = ({ intl }) => {
               />
             </Price>
           </div>
-
-          <section>
-            <Container>
-              <div
-                css={`
-                  display: flex;
-                  align-items: flex-start;
-                `}
-              >
-                <div
-                  css={`
-                    flex: 1;
-                    background-image: url(${tablet});
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    height: 10em;
-                    margin-top: 2em;
-                  `}
-                />
-                <div
-                  css={`
-                    flex: 3;
-                    padding-left: 50px;
-                  `}
-                >
-                  <h2>Tablet Vermietung</h2>
-                  <p>
-                    Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie
-                    können die optimalen Modelle für Gaston Menu auch bei uns
-                    mieten.
-                  </p>
-                  <h3>Android-Tablets</h3>
-                  <p>
-                    Unsere Android-Tablets bieten Ihnen das beste
-                    Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
-                    <br />
-                    Mindestmietdauer: 1 Jahr
-                  </p>
-                  <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
-                  <h3>iPads mieten</h3>
-                  <p>
-                    Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
-                    iPads von uns.
-                    <br />
-                    Mindestmietdauer: 1 Jahr
-                  </p>
-                  <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
-                </div>
-              </div>
-            </Container>
-          </section>
-
-          <section>
-            <Container>
-              <div
-                css={`
-                  display: flex;
-                  align-items: flex-start;
-                `}
-              >
-                <div
-                  css={`
-                    flex: 1;
-                    background-image: url(${brush});
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    height: 10em;
-                    margin-top: 2em;
-                  `}
-                />
-                <div
-                  css={`
-                    flex: 3;
-                    padding-left: 50px;
-                  `}
-                >
-                  <h2>In Ihrem Design</h2>
-                  <p>
-                    Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall
-                    wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston
-                    komplett massgeschneiderte Designs entwerfen lassen, falls
-                    ihnen keines der Standard-Designs gefällt. Dies geht weit
-                    über das simple verändern von Farben und Bildern hinaus.
-                  </p>
-                  <Price>Einmalig ab CHF 1&apos;000.-</Price>
-                </div>
-              </div>
-            </Container>
-          </section>
+          <div>
+            <Button>
+              <Link to="/enrol?plan=pro&amp;tablets=4">
+                Pro-Plan jetzt bestellen
+              </Link>
+            </Button>
+          </div>
         </>
       )}
+
+      <section>
+        <Container>
+          <div
+            css={`
+              margin-top: 4em;
+              display: flex;
+              align-items: flex-start;
+            `}
+          >
+            <div
+              css={`
+                flex: 1;
+                background-image: url(${tablet});
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 10em;
+                margin-top: 2em;
+              `}
+            />
+            <div
+              css={`
+                flex: 3;
+                padding-left: 50px;
+              `}
+            >
+              <h2>Tablet Vermietung</h2>
+              <p>
+                Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie
+                können die optimalen Modelle für Gaston Menu auch bei uns
+                mieten.
+              </p>
+              <h3>Android-Tablets</h3>
+              <p>
+                Unsere Android-Tablets bieten Ihnen das beste
+                Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
+                <br />
+                Mindestmietdauer: 1 Jahr
+              </p>
+              <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
+              <Button>
+                <Link to="/contact" activeClassName="active">
+                  <FormattedMessage id="pricing.plans.enterprise.contact" />
+                </Link>
+              </Button>
+              <h3>iPads mieten</h3>
+              <p>
+                Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
+                iPads von uns.
+                <br />
+                Mindestmietdauer: 1 Jahr
+              </p>
+              <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
+
+              <Button>
+                <Link to="/contact" activeClassName="active">
+                  <FormattedMessage id="pricing.plans.enterprise.contact" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div
+            css={`
+              display: flex;
+              align-items: flex-start;
+            `}
+          >
+            <div
+              css={`
+                flex: 1;
+                background-image: url(${brush});
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 10em;
+                margin-top: 2em;
+              `}
+            />
+            <div
+              css={`
+                flex: 3;
+                padding-left: 50px;
+              `}
+            >
+              <h2>In Ihrem Design</h2>
+              <p>
+                Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie
+                ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett
+                massgeschneiderte Designs entwerfen lassen, falls ihnen keines
+                der Standard-Designs gefällt. Dies geht weit über das simple
+                verändern von Farben und Bildern hinaus.
+              </p>
+              <Price>Einmalig ab CHF 1&apos;000.-</Price>
+              <Button>
+                <Link to="/contact" activeClassName="active">
+                  <FormattedMessage id="pricing.plans.enterprise.contact" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   )
 }
 
-export default injectIntl(ContactPage)
+export default injectIntl(PricingPage)
