@@ -20,7 +20,7 @@ const Grid = styled.div`
     'Header'
     'Content'
     'Footer';
-  height: 100%;
+  min-height: 100vh;
 `
 
 const Layout = ({ children, dark }) => {

@@ -15,10 +15,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%; 
   }
 
-  #___gatsby, #gatsby-focus-wrapper {
-    height: 100%;
-  }
-
   body {
     background: #fff;
     color: ${p => p.theme.text};
