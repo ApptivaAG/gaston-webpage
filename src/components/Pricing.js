@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Button from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
 import Container from '../styles/Container'
+import tablet from '../images/tablet.svg'
 
 const PlanWrapper = styled.div`
   display: flex;
@@ -122,35 +123,65 @@ const ContactPage = ({ intl }) => {
               {totalProPrice(tabletCount)}.- / Mt.
             </Price>
           </div>
-          <h2>Tablet Vermietung</h2>
-          <p>
-            Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie können
-            die optimalen Modelle für Gaston Menu auch bei uns mieten.
-          </p>
-
-          <h3>Android-Tablets</h3>
-          <p>
-            Unsere Android-Tablets bieten Ihnen das beste
-            Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
-            <br />
-            Mindestmietdauer: 1 Jahr
-          </p>
-          <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
-          <h3>iPads mieten</h3>
-          <p>
-            Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple iPads
-            von uns.
-            <br />
-            Mindestmietdauer: 1 Jahr
-          </p>
-          <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
 
           <section>
             <Container>
               <div
                 css={`
                   display: flex;
-                  align-items: stretch;
+                  align-items: flex-start;
+                `}
+              >
+                <div
+                  css={`
+                    flex: 1;
+                    background-image: url(${tablet});
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    height: 10em;
+                    margin-top: 2em;
+                  `}
+                />
+                <div
+                  css={`
+                    flex: 3;
+                    padding-left: 50px;
+                  `}
+                >
+                  <h2>Tablet Vermietung</h2>
+                  <p>
+                    Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie
+                    können die optimalen Modelle für Gaston Menu auch bei uns
+                    mieten.
+                  </p>
+                  <h3>Android-Tablets</h3>
+                  <p>
+                    Unsere Android-Tablets bieten Ihnen das beste
+                    Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.
+                    <br />
+                    Mindestmietdauer: 1 Jahr
+                  </p>
+                  <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
+                  <h3>iPads mieten</h3>
+                  <p>
+                    Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
+                    iPads von uns.
+                    <br />
+                    Mindestmietdauer: 1 Jahr
+                  </p>
+                  <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
+                </div>
+              </div>
+            </Container>
+          </section>
+
+          <section>
+            <Container>
+              <div
+                css={`
+                  display: flex;
+                  align-items: flex-start;
                 `}
               >
                 <div
@@ -160,6 +191,8 @@ const ContactPage = ({ intl }) => {
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
+                    height: 10em;
+                    margin-top: 2em;
                   `}
                 />
                 <div
