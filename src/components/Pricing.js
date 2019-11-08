@@ -146,7 +146,7 @@ const PricingPage = ({ intl }) => {
           </div>
           <div>
             <Button>
-              <Link to="/enrol?plan=pro&amp;tablets=4">
+              <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
                 Pro-Plan jetzt bestellen
               </Link>
             </Button>

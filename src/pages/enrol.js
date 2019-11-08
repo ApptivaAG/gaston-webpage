@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import queryString from 'querystring'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../styles/Container'
@@ -10,10 +11,13 @@ const encode = data =>
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&')
 
-const EnrolPage = () => {
+const EnrolPage = ({ location }) => {
+  const search = queryString.parse(location.search)
   const [formValues, setFormValues] = useState({
     email: '',
     name: '',
+    plan: search.plan,
+    tablets: search.tablets,
     message: '',
   })
 
@@ -40,6 +44,8 @@ const EnrolPage = () => {
           setFormValues({
             email: '',
             name: '',
+            plan: search.plan,
+            tablets: search.tablets,
             message: '',
           })
         })
@@ -77,6 +83,8 @@ const EnrolPage = () => {
                 Nicht ausfüllen:{' '}
                 <input type="text" name="bot-field" onChange={handleChange} />
               </label>
+              <input type="text" name="plan" onChange={handleChange} />
+              <input type="text" name="tablets" onChange={handleChange} />
             </p>
             <p>
               <label htmlFor="name">
