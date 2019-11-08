@@ -99,5 +99,9 @@
   "notfound": {
     "header": "NOT FOUND",
     "description": "You just hit a route that doesn't exist... the sadness."
+  },
+  "cookies": {
+    "disclaimer": "This website uses cookies to enhance the user experience.",
+    "accept": "I understand"
   }
 }

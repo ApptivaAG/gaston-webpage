@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { injectIntl } from 'gatsby-plugin-intl'
+import CookieConsent from 'react-cookie-consent'
+import theme from '../styles/theme'
 
 const FooterStyle = styled.footer`
   grid-area: Footer;
@@ -17,6 +19,9 @@ const FooterStyle = styled.footer`
     font-weight: bold;
   }
 `
+const startGoogleAnalytics = () => {
+  console.log('TODO: Start Google Analytics')
+}
 
 const Footer = ({ intl }) => (
   <FooterStyle>
@@ -34,6 +39,15 @@ const Footer = ({ intl }) => (
         de
       </Link>
     </p>
+    <CookieConsent
+      location="bottom"
+      style={{ backgroundColor: theme.primary, height: '6em' }}
+      buttonStyle={{ color: theme.primary, backgroundColor: 'white' }}
+      buttonText={intl.formatMessage({ id: 'cookies.accept' })}
+      onAccept={startGoogleAnalytics}
+    >
+      {intl.formatMessage({ id: 'cookies.disclaimer' })}
+    </CookieConsent>
   </FooterStyle>
 )
 

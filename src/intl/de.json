@@ -99,5 +99,9 @@
   "notfound": {
     "header": "Nicht gefunden",
     "description": "Sie haben gerade eine Route erreicht, die nicht existiert... die Traurigkeit."
+  },
+  "cookies": {
+    "disclaimer": "Diese Website verwendet Cookies, um die Benutzerfreundlichkeit zu verbessern.",
+    "accept": "Ich verstehe"
   }
 }
