@@ -3,6 +3,7 @@ import { injectIntl } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
 import Button from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
 import Container from '../styles/Container'
@@ -50,6 +51,7 @@ const ContactPage = ({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
   const [plan, setPlan] = useState('pro')
 
+  const proPlanPrice = 39
   const licensePrice = 3
   const maxTablets = 50
   const iPadRentPrice = 29
@@ -60,32 +62,39 @@ const ContactPage = ({ intl }) => {
     <>
       <h1>{intl.formatMessage({ id: 'pricing.heading' })}</h1>
       <h2>Gaston Menu</h2>
-      <p>
-        Unsere Preise richten sich nach der Anzahl Tablets, die Sie in Ihrem
-        Betrieb verwenden.
-      </p>
+      <p>{intl.formatMessage({ id: 'pricing.subtitle' })}</p>
       <PlanWrapper>
         <Plan active={plan === 'trial'} onClick={() => setPlan('trial')}>
           <h3>Trial</h3>
           <PlanText>
-            Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um
-            Gaston Menu unverbindlich zu testen.
+            <FormattedMessage id="pricing.plans.trial.text" />
           </PlanText>
-          <PlanFeature>Lizenzen inbegriffen: 1</PlanFeature>
-          <Price>CHF 0.- / Mt.</Price>
+          <PlanFeature>
+            <FormattedMessage id="pricing.plans.trial.features" />
+          </PlanFeature>
+          <Price>
+            <FormattedMessage id="pricing.plans.trial.price" />
+          </Price>
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
           <h3>Pro</h3>
           <PlanText>
-            Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem
-            Betrieb einsetzen möchten.
+            <FormattedMessage id="pricing.plans.pro.text" />
           </PlanText>
           <PlanFeature>
-            Lizenzen inbegriffen: 10
+            <FormattedMessage id="pricing.plans.pro.feature1" />
             <br />
-            Jede weitere Lizenz: CHF {licensePrice}.-
+            <FormattedMessage
+              id="pricing.plans.pro.feature2"
+              values={{ licensePrice }}
+            />
           </PlanFeature>
-          <Price>CHF 39.- / Mt.</Price>
+          <Price>
+            <FormattedMessage
+              id="pricing.plans.pro.price"
+              values={{ proPlanPrice }}
+            />
+          </Price>
         </Plan>
         <Plan
           active={plan === 'enterprise'}
@@ -93,16 +102,21 @@ const ContactPage = ({ intl }) => {
         >
           <h3>Enterprise</h3>
           <PlanText>
-            Benötigen Sie mehr als 50 Tablets? Wir machen Ihnen gerne ein auf
-            Sie zugeschnittenes Angebot.
+            <FormattedMessage id="pricing.plans.enterprise.text" />
           </PlanText>
-          <PlanFeature>Lizenzen inbetriffen: unbegrenzt</PlanFeature>
-          <Button>Kontaktieren Sie uns</Button>
+          <PlanFeature>
+            <FormattedMessage id="pricing.plans.enterprise.features" />
+          </PlanFeature>
+          <Button>
+            <FormattedMessage id="pricing.plans.enterprise.contact" />
+          </Button>
         </Plan>
       </PlanWrapper>
       {plan === 'pro' && (
         <>
-          <h3>Wieviele Tablets benötigen Sie?</h3>
+          <h3>
+            <FormattedMessage id="pricing.plans.pro.howManyTablets" />
+          </h3>
           <Slider
             min={2}
             max={maxTablets}
@@ -119,8 +133,13 @@ const ContactPage = ({ intl }) => {
           />
           <div>
             <Price>
-              Total inklusive {tabletCount} Tablet-Lizenzen: CHF{' '}
-              {totalProPrice(tabletCount)}.- / Mt.
+              <FormattedMessage
+                id="pricing.plans.pro.totalPrice"
+                values={{
+                  tabletCount,
+                  totalProPrice: totalProPrice(tabletCount),
+                }}
+              />
             </Price>
           </div>
 
@@ -209,7 +228,7 @@ const ContactPage = ({ intl }) => {
                     ihnen keines der Standard-Designs gefällt. Dies geht weit
                     über das simple verändern von Farben und Bildern hinaus.
                   </p>
-                  <Price>Ab CHF 1&apos;000.-</Price>
+                  <Price>Einmalig ab CHF 1&apos;000.-</Price>
                 </div>
               </div>
             </Container>

@@ -9,7 +9,7 @@ const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
   top: 0;
-  z-index:2;
+  z-index: 2;
 
   font-weight: bold;
   height: 3.6em;
@@ -29,7 +29,7 @@ const HeaderStyle = styled.header`
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
-    color: ${p => p.dark?"white":p.theme.text};
+    color: ${p => (p.dark ? 'white' : p.theme.text)};
     text-decoration: none;
     @media (min-width: 600px) {
       padding-left: 1.2em;
@@ -47,7 +47,7 @@ const H1 = styled.h1`
   }
 `
 
-const Header = ({ intl,dark }) => (
+const Header = ({ intl, dark }) => (
   <HeaderStyle dark={dark}>
     <H1>
       <Link to="/" activeClassName="active">
@@ -55,6 +55,9 @@ const Header = ({ intl,dark }) => (
       </Link>
     </H1>
     <nav>
+      <Link to="/pricing" activeClassName="active">
+        {intl.formatMessage({ id: 'header.pricing' })}
+      </Link>
       <Link to="/about" activeClassName="active">
         {intl.formatMessage({ id: 'header.about' })}
       </Link>
@@ -63,9 +66,6 @@ const Header = ({ intl,dark }) => (
       </Link>
       <Link to="/contact" activeClassName="active">
         {intl.formatMessage({ id: 'header.contact' })}
-      </Link>
-      <Link to="/pricing" activeClassName="active">
-        {intl.formatMessage({ id: 'header.pricing' })}
       </Link>
     </nav>
   </HeaderStyle>

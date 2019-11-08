@@ -19,7 +19,28 @@
     "switzerland": "Schweiz"
   },
   "pricing": {
-    "heading": "Preise"
+    "heading": "Preise",
+    "subtitle": "Unsere Preise richten sich nach der Anzahl Tablets, die Sie in Ihrem Betrieb verwenden.",
+    "plans": {
+      "trial": {
+        "text": "Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um Gaston Menu unverbindlich zu testen.",
+        "features": "Lizenzen inbegriffen: 1",
+        "price": "CHF 0.- / Mt."
+      },
+      "pro": {
+        "text": "Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
+        "feature1": "Lizenzen inbegriffen: 10",
+        "feature2": "Jede weitere Lizenz: CHF {licensePrice}.-",
+        "price": "CHF {proPlanPrice}.- / Mt.",
+        "howManyTablets": "Wieviele Tablets benötigen Sie?",
+        "totalPrice": "Total inklusive {tabletCount} Tablet-Lizenzen: CHF {totalProPrice}.- / Mt."
+      },
+      "enterprise": {
+        "text": "Benötigen Sie mehr als 50 Tablets? Wir machen Ihnen gerne ein auf Sie zugeschnittenes Angebot.",
+        "features": "Lizenzen inbetriffen: unbegrenzt",
+        "contact": "Kontaktieren Sie uns"
+      }
+    }
   },
   "blog": {
     "title": "Die fünf nervigsten Dinge beim Essen in einem Restaurant",
