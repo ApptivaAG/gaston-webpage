@@ -61,14 +61,29 @@ const IndexPage = ({ intl }) => (
           `}
         >
           <div>
-            <h2
+            <h1
               css={`
-                margin: 0;
+                font-size: 4em;
+                margin: 0.5em 0;
+                line-height: 0.6em;
               `}
             >
-              Gaston Menu
-            </h2>
-            <h3>{intl.formatMessage({ id: 'index.menutag' })}</h3>
+              <b
+                css={`
+                  color: ${p => p.theme.primary};
+                `}
+              >
+                Gaston
+              </b>
+              <br />
+              <small
+                css={`
+                  font-size: 40%;
+                `}
+              >
+                {intl.formatMessage({ id: 'index.menutag' })}
+              </small>
+            </h1>
             <ul>
               <li>Your design</li>
               <li>Easy menu customization</li>
