@@ -1,6 +1,7 @@
 import { injectIntl, Link } from 'gatsby-plugin-intl'
+import { useScrollYPosition } from 'react-use-scroll-position'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import React from 'react'
 
 const HeaderStyle = styled.header`
@@ -14,12 +15,22 @@ const HeaderStyle = styled.header`
   font-weight: bold;
   height: 3.6em;
 
+  color: ${p => (p.dark ? 'white' : p.theme.text)};
+
+  ${p =>
+    p.scroll &&
+    css`
+      background-color: white;
+      color: ${props => props.theme.text};
+    `}
+
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+
   font-size: 1rem;
   @media (min-width: 600px) {
     font-size: 1.2rem;
     padding: 0 0.8rem;
   }
-  ${p => p.dark && 'mix-blend-mode: difference;'}
 
   nav {
     display: flex;
@@ -30,7 +41,7 @@ const HeaderStyle = styled.header`
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
-    color: ${p => (p.dark ? 'rgb(0, 255, 100)' : p.theme.text)};
+    color: inherit;
     text-decoration: none;
     @media (min-width: 600px) {
       padding-left: 1.2em;
@@ -48,28 +59,32 @@ const H1 = styled.h1`
   }
 `
 
-const Header = ({ intl, dark }) => (
-  <HeaderStyle dark={dark}>
-    <H1>
-      <Link to="/" activeClassName="active">
-        Gaston
-      </Link>
-    </H1>
-    <nav>
-      <Link to="/pricing" activeClassName="active">
-        {intl.formatMessage({ id: 'header.pricing' })}
-      </Link>
-      <Link to="/about" activeClassName="active">
-        {intl.formatMessage({ id: 'header.about' })}
-      </Link>
-      <Link to="/blog" activeClassName="active">
-        {intl.formatMessage({ id: 'header.blog' })}
-      </Link>
-      <Link to="/contact" activeClassName="active">
-        {intl.formatMessage({ id: 'header.contact' })}
-      </Link>
-    </nav>
-  </HeaderStyle>
-)
+const Header = ({ intl, dark }) => {
+  const scrollY = useScrollYPosition()
+
+  return (
+    <HeaderStyle dark={dark} scroll={scrollY}>
+      <H1>
+        <Link to="/" activeClassName="active">
+          Gaston
+        </Link>
+      </H1>
+      <nav>
+        <Link to="/pricing" activeClassName="active">
+          {intl.formatMessage({ id: 'header.pricing' })}
+        </Link>
+        <Link to="/about" activeClassName="active">
+          {intl.formatMessage({ id: 'header.about' })}
+        </Link>
+        <Link to="/blog" activeClassName="active">
+          {intl.formatMessage({ id: 'header.blog' })}
+        </Link>
+        <Link to="/contact" activeClassName="active">
+          {intl.formatMessage({ id: 'header.contact' })}
+        </Link>
+      </nav>
+    </HeaderStyle>
+  )
+}
 
 export default injectIntl(Header)
