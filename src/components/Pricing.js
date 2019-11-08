@@ -3,7 +3,6 @@ import { injectIntl, Link } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 import Button from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
 import Container from '../styles/Container'
@@ -67,33 +66,35 @@ const PricingPage = ({ intl }) => {
         <Plan active={plan === 'trial'} onClick={() => setPlan('trial')}>
           <h3>Trial</h3>
           <PlanText>
-            <FormattedMessage id="pricing.plans.trial.text" />
+            {intl.formatMessage({ id: 'pricing.plans.trial.text' })}
           </PlanText>
           <PlanFeature>
-            <FormattedMessage id="pricing.plans.trial.features" />
+            {intl.formatMessage({ id: 'pricing.plans.trial.features' })}
           </PlanFeature>
           <Price>
-            <FormattedMessage id="pricing.plans.trial.price" />
+            {intl.formatMessage({ id: 'pricing.plans.trial.price' })}
           </Price>
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
           <h3>Pro</h3>
           <PlanText>
-            <FormattedMessage id="pricing.plans.pro.text" />
+            {intl.formatMessage({ id: 'pricing.plans.pro.text' })}
           </PlanText>
           <PlanFeature>
-            <FormattedMessage id="pricing.plans.pro.feature1" />
+            {intl.formatMessage({ id: 'pricing.plans.pro.feature1' })}
             <br />
-            <FormattedMessage
-              id="pricing.plans.pro.feature2"
-              values={{ licensePrice }}
-            />
+            {intl.formatMessage(
+              {
+                id: 'pricing.plans.pro.feature2',
+              },
+              { licensePrice }
+            )}
           </PlanFeature>
           <Price>
-            <FormattedMessage
-              id="pricing.plans.pro.price"
-              values={{ proPlanPrice }}
-            />
+            {intl.formatMessage(
+              { id: 'pricing.plans.pro.price' },
+              { proPlanPrice }
+            )}
           </Price>
         </Plan>
         <Plan
@@ -102,22 +103,22 @@ const PricingPage = ({ intl }) => {
         >
           <h3>Enterprise</h3>
           <PlanText>
-            <FormattedMessage id="pricing.plans.enterprise.text" />
+            {intl.formatMessage({ id: 'pricing.plans.enterprise.text' })}
           </PlanText>
           <PlanFeature>
-            <FormattedMessage id="pricing.plans.enterprise.features" />
+            {intl.formatMessage({ id: 'pricing.plans.enterprise.features' })}
           </PlanFeature>
-          <Button>
-            <Link to="/contact" activeClassName="active">
-              <FormattedMessage id="pricing.plans.enterprise.contact" />
-            </Link>
-          </Button>
+          <Link to="/contact" activeClassName="active">
+            <Button>
+              {intl.formatMessage({ id: 'pricing.plans.enterprise.contact' })}
+            </Button>
+          </Link>
         </Plan>
       </PlanWrapper>
       {plan === 'pro' && (
         <>
           <h3>
-            <FormattedMessage id="pricing.plans.pro.howManyTablets" />
+            {intl.formatMessage({ id: 'pricing.plans.pro.howManyTablets' })}
           </h3>
           <Slider
             min={2}
@@ -135,21 +136,21 @@ const PricingPage = ({ intl }) => {
           />
           <div>
             <Price>
-              <FormattedMessage
-                id="pricing.plans.pro.totalPrice"
-                values={{
+              {intl.formatMessage(
+                {
+                  id: 'pricing.plans.pro.totalPrice',
+                },
+                {
                   tabletCount,
                   totalProPrice: totalProPrice(tabletCount),
-                }}
-              />
+                }
+              )}
             </Price>
           </div>
           <div>
-            <Button>
-              <Link to="/enrol?plan=pro&amp;tablets=4">
-                Pro-Plan jetzt bestellen
-              </Link>
-            </Button>
+            <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
+              <Button>Pro-Plan jetzt bestellen</Button>
+            </Link>
           </div>
         </>
       )}
@@ -194,11 +195,13 @@ const PricingPage = ({ intl }) => {
                 Mindestmietdauer: 1 Jahr
               </p>
               <Price>{androidRentPrice}.- / Mt. / Tablet</Price>
-              <Button>
-                <Link to="/contact" activeClassName="active">
-                  <FormattedMessage id="pricing.plans.enterprise.contact" />
-                </Link>
-              </Button>
+              <Link to="/contact" activeClassName="active">
+                <Button>
+                  {intl.formatMessage({
+                    id: 'pricing.plans.enterprise.contact',
+                  })}
+                </Button>
+              </Link>
               <h3>iPads mieten</h3>
               <p>
                 Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple
@@ -208,11 +211,13 @@ const PricingPage = ({ intl }) => {
               </p>
               <Price>{iPadRentPrice}.- / Mt. / iPad</Price>
 
-              <Button>
-                <Link to="/contact" activeClassName="active">
-                  <FormattedMessage id="pricing.plans.enterprise.contact" />
-                </Link>
-              </Button>
+              <Link to="/contact" activeClassName="active">
+                <Button>
+                  {intl.formatMessage({
+                    id: 'pricing.plans.enterprise.contact',
+                  })}
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
@@ -252,11 +257,13 @@ const PricingPage = ({ intl }) => {
                 verändern von Farben und Bildern hinaus.
               </p>
               <Price>Einmalig ab CHF 1&apos;000.-</Price>
-              <Button>
-                <Link to="/contact" activeClassName="active">
-                  <FormattedMessage id="pricing.plans.enterprise.contact" />
-                </Link>
-              </Button>
+              <Link to="/contact" activeClassName="active">
+                <Button>
+                  {intl.formatMessage({
+                    id: 'pricing.plans.enterprise.contact',
+                  })}
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>

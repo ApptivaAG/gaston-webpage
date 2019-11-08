@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import styled, { css } from 'styled-components'
+import queryString from 'querystring'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../styles/Container'
@@ -10,21 +11,28 @@ const encode = data =>
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&')
 
-const EnrolPage = () => {
-  const [formValues, setFormValues] = useState({
-    email: '',
-    name: '',
-    message: '',
-  })
+const defaultState = params => ({
+  email: '',
+  name: '',
+  restaurant: '',
+  plan: params.plan,
+  tablets: params.tablets,
+  message: '',
+})
+
+const EnrolPage = ({ location }) => {
+  const params = queryString.parse(location.search.slice(1))
+  const [formValues, setFormValues] = useState(defaultState(params))
 
   const handleSubmit = e => {
-    if (formValues.email === '' || formValues.name === '') {
+    const { email, name, restaurant } = formValues
+    if (email === '' || name === '' || restaurant === '') {
       /* eslint-disable-next-line no-alert */
       alert('Ups, ein zwingendes Feld ist noch nicht ausgefüllt.')
     } else if (formValues['bot-field'] === undefined) {
       const body = encode({
         'form-name': 'enrol',
-        subject: 'Kontaktformular apptiva.ch',
+        subject: 'Gaston Abo-Abschluss',
         ...formValues,
       })
       fetch('/', {
@@ -37,11 +45,7 @@ const EnrolPage = () => {
           alert(
             'Danke! Wir haben Ihre Nachricht erhalten und melden uns so bald wie möglich bei Ihnen.'
           )
-          setFormValues({
-            email: '',
-            name: '',
-            message: '',
-          })
+          setFormValues(defaultState(params))
         })
         .catch(error => {
           /* eslint-disable-next-line no-console */
@@ -56,7 +60,7 @@ const EnrolPage = () => {
   }
 
   const handleChange = e => {
-    setFormValues({ [e.target.name]: e.target.value })
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   return (
@@ -65,7 +69,10 @@ const EnrolPage = () => {
       <Container>
         <section>
           <h1>Pro-Plan bestellen</h1>
-          <p>Vielen Dank für Ihr Interesse. Bitte füllen Sie </p>
+          <p>
+            Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden
+            Angaben, damit wir Ihnen eine Offerte zustellen können.
+          </p>
           <form
             name="enrol"
             data-netlify="true"
@@ -77,41 +84,60 @@ const EnrolPage = () => {
                 Nicht ausfüllen:{' '}
                 <input type="text" name="bot-field" onChange={handleChange} />
               </label>
+              <input type="text" name="plan" onChange={handleChange} />
+              <input type="text" name="tablets" onChange={handleChange} />
             </p>
             <p>
-              <label htmlFor="name">
+              Abo-Plan: <strong>{params.plan}</strong>
+            </p>
+            <p>
+              Anzahl Tablets: <strong>{params.tablets}</strong>
+            </p>
+            <p>
+              <FormLabel htmlFor="name">
                 Ihr Name (Pflichtfeld){' '}
-                <input
+                <Input
                   type="text"
                   name="name"
                   value={formValues.name}
                   onChange={handleChange}
                 />
-              </label>
+              </FormLabel>
             </p>
             <p>
-              <label htmlFor="email">
+              <FormLabel htmlFor="email">
                 Ihre Email-Adresse (Pflichtfeld){' '}
-                <input
+                <Input
                   type="email"
                   name="email"
                   value={formValues.email}
                   onChange={handleChange}
                 />
-              </label>
+              </FormLabel>
             </p>
             <p>
-              <label htmlFor="message">
-                Ihre Nachricht{' '}
-                <textarea
+              <FormLabel htmlFor="restaurant">
+                Ihr Restaurant (Pflichtfeld){' '}
+                <Input
+                  type="restaurant"
+                  name="restaurant"
+                  value={formValues.restaurant}
+                  onChange={handleChange}
+                />
+              </FormLabel>
+            </p>
+            <p>
+              <FormLabel htmlFor="message">
+                Möchten Sie uns noch etwas sagen?{' '}
+                <Textarea
                   name="message"
                   value={formValues.message}
                   onChange={handleChange}
                 />
-              </label>
+              </FormLabel>
             </p>
             <p>
-              <Button type="submit">Senden</Button>
+              <Button type="submit">Offerte anfordern</Button>
             </p>
           </form>
         </section>
@@ -119,5 +145,25 @@ const EnrolPage = () => {
     </Layout>
   )
 }
+
+const FormLabel = styled.label``
+
+const sharedInput = css`
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0.5em 0 1em 0;
+  outline: none;
+  border: 1px solid ${p => p.theme.primary};
+  border-radius: 2px;
+  box-sizing: border-box;
+`
+
+const Input = styled.input`
+  ${sharedInput};
+`
+const Textarea = styled.textarea`
+  ${sharedInput};
+`
 
 export default EnrolPage
