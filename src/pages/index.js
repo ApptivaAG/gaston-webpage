@@ -21,11 +21,6 @@ const Hero = styled.section`
   padding-top: 4rem;
   position: relative;
   color: white;
-  @media (min-width: 768px){
-    height: 102vh;
-    max-height: 60em;
-  }
-
   
   &:before {
     content: "";
@@ -103,55 +98,59 @@ const IndexPage = ({ intl }) => {
                 Jetzt kostenlos testen
               </Button>
             </div>
-            <div
-              css={`
-                position: relative;
-                overflow: hidden;
-                @media (max-width: 768px) {
-                  max-width: 28em;
-                }
-              `}
-            >
-              <img
+            <div>
+              <div
                 css={`
-                  position: absolute;
-                  top: 0;
-                  width: 300%;
-                  max-width: 300%;
-                  animation: roll 14s infinite;
-                  transform: translateX(0%);
-                  @keyframes roll {
-                    0% {
-                      transform: translateX(0%);
-                    }
-                    28% {
-                      transform: translateX(0%);
-                    }
-                    32% {
-                      transform: translateX(-33.3333%);
-                    }
-                    60% {
-                      transform: translateX(-33.3333%);
-                    }
-                    64% {
-                      transform: translateX(-66.6666%);
-                    }
-                    92% {
-                      transform: translateX(-66.6666%);
-                    }
+                  position: relative;
+                  overflow: hidden;
+
+                  @media (max-width: 768px) {
+                    max-width: 28em;
                   }
                 `}
-                src={menus}
-                alt=""
-              />
-              <img
-                css={`
-                  position: absolute;
-                  top: 0;
-                `}
-                src={ipad}
-                alt=""
-              />
+              >
+                <img
+                  css={`
+                    position: absolute;
+                    top: 0;
+                    width: 300%;
+                    max-width: 300%;
+                    z-index: 5;
+                    animation: roll 14s infinite;
+                    transform: translateX(0%);
+                    @keyframes roll {
+                      0% {
+                        transform: translateX(0%);
+                      }
+                      28% {
+                        transform: translateX(0%);
+                      }
+                      32% {
+                        transform: translateX(-33.3333%);
+                      }
+                      60% {
+                        transform: translateX(-33.3333%);
+                      }
+                      64% {
+                        transform: translateX(-66.6666%);
+                      }
+                      92% {
+                        transform: translateX(-66.6666%);
+                      }
+                    }
+                  `}
+                  src={menus}
+                  alt=""
+                />
+                <img
+                  css={`
+                    position: relative;
+                    z-index: 10;
+                  `}
+                  src={ipad}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </Container>
