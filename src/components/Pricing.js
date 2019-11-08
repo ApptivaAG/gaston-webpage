@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
-import styled from 'styled-components'
-import Button from '../styles/Button'
+import styled, { css } from 'styled-components'
+import DefaultButton from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
 import Container from '../styles/Container'
 import tablet from '../images/tablet.svg'
 
 const PlanWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  padding: 2em 0 1em;
+  display: grid;
+  gap: 1em;
+
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `
 
 const Plan = styled.div`
@@ -21,22 +22,29 @@ const Plan = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  flex-grow: 1;
-  padding: 0 1em;
+  padding: 1em;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
   border-color: ${p => p.theme.primary};
   background-color: ${p => (p.active ? p.theme.highlight : 'white')};
-  width: 30%;
+
+  h3 {
+    font-size: 2em;
+  }
 `
 
 const PlanText = styled.p`
-  height: 7em;
+  @media (min-width: 800px) {
+    height: 7em;
+  }
 `
 
 const PlanFeature = styled.p`
-  height: 3em;
+  flex: 1;
+  @media (min-width: 800px) {
+    height: 3em;
+  }
 `
 
 const Price = styled.div`
@@ -44,6 +52,16 @@ const Price = styled.div`
   font-size: 1.8em;
   font-weight: bold;
   padding: 1em 0em;
+`
+
+const Button = styled(DefaultButton)`
+  margin-bottom: 2em;
+  ${p =>
+    p.active &&
+    css`
+      background-color: ${p.theme.primary};
+      color: white;
+    `}
 `
 
 const PricingPage = ({ intl }) => {
@@ -74,6 +92,9 @@ const PricingPage = ({ intl }) => {
           <Price>
             {intl.formatMessage({ id: 'pricing.plans.trial.price' })}
           </Price>
+          <Button active={plan === 'trial'}>
+            {plan === 'trial' ? 'Selected' : 'Select'}
+          </Button>
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
           <h3>Pro</h3>
@@ -96,6 +117,9 @@ const PricingPage = ({ intl }) => {
               { proPlanPrice }
             )}
           </Price>
+          <Button active={plan === 'pro'}>
+            {plan === 'pro' ? 'Selected' : 'Select'}
+          </Button>
         </Plan>
         <Plan
           active={plan === 'enterprise'}
@@ -116,8 +140,16 @@ const PricingPage = ({ intl }) => {
         </Plan>
       </PlanWrapper>
       {plan === 'pro' && (
-        <>
-          <h3>
+        <div
+          css={`
+            margin-top: 8em;
+          `}
+        >
+          <h3
+            css={`
+              font-size: 1.4em;
+            `}
+          >
             {intl.formatMessage({ id: 'pricing.plans.pro.howManyTablets' })}
           </h3>
           <Slider
@@ -134,25 +166,38 @@ const PricingPage = ({ intl }) => {
             }}
             onChange={setTabletCount}
           />
-          <div>
-            <Price>
+          <div
+            css={`
+              margin-top: 3em;
+            `}
+          >
+            <h3 css="margin: 4em 0 0;">
               {intl.formatMessage(
                 {
                   id: 'pricing.plans.pro.totalPrice',
                 },
-                {
-                  tabletCount,
-                  totalProPrice: totalProPrice(tabletCount),
-                }
+                { tabletCount }
+              )}
+            </h3>
+            <Price css="padding: 0 0 3em;">
+              {intl.formatMessage(
+                { id: 'pricing.plans.pro.price' },
+                { proPlanPrice: totalProPrice(tabletCount) },
               )}
             </Price>
           </div>
           <div>
             <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
-              <Button>Pro-Plan jetzt bestellen</Button>
+              <Button
+                css={`
+                  font-size: 1.6em;
+                `}
+              >
+                Pro-Plan jetzt bestellen
+              </Button>
             </Link>
           </div>
-        </>
+        </div>
       )}
 
       <section>

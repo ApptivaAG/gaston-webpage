@@ -25,7 +25,7 @@
       "trial": {
         "text": "Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um Gaston Menu unverbindlich zu testen.",
         "features": "Lizenzen inbegriffen: 1",
-        "price": "Gratis"
+        "price": "Kostenlos"
       },
       "pro": {
         "text": "Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
@@ -33,7 +33,7 @@
         "feature2": "Jede weitere Lizenz: CHF {licensePrice}.-",
         "price": "CHF {proPlanPrice}.- / Mt.",
         "howManyTablets": "Wieviele Tablets benötigen Sie?",
-        "totalPrice": "Pro-Plan inklusive {tabletCount} Tablet-Lizenzen: CHF {totalProPrice}.- / Mt."
+        "totalPrice": "Pro-Plan inklusive {tabletCount} Tablet-Lizenzen"
       },
       "enterprise": {
         "text": "Benötigen Sie mehr als 50 Tablets? Wir machen Ihnen gerne ein auf Sie zugeschnittenes Angebot.",
