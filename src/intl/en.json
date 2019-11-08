@@ -19,7 +19,62 @@
     "switzerland": "Switzerland"
   },
   "pricing": {
-    "heading": "Pricing"
+    "heading": "Pricing",
+    "subtitle": "Our prices depend on the number of tablets you use in your company.",
+    "plans": {
+      "trial": {
+        "text": "Our trial plan includes the license for one tablet. Ideal to test Gaston Menu without obligation.",
+        "features": "Licenses included: 1",
+        "price": "free"
+      },
+      "pro": {
+        "text": "Subscribe to the Pro Plan if you want to use up to 50 tablets in your company.",
+        "feature1": "Licenses included: 10",
+        "feature2": "Each additional license: CHF {licensePrice}",
+        "price": "CHF {proPlanPrice} per Month.",
+        "howManyTablets": "How many tablets do you need?",
+        "totalPrice": "Pro Plan including {tabletCount} tablet licenses: CHF {totalProPrice} per month"
+      },
+      "enterprise": {
+        "text": "Do you need more than 50 tablets? We will be happy to make you an offer tailored to your needs.",
+        "features": "Licenses included: unlimited",
+        "contact": "Contact us"
+      }
+    },
+    "rent": {
+      "title": "Tablet rental",
+      "description": "We do not leave you alone with the choice of your tablets. You can also rent the optimal models for Gaston Menu from us.",
+      "price": "{rentPrice} per month and tablet",
+      "android": {
+        "title": "Android tablets for rent",
+        "description": "Our Android tablets offer you the best price-performance ratio. You rent the tablets from us.",
+        "minimalRental": "Minimum rental period: 1 year"
+      },
+      "iPad": {
+        "title": "Rent iPads",
+        "description": "Best quality is close to your heart? Then rent Apple iPads from us.",
+        "minimalRental": "Minimum rental period: 1 year"
+      }
+    },
+    "design": {
+      "title": "Your design",
+      "description": "Your menu should not look like a foreign object in your restaurant. That's why Gaston can create completely customized designs if you don't like any of the standard designs. This goes far beyond simply changing colours and images.",
+      "price": "One-off from CHF 1'000."
+    }
+  },
+  "enrol": {
+    "title": "Order Pro Plan",
+    "description": "Thank you very much for your interest. Please complete the following details so that we can send you an offer.",
+    "plan": "Your plan",
+    "tabletCount": "Number of Tablets",
+    "YourName": "Your name (required)",
+    "YourEMail": "Your email address (required)",
+    "YourRestaurant": "Your restaurant (required)",
+    "YourMessage": "Anything else you want to tell us?",
+    "submit": "Request an offer",
+    "failure": "Oops, a mandatory field is not filled out yet.",
+    "thanks": "Thank you. We have received your message and will get back to you as soon as possible.",
+    "sorry": "Unfortunately this did not work. Sorry for the inconvenience. If you send us an email at info@apptiva.ch we will contact you immediately."
   },
   "blog": {
     "title": "The five most annoying things about eating in a restaurant",
