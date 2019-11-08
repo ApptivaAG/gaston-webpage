@@ -23,7 +23,7 @@ const EnrolPage = () => {
       alert('Ups, ein zwingendes Feld ist noch nicht ausgefüllt.')
     } else if (formValues['bot-field'] === undefined) {
       const body = encode({
-        'form-name': 'contact',
+        'form-name': 'enrol',
         subject: 'Kontaktformular apptiva.ch',
         ...formValues,
       })
@@ -67,7 +67,7 @@ const EnrolPage = () => {
           <h1>Pro-Plan bestellen</h1>
           <p>Vielen Dank für Ihr Interesse. Bitte füllen Sie </p>
           <form
-            name="contact"
+            name="enrol"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
