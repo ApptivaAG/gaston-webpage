@@ -9,7 +9,7 @@ const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
   top: 0;
-  z-index: 2;
+  z-index: 99;
 
   font-weight: bold;
   height: 3.6em;

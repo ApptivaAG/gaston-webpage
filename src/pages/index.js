@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { FormattedHTMLMessage, injectIntl, Link } from 'gatsby-plugin-intl'
 
 import Layout from '../components/Layout'
@@ -10,34 +10,64 @@ import ordering from '../images/ordering.svg'
 import service from '../images/service.svg'
 import payment from '../images/payment.svg'
 import spain from '../images/spain.jpg'
+import sushi from '../images/sushi.jpg'
+import white from '../images/white.jpg'
 import menus from '../images/menus.png'
 import ipad from '../images/ipad.png'
 import brush from '../images/paint-board-and-brush.svg'
 import menu from '../images/menu.svg'
 import tablet from '../images/tablet.svg'
 
-const Hero = styled.section`
-  margin-top: -5rem;
-  padding-top: 4rem;
-  position: relative;
-  color: white;
-  
-  &:before {
-    content: "";
+const Hero = ({ children }) => {
+  const Wrapper = styled.section`
+    margin-top: -5rem;
+    padding-top: 4rem;
+    position: relative;
+    color: white;
+    background: #444;
+    z-index: -2;
+  `
+  const fadeIn = keyframes`
+    0% {
+      opacity:1;
+    }
+    28% {
+      opacity:1;
+    }
+    34% {
+      opacity:0;
+    }
+    94% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  `
+  const BgImg = styled.div`
+    display: block;
     position: absolute;
-    left: 0;
-    right: 0;
     z-index: -1;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(${p => p.img}) center/cover no-repeat;
+    filter: brightness(40%);
 
-    display: block;
-    background: url('${spain}') center/cover no-repeat;
+    animation: ${fadeIn} ease 15s infinite;
+    animation-delay: ${p => p.delay}s;
+  `
+  return (
+    <Wrapper>
+      <BgImg img={white} delay="10" />
+      <BgImg img={sushi} delay="5" />
+      <BgImg img={spain} delay="0" />
 
-    filter: brightness(50%);
-  }
-
-`
+      {children}
+    </Wrapper>
+  )
+}
 
 const IndexPage = ({ intl }) => {
   return (
@@ -116,7 +146,7 @@ const IndexPage = ({ intl }) => {
                     width: 300%;
                     max-width: 300%;
                     z-index: 5;
-                    animation: roll 14s infinite;
+                    animation: roll 15s infinite;
                     transform: translateX(0%);
                     @keyframes roll {
                       0% {
