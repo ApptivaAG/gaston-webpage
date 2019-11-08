@@ -32,7 +32,7 @@ const EnrolPage = ({ location }) => {
     } else if (formValues['bot-field'] === undefined) {
       const body = encode({
         'form-name': 'enrol',
-        subject: 'Kontaktformular apptiva.ch',
+        subject: 'Gaston Abo-Abschluss',
         ...formValues,
       })
       fetch('/', {
@@ -60,7 +60,7 @@ const EnrolPage = ({ location }) => {
   }
 
   const handleChange = e => {
-    setFormValues({ [e.target.name]: e.target.value })
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   return (
