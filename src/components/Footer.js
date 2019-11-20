@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { injectIntl } from 'gatsby-plugin-intl'
 import CookieConsent from 'react-cookie-consent'
+import Cookies from 'universal-cookie'
 import theme from '../styles/theme'
 
 const FooterStyle = styled.footer`
@@ -20,7 +21,8 @@ const FooterStyle = styled.footer`
   }
 `
 const startGoogleAnalytics = () => {
-  console.log('TODO: Start Google Analytics')
+  const cookies = new Cookies()
+  cookies.set('gatsby-gdpr-google-analytics', true)
 }
 
 const Footer = ({ intl }) => (

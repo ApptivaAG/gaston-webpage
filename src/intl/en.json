@@ -124,7 +124,7 @@
     "description": "You just hit a route that doesn't exist... the sadness."
   },
   "cookies": {
-    "disclaimer": "This website uses cookies to enhance the user experience.",
-    "accept": "I understand"
+    "disclaimer": "We use cookies to further improve user-friendliness. For this we use anonymous tracking via Google Analytics.",
+    "accept": "I Agreed"
   }
 }

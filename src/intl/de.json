@@ -124,7 +124,7 @@
     "description": "Sie haben gerade eine Route erreicht, die nicht existiert... die Traurigkeit."
   },
   "cookies": {
-    "disclaimer": "Diese Website verwendet Cookies, um die Benutzerfreundlichkeit zu verbessern.",
-    "accept": "Ich verstehe"
+    "disclaimer": "Wir verwenden Cookies um die Benutzerfreundlichkeit weiter zu verbessern. Dazu setzen wir anonymisiertes Tracking via Google Analytics ein.",
+    "accept": "Einverstanden"
   }
 }

@@ -42,11 +42,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        anonymize: true,
-        cookieExpires: 0,
-        trackingId: 'UA-66015649-9',
+        googleAnalytics: {
+          trackingId: 'UA-66015649-9',
+          anonymize: true,
+        },
+        environments: ['production', 'development'],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
