@@ -43,7 +43,8 @@
       "trial": {
         "text": "Unser Trial-Plan beinhaltet die Lizenz für ein Tablet. Ideal um Gaston Menu unverbindlich zu testen.",
         "features": "Lizenzen inbegriffen: 1",
-        "price": "Kostenlos"
+        "price": "Kostenlos",
+        "enrol": "Für Trial anmelden"
       },
       "pro": {
         "text": "Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
@@ -86,8 +87,14 @@
     }
   },
   "enrol": {
-    "title": "Pro-Plan bestellen",
-    "description": "Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen eine Offerte zustellen können.",
+    "title": {
+      "pro": "Pro-Plan bestellen",
+      "trial": "Für Trial-Plan registrieren"
+    },
+    "description": {
+      "pro": "Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen eine Offerte zustellen können.",
+      "trial": "Vielen Dank für Ihr Interesse am Trial-Plan. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen einen Trial-Plan-Zugang zusenden können."
+    },
     "plan": "Ihr Plan",
     "tabletCount": "Anzahl Tablets",
     "YourName": "Ihr Name (Pflichtfeld)",

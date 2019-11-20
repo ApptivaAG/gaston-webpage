@@ -43,7 +43,8 @@
       "trial": {
         "text": "Our trial plan includes the license for one tablet. Ideal to test Gaston Menu without obligation.",
         "features": "Licenses included: 1",
-        "price": "free"
+        "price": "free",
+        "enrol": "Register for Trial"
       },
       "pro": {
         "text": "Subscribe to the Pro Plan if you want to use up to 50 tablets in your company.",
@@ -86,8 +87,14 @@
     }
   },
   "enrol": {
-    "title": "Order Pro Plan",
-    "description": "Thank you very much for your interest. Please complete the following details so that we can send you an offer.",
+    "title": {
+      "pro": "Order Pro Plan",
+      "trial": "Enrol for Trial Plan"
+    },
+    "description": {
+      "pro": "Thank you very much for your interest. Please complete the following details so that we can send you an offer.",
+      "trial": "Thank you for your interest in the Trial Plan. Please complete the following details so that we can send you a trial plan access."
+    },
     "plan": "Your plan",
     "tabletCount": "Number of Tablets",
     "YourName": "Your name (required)",

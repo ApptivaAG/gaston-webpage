@@ -65,8 +65,10 @@ const EnrolPage = ({ location, intl }) => {
       <SEO title={intl.formatMessage({ id: 'enrol.title' })} />
       <Container>
         <section>
-          <h1>{intl.formatMessage({ id: 'enrol.title' })}</h1>
-          <p>{intl.formatMessage({ id: 'enrol.description' })}</p>
+          <h1>{intl.formatMessage({ id: `enrol.title.${params.plan}` })}</h1>
+          <p>
+            {intl.formatMessage({ id: `enrol.description.${params.plan}` })}
+          </p>
           <form
             name="enrol"
             data-netlify="true"
@@ -85,10 +87,12 @@ const EnrolPage = ({ location, intl }) => {
               {intl.formatMessage({ id: 'enrol.plan' })}:{' '}
               <strong>{params.plan}</strong>
             </p>
-            <p>
-              {intl.formatMessage({ id: 'enrol.tabletCount' })}:{' '}
-              <strong>{params.tablets}</strong>
-            </p>
+            {params.plan === 'pro' && (
+              <p>
+                {intl.formatMessage({ id: 'enrol.tabletCount' })}:{' '}
+                <strong>{params.tablets}</strong>
+              </p>
+            )}
             <p>
               <FormLabel htmlFor="name">
                 {intl.formatMessage({ id: 'enrol.YourName' })}

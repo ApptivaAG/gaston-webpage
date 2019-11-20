@@ -123,9 +123,14 @@ const PricingPage = ({ intl }) => {
           <Price>
             {intl.formatMessage({ id: 'pricing.plans.trial.price' })}
           </Price>
-          <Button active={plan === 'trial'}>
-            {plan === 'trial' ? selectedText : selectText}
-          </Button>
+          {plan === 'trial' && (
+            <Link to="/enrol?plan=trial">
+              <Button active>
+                {intl.formatMessage({ id: 'pricing.plans.trial.enrol' })}
+              </Button>
+            </Link>
+          )}
+          {plan !== 'trial' && <Button active={false}>{selectText}</Button>}
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => selectPlan('pro')}>
           <h3>Pro</h3>
@@ -149,9 +154,16 @@ const PricingPage = ({ intl }) => {
             )}
             unit={intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
           />
-          <Button active={plan === 'pro'}>
-            {plan === 'pro' ? selectedText : selectText}
-          </Button>
+          {plan === 'pro' && (
+            <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
+              <Button active>
+                {intl.formatMessage({ id: 'pricing.orderNow' })}
+              </Button>
+            </Link>
+          )}
+          {plan !== 'pro' && (
+            <Button active={plan === 'pro'}>{selectText}</Button>
+          )}
         </Plan>
         <Plan
           active={plan === 'enterprise'}
