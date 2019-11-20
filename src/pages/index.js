@@ -120,7 +120,7 @@ const IndexPage = ({ intl }) => {
                   background-color: white;
                 `}
                 as={Link}
-                to="/pricing"
+                to="/enrol?plan=trial"
               >
                 {intl.formatMessage({ id: 'index.calltoaction' })}
               </Button>
@@ -284,7 +284,7 @@ const IndexPage = ({ intl }) => {
               font-size: 1.4em;
             `}
             as={Link}
-            to="/pricing"
+            to="/enrol?plan=trial"
           >
             {intl.formatMessage({ id: 'index.calltoaction' })}
           </Button>
