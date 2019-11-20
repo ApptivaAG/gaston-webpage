@@ -112,7 +112,7 @@
   "header": {
     "blog": "Blog",
     "contact": "Kontakt",
-    "about": "Über uns",
+    "about": "Über\u00a0uns",
     "pricing": "Preise"
   },
   "footer": {
