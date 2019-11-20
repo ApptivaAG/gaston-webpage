@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
-import 'rc-slider/assets/index.css'
+import '../styles/rc-slider.css'
 import styled, { css } from 'styled-components'
 import DefaultButton from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
