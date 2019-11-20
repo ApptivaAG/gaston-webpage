@@ -49,7 +49,8 @@
         "text": "Abonnieren Sie den Pro-Plan wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
         "feature1": "Lizenzen inbegriffen: 10",
         "feature2": "Jede weitere Lizenz: CHF {licensePrice}.-",
-        "price": "CHF {proPlanPrice}.- / Mt.",
+        "price": "CHF {proPlanPrice}.-",
+        "priceUnit": " / Mt.",
         "howManyTablets": "Wieviele Tablets benötigen Sie?",
         "totalPrice": "Pro-Plan inklusive {tabletCount} Tablet-Lizenzen"
       },
@@ -59,10 +60,12 @@
         "contact": "Kontaktieren Sie uns"
       }
     },
+    "orderNow": "Pro-Plan jetzt bestellen",
     "rent": {
       "title": "Tablet Vermietung",
       "description": "Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie können die optimalen Modelle für Gaston Menu auch bei uns mieten.",
-      "price": "{rentPrice}.- / Mt. / Tablet",
+      "price": "CHF {rentPrice}.-",
+      "priceUnit": " / Mt. / Tablet",
       "android": {
         "title": "Android-Tablets mieten",
         "description": "Unsere Android-Tablets bieten Ihnen das beste Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.",

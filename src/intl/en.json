@@ -49,9 +49,10 @@
         "text": "Subscribe to the Pro Plan if you want to use up to 50 tablets in your company.",
         "feature1": "Licenses included: 10",
         "feature2": "Each additional license: CHF {licensePrice}",
-        "price": "CHF {proPlanPrice} per Month.",
+        "price": "CHF {proPlanPrice}",
+        "priceUnit": " per Month",
         "howManyTablets": "How many tablets do you need?",
-        "totalPrice": "Pro Plan including {tabletCount} tablet licenses: CHF {totalProPrice} per month"
+        "totalPrice": "Pro Plan including {tabletCount} tablet licenses."
       },
       "enterprise": {
         "text": "Do you need more than 50 tablets? We will be happy to make you an offer tailored to your needs.",
@@ -59,10 +60,12 @@
         "contact": "Contact us"
       }
     },
+    "orderNow": "Order pro plan now",
     "rent": {
       "title": "Tablet rental",
       "description": "We do not leave you alone with the choice of your tablets. You can also rent the optimal models for Gaston Menu from us.",
-      "price": "{rentPrice} per month and tablet",
+      "price": "CHF {rentPrice}",
+      "priceUnit": " per month and tablet",
       "android": {
         "title": "Android tablets for rent",
         "description": "Our Android tablets offer you the best price-performance ratio. You rent the tablets from us.",

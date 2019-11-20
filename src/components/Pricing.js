@@ -18,6 +18,7 @@ const PlanWrapper = styled.div`
 `
 
 const Plan = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,11 +48,20 @@ const PlanFeature = styled.p`
   }
 `
 
+const PriceTag = ({ price, unit }) => (
+  <Price>
+    {price}
+    <PriceUnit>{unit}</PriceUnit>
+  </Price>
+)
 const Price = styled.div`
   color: ${p => p.theme.primary};
   font-size: 1.8em;
   font-weight: bold;
   padding: 1em 0em;
+`
+const PriceUnit = styled.span`
+  font-size: 50%;
 `
 
 const Button = styled(DefaultButton)`
@@ -111,12 +121,13 @@ const PricingPage = ({ intl }) => {
               { licensePrice }
             )}
           </PlanFeature>
-          <Price>
-            {intl.formatMessage(
+          <PriceTag
+            price={intl.formatMessage(
               { id: 'pricing.plans.pro.price' },
               { proPlanPrice }
             )}
-          </Price>
+            unit={intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
+          />
           <Button active={plan === 'pro'}>
             {plan === 'pro' ? 'Selected' : 'Select'}
           </Button>
@@ -179,12 +190,14 @@ const PricingPage = ({ intl }) => {
                 { tabletCount }
               )}
             </h3>
-            <Price css="padding: 0 0 3em;">
-              {intl.formatMessage(
+            <PriceTag
+              css="padding: 0 0 3em;"
+              price={intl.formatMessage(
                 { id: 'pricing.plans.pro.price' },
-                { proPlanPrice: totalProPrice(tabletCount) },
+                { proPlanPrice: totalProPrice(tabletCount) }
               )}
-            </Price>
+              unit={intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
+            />
           </div>
           <div>
             <Link to={`/enrol?plan=pro&tablets=${tabletCount}`}>
@@ -193,7 +206,7 @@ const PricingPage = ({ intl }) => {
                   font-size: 1.6em;
                 `}
               >
-                Pro-Plan jetzt bestellen
+                {intl.formatMessage({ id: 'pricing.orderNow' })}
               </Button>
             </Link>
           </div>
@@ -238,12 +251,13 @@ const PricingPage = ({ intl }) => {
                   id: 'pricing.rent.android.minimalRental',
                 })}
               </p>
-              <Price>
-                {intl.formatMessage(
+              <PriceTag
+                price={intl.formatMessage(
                   { id: 'pricing.rent.price' },
                   { rentPrice: androidRentPrice }
                 )}
-              </Price>
+                unit={intl.formatMessage({ id: 'pricing.rent.priceUnit' })}
+              />
               <Link to="/contact" activeClassName="active">
                 <Button>
                   {intl.formatMessage({
@@ -259,12 +273,13 @@ const PricingPage = ({ intl }) => {
                   id: 'pricing.rent.iPad.minimalRental',
                 })}
               </p>
-              <Price>
-                {intl.formatMessage(
+              <PriceTag
+                price={intl.formatMessage(
                   { id: 'pricing.rent.price' },
                   { rentPrice: iPadRentPrice }
                 )}
-              </Price>
+                unit={intl.formatMessage({ id: 'pricing.rent.priceUnit' })}
+              />
 
               <Link to="/contact" activeClassName="active">
                 <Button>
