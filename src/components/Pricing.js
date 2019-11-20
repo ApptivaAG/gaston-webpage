@@ -84,6 +84,8 @@ const PricingPage = ({ intl }) => {
   const iPadRentPrice = 29
   const androidRentPrice = 19
   const totalProPrice = tc => Math.max(0, tc - 10) * licensePrice + 39
+  const selectedText = intl.formatMessage({ id: 'pricing.selected' })
+  const selectText = intl.formatMessage({ id: 'pricing.select' })
 
   return (
     <>
@@ -103,7 +105,7 @@ const PricingPage = ({ intl }) => {
             {intl.formatMessage({ id: 'pricing.plans.trial.price' })}
           </Price>
           <Button active={plan === 'trial'}>
-            {plan === 'trial' ? 'Selected' : 'Select'}
+            {plan === 'trial' ? selectedText : selectText}
           </Button>
         </Plan>
         <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
@@ -129,7 +131,7 @@ const PricingPage = ({ intl }) => {
             unit={intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
           />
           <Button active={plan === 'pro'}>
-            {plan === 'pro' ? 'Selected' : 'Select'}
+            {plan === 'pro' ? selectedText : selectText}
           </Button>
         </Plan>
         <Plan

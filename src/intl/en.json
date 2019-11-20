@@ -60,6 +60,8 @@
         "contact": "Contact us"
       }
     },
+    "select": "Select",
+    "selected": "Selected",
     "orderNow": "Order pro plan now",
     "rent": {
       "title": "Tablet rental",
