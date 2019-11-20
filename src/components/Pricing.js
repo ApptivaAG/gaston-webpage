@@ -97,6 +97,15 @@ const PricingPage = ({ intl }) => {
     })
   }
 
+  const tabletCountChanged = count => {
+    setTabletCount(count)
+    ReactGA.event({
+      category: 'Pricing',
+      action: 'slide tablet count',
+      value: count,
+    })
+  }
+
   return (
     <>
       <h1>{intl.formatMessage({ id: 'pricing.heading' })}</h1>
@@ -187,7 +196,7 @@ const PricingPage = ({ intl }) => {
               40: <div>40</div>,
               50: <div>50</div>,
             }}
-            onChange={setTabletCount}
+            onChange={tabletCountChanged}
           />
           <div
             css={`
