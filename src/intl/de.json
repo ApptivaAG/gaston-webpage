@@ -8,8 +8,26 @@
     "ordering": "Bestellung",
     "service": "Dienstleistung",
     "payment": "Bezahlung",
-    "calltoaction": "Kontakt aufnehmen",
-    "menutag": "Digitale Speisekarte"
+    "calltoaction": "Jetzt kostenlos testen",
+    "menutag": "Digitale Speisekarte",
+    "USP": {
+      "1": "Ihr Design",
+      "2": "Einfache Menüverwaltung",
+      "3": "Mit oder ohne Tablets",
+      "4": "Inklusive Webpage"
+    },
+    "design": {
+      "title": "In Ihrem Design",
+      "content": "Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus."
+    },
+    "administration": {
+      "title": "Einfache Menüverwaltung",
+      "content": "Das Verwalten der Speisen & Getränke auf ihrer Menükarte war noch nie so bequem! Über unsere intuitive Web-Oberfläche geschieht jede Änderung im Handumdrehen."
+    },
+    "rental": {
+      "title": "Inklusive Tablets",
+      "content": "Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns mit Speisekarten-Tablets aus und bieten ihnen deshalb die Möglichkeit diese einfach & ohne Risiko von uns zu Mieten. Kaputte Tablets werden kostenlos ausgetauscht. Bei einer Kündigung geben sie die Tablets einfach zurück."
+    }
   },
   "contact": {
     "contact": "Kontakt",

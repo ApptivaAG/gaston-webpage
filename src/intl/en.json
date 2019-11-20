@@ -9,7 +9,25 @@
     "service": "Service",
     "payment": "Payment",
     "calltoaction": "Explore with us",
-    "menutag": "Digital Menu Card"
+    "menutag": "Digital Menu Card",
+    "USP": {
+      "1": "Your design",
+      "2": "Easy menu customization",
+      "3": "With or without tablet devices",
+      "4": "Included Webpage"
+    },
+    "design": {
+      "title": "Your design",
+      "content": "Your menu should not look like a foreign object in your restaurant. That's why Gaston can create completely customized designs if you don't like any of the standard designs. This goes far beyond simply changing colours and images."
+    },
+    "administration": {
+      "title": "Easy menu customization",
+      "content": "Managing the food & drinks on your menu has never been so convenient! With our intuitive web interface, every change can be made in no time at all."
+    },
+    "rental": {
+      "title": "Tablets included",
+      "content": "The procurement of suitable tablets can be quite expensive at the beginning. Moreover, it is difficult to guess how long the tablets will last before they break. We know our way around menu tablets and therefore offer you the possibility to rent them simply & without any risk from us. Broken tablets are exchanged free of charge. In case of a cancellation you simply return the tablets."
+    }
   },
   "contact": {
     "contact": "Contact",

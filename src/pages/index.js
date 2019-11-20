@@ -1,14 +1,11 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { FormattedHTMLMessage, injectIntl, Link } from 'gatsby-plugin-intl'
+import { injectIntl, Link } from 'gatsby-plugin-intl'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../styles/Container'
 import Button from '../styles/Button'
-import ordering from '../images/ordering.svg'
-import service from '../images/service.svg'
-import payment from '../images/payment.svg'
 import spain from '../images/spain.jpg'
 import sushi from '../images/sushi.jpg'
 import white from '../images/white.jpg'
@@ -111,10 +108,10 @@ const IndexPage = ({ intl }) => {
                 </small>
               </h1>
               <ul>
-                <li>Your design</li>
-                <li>Easy menu customization</li>
-                <li>With or without tablet devices</li>
-                <li>Included Webpage</li>
+                <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
+                <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
+                <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
+                <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
               </ul>
               <br />
               <Button
@@ -125,7 +122,7 @@ const IndexPage = ({ intl }) => {
                 as={Link}
                 to="/pricing"
               >
-                Jetzt kostenlos testen
+                {intl.formatMessage({ id: 'index.calltoaction' })}
               </Button>
             </div>
             <div>
@@ -208,14 +205,8 @@ const IndexPage = ({ intl }) => {
                 padding-left: 50px;
               `}
             >
-              <h2>In Ihrem Design</h2>
-              <p>
-                Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie
-                ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett
-                massgeschneiderte Designs entwerfen lassen, falls ihnen keines
-                der Standard-Designs gefällt. Dies geht weit über das simple
-                verändern von Farben und Bildern hinaus.
-              </p>
+              <h2>{intl.formatMessage({ id: 'index.design.title' })}</h2>
+              <p>{intl.formatMessage({ id: 'index.design.content' })}</p>
             </div>
           </div>
         </Container>
@@ -243,11 +234,11 @@ const IndexPage = ({ intl }) => {
                 padding-left: 50px;
               `}
             >
-              <h2>Einfache Menüverwaltung</h2>
+              <h2>
+                {intl.formatMessage({ id: 'index.administration.title' })}
+              </h2>
               <p>
-                Das Verwalten der Speisen & Getränke auf ihrer Menükarte war
-                noch nie so bequem! Über unsere intuitive Web-Oberfläche
-                geschieht jede Änderung im Handumdrehen.
+                {intl.formatMessage({ id: 'index.administration.content' })}
               </p>
             </div>
           </div>
@@ -276,16 +267,8 @@ const IndexPage = ({ intl }) => {
                 padding-left: 50px;
               `}
             >
-              <h2>Inklusive Tablets</h2>
-              <p>
-                Die Beschaffung von geeigneten Tablets kann zu Beginn ganz schön
-                ins Geld gehen. Noch dazu ist es schwierig zu erahnen wie lange
-                die Tablets halten werden bevor sie kaputt gehen. Wir kennen uns
-                mit Speisekarten-Tablets aus und bieten ihnen deshalb die
-                Möglichkeit diese einfach & ohne Risiko von uns zu Mieten.
-                Kaputte Tablets werden kostenlos ausgetauscht. Bei einer
-                Kündigung geben sie die Tablets einfach zurück.
-              </p>
+              <h2>{intl.formatMessage({ id: 'index.rental.title' })}</h2>
+              <p>{intl.formatMessage({ id: 'index.rental.content' })}</p>
             </div>
           </div>
         </Container>
@@ -303,7 +286,7 @@ const IndexPage = ({ intl }) => {
             as={Link}
             to="/pricing"
           >
-            Jetzt kostenlos testen
+            {intl.formatMessage({ id: 'index.calltoaction' })}
           </Button>
         </Container>
       </section>
