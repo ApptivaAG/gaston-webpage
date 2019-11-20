@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { injectIntl } from 'gatsby-plugin-intl'
 import CookieConsent from 'react-cookie-consent'
 import Cookies from 'universal-cookie'
+import reactGA from 'react-ga'
 import theme from '../styles/theme'
 
 const FooterStyle = styled.footer`
@@ -22,6 +23,9 @@ const FooterStyle = styled.footer`
 `
 const startGoogleAnalytics = () => {
   const cookies = new Cookies()
+  reactGA.initialize('UA-66015649-9', {
+    anonymize: true,
+  })
   cookies.set('gatsby-gdpr-google-analytics', true)
 }
 
