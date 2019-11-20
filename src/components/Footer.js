@@ -41,7 +41,7 @@ const Footer = ({ intl }) => (
     </p>
     <CookieConsent
       location="bottom"
-      style={{ backgroundColor: theme.primary, height: '6em' }}
+      style={{ backgroundColor: theme.primary }}
       buttonStyle={{ color: theme.primary, backgroundColor: 'white' }}
       buttonText={intl.formatMessage({ id: 'cookies.accept' })}
       onAccept={startGoogleAnalytics}
