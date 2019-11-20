@@ -3,6 +3,7 @@ import { injectIntl, Link } from 'gatsby-plugin-intl'
 import Slider from 'rc-slider'
 import '../styles/rc-slider.css'
 import styled, { css } from 'styled-components'
+import ReactGA from 'react-ga'
 import DefaultButton from '../styles/Button'
 import brush from '../images/paint-board-and-brush.svg'
 import Container from '../styles/Container'
@@ -87,13 +88,22 @@ const PricingPage = ({ intl }) => {
   const selectedText = intl.formatMessage({ id: 'pricing.selected' })
   const selectText = intl.formatMessage({ id: 'pricing.select' })
 
+  const selectPlan = selectedPlan => {
+    setPlan(selectedPlan)
+    ReactGA.event({
+      category: 'Pricing',
+      action: 'select plan',
+      label: selectedPlan,
+    })
+  }
+
   return (
     <>
       <h1>{intl.formatMessage({ id: 'pricing.heading' })}</h1>
       <h2>Gaston Menu</h2>
       <p>{intl.formatMessage({ id: 'pricing.subtitle' })}</p>
       <PlanWrapper>
-        <Plan active={plan === 'trial'} onClick={() => setPlan('trial')}>
+        <Plan active={plan === 'trial'} onClick={() => selectPlan('trial')}>
           <h3>Trial</h3>
           <PlanText>
             {intl.formatMessage({ id: 'pricing.plans.trial.text' })}
@@ -108,7 +118,7 @@ const PricingPage = ({ intl }) => {
             {plan === 'trial' ? selectedText : selectText}
           </Button>
         </Plan>
-        <Plan active={plan === 'pro'} onClick={() => setPlan('pro')}>
+        <Plan active={plan === 'pro'} onClick={() => selectPlan('pro')}>
           <h3>Pro</h3>
           <PlanText>
             {intl.formatMessage({ id: 'pricing.plans.pro.text' })}
@@ -136,7 +146,7 @@ const PricingPage = ({ intl }) => {
         </Plan>
         <Plan
           active={plan === 'enterprise'}
-          onClick={() => setPlan('enterprise')}
+          onClick={() => selectPlan('enterprise')}
         >
           <h3>Enterprise</h3>
           <PlanText>
