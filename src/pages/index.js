@@ -21,8 +21,6 @@ const Hero = ({ children }) => {
     padding-top: 4rem;
     position: relative;
     color: white;
-    background: #444;
-    z-index: -2;
   `
   const fadeIn = keyframes`
     0% {
@@ -142,7 +140,6 @@ const IndexPage = ({ intl }) => {
                     top: 0;
                     width: 300%;
                     max-width: 300%;
-                    z-index: 5;
                     animation: roll 15s infinite;
                     transform: translateX(0%);
                     @keyframes roll {
@@ -172,7 +169,6 @@ const IndexPage = ({ intl }) => {
                 <img
                   css={`
                     position: relative;
-                    z-index: 10;
                   `}
                   src={ipad}
                   alt=""
