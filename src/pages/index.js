@@ -64,6 +64,43 @@ const Hero = ({ children }) => {
   )
 }
 
+const ImageTextSection = ({image,title,children})=>(
+  <div
+    css={`
+      display:flex;
+      align-items:stretch;
+    `}
+  >
+    <div
+      css={`
+        flex:1;
+        min-width: 80px;
+        background-image:url(${image});
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:contain;
+      `}
+    />
+    <div
+      css={`
+        flex:3;
+        margin-left:5%;
+      `}
+    >
+      <h2
+        css={`
+          @media(max-width: 768px){
+            font-size:1.5em;
+          }
+        `}
+      >
+        {title}
+      </h2>
+      <p>{children}</p>
+    </div>
+  </div>
+)
+
 const IndexPage = ({ intl }) => {
   return (
     <Layout dark>
@@ -180,93 +217,23 @@ const IndexPage = ({ intl }) => {
       </Hero>
       <section>
         <Container>
-          <div
-            css={`
-              display: flex;
-              align-items: stretch;
-            `}
-          >
-            <div
-              css={`
-                flex: 1;
-                background-image: url(${brush});
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-              `}
-            />
-            <div
-              css={`
-                flex: 3;
-                padding-left: 50px;
-              `}
-            >
-              <h2>{intl.formatMessage({ id: 'index.design.title' })}</h2>
-              <p>{intl.formatMessage({ id: 'index.design.content' })}</p>
-            </div>
-          </div>
+          <ImageTextSection image={brush} title={intl.formatMessage({ id: 'index.design.title' })}>
+            {intl.formatMessage({ id: 'index.design.content' })}
+          </ImageTextSection>
         </Container>
       </section>
       <section>
         <Container>
-          <div
-            css={`
-              display: flex;
-              align-items: stretch;
-            `}
-          >
-            <div
-              css={`
-                flex: 1;
-                background-image: url(${menu});
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-              `}
-            />
-            <div
-              css={`
-                flex: 3;
-                padding-left: 50px;
-              `}
-            >
-              <h2>
-                {intl.formatMessage({ id: 'index.administration.title' })}
-              </h2>
-              <p>
-                {intl.formatMessage({ id: 'index.administration.content' })}
-              </p>
-            </div>
-          </div>
+          <ImageTextSection image={menu} title={intl.formatMessage({ id: 'index.administration.title' })}>
+            {intl.formatMessage({ id: 'index.administration.content' })}
+          </ImageTextSection>
         </Container>
       </section>
       <section>
         <Container>
-          <div
-            css={`
-              display: flex;
-              align-items: stretch;
-            `}
-          >
-            <div
-              css={`
-                flex: 1;
-                background-image: url(${tablet});
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-              `}
-            />
-            <div
-              css={`
-                flex: 3;
-                padding-left: 50px;
-              `}
-            >
-              <h2>{intl.formatMessage({ id: 'index.rental.title' })}</h2>
-              <p>{intl.formatMessage({ id: 'index.rental.content' })}</p>
-            </div>
-          </div>
+          <ImageTextSection image={tablet} title={intl.formatMessage({ id: 'index.rental.title' })}>
+            {intl.formatMessage({ id: 'index.rental.content' })}
+          </ImageTextSection>
         </Container>
       </section>
       <section>
