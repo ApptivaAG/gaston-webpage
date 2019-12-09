@@ -39,8 +39,8 @@ const HeaderStyle = styled.header`
     display: flex;
     align-items: center;
     height: 100%;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
     color: inherit;
     text-decoration: none;
     @media (min-width: 600px) {
