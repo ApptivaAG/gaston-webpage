@@ -11,20 +11,23 @@ const HeaderStyle = styled.header`
   justify-content: space-between;
   top: 0;
   z-index: 99;
+  border-bottom: 1px solid transparent;
 
   font-weight: bold;
   height: 3.6em;
 
   color: ${p => (p.dark ? 'white' : p.theme.text)};
 
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  transition: border 200ms;
+
   ${p =>
     p.scroll &&
     css`
       background-color: white;
       color: ${props => props.theme.text};
+      border-bottom: 1px solid ${props => props.theme.primary};
     `}
-
-  transition: background-color 0.3s ease-in, color 0.3s ease-in;
 
   font-size: 1rem;
   @media (min-width: 600px) {
@@ -39,8 +42,8 @@ const HeaderStyle = styled.header`
     display: flex;
     align-items: center;
     height: 100%;
-    padding-left: .5em;
-    padding-right: .5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     color: inherit;
     text-decoration: none;
     @media (min-width: 600px) {
