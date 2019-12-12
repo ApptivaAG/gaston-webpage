@@ -36,7 +36,13 @@ const Footer = ({ intl }) => (
       <a href="https://apptiva.ch">Apptiva</a> •{' '}
       {intl.formatMessage({ id: 'footer.switzerland' })}
     </p>
-    <p>
+    <p
+      css={`
+        a {
+          padding: 0.6em;
+        }
+      `}
+    >
       <Link to="en" activeClassName="active" partiallyActive>
         en
       </Link>
