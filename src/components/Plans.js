@@ -4,7 +4,7 @@ import { injectIntl, Link } from 'gatsby-plugin-intl'
 import '../styles/rc-slider.css'
 import styled from 'styled-components'
 import DefaultButton from '../styles/Button'
-import PriceTag,{Price} from "./PriceTag"
+import PriceTag, { Price } from './PriceTag'
 
 const PlanWrapper = styled.div`
   display: grid;
@@ -45,7 +45,7 @@ const PlanFeature = styled.p`
   }
 `
 
-const SelectPlanButton = ({to,children})=>(
+const SelectPlanButton = ({ to, children }) => (
   <Link to={to}>
     <DefaultButton
       css={`
@@ -64,22 +64,20 @@ export default injectIntl(({ intl }) => (
     <p>{intl.formatMessage({ id: 'pricing.subtitle' })}</p>
     <PlanWrapper>
       <Plan>
-        <h3>Trial</h3>
+        <h3>{intl.formatMessage({ id: `pricing.plans.trial.name` })}</h3>
         <PlanText>
           {intl.formatMessage({ id: `pricing.plans.trial.text` })}
         </PlanText>
         <PlanFeature>
           {intl.formatMessage({ id: `pricing.plans.trial.features` })}
         </PlanFeature>
-        <Price>
-          {intl.formatMessage({ id: `pricing.plans.trial.price` })}
-        </Price>
+        <Price>{intl.formatMessage({ id: `pricing.plans.trial.price` })}</Price>
         <SelectPlanButton to="/pricing?step=enrol&plan=trial">
-          {intl.formatMessage({ id: `pricing.plans.trial.enrol` })}
+          {intl.formatMessage({ id: `pricing.order` })}
         </SelectPlanButton>
       </Plan>
       <Plan>
-        <h3>Pro</h3>
+        <h3>{intl.formatMessage({ id: `pricing.plans.pro.name` })}</h3>
         <PlanText>
           {intl.formatMessage({ id: `pricing.plans.pro.text` })}
         </PlanText>
@@ -90,7 +88,7 @@ export default injectIntl(({ intl }) => (
             {
               id: 'pricing.plans.pro.feature2',
             },
-            {licensePrice:"3"}
+            { licensePrice: '3' }
           )}
         </PlanFeature>
         <PriceTag price={39} />
@@ -99,7 +97,7 @@ export default injectIntl(({ intl }) => (
         </SelectPlanButton>
       </Plan>
       <Plan>
-        <h3>Enterprise</h3>
+        <h3>{intl.formatMessage({ id: `pricing.plans.enterprise.name` })}</h3>
         <PlanText>
           {intl.formatMessage({ id: `pricing.plans.enterprise.text` })}
         </PlanText>

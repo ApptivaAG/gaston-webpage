@@ -41,12 +41,13 @@
     "subtitle": "Our prices depend on the number of tablets you use in your company.",
     "plans": {
       "trial": {
-        "text": "Our trial plan includes the license for one tablet. Ideal to test Gaston Menu without obligation.",
+        "name": "Solo",
+        "text": "Our Solo plan includes the license for one tablet. Ideal for tiny restaurants or to test Gaston Menu without time limit.",
         "features": "Licenses included: 1",
-        "price": "free",
-        "enrol": "Register for Trial"
+        "price": "free"
       },
       "pro": {
+        "name": "Pro",
         "text": "Subscribe to the Pro Plan if you want to use up to 50 tablets in your company.",
         "feature1": "Licenses included: 10",
         "feature2": "Each additional license: CHF {licensePrice}",
@@ -56,6 +57,7 @@
         "totalPrice": "Pro Plan including {tabletCount} tablet licenses."
       },
       "enterprise": {
+        "name": "Enterprise",
         "text": "Do you need more than 50 tablets? We will be happy to make you an offer tailored to your needs.",
         "features": "Licenses included: unlimited",
         "contact": "Contact us"
@@ -93,11 +95,11 @@
   "enrol": {
     "title": {
       "pro": "Order Pro Plan",
-      "trial": "Enrol for Trial Plan"
+      "trial": "Order Solo Plan"
     },
     "description": {
       "pro": "Thank you very much for your interest. Please complete the following details so that we can send you an offer.",
-      "trial": "Thank you for your interest in the Trial Plan. Please complete the following details so that we can send you a trial plan access."
+      "trial": "Thank you for your interest in the Solo plan. Please complete the following details so that we can send you the Solo plan access."
     },
     "plan": "Your plan",
     "tabletCount": "Number of Tablets",
