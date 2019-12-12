@@ -16,6 +16,8 @@ const HeaderStyle = styled.header`
   font-weight: bold;
   height: 3.6em;
 
+  overflow-x: auto;
+
   color: ${p => (p.dark ? 'white' : p.theme.text)};
 
   transition: background-color 0.3s ease-in, color 0.3s ease-in;
