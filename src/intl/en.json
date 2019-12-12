@@ -8,7 +8,7 @@
     "ordering": "Ordering",
     "service": "Service",
     "payment": "Payment",
-    "calltoaction": "Explore with us",
+    "calltoaction": "Start for free",
     "menutag": "Digital Menu Card",
     "USP": {
       "1": "Your design",
@@ -61,7 +61,7 @@
         "contact": "Contact us"
       }
     },
-    "order":"Order",
+    "order": "Order",
     "orderNow": "Order pro plan now",
     "rent": {
       "title": "Tablet rental",
@@ -78,15 +78,15 @@
         "description": "Best quality is close to your heart? Then rent Apple iPads from us.",
         "minimalRental": "Minimum rental period: 1 year"
       },
-      "select":"Select",
-      "noTablets":"Continue without Tablets"
+      "select": "Select",
+      "noTablets": "Continue without Tablets"
     },
     "design": {
       "title": "Your design",
       "description": "Your menu should not look like a foreign object in your restaurant. That's why Gaston can create completely customized designs if you don't like any of the standard designs. This goes far beyond simply changing colours and images.",
       "price": "One-off from CHF 1'000.",
-      "useCustomDesign":"Use custom design",
-      "noCustomDesign":"Use standard design"
+      "useCustomDesign": "Use custom design",
+      "noCustomDesign": "Use standard design"
     },
     "back": "Back"
   },
@@ -101,16 +101,16 @@
     },
     "plan": "Your plan",
     "tabletCount": "Number of Tablets",
-    "rent":"Rent Tablets",
-    "rentTypes":{
-      "none":"None",
-      "android":"Android Tablets",
-      "ipad":"iPads"
+    "rent": "Rent Tablets",
+    "rentTypes": {
+      "none": "None",
+      "android": "Android Tablets",
+      "ipad": "iPads"
     },
-    "customDesign":"Design",
-    "customDesigns":{
-      "0":"Standard",
-      "1":"Custom"
+    "customDesign": "Design",
+    "customDesigns": {
+      "0": "Standard",
+      "1": "Custom"
     },
     "YourName": "Your name (required)",
     "YourEMail": "Your email address (required)",

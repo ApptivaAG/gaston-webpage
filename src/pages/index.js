@@ -64,33 +64,33 @@ const Hero = ({ children }) => {
   )
 }
 
-const ImageTextSection = ({image,title,children})=>(
+const ImageTextSection = ({ image, title, children }) => (
   <div
     css={`
-      display:flex;
-      align-items:stretch;
+      display: flex;
+      align-items: stretch;
     `}
   >
     <div
       css={`
-        flex:1;
+        flex: 1;
         min-width: 80px;
-        background-image:url(${image});
-        background-position:center;
-        background-repeat:no-repeat;
-        background-size:contain;
+        background-image: url(${image});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       `}
     />
     <div
       css={`
-        flex:3;
-        margin-left:5%;
+        flex: 3;
+        margin-left: 5%;
       `}
     >
       <h2
         css={`
-          @media(max-width: 768px){
-            font-size:1.5em;
+          @media (max-width: 768px) {
+            font-size: 1.5em;
           }
         `}
       >
@@ -155,7 +155,7 @@ const IndexPage = ({ intl }) => {
                   background-color: white;
                 `}
                 as={Link}
-                to="/enrol?plan=trial"
+                to="/pricing"
               >
                 {intl.formatMessage({ id: 'index.calltoaction' })}
               </Button>
@@ -217,21 +217,30 @@ const IndexPage = ({ intl }) => {
       </Hero>
       <section>
         <Container>
-          <ImageTextSection image={brush} title={intl.formatMessage({ id: 'index.design.title' })}>
+          <ImageTextSection
+            image={brush}
+            title={intl.formatMessage({ id: 'index.design.title' })}
+          >
             {intl.formatMessage({ id: 'index.design.content' })}
           </ImageTextSection>
         </Container>
       </section>
       <section>
         <Container>
-          <ImageTextSection image={menu} title={intl.formatMessage({ id: 'index.administration.title' })}>
+          <ImageTextSection
+            image={menu}
+            title={intl.formatMessage({ id: 'index.administration.title' })}
+          >
             {intl.formatMessage({ id: 'index.administration.content' })}
           </ImageTextSection>
         </Container>
       </section>
       <section>
         <Container>
-          <ImageTextSection image={tablet} title={intl.formatMessage({ id: 'index.rental.title' })}>
+          <ImageTextSection
+            image={tablet}
+            title={intl.formatMessage({ id: 'index.rental.title' })}
+          >
             {intl.formatMessage({ id: 'index.rental.content' })}
           </ImageTextSection>
         </Container>
@@ -247,7 +256,7 @@ const IndexPage = ({ intl }) => {
               font-size: 1.4em;
             `}
             as={Link}
-            to="/enrol?plan=trial"
+            to="/pricing"
           >
             {intl.formatMessage({ id: 'index.calltoaction' })}
           </Button>

@@ -8,7 +8,7 @@
     "ordering": "Bestellung",
     "service": "Dienstleistung",
     "payment": "Bezahlung",
-    "calltoaction": "Jetzt kostenlos testen",
+    "calltoaction": "Kostenlos starten",
     "menutag": "Digitale Speisekarte",
     "USP": {
       "1": "Ihr Design",
@@ -61,7 +61,7 @@
         "contact": "Kontaktieren Sie uns"
       }
     },
-    "order":"Bestellen",
+    "order": "Bestellen",
     "orderNow": "Pro-Plan jetzt bestellen",
     "rent": {
       "title": "Tablet Vermietung",
@@ -78,17 +78,17 @@
         "description": "Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple iPads von uns.",
         "minimalRental": "Mindestmietdauer: 1 Jahr"
       },
-      "select":"Auswählen",
-      "noTablets":"Ich habe eigene Tablets"
+      "select": "Auswählen",
+      "noTablets": "Ich habe eigene Tablets"
     },
     "design": {
       "title": "In Ihrem Design",
       "description": "Ihre Speisekarte sollte in ihrem Restaurant auf keinen Fall wie ein Fremdkörper wirken. Deshalb können Sie bei Gaston komplett massgeschneiderte Designs entwerfen lassen, falls ihnen keines der Standard-Designs gefällt. Dies geht weit über das simple verändern von Farben und Bildern hinaus.",
       "price": "Einmalig ab CHF 1'000.-",
-      "useCustomDesign":"Benutzerdefiniertes Design verwenden",
-      "noCustomDesign":"Standard Design verwenden"
+      "useCustomDesign": "Benutzerdefiniertes Design verwenden",
+      "noCustomDesign": "Standard Design verwenden"
     },
-    "back":"Zurück"
+    "back": "Zurück"
   },
   "enrol": {
     "title": {
@@ -101,16 +101,16 @@
     },
     "plan": "Ihr Plan",
     "tabletCount": "Anzahl Tablets",
-    "rent":"Tablets Mieten",
-    "rentTypes":{
-      "none":"Keine",
-      "android":"Android Tablets",
-      "ipad":"iPads"
+    "rent": "Tablets Mieten",
+    "rentTypes": {
+      "none": "Keine",
+      "android": "Android Tablets",
+      "ipad": "iPads"
     },
-    "customDesign":"Design",
-    "customDesigns":{
-      "0":"Standard",
-      "1":"Massgeschneidert"
+    "customDesign": "Design",
+    "customDesigns": {
+      "0": "Standard",
+      "1": "Massgeschneidert"
     },
     "YourName": "Ihr Name (Pflichtfeld)",
     "YourEMail": "Ihre Email-Adresse (Pflichtfeld)",
