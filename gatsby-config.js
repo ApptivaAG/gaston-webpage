@@ -42,13 +42,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-gdpr-cookies`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        googleAnalytics: {
-          trackingId: 'UA-66015649-9',
-          anonymize: true,
-        },
-        environments: ['production', 'development'],
+        trackingId: 'UA-66015649-9',
+        anonymize: true,
+
       },
     },
     'gatsby-plugin-netlify-cache',
