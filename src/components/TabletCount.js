@@ -1,11 +1,11 @@
-import React,{useState} from "react"
+import React, { useState } from 'react'
 import Slider from 'rc-slider'
-import ReactGA from 'react-ga'
-import {Link,injectIntl} from "gatsby-plugin-intl"
-import PriceTag from "./PriceTag"
-import Button from "../styles/Button"
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
+import { Link, injectIntl } from 'gatsby-plugin-intl'
+import PriceTag from './PriceTag'
+import Button from '../styles/Button'
 
-export default injectIntl(({intl})=>{
+export default injectIntl(({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
   const proPlanPrice = 39
   const licensePrice = 3
@@ -14,13 +14,13 @@ export default injectIntl(({intl})=>{
 
   const tabletCountChanged = count => {
     setTabletCount(count)
-    ReactGA.event({
+    trackCustomEvent({
       category: 'Pricing',
       action: 'slide tablet count',
       value: count,
     })
   }
-  return(
+  return (
     <>
       <h2>Gaston Menu Pro</h2>
       <h3
@@ -68,17 +68,17 @@ export default injectIntl(({intl})=>{
       </div>
       <div
         css={`
-          margin-top:50px;
-          display:flex;
-          flex-direction:row;
-          justify-content:space-between;
+          margin-top: 50px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         `}
       >
-        <Button onClick={()=>window.history.back()}>{intl.formatMessage({id: 'pricing.back'})}</Button>
+        <Button onClick={() => window.history.back()}>
+          {intl.formatMessage({ id: 'pricing.back' })}
+        </Button>
         <Link to={`/pricing?step=rent&plan=pro&tablets=${tabletCount}`}>
-          <Button>
-            {intl.formatMessage({ id: 'pricing.orderNow' })}
-          </Button>
+          <Button>{intl.formatMessage({ id: 'pricing.orderNow' })}</Button>
         </Link>
       </div>
     </>

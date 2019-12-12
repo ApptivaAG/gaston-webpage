@@ -2,10 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { injectIntl } from 'gatsby-plugin-intl'
-import CookieConsent from 'react-cookie-consent'
-import Cookies from 'universal-cookie'
-import reactGA from 'react-ga'
-import theme from '../styles/theme'
 
 const FooterStyle = styled.footer`
   grid-area: Footer;
@@ -21,13 +17,6 @@ const FooterStyle = styled.footer`
     font-weight: bold;
   }
 `
-const startGoogleAnalytics = () => {
-  const cookies = new Cookies()
-  reactGA.initialize('UA-66015649-9', {
-    anonymize: true,
-  })
-  cookies.set('gatsby-gdpr-google-analytics', true)
-}
 
 const Footer = ({ intl }) => (
   <FooterStyle>
@@ -51,15 +40,6 @@ const Footer = ({ intl }) => (
         de
       </Link>
     </p>
-    <CookieConsent
-      location="bottom"
-      style={{ backgroundColor: theme.primary }}
-      buttonStyle={{ color: theme.primary, backgroundColor: 'white' }}
-      buttonText={intl.formatMessage({ id: 'cookies.accept' })}
-      onAccept={startGoogleAnalytics}
-    >
-      {intl.formatMessage({ id: 'cookies.disclaimer' })}
-    </CookieConsent>
   </FooterStyle>
 )
 
