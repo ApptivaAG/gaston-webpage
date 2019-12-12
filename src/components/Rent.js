@@ -1,14 +1,12 @@
 import React from 'react'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
-import queryString from "querystring"
+import queryString from 'querystring'
 import '../styles/rc-slider.css'
-import styled,{css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import tablet from '../images/tablet.svg'
-import PriceTag from "./PriceTag"
-import DefaultButton from "../styles/Button"
-
-const iPadRentPrice = 29
-const androidRentPrice = 19
+import PriceTag from './PriceTag'
+import DefaultButton from '../styles/Button'
+import { androidRentPrice, iPadRentPrice } from './prices'
 
 const Button = styled(DefaultButton)`
   margin-bottom: 2em;
@@ -20,9 +18,24 @@ const Button = styled(DefaultButton)`
     `}
 `
 
-export default injectIntl(({intl,location})=>{
+const Right = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  a,
+  button {
+    width: 100%;
+  }
+  @media (min-width: 600px) {
+    a {
+      flex: 0 1 50%;
+    }
+  }
+`
+
+export default injectIntl(({ intl, location }) => {
   const params = queryString.parse(location.search.slice(1))
-  const makeLink = rent=>`/pricing?${queryString.stringify({...params,step:"design",rent})}`
+  const makeLink = rent =>
+    `/pricing?${queryString.stringify({ ...params, step: 'enrol', rent })}`
   return (
     <>
       <div
@@ -33,26 +46,26 @@ export default injectIntl(({intl,location})=>{
       >
         <div
           css={`
-            flex: 1;
-            background-image: url(${tablet});
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 10em;
-            margin-top: 2em;
+            @media (min-width: 600px) {
+              flex: 1;
+              background-image: url(${tablet});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+              height: 10em;
+              margin-top: 2em;
+              padding-right: 50px;
+            }
           `}
         />
         <div
           css={`
             flex: 3;
-            padding-left: 50px;
           `}
         >
           <h2>{intl.formatMessage({ id: 'pricing.rent.title' })}</h2>
           <p>{intl.formatMessage({ id: 'pricing.rent.description' })}</p>
-          <h3>
-            {intl.formatMessage({ id: 'pricing.rent.android.title' })}
-          </h3>
+          <h3>{intl.formatMessage({ id: 'pricing.rent.android.title' })}</h3>
           <p>
             {intl.formatMessage({ id: 'pricing.rent.android.description' })}
             <br />
@@ -67,13 +80,15 @@ export default injectIntl(({intl,location})=>{
             )}
             unit={intl.formatMessage({ id: 'pricing.rent.priceUnit' })}
           />
-          <Link to={makeLink("android")} activeClassName="active">
-            <Button>
-              {intl.formatMessage({
-                id: 'pricing.rent.select',
-              })}
-            </Button>
-          </Link>
+          <Right>
+            <Link to={makeLink('android')} activeClassName="active">
+              <Button>
+                {intl.formatMessage({
+                  id: 'pricing.rent.android.continue',
+                })}
+              </Button>
+            </Link>
+          </Right>
           <h3>{intl.formatMessage({ id: 'pricing.rent.iPad.title' })}</h3>
           <p>
             {intl.formatMessage({ id: 'pricing.rent.iPad.description' })}
@@ -90,28 +105,50 @@ export default injectIntl(({intl,location})=>{
             unit={intl.formatMessage({ id: 'pricing.rent.priceUnit' })}
           />
 
-          <Link to={makeLink("ipad")} activeClassName="active">
-            <Button>
-              {intl.formatMessage({
-                id: 'pricing.rent.select',
-              })}
-            </Button>
-          </Link>
+          <Right>
+            <Link to={makeLink('ipad')} activeClassName="active">
+              <Button>
+                {intl.formatMessage({
+                  id: 'pricing.rent.iPad.continue',
+                })}
+              </Button>
+            </Link>
+          </Right>
         </div>
       </div>
       <div
         css={`
-          display:flex;
-          flex-direction: row;
-          justify-content: space-between;
+          margin-top: 2em;
+          @media (min-width: 600px) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+          }
         `}
       >
-        <Button onClick={()=>window.history.back()}>{intl.formatMessage({id: 'pricing.back'})}</Button>
-        <Link to={makeLink("none")}>
-          <Button>{intl.formatMessage({id: 'pricing.rent.noTablets'})}</Button>
-        </Link>
+        <Right
+          css={`
+            flex: 3;
+          `}
+        >
+          <Link to={makeLink('none')}>
+            <Button>
+              {intl.formatMessage({ id: 'pricing.rent.noTablets' })}
+            </Button>
+          </Link>
+        </Right>
+        <div
+          css={`
+            display: block;
+            flex: 1;
+            margin-right: 50px;
+          `}
+        >
+          <Button onClick={() => window.history.back()}>
+            {intl.formatMessage({ id: 'pricing.back' })}
+          </Button>
+        </div>
       </div>
     </>
   )
 })
-

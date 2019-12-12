@@ -64,7 +64,7 @@
       }
     },
     "order": "Order",
-    "orderNow": "Order pro plan now",
+    "continue": "Continue",
     "rent": {
       "title": "Tablet rental",
       "description": "We do not leave you alone with the choice of your tablets. You can also rent the optimal models for Gaston Menu from us.",
@@ -73,12 +73,14 @@
       "android": {
         "title": "Android tablets for rent",
         "description": "Our Android tablets offer you the best price-performance ratio. You rent the tablets from us.",
-        "minimalRental": "Minimum rental period: 1 year"
+        "minimalRental": "Minimum rental period: 1 year",
+        "continue": "Continue with Android-Tablets"
       },
       "iPad": {
         "title": "Rent iPads",
         "description": "Best quality is close to your heart? Then rent Apple iPads from us.",
-        "minimalRental": "Minimum rental period: 1 year"
+        "minimalRental": "Minimum rental period: 1 year",
+        "continue": "Continue with iPads"
       },
       "select": "Select",
       "noTablets": "Continue without Tablets"
@@ -101,6 +103,7 @@
       "pro": "Thank you very much for your interest. Please complete the following details so that we can send you an offer.",
       "trial": "Thank you for your interest in the Solo plan. Please complete the following details so that we can send you the Solo plan access."
     },
+    "yourDetails": "Your details",
     "plan": "Your plan",
     "tabletCount": "Number of Tablets",
     "rent": "Rent Tablets",
@@ -109,16 +112,12 @@
       "android": "Android Tablets",
       "ipad": "iPads"
     },
-    "customDesign": "Design",
-    "customDesigns": {
-      "0": "Standard",
-      "1": "Custom"
-    },
+    "customDesign": "I'm interessted in a custom design.",
     "YourName": "Your name (required)",
     "YourEMail": "Your email address (required)",
     "YourRestaurant": "Your restaurant (required)",
     "YourMessage": "Anything else you want to tell us?",
-    "submit": "Request an offer",
+    "submit": "Order",
     "failure": "Oops, a mandatory field is not filled out yet.",
     "thanks": "Thank you. We have received your message and will get back to you as soon as possible.",
     "sorry": "Unfortunately this did not work. Sorry for the inconvenience. If you send us an email at info@apptiva.ch we will contact you immediately."

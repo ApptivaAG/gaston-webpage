@@ -5,6 +5,7 @@ import '../styles/rc-slider.css'
 import styled from 'styled-components'
 import DefaultButton from '../styles/Button'
 import PriceTag, { Price } from './PriceTag'
+import { licensePrice, proPlanPrice } from './prices'
 
 const PlanWrapper = styled.div`
   display: grid;
@@ -16,7 +17,6 @@ const PlanWrapper = styled.div`
 `
 
 const Plan = styled.div`
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,10 +88,10 @@ export default injectIntl(({ intl }) => (
             {
               id: 'pricing.plans.pro.feature2',
             },
-            { licensePrice: '3' }
+            { licensePrice }
           )}
         </PlanFeature>
-        <PriceTag price={39} />
+        <PriceTag price={proPlanPrice} />
         <SelectPlanButton to="/pricing?step=count&plan=pro">
           {intl.formatMessage({ id: `pricing.order` })}
         </SelectPlanButton>

@@ -1,11 +1,13 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 import { injectIntl } from 'gatsby-plugin-intl'
 
-export default injectIntl(({ price,intl }) => (
+export default injectIntl(({ price, intl }) => (
   <Price>
     {price}
-    <PriceUnit>{intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}</PriceUnit>
+    <PriceUnit>
+      {intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
+    </PriceUnit>
   </Price>
 ))
 export const Price = styled.div`

@@ -4,11 +4,11 @@ import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 import { Link, injectIntl } from 'gatsby-plugin-intl'
 import PriceTag from './PriceTag'
 import Button from '../styles/Button'
+import { licensePrice, proPlanPrice } from './prices'
 
 export default injectIntl(({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
-  const proPlanPrice = 39
-  const licensePrice = 3
+
   const maxTablets = 50
   const totalProPrice = tc => Math.max(0, tc - 10) * licensePrice + proPlanPrice
 
@@ -78,7 +78,7 @@ export default injectIntl(({ intl }) => {
           {intl.formatMessage({ id: 'pricing.back' })}
         </Button>
         <Link to={`/pricing?step=rent&plan=pro&tablets=${tabletCount}`}>
-          <Button>{intl.formatMessage({ id: 'pricing.orderNow' })}</Button>
+          <Button>{intl.formatMessage({ id: 'pricing.continue' })}</Button>
         </Link>
       </div>
     </>

@@ -64,7 +64,7 @@
       }
     },
     "order": "Bestellen",
-    "orderNow": "Pro-Plan jetzt bestellen",
+    "continue": "Weiter",
     "rent": {
       "title": "Tablet Vermietung",
       "description": "Wir lassen Sie bei der Wahl Ihrer Tablets nicht alleine. Sie können die optimalen Modelle für Gaston Menu auch bei uns mieten.",
@@ -73,12 +73,14 @@
       "android": {
         "title": "Android-Tablets mieten",
         "description": "Unsere Android-Tablets bieten Ihnen das beste Preis-Leistungs-Verhältnis. Sie Mieten die Tablets von uns.",
-        "minimalRental": "Mindestmietdauer: 1 Jahr"
+        "minimalRental": "Mindestmietdauer: 1 Jahr",
+        "continue": "Inkl. Android-Tablets mieten"
       },
       "iPad": {
         "title": "iPads mieten",
         "description": "Beste Qualität liegt Ihnen am Herzen? Dann mieten Sie Apple iPads von uns.",
-        "minimalRental": "Mindestmietdauer: 1 Jahr"
+        "minimalRental": "Mindestmietdauer: 1 Jahr",
+        "continue": "Inkl. iPads mieten"
       },
       "select": "Auswählen",
       "noTablets": "Ich habe eigene Tablets"
@@ -101,6 +103,7 @@
       "pro": "Vielen Dank für Ihr Interesse. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen eine Offerte zustellen können.",
       "trial": "Vielen Dank für Ihr Interesse am Solo-Plan. Bitte ergänzen Sie die folgenden Angaben, damit wir Ihnen einen Solo-Plan-Zugang zusenden können."
     },
+    "yourDetails": "Ihre Angaben",
     "plan": "Ihr Plan",
     "tabletCount": "Anzahl Tablets",
     "rent": "Tablets Mieten",
@@ -109,11 +112,7 @@
       "android": "Android Tablets",
       "ipad": "iPads"
     },
-    "customDesign": "Design",
-    "customDesigns": {
-      "0": "Standard",
-      "1": "Massgeschneidert"
-    },
+    "customDesign": "Ich bin interessiert an einem massgeschneidertem Design.",
     "YourName": "Ihr Name (Pflichtfeld)",
     "YourEMail": "Ihre Email-Adresse (Pflichtfeld)",
     "YourRestaurant": "Ihr Restaurant (Pflichtfeld)",
