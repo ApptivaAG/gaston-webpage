@@ -4,13 +4,12 @@ import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 import { Link, injectIntl } from 'gatsby-plugin-intl'
 import PriceTag from './PriceTag'
 import Button from '../styles/Button'
-import { licensePrice, proPlanPrice } from './prices'
+import { totalProPrice } from './prices'
 
 export default injectIntl(({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
 
   const maxTablets = 50
-  const totalProPrice = tc => Math.max(0, tc - 10) * licensePrice + proPlanPrice
 
   const tabletCountChanged = count => {
     setTabletCount(count)

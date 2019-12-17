@@ -4,12 +4,7 @@ import queryString from 'querystring'
 import { injectIntl } from 'gatsby-plugin-intl'
 import DefaultButton from '../styles/Button'
 import PriceTag from './PriceTag'
-import {
-  androidRentPrice,
-  iPadRentPrice,
-  licensePrice,
-  proPlanPrice,
-} from './prices'
+import { totalProPrice, tabletPrice } from './prices'
 
 const encode = data =>
   Object.keys(data)
@@ -27,21 +22,6 @@ const defaultState = params => ({
   message: '',
 })
 
-const totalProPrice = (tc, tabletPrice = 0) =>
-  Math.max(0, tc - 10) * licensePrice + tc * tabletPrice + proPlanPrice
-
-const tabletPrice = rent => {
-  switch (rent) {
-    case 'ipad':
-      return iPadRentPrice
-
-    case 'android':
-      return androidRentPrice
-
-    default:
-      return 0
-  }
-}
 
 const FormLabel = styled.label``
 
