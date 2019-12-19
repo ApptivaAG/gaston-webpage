@@ -21,6 +21,20 @@ const defaultState = params => ({
   message: '',
 })
 
+const Checkbox = ({ ...props }) => (
+  <Input
+    css={`
+      display: inline;
+      width: auto;
+      margin-right: 2em;
+      transform: scale(2) translate(2px, -2px);
+    `}
+    type="checkbox"
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...props}
+  />
+)
+
 const EnrolPage = ({ location, intl }) => {
   const params = queryString.parse(location.search.slice(1))
   const [formValues, setFormValues] = useState(defaultState(params))
@@ -60,6 +74,10 @@ const EnrolPage = ({ location, intl }) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
+  const handleCheckboxChange = e => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.checked })
+  }
+
   return (
     <Layout>
       <SEO title={intl.formatMessage({ id: 'enrol.title' })} />
@@ -80,6 +98,7 @@ const EnrolPage = ({ location, intl }) => {
                 Nicht ausfüllen:{' '}
                 <input type="text" name="bot-field" onChange={handleChange} />
               </label>
+              <input type="text" name="subject" />
               <input type="text" name="plan" onChange={handleChange} />
               <input type="text" name="tablets" onChange={handleChange} />
             </p>
@@ -134,6 +153,20 @@ const EnrolPage = ({ location, intl }) => {
                   value={formValues.message}
                   onChange={handleChange}
                 />
+              </FormLabel>
+            </p>
+            <p
+              css={`
+                margin: 2.5em 0 4em;
+              `}
+            >
+              <FormLabel htmlFor="design">
+                <Checkbox
+                  name="design"
+                  value={formValues.design}
+                  onChange={handleCheckboxChange}
+                />
+                {intl.formatMessage({ id: 'enrol.customDesign' })}
               </FormLabel>
             </p>
             <p>
