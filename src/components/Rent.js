@@ -1,8 +1,10 @@
 import React from 'react'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import queryString from 'querystring'
-import '../styles/rc-slider.css'
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 import styled, { css } from 'styled-components'
+
+import '../styles/rc-slider.css'
 import tablet from '../images/tablet.svg'
 import PriceTag from './PriceTag'
 import DefaultButton from '../styles/Button'
@@ -31,6 +33,18 @@ const Right = styled.div`
     }
   }
 `
+
+const trackEvent = tabletType => () => {
+  // Lets track that custom click
+  trackCustomEvent({
+    // string - required - The object that was interacted with (e.g.video)
+    category: 'Tablet choose',
+    // string - required - Type of interaction (e.g. 'play')
+    action: 'Click',
+    // number - optional - Numeric value associated with the event. (e.g. A product ID)
+    value: tabletType,
+  })
+}
 
 export default injectIntl(({ intl, location }) => {
   const params = queryString.parse(location.search.slice(1))
@@ -81,7 +95,11 @@ export default injectIntl(({ intl, location }) => {
             unit={intl.formatMessage({ id: 'pricing.rent.priceUnit' })}
           />
           <Right>
-            <Link to={makeLink('android')} activeClassName="active">
+            <Link
+              to={makeLink('android')}
+              activeClassName="active"
+              onClick={trackEvent('android')}
+            >
               <Button>
                 {intl.formatMessage({
                   id: 'pricing.rent.android.continue',
@@ -106,7 +124,11 @@ export default injectIntl(({ intl, location }) => {
           />
 
           <Right>
-            <Link to={makeLink('ipad')} activeClassName="active">
+            <Link
+              to={makeLink('ipad')}
+              activeClassName="active"
+              onClick={trackEvent('ipad')}
+            >
               <Button>
                 {intl.formatMessage({
                   id: 'pricing.rent.iPad.continue',
@@ -131,7 +153,7 @@ export default injectIntl(({ intl, location }) => {
             flex: 3;
           `}
         >
-          <Link to={makeLink('none')}>
+          <Link to={makeLink('none')} onClick={trackEvent('none')}>
             <Button>
               {intl.formatMessage({ id: 'pricing.rent.noTablets' })}
             </Button>

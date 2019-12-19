@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import queryString from 'querystring'
 import { injectIntl } from 'gatsby-plugin-intl'
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
+import { navigate } from 'gatsby-plugin-intl/link'
+
 import DefaultButton from '../styles/Button'
 import PriceTag from './PriceTag'
 import { totalProPrice, tabletPrice } from './prices'
@@ -18,10 +21,9 @@ const defaultState = params => ({
   plan: params.plan,
   tablets: params.tablets,
   rent: params.rent,
-  design: params.design,
+  design: '',
   message: '',
 })
-
 
 const FormLabel = styled.label``
 
@@ -81,9 +83,26 @@ const Checkbox = ({ ...props }) => (
   />
 )
 
+const trackEvent = value => {
+  // Lets track that custom click
+  trackCustomEvent({
+    // string - required - The object that was interacted with (e.g.video)
+    category: 'Submit form',
+    // string - required - Type of interaction (e.g. 'play')
+    action: 'Click',
+    // number - optional - Numeric value associated with the event. (e.g. A product ID)
+    value,
+  })
+}
+
 export default injectIntl(({ location, intl }) => {
   const params = queryString.parse(location.search.slice(1))
   const [formValues, setFormValues] = useState(defaultState(params))
+  const makeLink = () =>
+    `/pricing?${queryString.stringify({
+      ...params,
+      step: 'thanks',
+    })}`
 
   const handleSubmit = e => {
     const { email, name, restaurant } = formValues
@@ -91,6 +110,7 @@ export default injectIntl(({ location, intl }) => {
       /* eslint-disable-next-line no-alert */
       alert(intl.formatMessage({ id: 'enrol.failure' }))
     } else if (formValues['bot-field'] === undefined) {
+      trackEvent(formValues)
       const body = encode({
         'form-name': 'enrol',
         subject: 'Gaston Abo-Abschluss',
@@ -101,10 +121,14 @@ export default injectIntl(({ location, intl }) => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
       })
-        .then(() => {
+        .then(response => {
           /* eslint-disable-next-line no-alert */
-          alert(intl.formatMessage({ id: 'enrol.thanks' }))
-          setFormValues(defaultState(params))
+          if (response.status === 200) {
+            setFormValues(defaultState(params))
+            navigate(makeLink())
+          } else {
+            throw new Error('Not 200 response')
+          }
         })
         .catch(error => {
           /* eslint-disable-next-line no-console */
@@ -116,8 +140,12 @@ export default injectIntl(({ location, intl }) => {
     e.preventDefault()
   }
 
-  const handleChange = e => {
+  const handleTextChange = e => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const handleCheckboxChange = e => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.checked })
   }
 
   return (
@@ -133,10 +161,11 @@ export default injectIntl(({ location, intl }) => {
         <p hidden>
           <label htmlFor="bot-field">
             Nicht ausfüllen:{' '}
-            <input type="text" name="bot-field" onChange={handleChange} />
+            <input type="text" name="bot-field" onChange={handleTextChange} />
           </label>
-          <input type="text" name="plan" onChange={handleChange} />
-          <input type="text" name="tablets" onChange={handleChange} />
+          <input type="text" name="subject" />
+          <input type="text" name="plan" onChange={handleTextChange} />
+          <input type="text" name="tablets" onChange={handleTextChange} />
         </p>
 
         <p>
@@ -180,7 +209,7 @@ export default injectIntl(({ location, intl }) => {
               type="text"
               name="name"
               value={formValues.name}
-              onChange={handleChange}
+              onChange={handleTextChange}
             />
           </FormLabel>
         </p>
@@ -191,7 +220,7 @@ export default injectIntl(({ location, intl }) => {
               type="email"
               name="email"
               value={formValues.email}
-              onChange={handleChange}
+              onChange={handleTextChange}
             />
           </FormLabel>
         </p>
@@ -202,7 +231,7 @@ export default injectIntl(({ location, intl }) => {
               type="restaurant"
               name="restaurant"
               value={formValues.restaurant}
-              onChange={handleChange}
+              onChange={handleTextChange}
             />
           </FormLabel>
         </p>
@@ -212,7 +241,7 @@ export default injectIntl(({ location, intl }) => {
             <Textarea
               name="message"
               value={formValues.message}
-              onChange={handleChange}
+              onChange={handleTextChange}
             />
           </FormLabel>
         </p>
@@ -221,11 +250,11 @@ export default injectIntl(({ location, intl }) => {
             margin: 2.5em 0 4em;
           `}
         >
-          <FormLabel htmlFor="name">
+          <FormLabel htmlFor="design">
             <Checkbox
-              name="name"
-              value={formValues.name}
-              onChange={handleChange}
+              name="design"
+              value={formValues.design}
+              onChange={handleCheckboxChange}
             />
             {intl.formatMessage({ id: 'enrol.customDesign' })}
           </FormLabel>

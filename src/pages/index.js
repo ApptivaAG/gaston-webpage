@@ -73,17 +73,16 @@ const ImageTextSection = ({ image, title, children }) => (
   >
     <div
       css={`
-        flex: 1;
-        min-width: 80px;
+        flex: 0 3 8em;
         background-image: url(${image});
-        background-position: center;
+        background-position: center 5vw;
         background-repeat: no-repeat;
         background-size: contain;
       `}
     />
     <div
       css={`
-        flex: 3;
+        flex: 1 9 auto;
         margin-left: 5%;
       `}
     >
@@ -215,7 +214,11 @@ const IndexPage = ({ intl }) => {
           </div>
         </Container>
       </Hero>
-      <section>
+      <section
+        css={`
+          margin-top: 6em;
+        `}
+      >
         <Container>
           <ImageTextSection
             image={brush}
@@ -224,8 +227,6 @@ const IndexPage = ({ intl }) => {
             {intl.formatMessage({ id: 'index.design.content' })}
           </ImageTextSection>
         </Container>
-      </section>
-      <section>
         <Container>
           <ImageTextSection
             image={menu}
@@ -234,8 +235,6 @@ const IndexPage = ({ intl }) => {
             {intl.formatMessage({ id: 'index.administration.content' })}
           </ImageTextSection>
         </Container>
-      </section>
-      <section>
         <Container>
           <ImageTextSection
             image={tablet}
@@ -244,11 +243,10 @@ const IndexPage = ({ intl }) => {
             {intl.formatMessage({ id: 'index.rental.content' })}
           </ImageTextSection>
         </Container>
-      </section>
-      <section>
         <Container
           css={`
             text-align: center;
+            margin-bottom: 6em;
           `}
         >
           <Button

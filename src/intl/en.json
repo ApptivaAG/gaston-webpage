@@ -122,6 +122,10 @@
     "thanks": "Thank you. We have received your message and will get back to you as soon as possible.",
     "sorry": "Unfortunately this did not work. Sorry for the inconvenience. If you send us an email at info@apptiva.ch we will contact you immediately."
   },
+  "thanks": {
+    "title": "Thank you",
+    "instructions": "Thank you for your order. We will contact you via eMail, so that you can start using Gaston as soon as possible."
+  },
   "blog": {
     "title": "The five most annoying things about eating in a restaurant",
     "lead": "Practically at every restaurant there are similar things that are annoying. In this post we want to explorer what does things are and why they are a problem.",

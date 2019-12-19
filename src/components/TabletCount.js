@@ -14,8 +14,8 @@ export default injectIntl(({ intl }) => {
   const tabletCountChanged = count => {
     setTabletCount(count)
     trackCustomEvent({
-      category: 'Pricing',
-      action: 'slide tablet count',
+      category: 'Tablet Amount',
+      action: 'Move slider',
       value: count,
     })
   }

@@ -122,6 +122,10 @@
     "thanks": "Danke! Wir haben Ihre Nachricht erhalten und melden uns so bald wie möglich bei Ihnen.",
     "sorry": "Leider hat dies nicht funktioniert. Entschuldigen Sie die Umstände. Wenn Sie uns auf info@apptiva.ch ein Email schicken melden wir uns sofort bei Ihnen."
   },
+  "thanks": {
+    "title": "Herzlichen Dank",
+    "instructions": "Herzlichen Dank für Ihre Bestellung. Wir kontaktieren Sie per eMail, damit Sie Gaston so bald wie möglich nutzen können."
+  },
   "blog": {
     "title": "Die fünf nervigsten Dinge beim Essen in einem Restaurant",
     "lead": "Praktisch in jedem Restaurant gibt es ähnliche Dinge, die ärgerlich sind. In diesem Beitrag wollen wir untersuchen, was diese Dinge sind und warum sie ein Problem darstellen.",
