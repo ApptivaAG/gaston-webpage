@@ -91,7 +91,7 @@ const trackEvent = value => {
     // string - required - Type of interaction (e.g. 'play')
     action: 'Click',
     // number - optional - Numeric value associated with the event. (e.g. A product ID)
-    value,
+    value: JSON.stringify(value),
   })
 }
 
