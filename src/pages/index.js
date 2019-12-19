@@ -76,9 +76,13 @@ const ImageTextSection = ({ image, title, children }) => (
       css={`
         flex: 0 3 8em;
         background-image: url(${image});
-        background-position: center 5vw;
+        background-position: center 3.2em;
         background-repeat: no-repeat;
         background-size: contain;
+
+        @media (max-widht: 1024px) {
+          background-position: center 5vw;
+        }
       `}
     />
     <div
