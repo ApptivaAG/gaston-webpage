@@ -9,9 +9,9 @@ import tablet from '../images/tablet.svg'
 import PriceTag from './PriceTag'
 import Button from '../styles/Button'
 import { androidRentPrice, iPadRentPrice } from './prices'
-import BackNext from './BackNext'
-import Left from './Left'
-import Right from './Right'
+import Right from '../styles/Right'
+import BackNext from '../styles/BackNext'
+import Left from '../styles/Left'
 
 const trackEvent = tabletType => () => {
   // Lets track that custom click

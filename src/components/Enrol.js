@@ -8,9 +8,9 @@ import { navigate } from 'gatsby-plugin-intl/link'
 import DefaultButton from '../styles/Button'
 import PriceTag from './PriceTag'
 import { totalProPrice, tabletPrice } from './prices'
-import BackNext from './BackNext'
-import Right from './Right'
-import Left from './Left'
+import BackNext from '../styles/BackNext'
+import Right from '../styles/Right'
+import Left from '../styles/Left'
 
 const encode = data =>
   Object.keys(data)

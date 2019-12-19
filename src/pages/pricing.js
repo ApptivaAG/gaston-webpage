@@ -7,14 +7,12 @@ import Container from '../styles/Container'
 import Plans from '../components/Plans'
 import TabletCount from '../components/TabletCount'
 import Rent from '../components/Rent'
-import CustomDesign from '../components/CustomDesign'
 import Enrol from '../components/Enrol'
 import Thanks from '../components/Thanks'
 
 const steps = {
   count: TabletCount,
   rent: Rent,
-  design: CustomDesign,
   enrol: Enrol,
   thanks: Thanks,
 }

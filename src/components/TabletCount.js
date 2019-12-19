@@ -5,9 +5,9 @@ import { Link, injectIntl } from 'gatsby-plugin-intl'
 import PriceTag from './PriceTag'
 import Button from '../styles/Button'
 import { totalProPrice } from './prices'
-import BackNext from './BackNext'
-import Right from './Right'
-import Left from './Left'
+import BackNext from '../styles/BackNext'
+import Right from '../styles/Right'
+import Left from '../styles/Left'
 
 export default injectIntl(({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
