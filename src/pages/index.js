@@ -47,7 +47,8 @@ const Hero = ({ children }) => {
     bottom: 0;
     left: 0;
     right: 0;
-    background: url(${p => p.img}) center/cover no-repeat;
+    background: url(${p => p.img}) hsl(326.21, 84.43%, 38%) center/cover
+      no-repeat;
     filter: brightness(40%);
 
     animation: ${fadeIn} ease 15s infinite;
