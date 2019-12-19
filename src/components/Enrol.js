@@ -8,6 +8,9 @@ import { navigate } from 'gatsby-plugin-intl/link'
 import DefaultButton from '../styles/Button'
 import PriceTag from './PriceTag'
 import { totalProPrice, tabletPrice } from './prices'
+import BackNext from './BackNext'
+import Right from './Right'
+import Left from './Left'
 
 const encode = data =>
   Object.keys(data)
@@ -53,20 +56,6 @@ const Button = styled(DefaultButton)`
       background-color: ${p.theme.primary};
       color: white;
     `}
-`
-
-const Right = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  a,
-  button {
-    width: 100%;
-  }
-  @media (min-width: 600px) {
-    button {
-      flex: 0 1 50%;
-    }
-  }
 `
 
 const Checkbox = ({ ...props }) => (
@@ -260,16 +249,7 @@ export default injectIntl(({ location, intl }) => {
           </FormLabel>
         </p>
 
-        <div
-          css={`
-            margin-top: 2em;
-            @media (min-width: 600px) {
-              display: flex;
-              flex-direction: row-reverse;
-              justify-content: space-between;
-            }
-          `}
-        >
+        <BackNext>
           <Right
             css={`
               flex: 3;
@@ -279,18 +259,12 @@ export default injectIntl(({ location, intl }) => {
               {intl.formatMessage({ id: 'enrol.submit' })}
             </Button>
           </Right>
-          <div
-            css={`
-              display: block;
-              flex: 1;
-              margin-right: 50px;
-            `}
-          >
+          <Left>
             <Button type="button" onClick={() => window.history.back()}>
               {intl.formatMessage({ id: 'pricing.back' })}
             </Button>
-          </div>
-        </div>
+          </Left>
+        </BackNext>
       </form>
     </>
   )

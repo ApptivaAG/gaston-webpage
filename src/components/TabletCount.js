@@ -5,6 +5,9 @@ import { Link, injectIntl } from 'gatsby-plugin-intl'
 import PriceTag from './PriceTag'
 import Button from '../styles/Button'
 import { totalProPrice } from './prices'
+import BackNext from './BackNext'
+import Right from './Right'
+import Left from './Left'
 
 export default injectIntl(({ intl }) => {
   const [tabletCount, setTabletCount] = useState(10)
@@ -65,21 +68,18 @@ export default injectIntl(({ intl }) => {
           unit={intl.formatMessage({ id: 'pricing.plans.pro.priceUnit' })}
         />
       </div>
-      <div
-        css={`
-          margin-top: 50px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        `}
-      >
-        <Button onClick={() => window.history.back()}>
-          {intl.formatMessage({ id: 'pricing.back' })}
-        </Button>
-        <Link to={`/pricing?step=rent&plan=pro&tablets=${tabletCount}`}>
-          <Button>{intl.formatMessage({ id: 'pricing.continue' })}</Button>
-        </Link>
-      </div>
+      <BackNext>
+        <Right>
+          <Link to={`/pricing?step=rent&plan=pro&tablets=${tabletCount}`}>
+            <Button>{intl.formatMessage({ id: 'pricing.continue' })}</Button>
+          </Link>
+        </Right>
+        <Left>
+          <Button onClick={() => window.history.back()}>
+            {intl.formatMessage({ id: 'pricing.back' })}
+          </Button>
+        </Left>
+      </BackNext>
     </>
   )
 })

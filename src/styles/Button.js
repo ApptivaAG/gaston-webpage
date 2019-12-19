@@ -4,6 +4,7 @@ const Button = styled.button`
   display: inline-block;
   font-size: 1em;
   padding: 0.6em 2em;
+  margin-bottom: 2em;
   border: 0.16em solid ${p => p.theme.primary};
   border-radius: 0.4em;
   font-weight: bold;

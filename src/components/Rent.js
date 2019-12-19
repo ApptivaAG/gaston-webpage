@@ -2,37 +2,16 @@ import React from 'react'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import queryString from 'querystring'
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
 
 import '../styles/rc-slider.css'
 import tablet from '../images/tablet.svg'
 import PriceTag from './PriceTag'
-import DefaultButton from '../styles/Button'
+import Button from '../styles/Button'
 import { androidRentPrice, iPadRentPrice } from './prices'
-
-const Button = styled(DefaultButton)`
-  margin-bottom: 2em;
-  ${p =>
-    p.active &&
-    css`
-      background-color: ${p.theme.primary};
-      color: white;
-    `}
-`
-
-const Right = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  a,
-  button {
-    width: 100%;
-  }
-  @media (min-width: 600px) {
-    a {
-      flex: 0 1 50%;
-    }
-  }
-`
+import BackNext from './BackNext'
+import Left from './Left'
+import Right from './Right'
 
 const trackEvent = tabletType => () => {
   // Lets track that custom click
@@ -138,39 +117,20 @@ export default injectIntl(({ intl, location }) => {
           </Right>
         </div>
       </div>
-      <div
-        css={`
-          margin-top: 2em;
-          @media (min-width: 600px) {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-          }
-        `}
-      >
-        <Right
-          css={`
-            flex: 3;
-          `}
-        >
+      <BackNext>
+        <Right>
           <Link to={makeLink('none')} onClick={trackEvent('none')}>
             <Button>
               {intl.formatMessage({ id: 'pricing.rent.noTablets' })}
             </Button>
           </Link>
         </Right>
-        <div
-          css={`
-            display: block;
-            flex: 1;
-            margin-right: 50px;
-          `}
-        >
+        <Left>
           <Button onClick={() => window.history.back()}>
             {intl.formatMessage({ id: 'pricing.back' })}
           </Button>
-        </div>
-      </div>
+        </Left>
+      </BackNext>
     </>
   )
 })
