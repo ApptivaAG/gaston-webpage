@@ -99,8 +99,9 @@ const EnrolPage = ({ location, intl }) => {
                 <input type="text" name="bot-field" onChange={handleChange} />
               </label>
               <input type="text" name="subject" />
-              <input type="text" name="plan" onChange={handleChange} />
-              <input type="text" name="tablets" onChange={handleChange} />
+              <input type="text" name="plan" />
+              <input type="text" name="rent" />
+              <input type="text" name="tablets" />
             </p>
             <p>
               {intl.formatMessage({ id: 'enrol.plan' })}:{' '}

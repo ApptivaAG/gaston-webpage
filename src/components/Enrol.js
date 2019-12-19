@@ -153,8 +153,9 @@ export default injectIntl(({ location, intl }) => {
             <input type="text" name="bot-field" onChange={handleTextChange} />
           </label>
           <input type="text" name="subject" />
-          <input type="text" name="plan" onChange={handleTextChange} />
-          <input type="text" name="tablets" onChange={handleTextChange} />
+          <input type="text" name="plan" />
+          <input type="text" name="rent" />
+          <input type="text" name="tablets" />
         </p>
 
         <p>
