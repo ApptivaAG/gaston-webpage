@@ -87,7 +87,7 @@
     },
     "design": {
       "title": "Your design",
-      "description": "Your menu should not look like a foreign object in your restaurant. That's why Gaston can create completely customized designs if you don't like any of the standard designs. This goes far beyond simply changing colours and images.",
+      "description": "Your menu should not look like a foreign object in your restaurant. That's why Gaston can create completely customized designs if you don't like any of the standard designs. This goes far beyond simply changing colors and images.",
       "price": "One-off from CHF 1'000.",
       "useCustomDesign": "Use custom design",
       "noCustomDesign": "Use standard design"
@@ -112,7 +112,7 @@
       "android": "Android Tablets",
       "ipad": "iPads"
     },
-    "customDesign": "I'm interessted in a custom design.",
+    "customDesign": "I'm interested in a custom design.",
     "YourName": "Your name (required)",
     "YourEMail": "Your email address (required)",
     "YourRestaurant": "Your restaurant (required)",
