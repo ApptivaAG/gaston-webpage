@@ -133,7 +133,9 @@
   },
   "about": {
     "content": "<p><b>Gaston</b> ist ein junges Software Start-Up, das aus der Vision heraus gegründet wurde, den Bestellungs und Bezahlungsprozess in Restaraunts, Cafés und Bars zu revolutionieren. Den Einstieg in die Gastro-Branche hoffen wir nun mit unserer <b>Gaston-Menü</b> Lösung zu finden, welche die Speisekarten ins digitale Zeitalter bringt. Wir sind bereits <a href='/de/blog'>voller Ideen</a>, wie wir den Restaurantbesuch in Zukunft noch angenehmer machen können.</p>",
-    "software-developer": "Software Entwicker",
+    "software-developer": "Softwareentwicker",
+    "product-developer": "Produktentwickler",
+    "consultant": "Berater",
     "trainee": "Praktikant"
   },
   "header": {

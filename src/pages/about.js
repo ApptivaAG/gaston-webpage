@@ -33,7 +33,7 @@ const EmployeeName = styled.h3`
 const EmployeePosition = styled.span``
 
 const Employee = ({ employee: { name, position, image } }) => (
-  <EmployeeContainer>
+  <EmployeeContainer key={name}>
     <EmployeeImage fixed={image.childImageSharp.fixed} />
     <EmployeeName>{name}</EmployeeName>
     <EmployeePosition>
@@ -107,34 +107,34 @@ export default () => {
 
   const employees = [
     {
-      name: 'Linus Huesler',
-      position: 'software-developer',
-      image: linus,
-    },
-    {
-      name: 'Markus Tanner',
-      position: 'software-developer',
-      image: markus,
-    },
-    {
       name: 'Patrik Stutz',
       position: 'software-developer',
       image: patrik,
     },
     {
       name: 'Philip Schoenholzer',
-      position: 'software-developer',
+      position: 'product-developer',
       image: philip,
-    },
-    {
-      name: 'Renato Wasescha',
-      position: 'software-developer',
-      image: renato,
     },
     {
       name: 'Roman Schaller',
       position: 'software-developer',
       image: roman,
+    },
+    {
+      name: 'Renato Wasescha',
+      position: 'consultant',
+      image: renato,
+    },
+    {
+      name: 'Linus Huesler',
+      position: 'consultant',
+      image: linus,
+    },
+    {
+      name: 'Markus Tanner',
+      position: 'consultant',
+      image: markus,
     },
     {
       name: 'David Decker',

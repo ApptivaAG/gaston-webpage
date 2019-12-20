@@ -133,7 +133,9 @@
   },
   "about": {
     "content": "<p><b>Gaston</b> is a young software start-up that was founded with the vision to revolutionize the ordering and payment process in restaurants, cafés and bars. We entered the gastro market with our first product <b>Gaston Menu</b>, but are already <a href='/en/blog/'>full of ideas</a> how to make restaurant visits even more pleasant in the future.",
-    "software-developer": "Software Developer",
+    "software-developer": "Software developer",
+    "product-developer": "Product developer",
+    "consultant": "Consultant",
     "trainee": "Trainee"
   },
   "header": {
