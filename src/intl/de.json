@@ -51,7 +51,7 @@
         "name": "Pro",
         "text": "Abonnieren Sie den Pro-Plan, wenn Sie bis zu 50 Tablets in Ihrem Betrieb einsetzen möchten.",
         "feature1": "Lizenzen inbegriffen: 10",
-        "feature2": "Jede weitere Lizenz: {licensePrice}.-",
+        "feature2": "Jede weitere Lizenz: {licensePrice}",
         "priceUnit": " / Mt.",
         "howManyTablets": "Wieviele Tablets benötigen Sie?",
         "totalPrice": "Pro-Plan inklusive {tabletCount} Tablet-Lizenzen"
