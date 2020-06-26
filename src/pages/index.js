@@ -276,7 +276,7 @@ const IndexPage = ({ intl }) => {
               </VideoTextColumn>
               <VideoColumn>
                 <p>
-                  <Video autoPlay controls loop>
+                  <Video muted autoplay controls loop>
                     <source
                       src="https://res.cloudinary.com/apptiva/video/upload/v1593171844/gaston/gaston-menu.mp4"
                       type="video/mp4"
@@ -285,11 +285,13 @@ const IndexPage = ({ intl }) => {
                       src="/gaston-menu-en.vtt"
                       kind="captions"
                       srcLang="en"
+                      default={intl.locale === 'en'}
                     />
                     <track
                       src="/gaston-menu-de.vtt"
                       kind="captions"
                       srcLang="de"
+                      default={intl.locale === 'de'}
                     />
                   </Video>
                 </p>
@@ -308,7 +310,7 @@ const IndexPage = ({ intl }) => {
               </VideoTextColumn>
               <VideoColumn>
                 <p>
-                  <Video autoPlay controls loop>
+                  <Video muted autoplay controls loop>
                     <source
                       src="https://res.cloudinary.com/apptiva/video/upload/v1593175414/gaston/gaston-order.mp4"
                       type="video/mp4"
@@ -317,11 +319,13 @@ const IndexPage = ({ intl }) => {
                       src="/gaston-order-en.vtt"
                       kind="captions"
                       srcLang="en"
+                      default={intl.locale === 'en'}
                     />
                     <track
                       src="/gaston-order-de.vtt"
                       kind="captions"
                       srcLang="de"
+                      default={intl.locale === 'de'}
                     />
                   </Video>
                 </p>
@@ -356,13 +360,23 @@ const IndexPage = ({ intl }) => {
           >
             <p>{intl.formatMessage({ id: 'index.administration.content' })}</p>
             <p>
-              <Video autoPlay controls loop>
+              <Video muted autoplay controls loop>
                 <source
                   src="https://res.cloudinary.com/apptiva/video/upload/v1593170458/gaston/gaston-cms.mp4"
                   type="video/mp4"
                 />
-                <track src="/gaston-cms-en.vtt" kind="captions" srcLang="en" />
-                <track src="/gaston-cms-de.vtt" kind="captions" srcLang="de" />
+                <track
+                  src="/gaston-cms-en.vtt"
+                  kind="captions"
+                  srcLang="en"
+                  default={intl.locale === 'en'}
+                />
+                <track
+                  src="/gaston-cms-de.vtt"
+                  kind="captions"
+                  srcLang="de"
+                  default={intl.locale === 'de'}
+                />
               </Video>
             </p>
           </ImageTextSection>
