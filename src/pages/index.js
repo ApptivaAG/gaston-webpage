@@ -76,6 +76,7 @@ const VideoColumn = styled.div`
 const Video = styled.video`
   width: 100%;
   border: 1px solid ${p => p.theme.primary};
+  border-radius: 5px;
 `
 
 const Hero = ({ children }) => {
