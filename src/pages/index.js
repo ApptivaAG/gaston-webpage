@@ -59,18 +59,23 @@ const SubTitle = styled.h3`
   margin-bottom: 0.5rem;
 `
 
-const EverywhereContainer = styled.div`
+const VideoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
-const EverywhereLeftColumn = styled.div`
+const VideoTextColumn = styled.div`
   flex: 1 1 15em;
   padding-right: 2em;
 `
 
-const EverywhereRightColumn = styled.div`
+const VideoColumn = styled.div`
   flex: 1 1 20em;
+`
+
+const Video = styled.video`
+  width: 100%;
+  border: 1px solid ${p => p.theme.primary};
 `
 
 const Hero = ({ children }) => {
@@ -247,8 +252,8 @@ const IndexPage = ({ intl }) => {
             image={everywhere}
             title={intl.formatMessage({ id: 'index.everywhere.title' })}
           >
-            <EverywhereContainer>
-              <EverywhereLeftColumn>
+            <VideoContainer>
+              <VideoTextColumn>
                 <p>{intl.formatMessage({ id: 'index.everywhere.content' })}</p>
                 <SubTitle>
                   {intl.formatMessage({ id: 'index.everywhere.subtitle1' })}
@@ -268,17 +273,12 @@ const IndexPage = ({ intl }) => {
                   {intl.formatMessage({ id: 'index.everywhere.subtitle4' })}
                 </SubTitle>
                 {intl.formatMessage({ id: 'index.everywhere.subcontent4' })}
-              </EverywhereLeftColumn>
-              <EverywhereRightColumn>
+              </VideoTextColumn>
+              <VideoColumn>
                 <p>
-                  <video
-                    autoPlay
-                    controls
-                    loop
-                    style={{ width: '100%', boxShadow: '0px 0px 10px grey' }}
-                  >
+                  <Video autoPlay controls loop>
                     <source
-                      src="https://res.cloudinary.com/apptiva/video/upload/v1593012578/gaston/gaston-menu.mp4"
+                      src="https://res.cloudinary.com/apptiva/video/upload/v1593171844/gaston/gaston-menu.mp4"
                       type="video/mp4"
                     />
                     <track
@@ -291,10 +291,10 @@ const IndexPage = ({ intl }) => {
                       kind="captions"
                       srcLang="de"
                     />
-                  </video>
+                  </Video>
                 </p>
-              </EverywhereRightColumn>
-            </EverywhereContainer>
+              </VideoColumn>
+            </VideoContainer>
           </ImageTextSection>
         </Container>
         <Container>
@@ -302,7 +302,31 @@ const IndexPage = ({ intl }) => {
             image={order}
             title={intl.formatMessage({ id: 'index.order.title' })}
           >
-            {intl.formatMessage({ id: 'index.order.content' })}
+            <VideoContainer>
+              <VideoTextColumn>
+                <p>{intl.formatMessage({ id: 'index.order.content' })}</p>
+              </VideoTextColumn>
+              <VideoColumn>
+                <p>
+                  <Video autoPlay controls loop>
+                    <source
+                      src="https://res.cloudinary.com/apptiva/video/upload/v1593175414/gaston/gaston-order.mp4"
+                      type="video/mp4"
+                    />
+                    <track
+                      src="/gaston-order-en.vtt"
+                      kind="captions"
+                      srcLang="en"
+                    />
+                    <track
+                      src="/gaston-order-de.vtt"
+                      kind="captions"
+                      srcLang="de"
+                    />
+                  </Video>
+                </p>
+              </VideoColumn>
+            </VideoContainer>
           </ImageTextSection>
         </Container>
         <Container>
@@ -332,19 +356,14 @@ const IndexPage = ({ intl }) => {
           >
             <p>{intl.formatMessage({ id: 'index.administration.content' })}</p>
             <p>
-              <video
-                autoPlay
-                controls
-                loop
-                style={{ width: '100%', boxShadow: '0px 0px 10px grey' }}
-              >
+              <Video autoPlay controls loop>
                 <source
-                  src="https://res.cloudinary.com/apptiva/video/upload/v1593006290/gaston/gaston-cms.mp4"
+                  src="https://res.cloudinary.com/apptiva/video/upload/v1593170458/gaston/gaston-cms.mp4"
                   type="video/mp4"
                 />
                 <track src="/gaston-cms-en.vtt" kind="captions" srcLang="en" />
                 <track src="/gaston-cms-de.vtt" kind="captions" srcLang="de" />
-              </video>
+              </Video>
             </p>
           </ImageTextSection>
         </Container>
