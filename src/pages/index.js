@@ -276,7 +276,7 @@ const IndexPage = ({ intl }) => {
               </VideoTextColumn>
               <VideoColumn>
                 <p>
-                  <Video muted autoplay controls loop>
+                  <Video muted autoPlay loop controls>
                     <source
                       src="https://res.cloudinary.com/apptiva/video/upload/v1593171844/gaston/gaston-menu.mp4"
                       type="video/mp4"
@@ -310,7 +310,7 @@ const IndexPage = ({ intl }) => {
               </VideoTextColumn>
               <VideoColumn>
                 <p>
-                  <Video muted autoplay controls loop>
+                  <Video muted autoPlay loop controls>
                     <source
                       src="https://res.cloudinary.com/apptiva/video/upload/v1593175414/gaston/gaston-order.mp4"
                       type="video/mp4"
@@ -360,7 +360,7 @@ const IndexPage = ({ intl }) => {
           >
             <p>{intl.formatMessage({ id: 'index.administration.content' })}</p>
             <p>
-              <Video muted autoplay controls loop>
+              <Video muted autoPlay loop controls>
                 <source
                   src="https://res.cloudinary.com/apptiva/video/upload/v1593170458/gaston/gaston-cms.mp4"
                   type="video/mp4"
