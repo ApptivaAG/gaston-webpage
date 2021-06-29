@@ -12,7 +12,7 @@ Seit einiger Zeit ist Gaston nun in unterschiedlichen Restaurants im täglichen 
 
 ## Gäste wollen mit Gaston bestellen und bezahlen
 
-Nach jeder Bestellung können uns die Gäste mitteilen, ob sie wieder mit Gaston bestellen würden oder nicht. Bisher haben **86.2%** diese Frage mit _Ja_ beantwortet. Zudem können die Gäste den Grund für _Ja_ oder _Nein_ nennen. Ein paar häufig genannte Beispiele sind:
+Nach jeder Bestellung können uns die Gäste mitteilen, ob sie wieder mit Gaston bestellen würden oder nicht. Bisher haben **86.2%** diese Frage mit _Ja_ beantwortet. Zudem können die Gäste den Grund für _Ja_ oder _Nein_ nennen. Ein paar häufig genannte Beispiele für _Ja_ sind:
 
 - _Weil es simpel und einfach ist_
 - _Schnell, toll, perfekt_
@@ -46,4 +46,4 @@ In den folgenden Restaurants können Sie die vielfältigen Einsatzmöglichkeiten
 
 ## Die Vorteile von Gaston selber erfahren
 
-Alle drei Restaurants zeigen auf, wie bequem Gaston für den Gast ist und welche Vorteil es für den Gastgeber hat. Falls Sie die Vorteile von Gaston live erleben wollen, besuchen Sie eines dieser Restaurant oder kontaktiere Sie uns über die [Kontaktseite](/contact/).
+Alle drei Restaurants zeigen auf, wie bequem Gaston für den Gast ist und welche Vorteile es für den Gastgeber hat. Falls Sie die Vorteile von Gaston live erleben wollen, besuchen Sie eines dieser Restaurant oder kontaktiere Sie uns über die [Kontaktseite](/contact/).
