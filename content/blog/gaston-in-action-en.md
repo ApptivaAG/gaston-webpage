@@ -44,4 +44,4 @@ In the following restaurants you can experience the many uses of Gaston live:
 
 ## Experience the advantages of Gaston yourself
 
-All three restaurants show how convenient Gaston is for the guests and the advantages it poses for the host. If you want to experience the advantages of Gaston live, visit one of these restaurants or contact us via our [contact page](/contact/).
+All three restaurants show how convenient Gaston is for the guests and the advantages it poses for the host. If you want to experience the advantages of Gaston live, visit one of these restaurants or contact us via our [contact page](/en/contact/).

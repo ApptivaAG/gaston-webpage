@@ -46,4 +46,4 @@ In den folgenden Restaurants können Sie die vielfältigen Einsatzmöglichkeiten
 
 ## Die Vorteile von Gaston selber erfahren
 
-Alle drei Restaurants zeigen auf, wie bequem Gaston für den Gast ist und welche Vorteile es für den Gastgeber hat. Falls Sie die Vorteile von Gaston live erleben wollen, besuchen Sie eines dieser Restaurant oder kontaktiere Sie uns über die [Kontaktseite](/contact/).
+Alle drei Restaurants zeigen auf, wie bequem Gaston für den Gast ist und welche Vorteile es für den Gastgeber hat. Falls Sie die Vorteile von Gaston live erleben wollen, besuchen Sie eines dieser Restaurant oder kontaktiere Sie uns über die [Kontaktseite](/de/contact/).
