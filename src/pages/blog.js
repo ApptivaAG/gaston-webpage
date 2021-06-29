@@ -6,48 +6,34 @@ import { graphql } from 'gatsby'
 import Button from '../styles/Button'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import { Container } from '../styles'
+import { Container, Right } from '../styles'
 
-const Lead = styled.div`
-  margin-bottom: 2em;
-`
-
-const Date = styled.div`
-  margin-top: -2em;
-  margin-bottom: 2em;
-  font-size: 0.8em;
-  font-weight: bold;
-  opacity: 0.7;
-`
-
-const BlogList = ({ blogs }) => {
-  return (
-    <div>
-      <h1>Blog</h1>
-
-      {blogs.map(blog => (
-        <BlogListEntry key={blog.node.frontmatter.slug} blog={blog} />
-      ))}
-    </div>
-  )
-}
+const BlogList = ({ blogs }) => (
+  <>
+    {blogs.map((blog) => (
+      <BlogListEntry key={blog.node.frontmatter.slug} blog={blog} />
+    ))}
+  </>
+)
 
 const BlogListEntry = ({ blog }) => (
   <>
-    <h2>{blog.node.frontmatter.title}</h2>
+    <BlogTitle>{blog.node.frontmatter.title}</BlogTitle>
     <Date>{blog.node.frontmatter.date}</Date>
     <Lead>{blog.node.excerpt}</Lead>
-    <Link to={`/blog/${blog.node.frontmatter.slug}`}>
-      <Button>
-        <FormattedMessage id="blog.readmore" />
-      </Button>
-    </Link>
+    <div css="text-align: right;">
+      <Link to={`/blog/${blog.node.frontmatter.slug}`}>
+        <Button>
+          <FormattedMessage id="blog.readmore" />
+        </Button>
+      </Link>
+    </div>
   </>
 )
 
 const BlogPage = ({ intl, data }) => {
   const blogs = data.allMarkdownRemark.edges.filter(
-    edge => edge.node.frontmatter.lang === intl.locale
+    (edge) => edge.node.frontmatter.lang === intl.locale
   )
   return (
     <Layout>
@@ -57,12 +43,25 @@ const BlogPage = ({ intl, data }) => {
           padding-bottom: 6em;
         `}
       >
+        <h1>Blog</h1>
         <BlogList blogs={blogs} />
       </Container>
     </Layout>
   )
 }
 
+const Lead = styled.div`
+  margin-bottom: 1em;
+`
+const Date = styled.div`
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  opacity: 0.7;
+`
+const BlogTitle = styled.h2`
+  margin-bottom: 0;
+`
 export default injectIntl(BlogPage)
 
 export const query = graphql`
@@ -73,7 +72,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 300)
+          excerpt(pruneLength: 200)
           frontmatter {
             title
             date(formatString: "DD.MM.YYYY")

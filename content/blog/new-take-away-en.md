@@ -21,7 +21,7 @@ These are quick and pragmatic measures that also work. But they can still be opt
 - With a well-managed order process on the homepage, more customers can be reached. Ordering becomes easier.
 - For larger volumes, the process from ordering, payment to delivery must be better organized.
 
-## What is the solution?
+## What is the solution?
 
 We attach great importance to the fact that our solution is implemented quickly and cost-effectively. Therefore, there are only the following steps for restaurant operators to take:
 

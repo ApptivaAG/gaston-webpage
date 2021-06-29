@@ -1,11 +1,5 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
+import { getSrc } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { injectIntl } from 'gatsby-plugin-intl'
@@ -16,21 +10,23 @@ function SEO({ intl, description, image, meta, title }) {
   const metaDescription =
     description || `${intl.formatMessage({ id: 'description' })}`
 
+  const imageSrc = getSrc(image)
+
   const metaImage = image
     ? [
-        { property: 'image', content: `${gastonUrl}${image.fixed.src}` },
-        { property: 'og:image', content: `${gastonUrl}${image.fixed.src}` },
+        { property: 'image', content: `${gastonUrl}${imageSrc}` },
+        { property: 'og:image', content: `${gastonUrl}${imageSrc}` },
         {
           property: 'og:image:width',
-          content: image.fixed.width,
+          content: imageSrc,
         },
         {
           property: 'og:image:height',
-          content: image.fixed.height,
+          content: imageSrc,
         },
         {
           property: 'twitter:image',
-          content: `${gastonUrl}${image.fixed.src}`,
+          content: `${gastonUrl}${imageSrc}`,
         },
       ]
     : [
