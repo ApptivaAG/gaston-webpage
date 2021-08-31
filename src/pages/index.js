@@ -5,11 +5,6 @@ import useWindowWidth from '../lib/useWindowWith'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { Container, Button } from '../styles'
-import spain from '../images/spain.jpg'
-import sushi from '../images/sushi.jpg'
-import white from '../images/white.jpg'
-import menus from '../images/menus.png'
-import ipad from '../images/ipad.png'
 import brush from '../images/paint-board-and-brush.svg'
 import menu from '../images/menu.svg'
 import takeAway from '../images/take-away.svg'
@@ -18,43 +13,14 @@ import order from '../images/mobile-shopping.svg'
 import languages from '../images/communications.svg'
 import roadmap from '../images/roadmap.svg'
 
-const Wrapper = styled.section`
-  margin-top: -5rem;
-  padding-top: 4rem;
-  position: relative;
-  color: white;
-`
-const fadeIn = keyframes`
-    0% {
-      opacity:1;
-    }
-    28% {
-      opacity:1;
-    }
-    34% {
-      opacity:0;
-    }
-    94% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  `
-const BgImg = styled.div`
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: url(${p => p.img}) hsl(326.21, 84.43%, 38%) center/cover no-repeat;
-  filter: brightness(40%);
+import ani1 from '../images/illustration/Ani_1.svg'
+import ani2 from '../images/illustration/Ani_2.svg'
+import ani3 from '../images/illustration/Ani_3.svg'
+import ani4 from '../images/illustration/Ani_4.svg'
+import ani5 from '../images/illustration/Ani_5.svg'
+import ani6 from '../images/illustration/Ani_6.svg'
+import ani7 from '../images/illustration/Ani_7.svg'
 
-  animation: ${fadeIn} ease 15s infinite;
-  animation-delay: ${p => p.delay}s;
-`
 const SubTitle = styled.h3`
   margin-bottom: 0.5rem;
 `
@@ -75,20 +41,8 @@ const VideoColumn = styled.div`
 
 const Video = styled.video`
   width: 100%;
-  border: 1px solid ${p => p.theme.primary};
+  border: 1px solid ${(p) => p.theme.primary};
 `
-
-const Hero = ({ children }) => {
-  return (
-    <Wrapper>
-      <BgImg img={white} delay="10" />
-      <BgImg img={sushi} delay="5" />
-      <BgImg img={spain} delay="0" />
-
-      {children}
-    </Wrapper>
-  )
-}
 
 const ImageTextSection = ({ image, title, children }) => (
   <div
@@ -135,126 +89,172 @@ const IndexPage = ({ intl }) => {
   return (
     <Layout dark>
       <SEO title="Home" />
-      <Hero>
-        <Container>
+      <Container>
+        <div
+          css={`
+            display: grid;
+            gap: 5em 1em;
+            height: 100%;
+            justify-content: center;
+            @media (min-width: 768px) {
+              grid-template-columns: 1fr 1fr;
+            }
+          `}
+        >
+          <div>
+            <h1
+              css={`
+                font-size: 4em;
+                margin: 0.5em 0;
+                line-height: 0.6em;
+              `}
+            >
+              <b>Gaston</b>
+              <br />
+              <small
+                css={`
+                  font-size: 40%;
+                  color: white;
+                `}
+              >
+                {intl.formatMessage({ id: 'index.menutag' })}
+              </small>
+            </h1>
+            <ul css="margin-top: -1rem">
+              <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
+              <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
+              <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
+              <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
+              <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
+            </ul>
+            <br />
+            <Button
+              css={`
+                background-color: white;
+                margin: 0.2em;
+              `}
+              as={Link}
+              to="/offers"
+            >
+              {intl.formatMessage({ id: 'index.calltoaction' })}
+            </Button>
+
+            <Button
+              css={`
+                background-color: white;
+                margin: 0.2em;
+              `}
+              as={Link}
+              to="/qr-code-demo"
+              state={{
+                modal: windowWidth > 448,
+              }}
+            >
+              {intl.formatMessage({ id: 'index.demo-calltoaction' })}
+            </Button>
+          </div>
           <div
             css={`
-              display: grid;
-              gap: 5em 1em;
-              height: 100%;
-              justify-content: center;
-              @media (min-width: 768px) {
-                grid-template-columns: 1fr 1fr;
+              position: relative;
+              img {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                animation-name: fade;
+                animation-iteration-count: infinite;
+                animation-duration: 10.5s;
+              }
+              @keyframes fade {
+                0% {
+                  opacity: 0;
+                }
+                2% {
+                  opacity: 1;
+                }
+                6% {
+                  opacity: 1;
+                }
+                8% {
+                  opacity: 0;
+                }
+                100% {
+                  opacity: 0;
+                }
+              }
+
+              #f1 {
+                position: relative;
+              }
+              #f2 {
+                animation-delay: 0.5s;
+              }
+              #f3 {
+                animation-delay: 1s;
+              }
+              #f4 {
+                animation-delay: 1.5s;
+              }
+              #f5 {
+                animation-delay: 2s;
+              }
+              #f6 {
+                animation-delay: 2.5s;
+              }
+              #f7 {
+                animation-delay: 4s;
+              }
+              #f8 {
+                animation-delay: 4.5s;
+              }
+              #f9 {
+                animation-delay: 5s;
+              }
+              #f10 {
+                animation-delay: 5.5s;
+              }
+              #f11 {
+                animation-delay: 6s;
+              }
+              #f12 {
+                animation-delay: 6.5s;
+              }
+              #f13 {
+                animation-delay: 7s;
+              }
+              #f14 {
+                animation-delay: 7.5s;
+              }
+              #f15 {
+                animation-delay: 8s;
+              }
+              #f16 {
+                animation-delay: 8.5s;
+              }
+              #f17 {
+                animation-delay: 9s;
               }
             `}
           >
-            <div>
-              <h1
-                css={`
-                  font-size: 4em;
-                  margin: 0.5em 0;
-                  line-height: 0.6em;
-                `}
-              >
-                <b>Gaston</b>
-                <br />
-                <small
-                  css={`
-                    font-size: 40%;
-                    color: white;
-                  `}
-                >
-                  {intl.formatMessage({ id: 'index.menutag' })}
-                </small>
-              </h1>
-              <ul css="margin-top: -1rem">
-                <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
-              </ul>
-              <br />
-              <Button
-                css={`
-                  background-color: white;
-                  margin: 0.2em;
-                `}
-                as={Link}
-                to="/offers"
-              >
-                {intl.formatMessage({ id: 'index.calltoaction' })}
-              </Button>
-
-              <Button
-                css={`
-                  background-color: white;
-                  margin: 0.2em;
-                `}
-                as={Link}
-                to="/qr-code-demo"
-                state={{
-                  modal: windowWidth > 448,
-                }}
-              >
-                {intl.formatMessage({ id: 'index.demo-calltoaction' })}
-              </Button>
-            </div>
-            <div>
-              <div
-                css={`
-                  position: relative;
-                  overflow: hidden;
-
-                  @media (max-width: 768px) {
-                    max-width: 28em;
-                  }
-                `}
-              >
-                <img
-                  css={`
-                    position: absolute;
-                    top: 0;
-                    width: 300%;
-                    max-width: 300%;
-                    animation: roll 15s infinite;
-                    transform: translateX(0%);
-                    @keyframes roll {
-                      0% {
-                        transform: translateX(0%);
-                      }
-                      28% {
-                        transform: translateX(0%);
-                      }
-                      32% {
-                        transform: translateX(-33.3333%);
-                      }
-                      60% {
-                        transform: translateX(-33.3333%);
-                      }
-                      64% {
-                        transform: translateX(-66.6666%);
-                      }
-                      92% {
-                        transform: translateX(-66.6666%);
-                      }
-                    }
-                  `}
-                  src={menus}
-                  alt=""
-                />
-                <img
-                  css={`
-                    position: relative;
-                  `}
-                  src={ipad}
-                  alt=""
-                />
-              </div>
-            </div>
+            <img id="f1" src={ani1} alt="" />
+            <img id="f2" src={ani2} alt="" />
+            <img id="f3" src={ani1} alt="" />
+            <img id="f4" src={ani2} alt="" />
+            <img id="f5" src={ani1} alt="" />
+            <img id="f6" src={ani2} alt="" />
+            <img id="f7" src={ani3} alt="" />
+            <img id="f8" src={ani4} alt="" />
+            <img id="f9" src={ani3} alt="" />
+            <img id="f10" src={ani4} alt="" />
+            <img id="f11" src={ani3} alt="" />
+            <img id="f12" src={ani5} alt="" />
+            <img id="f13" src={ani6} alt="" />
+            <img id="f14" src={ani7} alt="" />
+            <img id="f15" src={ani7} alt="" />
+            <img id="f16" src={ani7} alt="" />
+            <img id="f17" src={ani7} alt="" />
           </div>
-        </Container>
-      </Hero>
+        </div>
+      </Container>
       <section
         id="features"
         css={`

@@ -12,25 +12,19 @@ import Header from './Header'
 import Footer from './Footer'
 import { theme, GlobalStyle } from '../styles'
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    'Header'
-    'Content'
-    'Footer';
+const Style = styled.div`
   min-height: 100vh;
 `
 
 const Layout = ({ children, dark }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Grid>
+      <Style>
         <Header dark={dark} />
         <main>{children}</main>
         <Footer />
         <GlobalStyle />
-      </Grid>
+      </Style>
     </ThemeProvider>
   )
 }
