@@ -14,19 +14,18 @@ import { theme, GlobalStyle } from '../styles'
 
 const Style = styled.div`
   min-height: 100vh;
+  overflow: hidden;
 `
 
-const Layout = ({ children, dark }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Style>
-        <Header dark={dark} />
-        <main>{children}</main>
-        <Footer />
-        <GlobalStyle />
-      </Style>
-    </ThemeProvider>
-  )
-}
+const Layout = ({ children, dark }) => (
+  <ThemeProvider theme={theme}>
+    <Style>
+      <Header dark={dark} />
+      <main>{children}</main>
+      <Footer />
+      <GlobalStyle />
+    </Style>
+  </ThemeProvider>
+)
 
 export default Layout

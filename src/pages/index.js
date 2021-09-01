@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import useWindowWidth from '../lib/useWindowWith'
 import Layout from '../components/Layout'
@@ -156,6 +156,8 @@ const IndexPage = ({ intl }) => {
           <div
             css={`
               position: relative;
+              margin: 0 max(-20em, -14vw);
+              z-index: -1;
               img {
                 position: absolute;
                 top: 0;
