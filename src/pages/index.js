@@ -13,6 +13,7 @@ import order from '../images/mobile-shopping.svg'
 import languages from '../images/communications.svg'
 import roadmap from '../images/roadmap.svg'
 
+import ani0 from '../images/illustration/Ani_0.svg'
 import ani1 from '../images/illustration/Ani_1.svg'
 import ani2 from '../images/illustration/Ani_2.svg'
 import ani3 from '../images/illustration/Ani_3.svg'
@@ -21,240 +22,195 @@ import ani5 from '../images/illustration/Ani_5.svg'
 import ani6 from '../images/illustration/Ani_6.svg'
 import ani7 from '../images/illustration/Ani_7.svg'
 
-const SubTitle = styled.h3`
-  margin-bottom: 0.5rem;
-`
-
-const VideoContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const VideoTextColumn = styled.div`
-  flex: 1 1 15em;
-  padding-right: 2em;
-`
-
-const VideoColumn = styled.div`
-  flex: 1 1 20em;
-`
-
-const Video = styled.video`
-  width: 100%;
-  border: 1px solid ${(p) => p.theme.primary};
-`
-
-const ImageTextSection = ({ image, title, children }) => (
-  <div
-    css={`
-      display: flex;
-      align-items: stretch;
-    `}
-  >
-    <div
-      css={`
-        flex: 0 3 8em;
-        background-image: url(${image});
-        background-position: center 2em;
-        background-repeat: no-repeat;
-        background-size: contain;
-
-        @media (max-widht: 1024px) {
-          background-position: center 5vw;
-        }
-      `}
-    />
-    <div
-      css={`
-        flex: 1 9 auto;
-        margin-left: 5%;
-      `}
-    >
-      <h2
-        css={`
-          font-size: 2em;
-          @media (max-width: 768px) {
-            font-size: 1.5em;
-          }
-        `}
-      >
-        {title}
-      </h2>
-      <div>{children}</div>
-    </div>
-  </div>
-)
+const motion = [
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani3 },
+  { src: ani4 },
+  { src: ani3 },
+  { src: ani4 },
+  { src: ani3 },
+  { src: ani5 },
+  { src: ani6 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani0 },
+]
 const IndexPage = ({ intl }) => {
   const windowWidth = useWindowWidth()
   return (
     <Layout dark>
       <SEO title="Home" />
       <Container>
-        <div
+        <h1
           css={`
-            display: grid;
-            gap: 5em 1em;
-            height: 100%;
-            justify-content: center;
-            @media (min-width: 768px) {
-              grid-template-columns: 1fr 1fr;
-            }
+            text-align: center;
+            font-size: 4em;
+            margin: 0.5em 0;
+            line-height: 0.6em;
           `}
         >
-          <div>
-            <h1
-              css={`
-                font-size: 4em;
-                margin: 0.5em 0;
-                line-height: 0.6em;
-              `}
-            >
-              <b>Gaston</b>
-              <br />
-              <small
-                css={`
-                  font-size: 40%;
-                  color: white;
-                `}
-              >
-                {intl.formatMessage({ id: 'index.menutag' })}
-              </small>
-            </h1>
-            <ul css="margin-top: -1rem">
-              <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
-              <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
-              <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
-              <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
-              <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
-            </ul>
-            <br />
-            <Button
-              css={`
-                background-color: white;
-                margin: 0.2em;
-              `}
-              as={Link}
-              to="/offers"
-            >
-              {intl.formatMessage({ id: 'index.calltoaction' })}
-            </Button>
-
-            <Button
-              css={`
-                background-color: white;
-                margin: 0.2em;
-              `}
-              as={Link}
-              to="/qr-code-demo"
-              state={{
-                modal: windowWidth > 448,
-              }}
-            >
-              {intl.formatMessage({ id: 'index.demo-calltoaction' })}
-            </Button>
-          </div>
-          <div
+          <b>Gaston</b>
+          <br />
+          <small
             css={`
-              position: relative;
-              margin: 0 max(-20em, -14vw);
-              z-index: -1;
-              img {
-                position: absolute;
-                top: 0;
-                opacity: 0;
-                animation-name: fade;
-                animation-iteration-count: infinite;
-                animation-duration: 10.5s;
-              }
-              @keyframes fade {
-                0% {
-                  opacity: 0;
-                }
-                2% {
-                  opacity: 1;
-                }
-                6% {
-                  opacity: 1;
-                }
-                8% {
-                  opacity: 0;
-                }
-                100% {
-                  opacity: 0;
-                }
-              }
-
-              #f1 {
-                position: relative;
-              }
-              #f2 {
-                animation-delay: 0.5s;
-              }
-              #f3 {
-                animation-delay: 1s;
-              }
-              #f4 {
-                animation-delay: 1.5s;
-              }
-              #f5 {
-                animation-delay: 2s;
-              }
-              #f6 {
-                animation-delay: 2.5s;
-              }
-              #f7 {
-                animation-delay: 4s;
-              }
-              #f8 {
-                animation-delay: 4.5s;
-              }
-              #f9 {
-                animation-delay: 5s;
-              }
-              #f10 {
-                animation-delay: 5.5s;
-              }
-              #f11 {
-                animation-delay: 6s;
-              }
-              #f12 {
-                animation-delay: 6.5s;
-              }
-              #f13 {
-                animation-delay: 7s;
-              }
-              #f14 {
-                animation-delay: 7.5s;
-              }
-              #f15 {
-                animation-delay: 8s;
-              }
-              #f16 {
-                animation-delay: 8.5s;
-              }
-              #f17 {
-                animation-delay: 9s;
-              }
+              font-size: 40%;
+              color: ${(p) => p.theme.text};
             `}
           >
-            <img id="f1" src={ani1} alt="" />
-            <img id="f2" src={ani2} alt="" />
-            <img id="f3" src={ani1} alt="" />
-            <img id="f4" src={ani2} alt="" />
-            <img id="f5" src={ani1} alt="" />
-            <img id="f6" src={ani2} alt="" />
-            <img id="f7" src={ani3} alt="" />
-            <img id="f8" src={ani4} alt="" />
-            <img id="f9" src={ani3} alt="" />
-            <img id="f10" src={ani4} alt="" />
-            <img id="f11" src={ani3} alt="" />
-            <img id="f12" src={ani5} alt="" />
-            <img id="f13" src={ani6} alt="" />
-            <img id="f14" src={ani7} alt="" />
-            <img id="f15" src={ani7} alt="" />
-            <img id="f16" src={ani7} alt="" />
-            <img id="f17" src={ani7} alt="" />
-          </div>
+            {intl.formatMessage({ id: 'index.menutag' })}
+          </small>
+        </h1>
+        <div
+          css={`
+            position: relative;
+            margin: 0 max(-4em, -4vw) 2em;
+            z-index: -1;
+            div {
+              position: absolute;
+              inset: 0;
+              animation-name: fade;
+              animation-iteration-count: infinite;
+              animation-duration: ${motion.length / 2}s;
+            }
+            p {
+              position: absolute;
+              font-size: 2.2em;
+              font-weight: bold;
+              inset: 65% 0% 0%;
+              margin: 0;
+              color: #333;
+              text-shadow: 0 0 18px white;
+              text-align: center;
+              z-index: 2;
+              animation-name: showit;
+              animation-iteration-count: infinite;
+              animation-duration: ${motion.length / 2}s;
+              background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.5) 20%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0) 70%,
+                rgba(255, 255, 255, 0) 100%
+              );
+              @media (min-width: 700px) {
+                font-size: 4em;
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0) 0%,
+                  rgba(255, 255, 255, 0.4) 20%,
+                  rgba(255, 255, 255, 0.4) 30%,
+                  rgba(255, 255, 255, 0) 50%,
+                  rgba(255, 255, 255, 0) 100%
+                );
+              }
+            }
+            @keyframes fade {
+              0% {
+                opacity: 0;
+              }
+              2% {
+                opacity: 1;
+              }
+              5.5% {
+                opacity: 1;
+              }
+              7.5% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+            @keyframes showit {
+              0% {
+                opacity: 0;
+              }
+              2% {
+                opacity: 0;
+              }
+              5% {
+                opacity: 1;
+              }
+              30% {
+                opacity: 1;
+              }
+              33% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+
+            #s2 {
+              animation-delay: 5s;
+            }
+
+            ${motion.map(
+              (_, i) => `.f${i} {
+                animation-delay: ${i / 2}s;
+              }`
+            )}
+          `}
+        >
+          {motion.map(({ src }, i) => (
+            <>
+              <div
+                className={`f${i}`}
+                css={i === 0 && 'position: relative !important;'}
+              >
+                <img src={src} alt="" />
+              </div>
+            </>
+          ))}
+          <p id="s1">Ohne Gaston</p>
+          <p id="s2">Mit Gaston</p>
+        </div>
+        <USPs>
+          <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
+        </USPs>
+
+        <div css="text-align: center; margin-top: 4em;">
+          <Button
+            css={`
+              background-color: white;
+              margin: 0.2em;
+            `}
+            as={Link}
+            to="/offers"
+          >
+            {intl.formatMessage({ id: 'index.calltoaction' })}
+          </Button>
+          <Button
+            css={`
+              background-color: white;
+              margin: 0.2em;
+            `}
+            as={Link}
+            to="/qr-code-demo"
+            state={{
+              modal: windowWidth > 448,
+            }}
+          >
+            {intl.formatMessage({ id: 'index.demo-calltoaction' })}
+          </Button>
         </div>
       </Container>
       <section
@@ -455,5 +411,80 @@ const IndexPage = ({ intl }) => {
     </Layout>
   )
 }
+
+const ImageTextSection = ({ image, title, children }) => (
+  <div
+    css={`
+      display: flex;
+      align-items: stretch;
+    `}
+  >
+    <div
+      css={`
+        flex: 0 3 8em;
+        background-image: url(${image});
+        background-position: center 2em;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @media (max-widht: 1024px) {
+          background-position: center 5vw;
+        }
+      `}
+    />
+    <div
+      css={`
+        flex: 1 9 auto;
+        margin-left: 5%;
+      `}
+    >
+      <h2
+        css={`
+          font-size: 2em;
+          @media (max-width: 768px) {
+            font-size: 1.5em;
+          }
+        `}
+      >
+        {title}
+      </h2>
+      <div>{children}</div>
+    </div>
+  </div>
+)
+
+const USPs = styled.ul`
+  display: flex;
+  font-size: 1em;
+  font-weight: bold;
+  flex-wrap: wrap;
+  gap: 2em;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+`
+
+const SubTitle = styled.h3`
+  margin-bottom: 0.5rem;
+`
+
+const VideoContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const VideoTextColumn = styled.div`
+  flex: 1 1 15em;
+  padding-right: 2em;
+`
+
+const VideoColumn = styled.div`
+  flex: 1 1 20em;
+`
+
+const Video = styled.video`
+  width: 100%;
+  border: 1px solid ${(p) => p.theme.primary};
+`
 
 export default injectIntl(IndexPage)
