@@ -13,12 +13,14 @@
     "menutag": "Digital Menu Card",
     "newText": "New",
     "coronaTip": "Corona tip",
+    "claim": "Serve more guests faster with fewer staff.",
+    "problem": "Classic menu",
     "USP": {
-      "1": "Pay and order",
-      "2": "Your design",
-      "3": "For tablets, website and smart phones",
-      "4": "Easy menu customization",
-      "5": "Multiple languages"
+      "1": "Select, order, pay without staff",
+      "2": "Serving all channels: In-house, takeaway, delivery",
+      "3": "Available everywhere: On mobile, tablet and your website",
+      "4": "With or without cash register, flexible to your needs",
+      "5": "Your restaurant, your style; also in the app"
     },
     "everywhere": {
       "title": "Menu everywhere",

@@ -50,7 +50,7 @@ const motion = [
 const IndexPage = ({ intl }) => {
   const windowWidth = useWindowWidth()
   return (
-    <Layout dark>
+    <Layout>
       <SEO title="Home" />
       <Container>
         <h1
@@ -72,10 +72,19 @@ const IndexPage = ({ intl }) => {
             {intl.formatMessage({ id: 'index.menutag' })}
           </small>
         </h1>
+        <p
+          css={`
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 2em;
+          `}
+        >
+          {intl.formatMessage({ id: 'index.claim' })}
+        </p>
         <div
           css={`
             position: relative;
-            margin: 0 max(-4em, -4vw) 2em;
+            margin: 0 max(-4em, -4vw) 4em;
             z-index: -1;
             div {
               position: absolute;
@@ -83,26 +92,34 @@ const IndexPage = ({ intl }) => {
               animation-name: fade;
               animation-iteration-count: infinite;
               animation-duration: ${motion.length / 2}s;
+              opacity: 0;
+              img {
+                height: 100%;
+                width: 100%;
+              }
             }
             p {
               position: absolute;
               font-size: 2.2em;
               font-weight: bold;
+              line-height: 1em;
               inset: 65% 0% 0%;
               margin: 0;
+              padding-top: 0.4em;
               color: #333;
               text-shadow: 0 0 18px white;
               text-align: center;
               z-index: 2;
+              opacity: 0;
               animation-name: showit;
               animation-iteration-count: infinite;
               animation-duration: ${motion.length / 2}s;
               background: linear-gradient(
                 180deg,
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.5) 20%,
+                rgba(255, 255, 255, 0.5) 30%,
                 rgba(255, 255, 255, 0.5) 50%,
-                rgba(255, 255, 255, 0) 70%,
+                rgba(255, 255, 255, 0.5) 70%,
                 rgba(255, 255, 255, 0) 100%
               );
               @media (min-width: 700px) {
@@ -110,9 +127,9 @@ const IndexPage = ({ intl }) => {
                 background: linear-gradient(
                   180deg,
                   rgba(255, 255, 255, 0) 0%,
-                  rgba(255, 255, 255, 0.4) 20%,
                   rgba(255, 255, 255, 0.4) 30%,
-                  rgba(255, 255, 255, 0) 50%,
+                  rgba(255, 255, 255, 0.4) 30%,
+                  rgba(255, 255, 255, 0.4) 70%,
                   rgba(255, 255, 255, 0) 100%
                 );
               }
@@ -139,15 +156,15 @@ const IndexPage = ({ intl }) => {
                 opacity: 0;
               }
               2% {
-                opacity: 0;
+                opacity: 1;
               }
               5% {
                 opacity: 1;
               }
-              30% {
+              28% {
                 opacity: 1;
               }
-              33% {
+              30% {
                 opacity: 0;
               }
               100% {
@@ -156,7 +173,7 @@ const IndexPage = ({ intl }) => {
             }
 
             #s2 {
-              animation-delay: 5s;
+              animation-delay: 4.5s;
             }
 
             ${motion.map(
@@ -172,12 +189,12 @@ const IndexPage = ({ intl }) => {
                 className={`f${i}`}
                 css={i === 0 && 'position: relative !important;'}
               >
-                <img src={src} alt="" />
+                <img src={src} alt="" height="223" width="373" />
               </div>
             </>
           ))}
-          <p id="s1">Ohne Gaston</p>
-          <p id="s2">Mit Gaston</p>
+          <p id="s1">{intl.formatMessage({ id: 'index.problem' })} 😡</p>
+          <p id="s2">Gaston App 😊</p>
         </div>
         <USPs>
           <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
@@ -187,7 +204,7 @@ const IndexPage = ({ intl }) => {
           <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
         </USPs>
 
-        <div css="text-align: center; margin-top: 4em;">
+        <div css="font-size: 1.3em; text-align: center; margin-top: 4em; margin-bottom: 1em;">
           <Button
             css={`
               background-color: white;
@@ -454,14 +471,23 @@ const ImageTextSection = ({ image, title, children }) => (
 )
 
 const USPs = styled.ul`
-  display: flex;
   font-size: 1em;
-  font-weight: bold;
-  flex-wrap: wrap;
-  gap: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
   list-style: none;
-  justify-content: space-around;
-  padding: 0;
+  padding-left: 1em;
+  li {
+    padding-left: 1em;
+    padding-bottom: 0.8em;
+    &::before {
+      content: '# ';
+      position: absolute;
+      font-size: 1.6em;
+      transform: translate(-1em, -0.3em);
+      color: ${(p) => p.theme.primary};
+    }
+  }
 `
 
 const SubTitle = styled.h3`

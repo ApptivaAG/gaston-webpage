@@ -11,12 +11,14 @@
     "calltoaction": "Jetzt bestellen",
     "demo-calltoaction": "Demo starten",
     "menutag": "Digitale Speisekarte",
+    "claim": "Mehr Gäste mit weniger Personal schneller bedienen.",
+    "problem": "Klassische Speisekarte",
     "USP": {
-      "1": "Bestellen und Bezahlen",
-      "2": "Ansprechendes Design",
-      "3": "Für Tablets, Webseite und Smartphones",
-      "4": "Einfache Menüverwaltung",
-      "5": "Mehrsprachig"
+      "1": "Aussuchen, Bestellen, Bezahlen ohne Personal",
+      "2": "Alle Kanäle bedienen: Inhouse, Takeaway, Delivery",
+      "3": "Überall verfügbar: Auf dem Handy, Tablet und Ihrer Webseite",
+      "4": "Mit oder ohne Kasse, flexible auf Ihre Bedürfnisse",
+      "5": "Ihr Betrieb, Ihr Style; auch in der der App"
     },
     "everywhere": {
       "title": "Speisekarte überall",

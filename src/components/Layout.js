@@ -13,8 +13,13 @@ import Footer from './Footer'
 import { theme, GlobalStyle } from '../styles'
 
 const Style = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'Header'
+    'Content'
+    'Footer';
   min-height: 100vh;
-  overflow: hidden;
 `
 
 const Layout = ({ children, dark }) => (
