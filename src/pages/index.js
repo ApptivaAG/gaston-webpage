@@ -1,15 +1,10 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { injectIntl, Link } from 'gatsby-plugin-intl'
 import useWindowWidth from '../lib/useWindowWith'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { Container, Button } from '../styles'
-import spain from '../images/spain.jpg'
-import sushi from '../images/sushi.jpg'
-import white from '../images/white.jpg'
-import menus from '../images/menus.png'
-import ipad from '../images/ipad.png'
 import brush from '../images/paint-board-and-brush.svg'
 import menu from '../images/menu.svg'
 import takeAway from '../images/take-away.svg'
@@ -18,243 +13,223 @@ import order from '../images/mobile-shopping.svg'
 import languages from '../images/communications.svg'
 import roadmap from '../images/roadmap.svg'
 
-const Wrapper = styled.section`
-  margin-top: -5rem;
-  padding-top: 4rem;
-  position: relative;
-  color: white;
-`
-const fadeIn = keyframes`
-    0% {
-      opacity:1;
-    }
-    28% {
-      opacity:1;
-    }
-    34% {
-      opacity:0;
-    }
-    94% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  `
-const BgImg = styled.div`
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: url(${p => p.img}) hsl(326.21, 84.43%, 38%) center/cover no-repeat;
-  filter: brightness(40%);
+import ani0 from '../images/illustration/Ani_0.svg'
+import ani1 from '../images/illustration/Ani_1.svg'
+import ani2 from '../images/illustration/Ani_2.svg'
+import ani3 from '../images/illustration/Ani_3.svg'
+import ani4 from '../images/illustration/Ani_4.svg'
+import ani5 from '../images/illustration/Ani_5.svg'
+import ani6 from '../images/illustration/Ani_6.svg'
+import ani7 from '../images/illustration/Ani_7.svg'
 
-  animation: ${fadeIn} ease 15s infinite;
-  animation-delay: ${p => p.delay}s;
-`
-const SubTitle = styled.h3`
-  margin-bottom: 0.5rem;
-`
-
-const VideoContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const VideoTextColumn = styled.div`
-  flex: 1 1 15em;
-  padding-right: 2em;
-`
-
-const VideoColumn = styled.div`
-  flex: 1 1 20em;
-`
-
-const Video = styled.video`
-  width: 100%;
-  border: 1px solid ${p => p.theme.primary};
-`
-
-const Hero = ({ children }) => {
-  return (
-    <Wrapper>
-      <BgImg img={white} delay="10" />
-      <BgImg img={sushi} delay="5" />
-      <BgImg img={spain} delay="0" />
-
-      {children}
-    </Wrapper>
-  )
-}
-
-const ImageTextSection = ({ image, title, children }) => (
-  <div
-    css={`
-      display: flex;
-      align-items: stretch;
-    `}
-  >
-    <div
-      css={`
-        flex: 0 3 8em;
-        background-image: url(${image});
-        background-position: center 2em;
-        background-repeat: no-repeat;
-        background-size: contain;
-
-        @media (max-widht: 1024px) {
-          background-position: center 5vw;
-        }
-      `}
-    />
-    <div
-      css={`
-        flex: 1 9 auto;
-        margin-left: 5%;
-      `}
-    >
-      <h2
-        css={`
-          font-size: 2em;
-          @media (max-width: 768px) {
-            font-size: 1.5em;
-          }
-        `}
-      >
-        {title}
-      </h2>
-      <div>{children}</div>
-    </div>
-  </div>
-)
+const motion = [
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani1 },
+  { src: ani2 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani3 },
+  { src: ani4 },
+  { src: ani3 },
+  { src: ani4 },
+  { src: ani3 },
+  { src: ani5 },
+  { src: ani6 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani7 },
+  { src: ani0 },
+  { src: ani0 },
+  { src: ani0 },
+]
 const IndexPage = ({ intl }) => {
   const windowWidth = useWindowWidth()
   return (
-    <Layout dark>
+    <Layout>
       <SEO title="Home" />
-      <Hero>
-        <Container>
-          <div
+      <Container>
+        <h1
+          css={`
+            text-align: center;
+            font-size: 4em;
+            margin: 0.5em 0;
+            line-height: 0.6em;
+          `}
+        >
+          <b>Gaston</b>
+          <br />
+          <small
             css={`
-              display: grid;
-              gap: 5em 1em;
-              height: 100%;
-              justify-content: center;
-              @media (min-width: 768px) {
-                grid-template-columns: 1fr 1fr;
-              }
+              font-size: 40%;
+              color: ${(p) => p.theme.text};
             `}
           >
-            <div>
-              <h1
-                css={`
-                  font-size: 4em;
-                  margin: 0.5em 0;
-                  line-height: 0.6em;
-                `}
-              >
-                <b>Gaston</b>
-                <br />
-                <small
-                  css={`
-                    font-size: 40%;
-                    color: white;
-                  `}
-                >
-                  {intl.formatMessage({ id: 'index.menutag' })}
-                </small>
-              </h1>
-              <ul css="margin-top: -1rem">
-                <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
-                <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
-              </ul>
-              <br />
-              <Button
-                css={`
-                  background-color: white;
-                  margin: 0.2em;
-                `}
-                as={Link}
-                to="/offers"
-              >
-                {intl.formatMessage({ id: 'index.calltoaction' })}
-              </Button>
+            {intl.formatMessage({ id: 'index.menutag' })}
+          </small>
+        </h1>
+        <p
+          css={`
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 2em;
+          `}
+        >
+          {intl.formatMessage({ id: 'index.claim' })}
+        </p>
+        <div
+          css={`
+            position: relative;
+            margin: 0 max(-4em, -4vw) 4em;
+            z-index: -1;
+            div {
+              position: absolute;
+              inset: 0;
+              animation-name: fade;
+              animation-iteration-count: infinite;
+              animation-duration: ${motion.length / 2}s;
+              opacity: 0;
+              img {
+                height: 100%;
+                width: 100%;
+              }
+            }
+            p {
+              position: absolute;
+              font-size: 2.2em;
+              font-weight: bold;
+              line-height: 1em;
+              inset: 65% 0% 0%;
+              margin: 0;
+              padding-top: 0.4em;
+              color: #333;
+              text-shadow: 0 0 18px white;
+              text-align: center;
+              z-index: 2;
+              opacity: 0;
+              animation-name: showit;
+              animation-iteration-count: infinite;
+              animation-duration: ${motion.length / 2}s;
+              background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.5) 30%,
+                rgba(255, 255, 255, 0.5) 50%,
+                rgba(255, 255, 255, 0.5) 70%,
+                rgba(255, 255, 255, 0) 100%
+              );
+              @media (min-width: 700px) {
+                font-size: 4em;
+                background: linear-gradient(
+                  180deg,
+                  rgba(255, 255, 255, 0) 0%,
+                  rgba(255, 255, 255, 0.4) 30%,
+                  rgba(255, 255, 255, 0.4) 30%,
+                  rgba(255, 255, 255, 0.4) 70%,
+                  rgba(255, 255, 255, 0) 100%
+                );
+              }
+            }
+            @keyframes fade {
+              0% {
+                opacity: 0;
+              }
+              2% {
+                opacity: 1;
+              }
+              5.5% {
+                opacity: 1;
+              }
+              7.5% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+            @keyframes showit {
+              0% {
+                opacity: 0;
+              }
+              2% {
+                opacity: 1;
+              }
+              5% {
+                opacity: 1;
+              }
+              28% {
+                opacity: 1;
+              }
+              30% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
 
-              <Button
-                css={`
-                  background-color: white;
-                  margin: 0.2em;
-                `}
-                as={Link}
-                to="/qr-code-demo"
-                state={{
-                  modal: windowWidth > 448,
-                }}
-              >
-                {intl.formatMessage({ id: 'index.demo-calltoaction' })}
-              </Button>
-            </div>
-            <div>
+            #s2 {
+              animation-delay: 4.5s;
+            }
+
+            ${motion.map(
+              (_, i) => `.f${i} {
+                animation-delay: ${i / 2}s;
+              }`
+            )}
+          `}
+        >
+          {motion.map(({ src }, i) => (
+            <>
               <div
-                css={`
-                  position: relative;
-                  overflow: hidden;
-
-                  @media (max-width: 768px) {
-                    max-width: 28em;
-                  }
-                `}
+                className={`f${i}`}
+                css={i === 0 && 'position: relative !important;'}
               >
-                <img
-                  css={`
-                    position: absolute;
-                    top: 0;
-                    width: 300%;
-                    max-width: 300%;
-                    animation: roll 15s infinite;
-                    transform: translateX(0%);
-                    @keyframes roll {
-                      0% {
-                        transform: translateX(0%);
-                      }
-                      28% {
-                        transform: translateX(0%);
-                      }
-                      32% {
-                        transform: translateX(-33.3333%);
-                      }
-                      60% {
-                        transform: translateX(-33.3333%);
-                      }
-                      64% {
-                        transform: translateX(-66.6666%);
-                      }
-                      92% {
-                        transform: translateX(-66.6666%);
-                      }
-                    }
-                  `}
-                  src={menus}
-                  alt=""
-                />
-                <img
-                  css={`
-                    position: relative;
-                  `}
-                  src={ipad}
-                  alt=""
-                />
+                <img src={src} alt="" height="223" width="373" />
               </div>
-            </div>
-          </div>
-        </Container>
-      </Hero>
+            </>
+          ))}
+          <p id="s1">{intl.formatMessage({ id: 'index.problem' })} 😡</p>
+          <p id="s2">Gaston App 😊</p>
+        </div>
+        <USPs>
+          <li>{intl.formatMessage({ id: 'index.USP.1' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.2' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.3' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.4' })}</li>
+          <li>{intl.formatMessage({ id: 'index.USP.5' })}</li>
+        </USPs>
+
+        <div css="font-size: 1.3em; text-align: center; margin-top: 4em; margin-bottom: 1em;">
+          <Button
+            css={`
+              background-color: white;
+              margin: 0.2em;
+            `}
+            as={Link}
+            to="/offers"
+          >
+            {intl.formatMessage({ id: 'index.calltoaction' })}
+          </Button>
+          <Button
+            css={`
+              background-color: white;
+              margin: 0.2em;
+            `}
+            as={Link}
+            to="/qr-code-demo"
+            state={{
+              modal: windowWidth > 448,
+            }}
+          >
+            {intl.formatMessage({ id: 'index.demo-calltoaction' })}
+          </Button>
+        </div>
+      </Container>
       <section
         id="features"
         css={`
@@ -453,5 +428,89 @@ const IndexPage = ({ intl }) => {
     </Layout>
   )
 }
+
+const ImageTextSection = ({ image, title, children }) => (
+  <div
+    css={`
+      display: flex;
+      align-items: stretch;
+    `}
+  >
+    <div
+      css={`
+        flex: 0 3 8em;
+        background-image: url(${image});
+        background-position: center 2em;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @media (max-widht: 1024px) {
+          background-position: center 5vw;
+        }
+      `}
+    />
+    <div
+      css={`
+        flex: 1 9 auto;
+        margin-left: 5%;
+      `}
+    >
+      <h2
+        css={`
+          font-size: 2em;
+          @media (max-width: 768px) {
+            font-size: 1.5em;
+          }
+        `}
+      >
+        {title}
+      </h2>
+      <div>{children}</div>
+    </div>
+  </div>
+)
+
+const USPs = styled.ul`
+  font-size: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  list-style: none;
+  padding-left: 1em;
+  li {
+    padding-left: 1em;
+    padding-bottom: 0.8em;
+    &::before {
+      content: '# ';
+      position: absolute;
+      font-size: 1.6em;
+      transform: translate(-1em, -0.3em);
+      color: ${(p) => p.theme.primary};
+    }
+  }
+`
+
+const SubTitle = styled.h3`
+  margin-bottom: 0.5rem;
+`
+
+const VideoContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const VideoTextColumn = styled.div`
+  flex: 1 1 15em;
+  padding-right: 2em;
+`
+
+const VideoColumn = styled.div`
+  flex: 1 1 20em;
+`
+
+const Video = styled.video`
+  width: 100%;
+  border: 1px solid ${(p) => p.theme.primary};
+`
 
 export default injectIntl(IndexPage)
