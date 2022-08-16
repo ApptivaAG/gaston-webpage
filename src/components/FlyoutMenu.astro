@@ -10,9 +10,9 @@ export interface Props {
   }[];
 }
 const { title, items } = Astro.props as Props;
+
 const hasDescriptions = items.some(({ description }) => !!description);
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 
 const anySubItems = items.some(({ href }) => isCurrentPage(href))
 
@@ -29,7 +29,7 @@ const anySubItems = items.some(({ href }) => isCurrentPage(href))
   <div class="popup">
     <nav class={hasDescriptions ? 'descriptions' : '' }>
       {items.map(({ title, href, description }) => (
-      <a href={href} alt={title} class="subtle">
+      <a href={href} title={title} class="subtle">
         <div class="heading">{title}</div>
         {description && (
         <p>{description}</p>

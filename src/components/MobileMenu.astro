@@ -1,5 +1,5 @@
 ---
-import { NavigationTree } from "src/config";
+import type { NavigationTree } from "src/config";
 import { mkIsCurrentPage } from "src/utils";
 import MobileMenuGroup from "./MobileMenuGroup.astro";
 
@@ -8,15 +8,13 @@ export type Props = {
 }
 
 const { navigation } = Astro.props as Props;
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
-
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 ---
 
 <nav>
   <a href={'/de/'} aria-current={isCurrentPage('/de/', {exact: true})}>{isCurrentPage('/de/') ? 'Startseite' :
     'Home'}</a>
-  {navigation.map((item, i) => 'items' in item ?
+  {navigation.map((item) => 'items' in item ?
   <MobileMenuGroup {...item} /> : <a href={item.href} aria-current={isCurrentPage(item.href)}>{item.title}</a>)}
 
   <footer>

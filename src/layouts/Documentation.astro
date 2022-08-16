@@ -1,29 +1,23 @@
 ---
 import Main from './Main.astro'
 import Container from '@components/Container.astro'
-import type { BlogPostFrontMatter } from 'src/types'
+import type { LandingPageFrontMatter } from 'src/types'
 
 export type Props = {
-  content: BlogPostFrontMatter
+  content: LandingPageFrontMatter
 }
 
 const { content } = Astro.props as Props
-const { title: blogTitle, description, lang, date, author } = content
-const title = `${blogTitle} • Blog`
+const { title, description } = content
 ---
 
 <Main title={title} description={description}>
   <Container size="small">
-    <article class="blog-post">
-      <h1>{blogTitle}</h1>
+    <nav><a href="/de/dokumentation/">Dokumentation</a> &gt; {title}</nav>
+    <article class="landing-page">
+      <h1>{title}</h1>
       <p class="description">
         {description}
-      </p>
-      <p class="publish-date">
-        {lang === 'de' ? 'Veröffentlicht am' : 'Published on'}
-        <b>{new Date(date).toLocaleDateString('de-CH')}</b>
-        {lang === 'de' ? 'von' : 'by'}
-        <b>{author}</b>
       </p>
       <slot />
     </article>
@@ -31,7 +25,7 @@ const title = `${blogTitle} • Blog`
 </Main>
 
 <style lang="scss" is:global>
-  .blog-post {
+  .landing-page {
     li {
       margin-bottom: 0.8em;
 
@@ -43,13 +37,12 @@ const title = `${blogTitle} • Blog`
 </style>
 <style lang="scss">
   h1 {
-    margin-bottom: 0;
+    margin-top: 0.5em;
     line-height: 1em;
   }
 
-  .publish-date {
-    font-size: 0.8em;
-    margin-bottom: 3em;
+  article {
+    margin-bottom: 4em;
   }
 
   .description {

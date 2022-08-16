@@ -33,13 +33,10 @@ The hosts are very happy to have Gaston because it allows them to serve their gu
 In the following restaurants you can experience the many uses of Gaston live:
 
 - **Habsburg Bar Restaurant Widnau**  
-  ![Habsburg Bar Logo](./habsburg.png)  
   Here you can experience how Gaston is used throughout the whole restaurant. All meals can be ordered and paid via Gaston, indoors as well as outdoors. With one click the food comes directly to your table.
 - **Seehaus Grill**  
-  ![Seehaus Grill](./seehaus-grill.png)  
   At the Seehaus Grill you can order from the outdoor area via Gaston. The Gaston menu is adjusted according to the time of day. Here as well the guest can order and pay via Gaston.
 - **Sugoi Sushi**  
-  ![Sugoi Sushi Logo](./sugoi-sushi.png)  
   Sugoi Sushi allows ordering not only in the restaurant, but also from home for takeaway and delivery. At Sugoi Sushi it is possible to order via Gaston with payment in the restaurant.
 
 ## Experience the advantages of Gaston yourself

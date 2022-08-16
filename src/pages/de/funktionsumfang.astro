@@ -1,7 +1,7 @@
 ---
 import Container from "@components/Container.astro";
 import Main from "@layouts/Main.astro"
-import { Picture } from 'astro-imagetools/components';
+import { Picture } from '@astrojs/image/components';
 
 const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist äussert flexible. So stellen wir sicher, dass Gaston auf unterschiedliche Betrieb optimal ausgerichtet ist.'
 ---
@@ -113,7 +113,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
       <div style="flex: 1">
         <h2>Bestelloptionen</h2>
         <Picture alt="Bestellung mit mehreren Position und der Möglichkeit Trinkgeld zu geben."
-          src="/src/images/bestellung.png" />
+          src={import("/src/images/bestellung.png")} widths={[300, 600, 900]} sizes="300px" sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '🪙  ';">
@@ -192,7 +192,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
       <div style="flex: 1">
         <h2>Artikeloptionen</h2>
         <Picture alt="Optionen für eine Pizza. Kleine Pizza, mehr Zutaten, weitere Teller"
-          src="/src/images/optionen.png" />
+          src={import("/src/images/optionen.png")} widths={[300, 600, 900]} sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '💎  ';">
@@ -213,7 +213,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         <h2>Artikel&shy;variationen</h2>
         <Picture
           alt="Unterschiedliche Mengen des selben Weins und deren Preis wird direkt auf der Speisekarte angezeigt."
-          src="/src/images/variationen.png" />
+          src={import("/src/images/variationen.png")} widths={[300, 600, 900]} sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '👨‍👩‍👧‍👦  ';">
@@ -258,7 +258,8 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         <h2>Eigenes Design</h2>
         <p>Ihr Betrieb hat einen eigenen Stil. Dies sollte Ihre Speisekarte reflektieren. Sie gestalten Ihre Speisekarte
           nach Ihrem Gusto, farbenfroh und mit Bildern oder schlicht und einfach nur Text.</p>
-        <Picture alt="Speisekarte mit Bilder für jede Kategorie." src="/src/images/el-mosquito.png" />
+        <Picture alt="Speisekarte mit Bilder für jede Kategorie." src={import("/src/images/el-mosquito.png")}
+          widths={[300, 600, 900]} sizes="300px" />
 
       </div>
       <ul style="flex: 1">
@@ -300,6 +301,10 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
 
   ul {
     padding-inline-start: 3.5em;
+  }
+
+  :global(img) {
+    width: 300px;
   }
 
   img {

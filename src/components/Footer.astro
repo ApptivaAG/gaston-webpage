@@ -1,31 +1,43 @@
 ---
-import { callToActionLinksDe, callToActionLinksEn } from 'src/config';
-import { mkIsCurrentPage } from '../utils.ts'
+import { callToActionLinksDe, callToActionLinksEn, footer } from 'src/config';
+import { mkIsCurrentPage } from '../utils.js'
 import CallToAction from './CallToAction.astro';
 import Container from './Container.astro';
+import Instagram from '@icons/Instagram.astro'
 
-const { pathname } = Astro.canonicalURL
-
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
 
 const links = isDe ? callToActionLinksDe : callToActionLinksEn
+const footerInCurrentLanguage = isDe ? footer.de : footer.en
 ---
 
 <footer>
+  <CallToAction links={links} />
   <Container>
-    <CallToAction links={links} />
+    <div class="columns link-groups">
+      {footerInCurrentLanguage.map(group => <div>
+        <h2>{group.title}</h2>
+        <ul>{group.items.map(item => <li><a href={item.href}>{item.title}</a></li>)}</ul>
+      </div>)}
+    </div>
   </Container>
 
   <div class="columns">
-    <p>
-      © 2019 - {new Date().getFullYear()} Gaston
-      <br />
-      {isDe ? 'Eine Initiative von' : 'An initiative of'}
-      <a href="https://apptiva.ch">Apptiva</a>
-      <br />
-      Luzern • Schweiz
-    </p>
+    <div>
+      <p>
+        <a href="https://www.instagram.com/gastonsolution/"><Instagram /></a>
+      </p>
+
+      <p>
+        © 2019 - {new Date().getFullYear()} Gaston
+        <br />
+        {isDe ? 'Eine Initiative von' : 'An initiative of'}
+        <a href="https://apptiva.ch">Apptiva</a>
+        <br />
+        Luzern • Schweiz
+      </p>
+    </div>
     <p>
       {isDe ? 'Anfragen' : 'Inquiries'}&ensp;
       <a href="tel:+41413222626">+41 41 322 26 26</a> {isDe ? 'oder' : 'or'} <a href={isDe ? "/de/termin/"
@@ -47,7 +59,7 @@ const links = isDe ? callToActionLinksDe : callToActionLinksEn
     --primary-color: white;
     position: relative;
     grid-area: Footer;
-    padding: 3rem 1rem 1rem;
+    padding: 6rem 1rem 1rem;
     color: var(--primary-color);
 
     color: white;
@@ -67,9 +79,28 @@ const links = isDe ? callToActionLinksDe : callToActionLinksEn
       z-index: -1;
     }
 
-    .columns {
+    h2 {
+      font-size: 1.4em;
+    }
 
-      @media (min-width: 40rem) {
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .columns {
+      a[aria-current] {
+        font-weight: bold;
+      }
+    }
+
+    .link-groups {
+      margin-block: 3em;
+      margin-inline: -1em;
+    }
+
+    @media (min-width: 40rem) {
+      .columns {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -78,9 +109,10 @@ const links = isDe ? callToActionLinksDe : callToActionLinksEn
         padding: 0 2rem;
       }
 
-      a[aria-current] {
-        font-weight: bold;
+      .link-groups {
+        align-items: flex-start;
       }
+
     }
 
   }

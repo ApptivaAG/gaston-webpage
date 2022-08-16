@@ -1,27 +1,23 @@
 ---
 import Main from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
-import { takeSortedBlogPosts } from 'src/utils'
-import type { BlogPostFrontMatter } from 'src/types'
+import type { DocumentationFrontMatter } from 'src/types'
 
-const blogs = await Astro.glob<BlogPostFrontMatter>('./blog/**/*.mdx')
-
-const sortedBlogs = takeSortedBlogPosts(blogs, 'de')
+const docs = await Astro.glob<DocumentationFrontMatter>('./*.md')
 
 const description =
-  'Der neuste Klatsch und Tratsch, den Gaston aufgeschnappt hat.'
+  'Dokumentation von Gaston, der Bestell- und Zahlungsspeisekarte.'
 ---
 
-<Main title="Blog: Neuigkeiten zu Gaston" description={description}>
+<Main title="Dokumentation für Gaston" description={description}>
   <Container size="small">
-    <h1>Blog: Neuigkeiten zu Gaston</h1>
-    {sortedBlogs.map((post) => (
+    <h1>Dokumentation</h1>
+    {docs.map((post) => (
     <article>
       <a href={post.url + "/" }>
         <h2>{post.frontmatter.title}</h2>
       </a>
       <p>{post.frontmatter.description}</p>
-      <p class="meta">{new Date(post.frontmatter.date).toLocaleDateString('de')} - {post.frontmatter.author}</p>
     </article>
     ))}
   </Container>

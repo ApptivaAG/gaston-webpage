@@ -15,19 +15,19 @@ import Hero from '@components/Hero.astro'
 const { de } = metaData
 
 const description =
-  'Gaston die digitale Speisekarte erlaubt es den Gästen schnell und einfach zu bestell und bezahlen. Dabei spielt es keine Rolle, ob die Gäste in ihrem Betrieb, unterwegs oder Zuhause sind. Gaston unterstützt die Bestellung in Ihrem Betrieb, Take Away und Delivery.'
+  'Gaston erlaubt es den Gästen schnell und einfach zu bestell und bezahlen. Dabei spielt es keine Rolle, ob die Gäste in ihrem Betrieb, unterwegs oder Zuhause sind.'
 
 const USPs = [
-  "<b>Aussuchen, Bestellen, Bezahlen</b>, in der Bestell App",
-  "<b>Kein Download, Keine Installation</b>, keine Registrierung, für Ihre Gäste.",
-  "Überall verfügbar: Auf dem <b>Gäste-Handy, Tablet und Ihrer Webseite</b>.",
-  "<b>Mit oder ohne Kasse</b>, flexibel auf Ihre Bedürfnisse zugeschnitten.",
-  "Komplett in <b>Luzern</b> <img src='/assets/wappen.svg' alt='Wappen der Schweiz und Luzern' height='15px' width='20px' /> entwickelt."
+  "Ihre Gäste bestellen und bezahlen ohne Wartezeit",
+  "Läuft auf den Handys der Gäste, ohne App-Download oder Installation",
+  "Funktioniert mit oder ohne Kasse",
+  "In Luzern <img src='/assets/wappen.svg' alt='Wappen der Schweiz und Luzern' height='18' width='24' /> entwickelt"
 ]
 
 ---
 
-<MainLayout title={de.claim} description={description}>
+<MainLayout title={`${de.name} ${de.description} • QR-Code Speisekarte • Scannen, bestellen, bezahlen`}
+  description={description}>
   <Container>
     <Hero name={de.name} description={de.description} claim={de.claim} usp={USPs}
       animation={{src: '/assets/hero-gaston-vs-menu.svg' ,
@@ -35,42 +35,43 @@ const USPs = [
     <h2 style="text-align: center;"><small>Auswahl unserer Kunden</small></h2>
     <ul class="image-list" style="margin-bottom: 6em;">
       <li>
-        <FixedPicture src="/src/images/customers/brauwerk-st-gallen.png" alt="Restaurant Brauwerk"
+        <FixedPicture src={import("../../images/customers/brauwerk-st-gallen.png")} alt="Restaurant Brauwerk"
           placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/el-mosquito.png" alt="El-Mosquito" placeholder={'tracedSVG'}
+        <FixedPicture src={import("../../images/customers/el-mosquito.png")} alt="El-Mosquito" placeholder={'tracedSVG'}
           height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/gspan.jpg" alt="Hotel Gspan" placeholder={'tracedSVG'} height={50} />
-      </li>
-      <li>
-        <FixedPicture src="/src/images/customers/habsburg-bar.png" alt="Habsburg-Bar" placeholder={'tracedSVG'}
+        <FixedPicture src={import("../../images/customers/gspan.jpg")} alt="Hotel Gspan" placeholder={'tracedSVG'}
           height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/lamassu.png" alt="Restaurant Lamassu" placeholder={'tracedSVG'}
-          height={50} />
-      </li>
-      <li>
-        <FixedPicture src="/src/images/customers/franz.png" alt="Restaurant Franz" placeholder={'tracedSVG'}
-          height={50} />
-      </li>
-      <li>
-        <FixedPicture src="/src/images/customers/seehaus-grill.png" alt="Seehaus-Grill" placeholder={'tracedSVG'}
-          height={50} />
-      </li>
-      <li>
-        <FixedPicture src="/src/images/customers/seehotel-kastanienbaum.png" alt="Seehotel Kastanienbaum"
+        <FixedPicture src={import("../../images/customers/habsburg-bar.png")} alt="Habsburg-Bar"
           placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/sugoi-sushi-300.png" alt="Sugoi Sushi" placeholder={'tracedSVG'}
+        <FixedPicture src={import("../../images/customers/lamassu.png")} alt="Restaurant Lamassu"
+          placeholder={'tracedSVG'} height={50} />
+      </li>
+      <li>
+        <FixedPicture src={import("../../images/customers/franz.png")} alt="Restaurant Franz" placeholder={'tracedSVG'}
           height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/zurwerkstatt-sg.png" alt="Zur Werkstatt St. Gallen"
+        <FixedPicture src={import("../../images/customers/seehaus-grill.png")} alt="Seehaus-Grill"
+          placeholder={'tracedSVG'} height={50} />
+      </li>
+      <li>
+        <FixedPicture src={import("../../images/customers/seehotel-kastanienbaum.png")} alt="Seehotel Kastanienbaum"
+          placeholder={'tracedSVG'} height={50} />
+      </li>
+      <li>
+        <FixedPicture src={import("../../images/customers/sugoi-sushi-300.png")} alt="Sugoi Sushi"
+          placeholder={'tracedSVG'} height={50} />
+      </li>
+      <li>
+        <FixedPicture src={import("../../images/customers/zurwerkstatt-sg.png")} alt="Zur Werkstatt St. Gallen"
           placeholder={'tracedSVG'} height={50} />
       </li>
     </ul>
@@ -285,13 +286,13 @@ const USPs = [
       </p>
       <ul class="horizontal-list shadow">
         <li>
-          <FixedPicture src="/src/images/el-mosquito.png" alt="El-Mosquito" width={300} />
+          <FixedPicture src={import("../../images/el-mosquito.png")} alt="El-Mosquito" height={480} />
         </li>
         <li>
-          <FixedPicture src="/src/images/habsburg.png" alt="Habsburg-Bar" width={300} />
+          <FixedPicture src={import("../../images/habsburg.png")} alt="Habsburg-Bar" height={480} />
         </li>
         <li>
-          <FixedPicture src="/src/images/sugoisushi.png" alt="Sugoi Sushi" width={300} />
+          <FixedPicture src={import("../../images/sugoisushi.png")} alt="Sugoi Sushi" height={480} />
         </li>
       </ul>
     </Container>
@@ -324,12 +325,13 @@ const USPs = [
       <ul class="image-list" style="justify-content: flex-start;">
         <li>
           <a href="https://www.flm.ch/">
-            <FixedPicture src="/src/images/partners/flm.png" alt="FLM Kassensysteme" height={160} layout={'fixed'} />
+            <FixedPicture src={import("../../images/partners/flm.png")} alt="FLM Kassensysteme" height={160}
+              layout={'fixed'} />
           </a>
         </li>
         <li>
-          <FixedPicture src="/src/images/partners/digital-enterprise.png" alt="Digital Enterprise" height={60}
-            layout={'fixed'} />
+          <FixedPicture src={import("../../images/partners/digital-enterprise.png")} alt="Digital Enterprise"
+            height={60} layout={'fixed'} />
         </li>
       </ul>
     </Container>

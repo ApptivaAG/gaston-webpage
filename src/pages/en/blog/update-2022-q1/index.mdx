@@ -8,6 +8,8 @@ author: Philip Schönholzer
 layout: '@layouts/Blog.astro'
 ---
 
+import Figure from '@components/Figure.astro'
+
 With the current version of Gaston, it is possible to transmit the order for the restaurant in a clearer and more structured way. We worked closely with the restaurants to make Gaston not only easy for the guests, but also easier for the restaurant staff. The initial feedback has been very positive.
 
 ## Opening hours in Gaston
@@ -18,7 +20,10 @@ For a long time we planned to be able to store opening hours in Gaston and to al
 
 If the restaurant wants, guests can order multiple "courses" at once. In this case, guests assign each order item to a course so that the staff understands when which dish is desired.
 
-![Assign order items to a course](courses.png?width=350)
+<Figure
+  src={import('./courses.png')}
+  caption="Guests can assign items to a course in the ordering app."
+/>
 
 ## Combine orders
 

@@ -30,7 +30,7 @@ import Main from "@layouts/Main.astro";
 </style>
 
 <script>
-  window.addEventListener('load', function (e) {
+  window.addEventListener('load', function () {
     var exclusionState = window.localStorage.plausible_ignore == "true"
 
     if (exclusionState) {
@@ -44,7 +44,7 @@ import Main from "@layouts/Main.astro";
     }
   });
 
-  document.getElementById("plausible_button").addEventListener('click', function toggleExclusion(e) {
+  document.getElementById("plausible_button").addEventListener('click', function toggleExclusion() {
     var exclusionState = window.localStorage.plausible_ignore == "true"
 
     if (exclusionState) {

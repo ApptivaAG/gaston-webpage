@@ -25,9 +25,8 @@ export const getStaticPaths = async () => [
 
 const { plan } = Astro.params
 const { title: planTitle, price } = Astro.props
-const { pathname } = Astro.canonicalURL
 
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
 
 const title = `Unverbindliche Anfrage • Plan ${planTitle}`
@@ -56,7 +55,7 @@ const description =
     <form name="enrol" action={isDe ? '/de/preise/success' : '/en/prices/success' } method="POST" data-netlify="true"
       data-netlify-honeypot="bot-field">
       <p hidden>
-        <label htmlfor="bot-field">
+        <label for="bot-field">
           Nicht ausfüllen:{' '}
           <input type="text" name="bot-field" />
         </label>
@@ -65,37 +64,37 @@ const description =
         <input type="text" name="locale" value={isDe ? 'de' : 'en' } />
       </p>
       <p>
-        <label htmlfor="name">
+        <label for="name">
           Vorname / Name
           <input type="text" inputmode="text" autocomplete="name" name="name" required />
         </label>
       </p>
       <p>
-        <label htmlfor="email">
+        <label for="email">
           Email-Adresse
           <input type="email" inputmode="email" autocomplete="email" name="email" required />
         </label>
       </p>
       <p>
-        <label htmlfor="phone">
+        <label for="phone">
           Telefonnummer
           <input type="tel" inputmode="tel" autocomplete="tel" name="phone" required />
         </label>
       </p>
       <p>
-        <label htmlfor="restaurant">
+        <label for="restaurant">
           Name des Betriebs
           <input type="text" inputmode="text" name="restaurant" required />
         </label>
       </p>
       <p>
-        <label htmlfor="website">
+        <label for="website">
           URL ihrer Webseite <small>(optional)</small>
           <input type="text" inputmode="text" autocomplete="url" name="website" />
         </label>
       </p>
       <p>
-        <label htmlfor="message">
+        <label for="message">
           Bemerkung <small>(optional)</small>
           <textarea name="message"></textarea>
         </label>

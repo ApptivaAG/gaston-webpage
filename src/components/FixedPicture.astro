@@ -1,38 +1,14 @@
 ---
-  import fs from "node:fs";
-  import { extname, join } from "node:path";
-  import * as codecs from "@astropub/codecs";
-  import { Picture } from "astro-imagetools/components";
+import { getPicture, getImage } from '@astrojs/image';
 
+const { height: propHeight, width: propWidth, ...pictureProps } = Astro.props;
 
-  const getImageDimensions = async (src) => {
-    const filepath = join(process.cwd(), src)
-    const extension = extname(filepath).slice(1);
-
-    const imageFormat = extension === "jpeg" ? "jpg" : extension;
-
-    const buffer = fs.readFileSync(filepath);
-    const decodedImage = await codecs[imageFormat].decode(buffer);
-    return {
-      width: decodedImage.width,
-      height: decodedImage.height,
-    };
-  }
-
-  const { height: propHeight, width: propWidth, ...pictureProps } = Astro.props;
-  const { src } = pictureProps;
-
-  let desiredWidth = propWidth
-
-  if (!desiredWidth) {
-    const { height, width } = await getImageDimensions(src);
-    desiredWidth = Math.floor((propHeight / height) * width);
-  }
-
-  const breakpoints = [desiredWidth, desiredWidth * 2]; // calculate the desired breakpoint sizes (i.e. 1x and 2x)
-  pictureProps.breakpoints = breakpoints;
-  pictureProps.sizes = `${desiredWidth}px`
-  pictureProps.layout = 'fixed'
+const img = await getImage({ src: pictureProps.src, height: propHeight, width: propWidth })
+const image = await getPicture({ src: pictureProps.src, widths: [img.width as number, img.width as number * 2], formats: ["webp", "avif"] });
 ---
 
-<Picture { ...pictureProps } />
+<picture>
+  {image.sources.map( source =>
+  <source sizes={`${img.width}px`} {...source} />)}
+  <img loading="lazy" width={img.width} height={img.height} {...image.image} {...pictureProps} />
+</picture>

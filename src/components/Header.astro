@@ -1,20 +1,18 @@
 ---
 import { globalNavigation } from 'src/config'
 import { mkIsCurrentPage } from '../utils'
-import Dialog from '@components/Dialog.tsx'
+import Dialog from '@components/Dialog'
 import FlyoutMenu from './FlyoutMenu.astro'
 import MobileMenu from './MobileMenu.astro'
 
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
 
 const navigation = isDe ? globalNavigation.de : globalNavigation.en
 ---
 
 <script>
-  window.addEventListener('load', function (event) {
-    console.log('load event');
+  window.addEventListener('load', function () {
     let observer = new IntersectionObserver((entries) => {
       if (entries[0].boundingClientRect.y < -1) {
         document.body.classList.add('scrolled-down')
@@ -28,10 +26,10 @@ const navigation = isDe ? globalNavigation.de : globalNavigation.en
 
 <header id="root-header">
   <nav>
-    <a class="logo" href={isDe ?"/de/" : '/en/' } aria-current={isCurrentPage('/de/', { exact: true })}>
+    <a class="logo" href={isDe ? "/de/" : '/en/' } aria-current={isCurrentPage('/de/', { exact: true })}>
       Gaston
     </a>
-    {navigation.map((item, i) => 'items' in item ?
+    {navigation.map((item) => 'items' in item ?
     <FlyoutMenu {...item} /> : <a href={item.href} aria-current={isCurrentPage(item.href)}>{item.title}</a>)}
   </nav>
   <Dialog client:load>
@@ -41,7 +39,7 @@ const navigation = isDe ? globalNavigation.de : globalNavigation.en
         <path d="M 2,6 L 22,6 M 2,12 L 22,12 M 2,18 L 22,18" />
       </svg>
     </button>
-    <MobileMenu {navigation} />
+    <MobileMenu navigation={navigation} />
   </Dialog>
 </header>
 <div id="top-of-site-pixel-anchor"></div>

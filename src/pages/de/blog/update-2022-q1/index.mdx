@@ -8,6 +8,8 @@ author: Philip Schönholzer
 layout: '@layouts/Blog.astro'
 ---
 
+import Figure from '@components/Figure.astro'
+
 Mit dem aktuellen Stand von Gaston ist es möglich, die Bestellung für die Betriebe klarer und strukturierter zu übermitteln. Dabei arbeiteten wir eng mit den Restaurants zusammen, um Gaston nicht nur einfach für die Gäste, sondern auch für die Mitarbeiter der Restaurants einfacher zu gestalten. Die ersten Rückmeldungen sind äusserst positiv.
 
 ## Öffnungszeiten in Gaston
@@ -20,7 +22,10 @@ Zudem ist es in Gaston nun möglich den "Notstopp" zu drücken, falls die Küche
 
 Falls das Restaurant will, können die Gäste gleich mehrere "Gänge" bestellen. Dabei weisen die Gäste jeder Bestellposition einem Gang zu, damit das Personal versteht, wann welche Speise gewünscht ist.
 
-![Bestellpositionen einem Gang zuweisen](courses.png?width=350)
+<Figure
+  src={import('./courses.png')}
+  caption="Gäste können in der Bestell-App Positionen einem Gang zuweisen."
+/>
 
 ## Bestellungen zusammenfassen
 

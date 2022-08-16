@@ -1,12 +1,13 @@
 ---
 import { SEO } from 'astro-seo'
 
+import '../styles/global.scss' // import global before other css
+
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import '../styles/global.scss'
 
 import { metaData, generalTitle } from 'src/config'
-import { mkIsCurrentPage } from 'src/utils'
+import { addSlashToEndIfMissing, mkIsCurrentPage } from 'src/utils'
 
 export type Props = {
   title: string,
@@ -15,8 +16,9 @@ export type Props = {
 
 const { title, description } = Astro.props as Props
 
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
+const canonicalURL = addSlashToEndIfMissing(new URL(Astro.url.pathname, Astro.site).toString());
+
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const lang = isCurrentPage('/de/') ? 'de' : 'en'
 
 const translatedMetaData = metaData[lang]
@@ -51,13 +53,15 @@ const openGraph = {
   <link rel="shortcut icon" href="/favicon.ico?v=2">
   <meta name="msapplication-TileColor" content="#ffc40d">
   <meta name="theme-color" content="#e11387" />
+  <link rel="sitemap" href="/sitemap-index.xml">
   {lang === 'de' &&
   <script id="chatbot" data-server="https://pierre.gastonsolution.com/webclient" defer
     src="https://pierre.gastonsolution.com/webclient/embed/bundle.js" />}
-  <script defer data-domain="gastonsolution.com" src="https://plausible.io/js/plausible.js"></script>
+  {import.meta.env.CONTEXT === 'production' ?
+  <script defer data-domain="gastonsolution.com" src="https://plausible.io/js/plausible.js"></script> : ''}
 
-  <SEO title={`${title} • ${generalTitle(translatedMetaData)}`} description={description} openGraph={openGraph}
-    twitter={{card: "summary_large_image" }} />
+  <SEO title={`${title} • ${generalTitle(translatedMetaData)}`} description={description} canonical={canonicalURL}
+    openGraph={openGraph} twitter={{card: "summary_large_image" }} />
 
 </head>
 
@@ -74,5 +78,6 @@ const openGraph = {
 <style>
   main {
     grid-area: Content;
+    overflow: hidden;
   }
 </style>

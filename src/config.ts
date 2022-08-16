@@ -1,4 +1,11 @@
-import { CallToAction, Language, MetaData, Product } from './types'
+import type {
+  CallToAction,
+  FooterGroup,
+  I18nFooter,
+  Language,
+  MetaData,
+  Product,
+} from './types'
 
 const productDe: Product = {
   description: 'Self-Order|Pay für Gastro',
@@ -39,7 +46,7 @@ export interface NavigationGroup {
 
 export type NavigationTree = (NavigationItem | NavigationGroup)[]
 
-export type GlobalNavigation = Record<Language, NavigationTree>
+export type Navigation = Record<Language, NavigationTree>
 
 const navigationDe: NavigationTree = [
   {
@@ -128,7 +135,99 @@ const navigationEn: NavigationTree = [
   { title: 'Contact', href: '/en/contact/' },
 ]
 
-export const globalNavigation: GlobalNavigation = {
+export const globalNavigation: Navigation = {
   de: navigationDe,
   en: navigationEn,
+}
+
+const footerDe: FooterGroup[] = [
+  {
+    title: 'Produkt',
+    items: [
+      {
+        title: 'Bestell- und Zahlungsablauf',
+        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
+      },
+      {
+        title: 'Funktionsumfang',
+        href: '/de/funktionsumfang/',
+      },
+      {
+        title: 'Preise',
+        href: '/de/preise/',
+      },
+      {
+        href: '/de/demo/',
+        title: 'Demo',
+      },
+    ],
+  },
+  {
+    title: 'Über',
+    items: [
+      {
+        href: '/de/team/',
+        title: 'Team',
+      },
+      {
+        href: '/de/blog/',
+        title: 'Blog',
+      },
+      {
+        title: 'Mission',
+        href: '/de/mission/',
+      },
+      {
+        href: '/de/kontakt/',
+        title: 'Kontakt',
+      },
+    ],
+  },
+  {
+    title: 'Highlights',
+    items: [
+      {
+        title: 'Restaurant Bestell App',
+        href: '/de/restaurant-bestell-app/',
+      },
+      {
+        title: 'Digitale Speisekarte',
+        href: '/de/digitale-speisekarte/',
+      },
+      {
+        title: 'Take Away und Delivery',
+        href: '/de/takeaway-delivery/',
+      },
+      {
+        title: 'Gäste-Rufsystem',
+        href: '/de/gäste-rufsystem/',
+      },
+      {
+        title: 'Gaston oder Orderman',
+        href: '/de/orderman/',
+      },
+      {
+        title: 'Gaston oder Yoordi',
+        href: '/de/yoordi/',
+      },
+    ],
+  },
+  {
+    title: 'Dokumentation',
+    items: [
+      {
+        title: 'Inbetriebnahme von Gaston',
+        href: '/de/dokumentation/inbetriebnahme-gaston/',
+      },
+      {
+        title: 'Speisekarte bearbeiten',
+        href: '/de/dokumentation/speisekarten-angebot-bearbeiten/',
+      },
+    ],
+  },
+]
+
+export const footer: I18nFooter = {
+  de: footerDe,
+  en: [],
 }
