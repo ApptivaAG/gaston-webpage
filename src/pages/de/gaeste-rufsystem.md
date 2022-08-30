@@ -1,6 +1,6 @@
 ---
 lang: de
-title: Kann Gaston ein Gäste-Rufsystem ersetzen?
+title: Gaston gilt auch als Gäste-Rufsystem
 description: Elektronische Rufsysteme gehören für viele gastronomische Betriebe längst zum Alltag. Der praktische Nutzen im Arbeitsalltag macht ein solches System für die moderne Gastronomie unverzichtbar.
 image: icon.png
 keyword: gäste-rufsystem
@@ -9,9 +9,9 @@ layout: '@layouts/LandingPage.astro'
 
 Das Konzept des Gäste-Rufsystems existiert seit Jahren und ist eine mögliche Lösung, um die Qualität im Service zu erhöhen. Aber mittlerweile existieren bessere Alternativen. Aus diesem Grund werden wir hier in nur 5 Punkten argumentieren, warum Sie Gaston App anstatt eines Gäste-Rufsystems in Betracht ziehen sollten.
 
-## 1. Gäste-Pager optimieren nur die Bestellabholung
+## 1. Gäste-Rufsystem optimieren nur die Bestellabholung
 
-Mit einem Gäste-Pager optimieren Sie den Service bei der Bestellabholung. Die Wartezeit und den Aufwand bei der Bestellaufnahme und Zahlung kann ein Gäste-Rufsystem aber nicht abnehmen.
+Mit einem Gäste-Rufsystem optimieren Sie den Service bei der Bestellabholung. Die Wartezeit und den Aufwand bei der Bestellaufnahme und Zahlung kann ein Gäste-Rufsystem aber nicht abnehmen.
 
 Gaston kann alle drei Dinge: Bestellungen aufnehmen, Zahlung abwickeln und die Gäste informieren, wenn das Essen bereit ist.
 
@@ -19,11 +19,11 @@ Gaston kann alle drei Dinge: Bestellungen aufnehmen, Zahlung abwickeln und die G
 
 Bei physischen Gäste-Pagern müssen Sie immer genügend Geräte für die aktuelle Situation bereit halten. Mit Gaston spielt es keine Rolle, ob Ihr Betrieb in einem Moment zwei oder 200 Gäste gleichzeitig bedient. Sie brauchen keine Geräte anzuschaffen.
 
-Wenn die physischen Gäste-Pager beschädigt werden oder sich nach einiger Zeit als fehlerhaft erweisen, fallen zusätzliche Kosten an.
+Wenn die physischen Gäste-Rufsystem beschädigt werden oder sich nach einiger Zeit als fehlerhaft erweisen, fallen zusätzliche Kosten an.
 
-Ein Beispiel für einen Defekt wäre, wenn die LEDs oder die Vibration Ihrer Gäste-Pager nicht mehr funktionieren.
+Ein Beispiel für einen Defekt wäre, wenn die LEDs oder die Vibration Ihres Gäste-Rufsystems nicht mehr funktionieren.
 
-## 3. Schlechte Hygiene bei Gäste-Pagern
+## 3. Schlechte Hygiene bei Gäste-Rufsystem
 
 Nach einigen Jahren Covid-19 wissen wir, wie wichtig die Hygiene in Alltagssituationen ist. Dabei stellen Geräte wie Gäste-Rufsysteme, die von Hand zu Hand gehen, einen unnötigen Risikofaktor dar.
 
