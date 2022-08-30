@@ -1,15 +1,17 @@
 ---
 lang: de
-title: Ist Gaston für Take Away und Delivery geeignet?
-description: Gaston ist eine vielseitige digitale Speisekarte, die die integrierten Bestell- und Bezahlmöglichkeiten auch für Take Away und Delivery bietet.
+title: Gaston ist sowohl für Take Away als auch für Delivery geeignet
+description: Gaston nutzt eigene fortschrittliche Technologie, die von einer kompetenten Gruppe von Softwareentwicklern entwickelt wurde. Durch die Erstellung unserer digitalen Speisekarte ist es möglich, verschiedene Funktionen hinzuzufügen, wie Bestellung und Bezahlung oder Take Away und Delivery.
 image: icon.png
 keyword: take away und delivery
 layout: '@layouts/LandingPage.astro'
 ---
 
+Gaston ist einfach und praktisch, denn unsere WebApp bietet Ihren Gästen die Möglichkeit, alles über ihr eigenes Handy abzurufen, ohne dass Sie teure Zusatzgeräte für Ihren Betrieb kaufen müssen.
+
 ## Gaston als Take Away und Delivery
 
-Gaston ist nicht nur vielseitig, sondern auch praktisch. Während der Covid-19 Pandemie wurde deutlich, dass man vorausschauend denken muss, um unvorhergesehene Ereignisse zu bewältigen. Mit dem Fokus auf eine schnelle und kostengünstige Lösung hat Gaston die Möglichkeiten für Take Away und Delivery direkt in die App integriert.
+Gaston ist nicht nur vielseitig, sondern auch praktisch. Während der Covid-19 Pandemie wurde deutlich, dass man vorausschauend denken muss, um unvorhergesehene Ereignisse zu bewältigen. Mit dem Fokus auf eine schnelle und kostengünstige Lösung hat Gaston die Möglichkeiten für Take Away und Delivery direkt in die WebApp integriert.
 
 Folgende Möglichkeiten bietet Gaston an:
 
@@ -21,9 +23,9 @@ Die Gäste schauen sich die digitale Speisekarte zu Hause oder auch vor Ort an, 
 
 Dies ist die häufigste und bekannteste Art Delivery. Nach der Bestellung werden den Kunden die fertigen Speisen geliefert.
 
-Eine Variation von Meal Delivery sind Meal Kits. Hierbei werden den Kunden Zutaten und Rezepte zugeliefert, die sie dann zu Hause selbst zubereiten können.
+Eine Variation von Meal Delivery sind Meal Kits. Hierbei werden die Gäste Zutaten und Rezepte zugeliefert, die sie dann zu Hause selbst zubereiten können.
 
-## Wie kann ich Take Away und Delivery in meinem Betrieb anbieten?
+## Schritt für Schritt: Wie können Sie Take Away und Delivery in Ihrem Betrieb umsetzen
 
 Der schrittweise Prozess ist einfach:
 
@@ -38,8 +40,10 @@ Wie geht es weiter?
 6. Definieren Sie Ihre Angebote
 7. Bestimmen Sie Ihren Lieferzuschlag und Ihre Logistik für Delivery
 
-## Welche Kosten kommen auf mich zu?
+## Welche Kosten kommen auf mich zu
 
 Bei all unseren Paketen sind Take Away und Delivery inklusive. Unser “Basic” Paket ist ohne Grundgebühren erhältlich, weitere Angebote finden Sie auf unserer Seite mit den [Preisen](../preise/).
+
+Nun fragen Sie sich wahrscheinlich, wie Sie mehr darüber erfahren können: Was ist eine WebApp? Warum benötige ich eine digitale Speisekarte für den Zugang zu Take Away und Delivery? Aus diesem Grund empfehlen wir Ihnen den Artikel: [Digitale Speise](../digitale-speisekarte/).
 
 Wir freuen uns darauf, gemeinsam mit Ihnen das nächste Level im Gastgeben zu erreichen!
