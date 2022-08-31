@@ -1,5 +1,5 @@
 ---
-import { globalNavigation } from 'src/config'
+import { globalNavigation, metaData } from 'src/config'
 import { mkIsCurrentPage } from '../utils'
 import Dialog from '@components/Dialog'
 import FlyoutMenu from './FlyoutMenu.astro'
@@ -7,8 +7,10 @@ import MobileMenu from './MobileMenu.astro'
 
 const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
+const langPage = isDe ? "/de/" : '/en/'
 
 const navigation = isDe ? globalNavigation.de : globalNavigation.en
+const data = isDe ? metaData.de : metaData.en
 ---
 
 <script>
@@ -26,8 +28,8 @@ const navigation = isDe ? globalNavigation.de : globalNavigation.en
 
 <header id="root-header">
   <nav>
-    <a class="logo" href={isDe ? "/de/" : '/en/' } aria-current={isCurrentPage('/de/', { exact: true })}>
-      Gaston
+    <a class="logo" href={langPage} aria-current={isCurrentPage(langPage, { exact: true })}>
+      {data.name}<br/><small>{data.description}</small>
     </a>
     {navigation.map((item) => 'items' in item ?
     <FlyoutMenu {...item} /> : <a href={item.href} aria-current={isCurrentPage(item.href)}>{item.title}</a>)}
@@ -91,6 +93,17 @@ const navigation = isDe ? globalNavigation.de : globalNavigation.en
       &.logo {
         margin-right: auto;
         font-size: 1.5em;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.1em;
+        color: var(--primary-color);
+        
+        small {
+          line-height: 1em;
+          font-size: 28%;
+          color: gray;
+        }
       }
     }
 

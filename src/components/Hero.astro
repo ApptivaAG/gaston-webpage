@@ -3,9 +3,7 @@ import CallToAction from "./CallToAction.astro";
 
 export interface Props {
   name: string,
-  description: string,
   claim: string,
-  usp: Array<string>,
   animation: {
     src: string,
     alt: string,
@@ -19,16 +17,9 @@ const props = Astro.props as Props
 ---
 
 <div class="wrapper">
-  <div class="info">
-    <h1>
-      <b>{props.name}</b>
-      <br />
-      <small set:html={props.description} />
-    </h1>
-    <p class="claim">{props.claim}</p>
-    <ul class="usps">
-      {props.usp.map((usp) => <li set:html={usp}></li>) }
-    </ul>
+  <div class="wrapper-left">
+    <h1>{props.name}</h1>
+    <p>{props.claim}</p>
   </div>
   <div class="wrapper-right">
     <div class="animation">
@@ -41,41 +32,40 @@ const props = Astro.props as Props
 </div>
 
 <style lang="scss">
-  .wrapper {
-    @media (min-width: 768px) {
+  @media (min-width: 768px) {
+    .wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 6em;
     }
+    div.wrapper-left p {
+      font-size: 2.5em;
+    }
   }
 
-  .info {
+  .wrapper-left {
     z-index: 0;
-    flex: 50%;
+    flex: 60%;
 
     h1 {
       font-size: 4em;
-      margin: 0.5em 0 0;
-      line-height: 0.6em;
-
-      small {
-        font-size: 40%;
-        color: var(--text-color);
-        line-height: 0;
-      }
+      margin-block: 0 0.2em;
+      line-height: 1.3em;
+      
+    }
+    p {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-block: 0 1em;
+      color: var(--text-color);
+      line-height: 1.2em;
     }
   }
 
 
-  .claim {
-    font-style: italic;
-    margin-bottom: 2em;
-    color: var(--primary-color);
-  }
-
   .wrapper-right {
-    flex: 50%;
+    flex: 40%;
   }
 
   .animation {
@@ -88,38 +78,7 @@ const props = Astro.props as Props
     }
   }
 
-  .usps {
-    font-size: 1em;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: fit-content;
-    list-style: none;
-    padding-left: 1em;
-
-    :global(b) {
-      font-weight: 900;
-    }
-
-    li {
-      padding-left: 1em;
-      padding-bottom: 0.6em;
-
-      &::before {
-        content: '● ';
-        position: absolute;
-        font-size: 1.6em;
-        transform: translate(-1em, -0.3em);
-        color: var(--primary-color);
-      }
-
-      :global(img) {
-        vertical-align: middle;
-      }
-    }
-  }
-
   .c2a-wrapper {
-    margin-bottom: 6rem;
+    margin-block: 4rem 6rem;
   }
 </style>

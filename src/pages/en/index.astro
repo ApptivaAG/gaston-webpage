@@ -12,20 +12,13 @@ const { en } = metaData
 const description =
   "Gaston the digital menu allows guests to order and pay quickly and easily. It doesn't matter if the guests are in their establishment, on the road or at home. Gaston supports ordering in your business, Take Away and delivery."
 
-const USPs = [
-  "Your guests order and pay without waiting",
-  "Runs on the smartphones of your guests, no app download or installation necessary",
-  "Works with or without cash register",
-  "Developed in Luzern <img src='/assets/wappen.svg' alt='Coat of arms of Switzerland and lucern' height='18' width='24' />",
-]
-
 ---
 
 <MainLayout title={en.claim} description={description}>
   <Container>
-    <Hero name={en.name} description={en.description} claim={en.claim}
+    <Hero name={en.name} claim={en.claim}
       animation={{src: '/assets/hero-gaston-vs-menu-en.svg' ,
-      alt: 'Ordering with menu tedious, with Gaston app quick and easy' }} usp={USPs} links={callToActionLinksEn} />
+      alt: 'Ordering with menu tedious, with Gaston app quick and easy' }} links={callToActionLinksEn} />
     <h2><small>Some of our customers</small></h2>
     <ul class="image-list">
       <li>

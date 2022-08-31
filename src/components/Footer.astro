@@ -4,6 +4,9 @@ import { mkIsCurrentPage } from '../utils.js'
 import CallToAction from './CallToAction.astro';
 import Container from './Container.astro';
 import Instagram from '@icons/Instagram.astro'
+import LinkedIn from '@icons/LinkedIn.astro'
+import Twitter from '@icons/Twitter.astro'
+import Facebook from '@icons/Facebook.astro'
 
 const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
@@ -26,7 +29,10 @@ const footerInCurrentLanguage = isDe ? footer.de : footer.en
   <div class="columns">
     <div>
       <p>
-        <a href="https://www.instagram.com/gastonsolution/"><Instagram /></a>
+        <a href="https://www.instagram.com/gastonsolution/"><Instagram /></a>&nbsp;
+        <a href="https://www.linkedin.com/in/gaston-solution/"><LinkedIn /></a>&nbsp;
+        <a href="https://twitter.com/gastonsolution"><Twitter /></a>&nbsp;
+        <a href="https://www.facebook.com/gastonsolution/"><Facebook /></a>
       </p>
 
       <p>

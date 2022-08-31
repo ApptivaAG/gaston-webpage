@@ -9,12 +9,12 @@ import type {
 
 const productDe: Product = {
   description: 'Self-Order|Pay für Gastro',
-  claim: 'Gastgeben auf dem nächsten Level.',
+  claim: 'Ihre Gäste bestellen und bezahlen ohne Wartezeit.',
   name: 'Gaston',
 }
 const productEn: Product = {
   description: 'Self-Order|Pay for Gastronomy',
-  claim: 'Hospitality on the next level.',
+  claim: 'Your guests order and pay without waiting.',
   name: 'Gaston',
 }
 export const metaData: MetaData = {
@@ -53,20 +53,20 @@ const navigationDe: NavigationTree = [
     title: 'Produkt',
     items: [
       {
-        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
-        title: 'Bestell- und Zahlungsablauf',
+        title: 'Digitale Speisekarte',
+        href: '/de/digitale-speisekarte/',
         description:
-          'Beschreibung, wie das Bestellen und Bezahlen aus der Sicht eines Gastrobetriebs mit Gaston funktioniert.',
-      },
-      {
-        href: '/de/funktionsumfang/',
-        title: 'Funktionsumfang',
-        description: 'Detaillierte Auflistung aller Funktionen von Gaston.',
+          'Präsentieren Sie mit unserer digitalen Speisekarte Ihr Angebot im besten Licht.',
       },
       {
         title: 'Bestell-App',
         href: '/de/restaurant-bestell-app/',
         description: 'Entdecken Sie unsere Restaurant Bestell App.',
+      },
+      {
+        href: '/de/funktionsumfang/',
+        title: 'Funktionsumfang',
+        description: 'Detaillierte Auflistung aller Funktionen von Gaston.',
       },
       {
         href: '/de/demo/',
@@ -145,8 +145,12 @@ const footerDe: FooterGroup[] = [
     title: 'Produkt',
     items: [
       {
-        title: 'Bestell- und Zahlungsablauf',
-        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
+        title: 'Digitale Speisekarte',
+        href: '/de/digitale-speisekarte/',
+      },
+      {
+        title: 'Restaurant Bestell App',
+        href: '/de/restaurant-bestell-app/',
       },
       {
         title: 'Funktionsumfang',
@@ -187,14 +191,6 @@ const footerDe: FooterGroup[] = [
     title: 'Highlights',
     items: [
       {
-        title: 'Restaurant Bestell App',
-        href: '/de/restaurant-bestell-app/',
-      },
-      {
-        title: 'Digitale Speisekarte',
-        href: '/de/digitale-speisekarte/',
-      },
-      {
         title: 'Take Away und Delivery',
         href: '/de/takeaway-delivery/',
       },
@@ -215,6 +211,10 @@ const footerDe: FooterGroup[] = [
   {
     title: 'Dokumentation',
     items: [
+      {
+        title: 'Bestell- und Zahlungsablauf',
+        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
+      },
       {
         title: 'Inbetriebnahme von Gaston',
         href: '/de/dokumentation/inbetriebnahme-gaston/',

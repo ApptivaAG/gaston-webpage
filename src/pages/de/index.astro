@@ -17,19 +17,12 @@ const { de } = metaData
 const description =
   'Gaston erlaubt es den Gästen schnell und einfach zu bestell und bezahlen. Dabei spielt es keine Rolle, ob die Gäste in ihrem Betrieb, unterwegs oder Zuhause sind.'
 
-const USPs = [
-  "Ihre Gäste bestellen und bezahlen ohne Wartezeit",
-  "Läuft auf den Handys der Gäste, ohne App-Download oder Installation",
-  "Funktioniert mit oder ohne Kasse",
-  "In Luzern <img src='/assets/wappen.svg' alt='Wappen der Schweiz und Luzern' height='18' width='24' /> entwickelt"
-]
-
 ---
 
-<MainLayout title={`${de.name} ${de.description} • QR-Code Speisekarte • Scannen, bestellen, bezahlen`}
+<MainLayout title={`${de.name} • ${de.claim}`}
   description={description}>
   <Container>
-    <Hero name={de.name} description={de.description} claim={de.claim} usp={USPs}
+    <Hero name={de.name} claim={de.claim}
       animation={{src: '/assets/hero-gaston-vs-menu.svg' ,
       alt: 'Bestellen mit Speisekarte mühsam, mit Gaston App schnell und einfach' }} links={callToActionLinksDe} />
     <h2 style="text-align: center;"><small>Auswahl unserer Kunden</small></h2>
@@ -84,8 +77,7 @@ const USPs = [
         <div style="flex: 1">
           <h2>In drei Schritten zum Genuss</h2>
           <p>
-            Mit Gaston bestellen und bezahlen Gäste schnell und einfach in der Bestell App. Keine
-            Anmeldung, kein Download.
+            Mit Gaston bestellen und bezahlen Gäste schnell und einfach im Browser. Gaston läuft auf den Handys Ihrer Gäste, ohne App-Download oder Installation
           </p>
           <ButtonLink href="bestell-und-zahlungs-ablauf-gastro-betriebe/">Mehr Infos
           </ButtonLink>
