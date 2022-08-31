@@ -1,6 +1,6 @@
 ---
 lang: de
-title: Gaston gilt auch als Gäste-Rufsystem
+title: Gaston als Gäste-Rufsystem
 description: Elektronische Rufsysteme gehören für viele gastronomische Betriebe längst zum Alltag. Der praktische Nutzen im Arbeitsalltag macht ein solches System für die moderne Gastronomie unverzichtbar.
 image: icon.png
 keyword: gäste-rufsystem
@@ -19,7 +19,7 @@ Gaston kann alle drei Dinge: Bestellungen aufnehmen, Zahlung abwickeln und die G
 
 Bei physischen Gäste-Pagern müssen Sie immer genügend Geräte für die aktuelle Situation bereit halten. Mit Gaston spielt es keine Rolle, ob Ihr Betrieb in einem Moment zwei oder 200 Gäste gleichzeitig bedient. Sie brauchen keine Geräte anzuschaffen.
 
-Wenn die physischen Gäste-Rufsystem beschädigt werden oder sich nach einiger Zeit als fehlerhaft erweisen, fallen zusätzliche Kosten an.
+Wenn die physischen Gäste-Rufsysteme beschädigt werden oder sich nach einiger Zeit als fehlerhaft erweisen, fallen zusätzliche Kosten an.
 
 Ein Beispiel für einen Defekt wäre, wenn die LEDs oder die Vibration Ihres Gäste-Rufsystems nicht mehr funktionieren.
 
