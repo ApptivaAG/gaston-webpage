@@ -1,23 +1,23 @@
 ---
 lang: de
-title: Gaston ist sowohl für Take Away als auch für Delivery geeignet
-description: Gaston nutzt eigene fortschrittliche Technologie, die von einer kompetenten Gruppe von Softwareentwicklern entwickelt wurde. Durch die Erstellung unserer digitalen Speisekarte ist es möglich, verschiedene Funktionen hinzuzufügen, wie Bestellung und Bezahlung oder Take Away und Delivery.
+title: Take Away- und Delivery-Bestellungen mit Gaston
+description: Setzen Sie Gaston ein, um die Bestellung und Bezahlung von Take Away und Delivery zu digitalisieren.
 image: icon.png
 keyword: take away und delivery
 layout: '@layouts/LandingPage.astro'
 ---
 
-Gaston ist einfach und praktisch, denn unsere WebApp bietet Ihren Gästen die Möglichkeit, alles über ihr eigenes Handy abzurufen, ohne dass Sie teure Zusatzgeräte für Ihren Betrieb kaufen müssen.
+Gaston ist einfach und praktisch, denn unsere Web-App bietet Ihren Gästen die Möglichkeit, Bestellung und Bezahlung von Take Away und Delivery im Webbrowser durchzuführen.
 
 ## Gaston als Take Away und Delivery
 
-Gaston ist nicht nur vielseitig, sondern auch praktisch. Während der Covid-19 Pandemie wurde deutlich, dass man vorausschauend denken muss, um unvorhergesehene Ereignisse zu bewältigen. Mit dem Fokus auf eine schnelle und kostengünstige Lösung hat Gaston die Möglichkeiten für Take Away und Delivery direkt in die WebApp integriert.
+Gaston ist nicht nur vielseitig, sondern auch praktisch. Während der Covid-19-Pandemie wurde deutlich, dass man vorausschauend denken muss, um unvorhergesehene Ereignisse zu bewältigen. Mit dem Fokus auf eine schnelle und kostengünstige Lösung bietet Gaston die Möglichkeiten, Take Away und Delivery direkt auf Ihrer Webseite anzubieten.
 
-Folgende Möglichkeiten bietet Gaston an:
+Folgende Möglichkeiten haben Sie mit Gaston:
 
 ### Take Away
 
-Die Gäste schauen sich die digitale Speisekarte zu Hause oder auch vor Ort an, bestellen elektronisch und holen die Bestellungen dann persönlich ab.
+Die Gäste schauen sich die digitale Speisekarte zu Hause oder auch vor Ort an, bestellen und bezahlen elektronisch und holen die Bestellungen dann persönlich ab.
 
 ### Meal Delivery
 
