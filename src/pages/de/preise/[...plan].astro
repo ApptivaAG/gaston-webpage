@@ -7,15 +7,22 @@ import Button from '@components/Button.astro'
 export const getStaticPaths = async () => [
   {
     params: { plan: 'basic' },
-    props: { title: 'Basic', price: 'Keine. <small>5,9% / Bestellung oder Zahlung</small>' },
+    props: {
+      title: 'Basic',
+      price: 'Keine. <small>5,9% / Bestellung oder Zahlung</small>',
+    },
   },
   {
-    params: { plan: 'pro' },
+    params: { plan: 'pro/0' },
+    props: { title: 'Pro', price: 'CHF 39.- / Betrieb / Monat' },
+  },
+  {
+    params: { plan: 'pro/1' },
+    props: { title: 'Pro', price: 'CHF 89.- / Betrieb / Monat' },
+  },
+  {
+    params: { plan: 'pro/2' },
     props: { title: 'Pro', price: 'CHF 179.- / Betrieb / Monat' },
-  },
-  {
-    params: { plan: 'deluxe' },
-    props: { title: 'Deluxe', price: 'CHF 699.- / Monat / Betrieb' },
   },
   {
     params: { plan: 'enterprise' },
@@ -49,11 +56,16 @@ const description =
         </b>
       </p>
       <p>
-        Basis-Kosten: <b set:html={price} />
+        Basis-Kosten: <b set:html={price}></b>
       </p>
     </div>
-    <form name="enrol" action={isDe ? '/de/preise/success' : '/en/prices/success' } method="POST" data-netlify="true"
-      data-netlify-honeypot="bot-field">
+    <form
+      name="enrol"
+      action={isDe ? '/de/preise/success' : '/en/prices/success'}
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <p hidden>
         <label for="bot-field">
           Nicht ausfüllen:{' '}
@@ -61,24 +73,42 @@ const description =
         </label>
         <input type="text" name="subject" value="Neue Gaston-Anmeldung" />
         <input type="text" name="plan" value={plan} />
-        <input type="text" name="locale" value={isDe ? 'de' : 'en' } />
+        <input type="text" name="locale" value={isDe ? 'de' : 'en'} />
       </p>
       <p>
         <label for="name">
           Vorname / Name
-          <input type="text" inputmode="text" autocomplete="name" name="name" required />
+          <input
+            type="text"
+            inputmode="text"
+            autocomplete="name"
+            name="name"
+            required
+          />
         </label>
       </p>
       <p>
         <label for="email">
           Email-Adresse
-          <input type="email" inputmode="email" autocomplete="email" name="email" required />
+          <input
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            name="email"
+            required
+          />
         </label>
       </p>
       <p>
         <label for="phone">
           Telefonnummer
-          <input type="tel" inputmode="tel" autocomplete="tel" name="phone" required />
+          <input
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            name="phone"
+            required
+          />
         </label>
       </p>
       <p>
@@ -90,7 +120,12 @@ const description =
       <p>
         <label for="website">
           URL ihrer Webseite <small>(optional)</small>
-          <input type="text" inputmode="text" autocomplete="url" name="website" />
+          <input
+            type="text"
+            inputmode="text"
+            autocomplete="url"
+            name="website"
+          />
         </label>
       </p>
       <p>

@@ -3,9 +3,9 @@ import Main from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
 import ButtonLink from '@components/ButtonLink.astro'
 import Center from '@components/Center.astro'
+import Plan from '@components/Plan'
 
-const description =
-  'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
+const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
 ---
 
 <Main title="Preise und Leistungen" description={description}>
@@ -13,135 +13,81 @@ const description =
     <h1>Preise und Leistungen</h1>
     <div class="plans-container">
       <div class="plan">
-        <h2>Basic</h2>
-        <p class="plan-subtitle">Sie wollen Gaston vor allem als Speisekarte einsetzen.</p>
+        <h2>Speisekarte</h2>
+        <p class="plan-subtitle">
+          Sie wollen Gaston als Speisekarte einsetzen.
+        </p>
         <ul>
           <li>
             <p>Speisekarte auf dem Handy, Tablet und Ihrer Webseite</p>
           </li>
           <li>
-            <p>
-              Für Inhouse, Take Away und Delivery Bestellungen entgegennehmen
-            </p>
-          </li>
-          <li>
-            <p>Zahlung über Gaston möglich</p>
+            <p>CMS, um die Speisekarte zu bearbeiten</p>
           </li>
           <li>
             <p>1 Sprache</p>
-            <p class="small">
-              Weitere auf Anfrage.
-            </p>
+            <p class="small">Weitere auf Anfrage.</p>
           </li>
           <li>
             <p>1 Speisekarte</p>
-            <p class="small">
-              Weitere auf Anfrage.
-            </p>
-          </li>
-          <li>
-            <p>Dashboard mit Bestell- und Zahlungsübersicht</p>
+            <p class="small">Weitere auf Anfrage.</p>
           </li>
           <li>
             <p>Telefonischer Support zu Bürozeiten</p>
           </li>
         </ul>
         <dl>
-          <dt>Transaktionskosten</dt>
-          <dd class="price">5,9% ٭</dd>
           <dt>Monatliche Grundgebühr / Betrieb</dt>
           <dd class="price">Kostenlos</dd>
         </dl>
         <Center>
-          <ButtonLink href="basic/">Basic anfragen</ButtonLink>
+          <ButtonLink href="basic/">Speisekarte anfragen</ButtonLink>
         </Center>
       </div>
-      <div class="plan" data-recommended="Häufig gewählt">
-        <h2>Pro</h2>
-        <p class="plan-subtitle">Sie planen regelmässige Umsätze mit Gaston.</p>
-        <ul>
-          <li>
-            <p>Alle Leistungen von Basic</p>
-          </li>
-          <li>
-            <p>Bon-Drucker, um Bestellungen auszudrucken</p>
-          </li>
-          <li>
-            <p><b>Flatrate</b>: Keine Gaston-Kosten pro Bestellung ٭</p>
-          </li>
-          <li>
-            <p>2 Sprachen</p>
-            <p class="small">
-              Weitere auf Anfrage.
-            </p>
-
-          </li>
-          <li>
-            <p>2 Speisekarten</p>
-            <p class="small">
-              Zeit- und ortsabhängig unterschiedliche Angebote und Preise. Weitere auf Anfrage.
-            </p>
-          </li>
-          <li>
-            <p>Telefonischer Support 7 Tage die Woche von 08:00 bis 20:00</p>
-          </li>
-        </ul>
-        <dl>
-          <dt>Transaktionskosten</dt>
-          <dd class="price">Kostenlos ٭</dd>
-          <dt>Monatliche Grundgebühr / Betrieb</dt>
-          <dd class="price">CHF 179.-</dd>
-        </dl>
-        <Center>
-          <ButtonLink href="pro/">Pro anfragen</ButtonLink>
-        </Center>
-      </div>
-
-      <div class="plan">
-        <h2>Deluxe</h2>
-        <p class="plan-subtitle">Alle Funktionen von Gaston.</p>
-        <ul>
-          <li>
-            <p>Alle Leistungen von Pro</p>
-          </li>
-          <li>
-            <p>Bestellungen werden an die Kasse weitergeleitet</p>
-          </li>
-          <li>
-            <p>Unbegrenzt Sprachen</p>
-          </li>
-          <li>
-            <p>Unbegrenzt Speisekarten</p>
-            <p class="small">
-              Zeit- und ortsabhängig unterschiedliche Angebote und Preise.
-            </p>
-          </li>
-          <li>
-            <p>Erreichbar auf Ihrer Domäne/URL</p>
-          </li>
-          <li>
-            <p>White Label</p>
-            <p class="small">
-              Gaston Label ist nicht sichtbar.
-            </p>
-          </li>
-          <li>
-            <p>24/7 Support</p>
-          </li>
-        </ul>
-        <dl>
-          <dt>Transaktionskosten</dt>
-          <dd class="price">Kostenlos ٭</dd>
-          <dt>Monatliche Grundgebühr / Betrieb</dt>
-          <dd class="price">CHF 699.-</dd>
-        </dl>
-        <Center>
-          <ButtonLink href="deluxe/">Deluxe anfragen</ButtonLink>
-        </Center>
+      <div class="plan" data-recommended="Bestellen & Bezahlen ohne zu Warten">
+        <Plan client:load>
+          <>
+            <h2>Bestell App + Speisekarte</h2>
+            <p class="plan-subtitle">Das nächste Level des Gastgebens.</p>
+            <ul>
+              <li>
+                <p>Alle Leistungen der Speisekarte</p>
+              </li>
+              <li>
+                <p>
+                  Für Inhouse, Take Away und Delivery Bestellungen
+                  entgegennehmen
+                </p>
+              </li>
+              <li>
+                <p>Zahlung über Gaston möglich</p>
+              </li>
+              <li>
+                <p>Dashboard mit Bestell- und Zahlungsübersicht</p>
+              </li>
+              <li>
+                <p>2 Sprachen</p>
+                <p class="small">Weitere auf Anfrage.</p>
+              </li>
+              <li>
+                <p>2 Speisekarten</p>
+                <p class="small">
+                  Zeit- und ortsabhängig unterschiedliche Angebote und Preise.
+                  Weitere auf Anfrage.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Telefonischer Support 7 Tage die Woche von 08:00 bis 20:00
+                </p>
+              </li>
+            </ul>
+          </>
+        </Plan>
       </div>
 
       <div class="plan pos">
-        <h2>Enterprise</h2>
+        <h2>Individuell</h2>
         <p class="plan-subtitle">
           Sie wollen Gaston in mehreren Betrieben einsetzen.
         </p>
@@ -158,15 +104,14 @@ const description =
         </ul>
         <p class="price pos">Auf Anfrage</p>
         <Center>
-          <ButtonLink href="enterprise/">Enterprise anfragen</ButtonLink>
+          <ButtonLink href="enterprise/">Individuell anfragen</ButtonLink>
         </Center>
       </div>
     </div>
     <ul>
       <li style="list-style-type: '٭ ';">
-        Die Transaktionskosten des Zahlungsproviders (beispielsweise Worldline oder
-        Datatrans) fallen in jedem Plan an. Im Basic-Plan erheben wir zusätzliche Transaktionskosten pro Bestellung oder
-        Bezahlung.
+        Die Transaktionskosten des Zahlungsproviders (beispielsweise Worldline
+        oder Datatrans) fallen zusätzlich an.
       </li>
     </ul>
   </Container>
@@ -178,8 +123,8 @@ const description =
         <h3>Gäste per SMS informieren</h3>
       </div>
       <p>
-        Sie möchten die Gäste per SMS darüber informieren, dass die Bestellung bereit ist (Gäste-Rufsystem /
-        Gäste-Pager).
+        Sie möchten die Gäste per SMS darüber informieren, dass die Bestellung
+        bereit ist (Gäste-Rufsystem / Gäste-Pager).
       </p>
       <p class="price">+ CHF 0.09 <small>/ SMS</small></p>
     </div>
@@ -188,9 +133,7 @@ const description =
       <div class="heading">
         <h3>Ihre Domäne/URL</h3>
       </div>
-      <p>
-        Gaston ist auf Ihrer Domäne/URL erreichbar.
-      </p>
+      <p>Gaston ist auf Ihrer Domäne/URL erreichbar.</p>
       <p class="price">+ CHF 29.- <small>/ Monat / Betrieb</small></p>
     </div>
 
@@ -221,10 +164,10 @@ const description =
         unterschiedlich sein.
       </p>
       <p>
-        Die ist ideal, um die Preise zur Happy-Hour anzupassen, oder um das Angebot auf die Küchenöffnungszeiten
-        abzustimmen. Damit ist es auch möglich für Inhouse, Take Away und
-        Delivery ein unterschiedliches Angebot oder auch unterschiedliche Preise
-        anzubieten.
+        Die ist ideal, um die Preise zur Happy-Hour anzupassen, oder um das
+        Angebot auf die Küchenöffnungszeiten abzustimmen. Damit ist es auch
+        möglich für Inhouse, Take Away und Delivery ein unterschiedliches
+        Angebot oder auch unterschiedliche Preise anzubieten.
       </p>
 
       <p class="price">+ CHF 59.- <small>/ Monat / Betrieb</small></p>
@@ -234,9 +177,7 @@ const description =
       <div class="heading">
         <h3>White Label</h3>
       </div>
-      <p>
-        Es sind keine Hinweise auf das Gaston Label vorhanden.
-      </p>
+      <p>Es sind keine Hinweise auf das Gaston Label vorhanden.</p>
       <p class="price">+ CHF 99.- <small>/ Monat / Betrieb</small></p>
     </div>
 
@@ -251,7 +192,7 @@ const description =
 
     <div class="feature">
       <div class="heading">
-        <h3>24h Support </h3>
+        <h3>24h Support</h3>
       </div>
       <p>Wir sind bei Störungen täglich 24h für Sie erreichbar.</p>
       <p class="price">+ CHF 199.- <small>/ Monat / Betrieb</small></p>
@@ -262,8 +203,8 @@ const description =
         <h3>Unterstützung beim Einrichten und Einpflegen der Daten</h3>
       </div>
       <p>
-        Wir unterstützen Sie bis zu vier Wochen beim Einrichten von Gaston telefonisch oder je nach Distanz auch vor
-        Ort.
+        Wir unterstützen Sie bis zu vier Wochen beim Einrichten von Gaston
+        telefonisch oder je nach Distanz auch vor Ort.
       </p>
       <p class="price">
         CHF 390.- <small>einmalig</small>
@@ -288,8 +229,8 @@ const description =
         <h3>Klassische Kasse</h3>
       </div>
       <p>
-        Haben Sie zusätzlich Bedarf an einer klassischen Kasse? Mit unseren Partnern können wir Ihnen ein attraktives
-        Paket anbieten.
+        Haben Sie zusätzlich Bedarf an einer klassischen Kasse? Mit unseren
+        Partnern können wir Ihnen ein attraktives Paket anbieten.
       </p>
       <p class="price">
         Nehmen Sie mit uns <a href="/de/kontakt/">Kontakt</a> auf.
@@ -298,19 +239,120 @@ const description =
   </Container>
 </Main>
 
-<style lang="scss">
+<style is:global>
   dl {
     margin-block: 0.5em;
+  }
+  dt {
+    font-size: 0.6em;
+  }
 
-    dt {
-      font-size: 0.6em;
-    }
+  dd {
+    margin: 0 0 0.5em;
+  }
 
-    dd {
-      margin: 0 0 0.5em;
+  .price {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--primary-color);
+
+    &.pos {
+      color: var(--text-color);
     }
   }
 
+  input[type='range'] {
+    height: 39px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type='range']:focus {
+    outline: none;
+  }
+  input[type='range']::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 1px #000000;
+    background: #bababa;
+    border-radius: 18px;
+    border: 0px solid #000000;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #e11387;
+    border: 3px solid #e11387;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background: #dedede;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -10.5px;
+  }
+  input[type='range']:focus::-webkit-slider-runnable-track {
+    background: #bababa;
+  }
+  input[type='range']::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 1px #000000;
+    background: #bababa;
+    border-radius: 18px;
+    border: 0px solid #000000;
+  }
+  input[type='range']::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #e11387;
+    border: 3px solid #e11387;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background: #dedede;
+    cursor: pointer;
+  }
+  input[type='range']::-ms-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type='range']::-ms-fill-lower {
+    background: #bababa;
+    border: 0px solid #000000;
+    border-radius: 36px;
+    box-shadow: 0px 0px 1px #000000;
+  }
+  input[type='range']::-ms-fill-upper {
+    background: #bababa;
+    border: 0px solid #000000;
+    border-radius: 36px;
+    box-shadow: 0px 0px 1px #000000;
+  }
+  input[type='range']::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #e11387;
+    border: 3px solid #e11387;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background: #dedede;
+    cursor: pointer;
+  }
+  input[type='range']:focus::-ms-fill-lower {
+    background: #bababa;
+  }
+  input[type='range']:focus::-ms-fill-upper {
+    background: #bababa;
+  }
+</style>
+
+<style lang="scss">
   i {
     color: var(--primary-color);
   }
@@ -320,7 +362,7 @@ const description =
     gap: 2em 1em;
 
     @media (min-width: 800px) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
@@ -372,16 +414,6 @@ const description =
     background-color: var(--light-background-color);
   }
 
-  .price {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: var(--primary-color);
-
-    &.pos {
-      color: var(--text-color);
-    }
-  }
-
   ul {
     flex: 1;
     width: 100%;
@@ -395,7 +427,6 @@ const description =
 
     p {
       margin: 0;
-
     }
 
     .small {

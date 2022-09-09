@@ -1,3 +1,4 @@
+import 'solid-js'
 import type { JSX } from 'solid-js'
 import './Dialog.css'
 
