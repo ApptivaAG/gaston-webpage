@@ -7,7 +7,11 @@ keyword: gäste-rufsystem
 layout: '@layouts/LandingPage.astro'
 ---
 
-Das Konzept des Gäste-Rufsystems existiert seit Jahren und ist eine mögliche Lösung, um die Qualität im Service zu erhöhen. Aber mittlerweile existieren bessere Alternativen. Aus diesem Grund werden wir hier in nur 5 Punkten argumentieren, warum Sie Gaston App anstatt eines Gäste-Rufsystems in Betracht ziehen sollten.
+Das Konzept des Gäste-Rufsystems existiert seit Jahren und ist eine mögliche Lösung, um die Qualität im Service zu erhöhen. In einem Betrieb, der ständig unter Vollgas steht, weil es sich in einer Umgebung befindet, in der viele Gäste unterwegs sind, macht so ein System die Gäste bei der Bestellabholung selbstständig und spart so dem Personal Zeit.
+
+Aber mittlerweile existieren bessere Alternativen, die die Essenz der Gastronomie beibehalten, aber schnellere und praktischere Ergebnisse liefern.
+
+Aus diesem Grund werden wir hier in nur 5 Punkten argumentieren, warum Sie Gaston App anstatt eines Gäste-Rufsystems in Betracht ziehen sollten.
 
 ## 1. Gäste-Pager optimieren nur die Bestellabholung
 
@@ -43,4 +47,4 @@ Arbeiten mehrere Betriebe zusammen an einem Ort, ist die Koordination und Abwick
 
 Gaston ist in den vielen Fällen eine besser Lösung als physische Gäste-Rufsysteme. Nehmen Sie mit uns Kontakt auf und wir schauen, wie wir gemeinsam das Gastgeben auf das nächste Level heben.
 
-Falls sie noch unsicher sind, ob Gaston für Ihre Situation passt, schauen wir dies sehr gerne mit Ihnen an. Nehmen Sie dazu unverbindlich [Kontakt](../kontakt/) mit uns auf.
+Falls Sie noch unsicher sind, ob Gaston für Ihre Situation passt, schauen wir dies sehr gerne mit Ihnen an. Nehmen Sie dazu unverbindlich [Kontakt](../kontakt/) mit uns auf.
