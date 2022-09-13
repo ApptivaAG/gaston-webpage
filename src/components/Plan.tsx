@@ -7,19 +7,23 @@ type PricePerTurnover = {
   turnover: number
   price: number
 }
-type Input = 0 | 1 | 2 | 3
+type Input = 0 | 1 | 2 | 3 | 4
 type InputToPrice = [
+  PricePerTurnover,
   PricePerTurnover,
   PricePerTurnover,
   PricePerTurnover,
   'more'
 ]
-const inputToPricePerTurnover: InputToPrice = [
+export const inputToPricePerTurnover: InputToPrice = [
   { turnover: 1_000, price: 39 },
   { turnover: 5_000, price: 89 },
   { turnover: 20_000, price: 179 },
+  { turnover: 100_000, price: 359 },
   'more',
 ]
+
+const moreValue = 4
 
 const Plan = ({ children }: { children: JSX.Element }) => {
   const init = globalThis.location
@@ -37,11 +41,14 @@ const Plan = ({ children }: { children: JSX.Element }) => {
       {children}
       <label for="turnover">
         <dl>
-          <dt>Monatlicher Gaston-Umsatz / Betrieb {value != 3 && 'bis zu'}</dt>
+          <dt>
+            Monatlicher Gaston-Umsatz / Betrieb {value != moreValue && 'bis zu'}
+          </dt>
           <dd>
-            {value == 3
+            {value == moreValue
               ? `grösser als ${currency.format(
-                  inputToPricePerTurnover[2].turnover
+                  (inputToPricePerTurnover[moreValue - 1] as PricePerTurnover)
+                    .turnover
                 )}.-`
               : `${currency.format(inputToPricePerTurnover[value].turnover)}.-`}
           </dd>
@@ -53,11 +60,11 @@ const Plan = ({ children }: { children: JSX.Element }) => {
         id="turnover"
         style="width: 80%;"
         min="0"
-        max="3"
+        max="4"
         value={value}
         onInput={({ target }) => setValue(target.value)}
       />
-      {value == 3 ? (
+      {value == moreValue ? (
         <>
           <dl>
             <dt>Monatliche Grundgebühr / Betrieb ٭ </dt>

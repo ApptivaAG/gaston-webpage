@@ -37,6 +37,14 @@ export const getStaticPaths = async () => [
     },
   },
   {
+    params: { plan: 'order-pay/3' },
+    props: {
+      title: 'Bestellen, Bezahlen + Speisekarte',
+      price: 'CHF 359.- / Betrieb / Monat',
+      turnover: 100000,
+    },
+  },
+  {
     params: { plan: 'individuell' },
     props: { title: 'Individuell', price: 'Auf Anfrage' },
   },
