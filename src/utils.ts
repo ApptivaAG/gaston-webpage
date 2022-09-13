@@ -22,3 +22,10 @@ export const takeSortedBlogPosts = (
 
 export const addSlashToEndIfMissing = (url: string) =>
   url.endsWith('/') ? url : `${url}/`
+
+export const currency = Intl.NumberFormat('de-CH', {
+  style: 'currency',
+  currency: 'CHF',
+  notation: 'compact',
+  compactDisplay: 'short',
+})

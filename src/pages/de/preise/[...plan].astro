@@ -1,37 +1,49 @@
 ---
 import Main from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
-import { mkIsCurrentPage } from '../../../utils'
+import { currency, mkIsCurrentPage } from '../../../utils'
 import Button from '@components/Button.astro'
 
 export const getStaticPaths = async () => [
   {
-    params: { plan: 'basic' },
+    params: { plan: 'menucard' },
     props: {
-      title: 'Basic',
-      price: 'Keine. <small>5,9% / Bestellung oder Zahlung</small>',
+      title: 'Speisekarte',
+      price: 'Kostenlos',
     },
   },
   {
-    params: { plan: 'pro/0' },
-    props: { title: 'Pro', price: 'CHF 39.- / Betrieb / Monat' },
+    params: { plan: 'order-pay/0' },
+    props: {
+      title: 'Bestellen, Bezahlen + Speisekarte',
+      price: 'CHF 39.- / Betrieb / Monat',
+      turnover: 1000,
+    },
   },
   {
-    params: { plan: 'pro/1' },
-    props: { title: 'Pro', price: 'CHF 89.- / Betrieb / Monat' },
+    params: { plan: 'order-pay/1' },
+    props: {
+      title: 'Bestellen, Bezahlen + Speisekarte',
+      price: 'CHF 89.- / Betrieb / Monat',
+      turnover: 5000,
+    },
   },
   {
-    params: { plan: 'pro/2' },
-    props: { title: 'Pro', price: 'CHF 179.- / Betrieb / Monat' },
+    params: { plan: 'order-pay/2' },
+    props: {
+      title: 'Bestellen, Bezahlen + Speisekarte',
+      price: 'CHF 179.- / Betrieb / Monat',
+      turnover: 20000,
+    },
   },
   {
-    params: { plan: 'enterprise' },
-    props: { title: 'Enterprise', price: 'Auf Anfrage' },
+    params: { plan: 'individuell' },
+    props: { title: 'Individuell', price: 'Auf Anfrage' },
   },
 ]
 
-const { plan } = Astro.params
-const { title: planTitle, price } = Astro.props
+const { plan } = Astro.params as { plan: string }
+const { title: planTitle, price, turnover } = Astro.props
 
 const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
@@ -52,9 +64,18 @@ const description =
       <p>
         Gewählter Plan:
         <b>
-          <a href="..">{planTitle}</a>
+          <a href={turnover ? `../?turnover=${plan.split('/').at(-1)}` : '..'}
+            >{planTitle}
+          </a>
         </b>
       </p>
+      {
+        turnover && (
+          <p>
+            Gaston-Umsatz bis: <b>{currency.format(turnover)}.-</b>
+          </p>
+        )
+      }
       <p>
         Basis-Kosten: <b set:html={price}></b>
       </p>

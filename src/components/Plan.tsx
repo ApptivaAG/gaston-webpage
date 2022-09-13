@@ -1,6 +1,7 @@
 import 'preact'
 import type { JSX } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
+import { currency } from 'src/utils'
 
 type PricePerTurnover = {
   turnover: number
@@ -19,24 +20,24 @@ const inputToPricePerTurnover: InputToPrice = [
   { turnover: 20_000, price: 179 },
   'more',
 ]
-const number = Intl.NumberFormat('de-CH')
-const currency = Intl.NumberFormat('de-CH', {
-  style: 'currency',
-  currency: 'CHF',
-  notation: 'compact',
-  compactDisplay: 'short',
-})
 
 const Plan = ({ children }: { children: JSX.Element }) => {
-  const [value, setValue] = useState<Input>(0)
-  useEffect(() => console.log(value))
+  const init = globalThis.location
+    ? Number(globalThis.location.search.split('=').at(-1))
+    : 0
+
+  const [value, setValue] = useState<Input>(init as Input)
+
+  useEffect(() => {
+    globalThis.history.pushState(null, '', `?turnover=${value}`)
+  }, [value])
 
   return (
     <>
       {children}
       <label for="turnover">
         <dl>
-          <dt>Monatlicher Transaktionsumsatz / Betrieb bis zu </dt>
+          <dt>Monatlicher Gaston-Umsatz / Betrieb {value != 3 && 'bis zu'}</dt>
           <dd>
             {value == 3
               ? `grösser als ${currency.format(
@@ -63,7 +64,7 @@ const Plan = ({ children }: { children: JSX.Element }) => {
             <dd class="price">Auf Anfrage</dd>
           </dl>
           <div>
-            <a class="button-link" href="enterprise/">
+            <a class="button-link" href="individuell/">
               Individuell anfragen
             </a>
           </div>
@@ -75,8 +76,8 @@ const Plan = ({ children }: { children: JSX.Element }) => {
             <dd class="price">CHF {inputToPricePerTurnover[value].price}.-</dd>
           </dl>
           <div>
-            <a class="button-link" href={`pro/${value}`}>
-              Bestell App anfragen
+            <a class="button-link" href={`order-pay/${value}`}>
+              Order|Pay anfragen
             </a>
           </div>
         </>

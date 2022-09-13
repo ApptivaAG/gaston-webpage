@@ -4,6 +4,7 @@ import Container from '@components/Container.astro'
 import ButtonLink from '@components/ButtonLink.astro'
 import Center from '@components/Center.astro'
 import Plan from '@components/Plan'
+import { currency } from 'src/utils'
 
 const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
 ---
@@ -41,21 +42,23 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
           <dd class="price">Kostenlos</dd>
         </dl>
         <Center>
-          <ButtonLink href="basic/">Speisekarte anfragen</ButtonLink>
+          <ButtonLink href="menucard/">Speisekarte anfragen</ButtonLink>
         </Center>
       </div>
-      <div class="plan" data-recommended="Bestellen & Bezahlen ohne zu Warten">
+      <div class="plan" data-recommended="Bestellen & Bezahlen ohne Wartezeit">
         <Plan client:load>
           <>
-            <h2>Bestell App + Speisekarte</h2>
-            <p class="plan-subtitle">Das nächste Level des Gastgebens.</p>
+            <h2>Bestellen, Bezahlen + Speisekarte</h2>
+            <p class="plan-subtitle">
+              Bestellungen und Zahlungen entgegennehmen.
+            </p>
             <ul>
               <li>
                 <p>Alle Leistungen der Speisekarte</p>
               </li>
               <li>
                 <p>
-                  Für Inhouse, Take Away und Delivery Bestellungen
+                  Bestellungen für Inhouse, Take Away und Delivery
                   entgegennehmen
                 </p>
               </li>
@@ -86,12 +89,13 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
         </Plan>
       </div>
 
-      <div class="plan pos">
+      <div class="plan">
         <h2>Individuell</h2>
-        <p class="plan-subtitle">
-          Sie wollen Gaston in mehreren Betrieben einsetzen.
-        </p>
+        <p class="plan-subtitle">Sie haben individuelle Wünsche.</p>
         <ul>
+          <li>
+            <p>Umsatz mit Gaston von über {currency.format(20_000)}.-</p>
+          </li>
           <li>
             <p>Gaston in mehreren Betrieben</p>
           </li>
@@ -102,14 +106,14 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
             <p>Individueller Support</p>
           </li>
         </ul>
-        <p class="price pos">Auf Anfrage</p>
+        <p class="price">Auf Anfrage</p>
         <Center>
-          <ButtonLink href="enterprise/">Individuell anfragen</ButtonLink>
+          <ButtonLink href="individuell/">Individuell anfragen</ButtonLink>
         </Center>
       </div>
     </div>
-    <ul>
-      <li style="list-style-type: '٭ ';">
+    <ul class="footnote">
+      <li>
         Die Transaktionskosten des Zahlungsproviders (beispielsweise Worldline
         oder Datatrans) fallen zusätzlich an.
       </li>
@@ -141,7 +145,7 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
       <div class="heading">
         <h3>Weitere Bon-Drucker</h3>
       </div>
-      <p>Bon-Drucker um die Bestellungen auszudrucken.</p>
+      <p>Bon-Drucker, um die Bestellungen auszudrucken.</p>
       <p class="price">
         + CHF 39.- <small>/ Monat / Ducker</small>
       </p>
@@ -375,12 +379,15 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
     border-style: solid;
     border-radius: 5px;
     border-color: var(--primary-color);
-    padding: 3rem 1rem 1rem;
+    padding: 4rem 1rem 1rem;
     text-align: center;
 
     h2 {
       font-size: 2em;
-      margin-block: 0.3em 0;
+      margin: 0.3em 0.5em;
+      @media (min-width: 800px) {
+        min-height: 4em;
+      }
     }
 
     .plan-subtitle {
@@ -407,6 +414,33 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
         margin-bottom: -2em;
       }
     }
+
+    li {
+      margin-block: 1em;
+
+      p {
+        margin: 0;
+      }
+
+      .small {
+        font-size: 0.7em;
+      }
+
+      &::marker {
+        font-size: 1em !important;
+        color: var(--primary-color);
+        content: '✔︎  ';
+      }
+    }
+  }
+
+  .footnote {
+    margin-top: 1em;
+
+    li::marker {
+      font-size: 1em;
+      content: '٭   ';
+    }
   }
 
   .pos {
@@ -420,23 +454,6 @@ const description = 'Wählen Sie das passende Angebot für Ihre Bedürfnisse.'
     margin: 0;
     text-align: left;
     padding-left: 1.5em;
-  }
-
-  li {
-    margin-block: 1em;
-
-    p {
-      margin: 0;
-    }
-
-    .small {
-      font-size: 0.7em;
-    }
-
-    ul &::marker {
-      font-size: 1.2em !important;
-      color: var(--primary-color);
-    }
   }
 
   .selection-button {
