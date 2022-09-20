@@ -1,0 +1,51 @@
+---
+import Main from './Main.astro'
+import Container from '@components/Container.astro'
+import type { LandingPageFrontMatter } from 'src/types'
+
+export type Props = {
+  content: LandingPageFrontMatter
+}
+
+const { content } = Astro.props as Props
+const { title, description } = content
+---
+
+<Main title={title} description={description}>
+  <Container size="small">
+    <nav><a href="/de/dokumentation/">Dokumentation</a> &gt; {title}</nav>
+    <article class="landing-page">
+      <h1>{title}</h1>
+      <p class="description">
+        {description}
+      </p>
+      <slot />
+    </article>
+  </Container>
+</Main>
+
+<style lang="scss" is:global>
+  .landing-page {
+    li {
+      margin-bottom: 0.8em;
+
+      &::marker {
+        font-size: 1em !important;
+      }
+    }
+  }
+</style>
+<style lang="scss">
+  h1 {
+    margin-top: 0.5em;
+    line-height: 1em;
+  }
+
+  article {
+    margin-bottom: 4em;
+  }
+
+  .description {
+    font-weight: 600;
+  }
+</style>

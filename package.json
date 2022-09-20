@@ -3,22 +3,25 @@
   "version": "1.2.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev --experimental-integrations",
+    "dev": "astro dev",
     "start": "pnpm dev",
-    "build": "astro build --experimental-integrations",
-    "preview": "astro preview --experimental-integrations",
+    "build": "astro build",
+    "preview": "astro preview",
     "netlify": "netlify dev"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.6",
-    "@astrojs/sitemap": "^0.2.4",
-    "@astrojs/solid-js": "^0.2.0",
-    "astro": "1.0.0-beta.63",
-    "astro-imagetools": "^0.6.10",
-    "astro-seo": "^0.5.0",
-    "netlify-cli": "^10.7.1",
-    "prettier-plugin-astro": "^0.1.1",
-    "sass": "^1.53.0",
-    "solid-js": "^1.4.6"
+    "@astrojs/image": "^0.6.0",
+    "@astrojs/mdx": "^0.11.1",
+    "@astrojs/partytown": "^1.0.0",
+    "@astrojs/preact": "^1.1.0",
+    "@astrojs/sitemap": "^1.0.0",
+    "@astrojs/solid-js": "^1.1.0",
+    "astro": "1.1.7",
+    "astro-seo": "^0.6.0",
+    "netlify-cli": "^11.5.1",
+    "preact": "^10.6.5",
+    "prettier-plugin-astro": "^0.5.4",
+    "sass": "^1.54.9",
+    "solid-js": "^1.5.4"
   }
 }

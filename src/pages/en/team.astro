@@ -1,42 +1,11 @@
 ---
 import Main from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
+import { teamMembers } from 'src/data';
 
 const description =
   'The team at Gaston is driven each day by waiting... to order and pay in restaurants.'
 
-const employees = [
-  {
-    name: 'Patrik Stutz',
-    position: 'Software-Entwickler',
-    image: '/assets/team/patrik-stutz-prev.jpg',
-  },
-  {
-    name: 'Philip Schönholzer',
-    position: 'Produkt-Entwickler',
-    image: '/assets/team/philip-schoenholzer-prev.jpg',
-  },
-  {
-    name: 'Roman Schaller',
-    position: 'Software-Entwickler',
-    image: '/assets/team/roman-schaller-prev.jpg',
-  },
-  {
-    name: 'Linus Hüsler',
-    position: 'Beratung',
-    image: '/assets/team/linus-huesler-prev.jpg',
-  },
-  {
-    name: 'Markus Tanner',
-    position: 'Beratung',
-    image: '/assets/team/markus-tanner-prev.jpg',
-  },
-  {
-    name: 'David Decker',
-    position: 'Parktikant',
-    image: '/assets/team/david-decker-prev.jpg',
-  },
-]
 ---
 
 <Main title="Our Team" description={description}>
@@ -44,13 +13,13 @@ const employees = [
     <h1>Our Team</h1>
     <p>The team at Gaston is driven each day by waiting... to order and pay in restaurants.</p>
     <div class="employee-list">
-      {employees.map(({ name, image, position }) => (
+      {teamMembers.map(({ name, image, role }) => (
       <div class="employee">
         <img loading="lazy" src={image} alt={name} width="192" height="192" />
         <p>
           <span class="employee-name">{name}</span>
           <br />
-          {position}
+          {role.en}
         </p>
       </div>
       ))}

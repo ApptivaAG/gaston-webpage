@@ -15,62 +15,57 @@ import Hero from '@components/Hero.astro'
 const { de } = metaData
 
 const description =
-  'Gaston die digitale Speisekarte erlaubt es den Gästen schnell und einfach zu bestell und bezahlen. Dabei spielt es keine Rolle, ob die Gäste in ihrem Betrieb, unterwegs oder Zuhause sind. Gaston unterstützt die Bestellung in Ihrem Betrieb, Take Away und Delivery.'
-
-const USPs = [
-  "<b>Aussuchen, Bestellen, Bezahlen</b>, in der Bestell App.",
-  "Alle Kanäle bedienen: <b>Inhouse, Take Away, Delivery</b>.",
-  "Überall verfügbar: Auf dem <b>Handy, Tablet und Ihrer Webseite</b>, ohne Download.",
-  "<b>Mit oder ohne Kasse</b>, flexibel auf Ihre Bedürfnisse zugeschnitten.",
-]
+  'Gaston erlaubt es den Gästen schnell und einfach zu bestell und bezahlen. Dabei spielt es keine Rolle, ob die Gäste in ihrem Betrieb, unterwegs oder Zuhause sind.'
 
 ---
 
-<MainLayout title={de.claim} description={description}>
+<MainLayout title={`${de.name} • ${de.claim}`}
+  description={description}>
   <Container>
-    <Hero name={de.name} description={de.description} claim={de.claim} usp={USPs}
+    <Hero name={de.name} claim={de.claim} from="In Luzern entwickelt."
       animation={{src: '/assets/hero-gaston-vs-menu.svg' ,
       alt: 'Bestellen mit Speisekarte mühsam, mit Gaston App schnell und einfach' }} links={callToActionLinksDe} />
-    <h2><small>Auswahl unserer Kunden</small></h2>
+    <h2 style="text-align: center;"><small>Auswahl unserer Kunden</small></h2>
     <ul class="image-list" style="margin-bottom: 6em;">
       <li>
-        <FixedPicture src="/src/images/customers/brauwerk-st-gallen.png" alt="Restaurant Brauwerk"
-          placeholder={'tracedSVG'} height={60} />
+        <FixedPicture src={import("../../images/customers/brauwerk-st-gallen.png")} alt="Restaurant Brauwerk"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/el-mosquito.png" alt="El-Mosquito" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/el-mosquito.png")} alt="El-Mosquito" placeholder={'tracedSVG'}
+          height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/gspan.jpg" alt="Hotel Gspan" placeholder={'tracedSVG'} height={60} />
+        <FixedPicture src={import("../../images/customers/gspan.jpg")} alt="Hotel Gspan" placeholder={'tracedSVG'}
+          height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/habsburg-bar.png" alt="Habsburg-Bar" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/habsburg-bar.png")} alt="Habsburg-Bar"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/lamassu.png" alt="Restaurant Lamassu" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/lamassu.png")} alt="Restaurant Lamassu"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/franz.png" alt="Restaurant Franz" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/franz.png")} alt="Restaurant Franz" placeholder={'tracedSVG'}
+          height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/seehaus-grill.png" alt="Seehaus-Grill" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/seehaus-grill.png")} alt="Seehaus-Grill"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/seehotel-kastanienbaum.png" alt="Seehotel Kastanienbaum"
-          placeholder={'tracedSVG'} height={60} />
+        <FixedPicture src={import("../../images/customers/seehotel-kastanienbaum.png")} alt="Seehotel Kastanienbaum"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/sugoi-sushi-300.png" alt="Sugoi Sushi" placeholder={'tracedSVG'}
-          height={60} />
+        <FixedPicture src={import("../../images/customers/sugoi-sushi-300.png")} alt="Sugoi Sushi"
+          placeholder={'tracedSVG'} height={50} />
       </li>
       <li>
-        <FixedPicture src="/src/images/customers/zurwerkstatt-sg.png" alt="Zur Werkstatt St. Gallen"
-          placeholder={'tracedSVG'} height={60} />
+        <FixedPicture src={import("../../images/customers/zurwerkstatt-sg.png")} alt="Zur Werkstatt St. Gallen"
+          placeholder={'tracedSVG'} height={50} />
       </li>
     </ul>
   </Container>
@@ -82,8 +77,7 @@ const USPs = [
         <div style="flex: 1">
           <h2>In drei Schritten zum Genuss</h2>
           <p>
-            Mit Gaston bestellen und bezahlen Gäste schnell und einfach in der Bestell App. Keine
-            Anmeldung, kein Download.
+            Mit Gaston bestellen und bezahlen Gäste schnell und einfach im Browser. Gaston läuft auf den Handys Ihrer Gäste, ohne App-Download oder Installation
           </p>
           <ButtonLink href="bestell-und-zahlungs-ablauf-gastro-betriebe/">Mehr Infos
           </ButtonLink>
@@ -91,19 +85,31 @@ const USPs = [
         </div>
         <ol class="description-list ordered-list" style="flex: 1">
           <li>
-            <h3 class="description-wrapper">QR-Code scannen</h3>
+            <div class="description-wrapper">
+              <h3>QR-Code scannen</h3>
+              <p>Die Gäste scannen einen QR-Code auf Ihren Tischen, womit sich die Bestell-App im Browser öffnet.
+                Es ist kein Download und keine Installation nötig. </p>
+            </div>
             <div class="image-wrapper">
               <img src="/assets/index/scan.svg" alt="QR-Code scannen" loading="lazy" height="150" width="130" />
             </div>
           </li>
           <li>
-            <h3 class="description-wrapper">Bestellen</h3>
+            <div class="description-wrapper">
+              <h3>Bestellen</h3>
+              <p>Die Gäste bestellen nach Lust und Laune ein ganzes Menu oder nur ein weiteres Getränk oder eine weitere
+                Speise.</p>
+            </div>
             <div class="image-wrapper">
               <img src="/assets/illustrations/order.svg" alt="Bestellen" loading="lazy" height="150" width="133" />
             </div>
           </li>
           <li>
-            <h3 class="description-wrapper">Bezahlen</h3>
+            <div class="description-wrapper">
+              <h3>Bezahlen</h3>
+              <p>Ihre Gäste bezahlen in der App oder beim Personal. In der App bezahlen die Gäste bequem per Twint,
+                Kreditkarte oder anderen digitalen Zahlungsmittel.</p>
+            </div>
             <div class="image-wrapper">
               <img src="/assets/illustrations/pay.svg" alt="Bezahlen" loading="lazy" height="150" width="110" />
             </div>
@@ -272,13 +278,13 @@ const USPs = [
       </p>
       <ul class="horizontal-list shadow">
         <li>
-          <FixedPicture src="/src/images/el-mosquito.png" alt="El-Mosquito" width={300} />
+          <FixedPicture src={import("../../images/el-mosquito.png")} alt="El-Mosquito" height={480} />
         </li>
         <li>
-          <FixedPicture src="/src/images/habsburg.png" alt="Habsburg-Bar" width={300} />
+          <FixedPicture src={import("../../images/habsburg.png")} alt="Habsburg-Bar" height={480} />
         </li>
         <li>
-          <FixedPicture src="/src/images/sugoisushi.png" alt="Sugoi Sushi" width={300} />
+          <FixedPicture src={import("../../images/sugoisushi.png")} alt="Sugoi Sushi" height={480} />
         </li>
       </ul>
     </Container>
@@ -311,12 +317,13 @@ const USPs = [
       <ul class="image-list" style="justify-content: flex-start;">
         <li>
           <a href="https://www.flm.ch/">
-            <FixedPicture src="/src/images/partners/flm.png" alt="FLM Kassensysteme" height={160} layout={'fixed'} />
+            <FixedPicture src={import("../../images/partners/flm.png")} alt="FLM Kassensysteme" height={160}
+              layout={'fixed'} />
           </a>
         </li>
         <li>
-          <FixedPicture src="/src/images/partners/digital-enterprise.png" alt="Digital Enterprise" height={60}
-            layout={'fixed'} />
+          <FixedPicture src={import("../../images/partners/digital-enterprise.png")} alt="Digital Enterprise"
+            height={60} layout={'fixed'} />
         </li>
       </ul>
     </Container>

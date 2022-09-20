@@ -1,7 +1,7 @@
 ---
 import Container from "@components/Container.astro";
 import Main from "@layouts/Main.astro"
-import { Picture } from 'astro-imagetools/components';
+import { Picture } from '@astrojs/image/components';
 
 const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist äussert flexible. So stellen wir sicher, dass Gaston auf unterschiedliche Betrieb optimal ausgerichtet ist.'
 ---
@@ -54,7 +54,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         <li style="list-style: '🔔  ';">
           <h3>Abholmeldung per SMS</h3>
           <p>Sollen Ihre Gäste die Speisen abholen, sobald diese bereit sind? In dem Fall nimmt Gaston bei der
-            Bestellung die Telefonnummer auf und informiert die Gäste sobald das Essen bereit ist. </p>
+            Bestellung die Telefonnummer auf und informiert die Gäste, sobald das Essen bereit ist. </p>
         </li>
       </ul>
     </div>
@@ -105,7 +105,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         </li>
         <li style="list-style: '🏠  ';">
           <h3>Delivery</h3>
-          <p>Gaston nimmt auch Bestellungen von Gästen, die zuhause sind, entgegen.</p>
+          <p>Gaston nimmt auch Bestellungen von Gästen, die zu Hause sind, entgegen.</p>
         </li>
       </ul>
     </div>
@@ -113,7 +113,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
       <div style="flex: 1">
         <h2>Bestelloptionen</h2>
         <Picture alt="Bestellung mit mehreren Position und der Möglichkeit Trinkgeld zu geben."
-          src="/src/images/bestellung.png" />
+          src={import("/src/images/bestellung.png")} widths={[300, 600, 900]} sizes="300px" sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '🪙  ';">
@@ -192,7 +192,7 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
       <div style="flex: 1">
         <h2>Artikeloptionen</h2>
         <Picture alt="Optionen für eine Pizza. Kleine Pizza, mehr Zutaten, weitere Teller"
-          src="/src/images/optionen.png" />
+          src={import("/src/images/optionen.png")} widths={[300, 600, 900]} sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '💎  ';">
@@ -213,20 +213,20 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         <h2>Artikel&shy;variationen</h2>
         <Picture
           alt="Unterschiedliche Mengen des selben Weins und deren Preis wird direkt auf der Speisekarte angezeigt."
-          src="/src/images/variationen.png" />
+          src={import("/src/images/variationen.png")} widths={[300, 600, 900]} sizes="300px" />
       </div>
       <ul style="flex: 1">
         <li style="list-style: '👨‍👩‍👧‍👦  ';">
           <h3>Unterschiedliche Portionen</h3>
           <p>Haben Sie unterschiedliche Portionen für die gleiche Speise? Beispielsweise eine kleine und eine grosse
-            Portion oder die selbe Speise für mehrere Personen? Mit Gaston können Sie unterschiedliche Portionen mit
+            Portion oder dieselbe Speise für mehrere Personen? Mit Gaston können Sie unterschiedliche Portionen mit
             entsprechenden Preisen klar
             ausweisen.</p>
         </li>
         <li style="list-style: '🍷  ';">
           <h3>Unterschiedliche Mengen</h3>
           <p>Besonders bei Getränken kommt es häufig vor, dass man unterschiedliche Mengen anbieten möchte. Egal ob 3 dl
-            oder eine Flasche, die Gäste sehen transparent was Sie zu welchem Preis anbieten.</p>
+            oder eine Flasche, die Gäste sehen transparent, was Sie zu welchem Preis anbieten.</p>
         </li>
       </ul>
     </div>
@@ -258,7 +258,8 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
         <h2>Eigenes Design</h2>
         <p>Ihr Betrieb hat einen eigenen Stil. Dies sollte Ihre Speisekarte reflektieren. Sie gestalten Ihre Speisekarte
           nach Ihrem Gusto, farbenfroh und mit Bildern oder schlicht und einfach nur Text.</p>
-        <Picture alt="Speisekarte mit Bilder für jede Kategorie." src="/src/images/el-mosquito.png" />
+        <Picture alt="Speisekarte mit Bilder für jede Kategorie." src={import("/src/images/el-mosquito.png")}
+          widths={[300, 600, 900]} sizes="300px" />
 
       </div>
       <ul style="flex: 1">
@@ -300,6 +301,10 @@ const description = 'Gaston bietet einen sehr grossen Leistungsumfang und ist ä
 
   ul {
     padding-inline-start: 3.5em;
+  }
+
+  :global(img) {
+    width: 300px;
   }
 
   img {

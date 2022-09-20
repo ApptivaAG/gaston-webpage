@@ -1,10 +1,11 @@
-import { BlogPost, Language } from './types'
+import type { BlogPost, Language } from './types'
 
 export const mkIsCurrentPage =
   (currentPathname: string) =>
   (path: string, { exact = false } = {}) => {
-    if (exact) return currentPathname === path
-    return currentPathname.includes(path) ? 'page' : undefined
+    const pathname = addSlashToEndIfMissing(currentPathname)
+    if (exact) return pathname === path
+    return pathname.includes(path) ? 'page' : undefined
   }
 
 export const takeSortedBlogPosts = (
@@ -18,3 +19,13 @@ export const takeSortedBlogPosts = (
     )
     .filter((post) => post.frontmatter.lang === language)
     .slice(0, take)
+
+export const addSlashToEndIfMissing = (url: string) =>
+  url.endsWith('/') ? url : `${url}/`
+
+export const currency = Intl.NumberFormat('de-CH', {
+  style: 'currency',
+  currency: 'CHF',
+  notation: 'compact',
+  compactDisplay: 'short',
+})

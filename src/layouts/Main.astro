@@ -1,22 +1,26 @@
 ---
 import { SEO } from 'astro-seo'
 
+import '../styles/global.scss' // import global before other css
+
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import '../styles/global.scss'
 
 import { metaData, generalTitle } from 'src/config'
-import { mkIsCurrentPage } from 'src/utils'
+import { addSlashToEndIfMissing, mkIsCurrentPage } from 'src/utils'
 
 export type Props = {
-  title: string,
-  description: string,
+  title: string
+  description: string
 }
 
 const { title, description } = Astro.props as Props
 
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
+const canonicalURL = addSlashToEndIfMissing(
+  new URL(Astro.url.pathname, Astro.site).toString()
+)
+
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const lang = isCurrentPage('/de/') ? 'de' : 'en'
 
 const translatedMetaData = metaData[lang]
@@ -25,54 +29,106 @@ const openGraph = {
   basic: {
     title: `${title} • ${translatedMetaData.name} • ${translatedMetaData.description}`,
     type: 'webpage',
-    image: 'https://gastonsolution.com/gaston-bestell-app.png'
+    url: canonicalURL,
+    image: 'https://gastonsolution.com/gaston-bestell-app.png',
   },
   optional: { description },
   image: {
     type: 'image/png',
     width: 1200,
     height: 630,
-    alt: `${translatedMetaData.name}, ${translatedMetaData.description}`
-  }
+    alt: `${translatedMetaData.name}, ${translatedMetaData.description}`,
+  },
 }
+
+const production = import.meta.env.CONTEXT === 'production'
 ---
 
 <html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/assets/fonts/font.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png?v=2"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png?v=2"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png?v=2"
+    />
+    <link rel="manifest" href="/site.webmanifest?v=2" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#e11387" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#e11387" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {
+      lang === 'de' && production && (
+        <script
+          id="chatbot"
+          data-server="https://pierre.gastonsolution.com/webclient"
+          defer
+          src="https://pierre.gastonsolution.com/webclient/embed/bundle.js"
+        />
+      )
+    }
+    {
+      production && (
+        <script
+          defer
+          data-domain="gastonsolution.com"
+          src="https://plausible.io/js/plausible.js"
+        />
+      )
+    }
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="/assets/fonts/font.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-  <link rel="manifest" href="/site.webmanifest?v=2">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#e11387">
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <meta name="msapplication-TileColor" content="#ffc40d">
-  <meta name="theme-color" content="#e11387" />
-  {lang === 'de' &&
-  <script id="chatbot" data-server="https://pierre.gastonsolution.com/webclient" defer
-    src="https://pierre.gastonsolution.com/webclient/embed/bundle.js" />}
-  <script defer data-domain="gastonsolution.com" src="https://plausible.io/js/plausible.js"></script>
+    <SEO
+      title={`${title} • ${generalTitle(translatedMetaData)}`}
+      description={description}
+      canonical={canonicalURL}
+      openGraph={openGraph}
+      twitter={{ card: 'summary_large_image' }}
+    />
+  </head>
 
-  <SEO title={`${title} • ${generalTitle(translatedMetaData)}`} description={description} openGraph={openGraph}
-    twitter={{card: "summary_large_image" }} />
+  <body>
+    <Header />
+    <main>
+      <slot />
+      {
+        !production && (
+          <div class="center">
+            <button id="editButton">Editable</button>
+            {/* prettier-ignore */}
+            <script is:inline>
+              const editButton = document.querySelector('#editButton') 
+              if (editButton) {
+                editButton.addEventListener('click', () => {
+                  document.querySelector('main').contentEditable = 'true'
+                })
+              }
+            </script>
+          </div>
+        )
+      }
+    </main>
+    <Footer />
 
-</head>
-
-<body>
-  <Header />
-  <main>
-    <slot />
-  </main>
-  <Footer />
-</body>
-
+    <style>
+      main {
+        grid-area: Content;
+        overflow: hidden;
+      }
+    </style>
+  </body>
 </html>
-
-<style>
-  main {
-    grid-area: Content;
-  }
-</style>

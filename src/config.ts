@@ -1,4 +1,4 @@
-import {
+import type {
   CallToAction,
   FooterGroup,
   I18nFooter,
@@ -9,12 +9,12 @@ import {
 
 const productDe: Product = {
   description: 'Self-Order|Pay für Gastro',
-  claim: 'Gastgeben auf dem nächsten Level.',
+  claim: 'Ihre Gäste bestellen und bezahlen ohne Wartezeit.',
   name: 'Gaston',
 }
 const productEn: Product = {
   description: 'Self-Order|Pay for Gastronomy',
-  claim: 'Hospitality on the next level.',
+  claim: 'Your guests order and pay without waiting.',
   name: 'Gaston',
 }
 export const metaData: MetaData = {
@@ -23,12 +23,12 @@ export const metaData: MetaData = {
 }
 
 export const callToActionLinksDe: CallToAction[] = [
-  { href: '/de/preise/', text: 'Gaston engagieren' },
   { href: '/de/demo/', text: 'Demo starten' },
+  { href: '/de/preise/', text: 'Unverbindliches Angebot' },
 ]
 export const callToActionLinksEn: CallToAction[] = [
-  { href: '/en/contact/', text: 'Order now' },
   { href: '/en/demo/', text: 'Start demo' },
+  { href: '/en/contact/', text: 'Order now' },
 ]
 
 export const generalTitle = ({ name }: Product) => `${name}`
@@ -53,20 +53,20 @@ const navigationDe: NavigationTree = [
     title: 'Produkt',
     items: [
       {
-        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
-        title: 'Bestell- und Zahlungsablauf',
+        title: 'Digitale Speisekarte',
+        href: '/de/digitale-speisekarte/',
         description:
-          'Beschreibung, wie das Bestellen und Bezahlen aus der Sicht eines Gastrobetriebs mit Gaston funktioniert.',
-      },
-      {
-        href: '/de/funktionsumfang/',
-        title: 'Funktionsumfang',
-        description: 'Detaillierte Auflistung aller Funktionen von Gaston.',
+          'Präsentieren Sie mit unserer digitalen Speisekarte Ihr Angebot im besten Licht.',
       },
       {
         title: 'Bestell-App',
         href: '/de/restaurant-bestell-app/',
         description: 'Entdecken Sie unsere Restaurant Bestell App.',
+      },
+      {
+        href: '/de/funktionsumfang/',
+        title: 'Funktionsumfang',
+        description: 'Detaillierte Auflistung aller Funktionen von Gaston.',
       },
       {
         href: '/de/demo/',
@@ -80,6 +80,11 @@ const navigationDe: NavigationTree = [
     title: 'Über',
     items: [
       {
+        title: 'Uns',
+        href: '/de/ueber-uns/',
+        description: 'Was treibt uns an? Worauf legen wir wert?',
+      },
+      {
         href: '/de/team/',
         title: 'Team',
         description: 'Wer versteckt sich hinter der Persona?',
@@ -88,11 +93,6 @@ const navigationDe: NavigationTree = [
         href: '/de/blog/',
         title: 'Blog',
         description: 'Der neuste Gossip, der gerade die Runden macht.',
-      },
-      {
-        title: 'Mission',
-        href: '/de/mission/',
-        description: 'Was ist unsere Mission? Was treibt uns?',
       },
     ],
   },
@@ -145,8 +145,12 @@ const footerDe: FooterGroup[] = [
     title: 'Produkt',
     items: [
       {
-        title: 'Bestell- und Zahlungsablauf',
-        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
+        title: 'Digitale Speisekarte',
+        href: '/de/digitale-speisekarte/',
+      },
+      {
+        title: 'Restaurant Bestell App',
+        href: '/de/restaurant-bestell-app/',
       },
       {
         title: 'Funktionsumfang',
@@ -166,6 +170,10 @@ const footerDe: FooterGroup[] = [
     title: 'Über',
     items: [
       {
+        title: 'Uns',
+        href: '/de/ueber-uns/',
+      },
+      {
         href: '/de/team/',
         title: 'Team',
       },
@@ -174,25 +182,46 @@ const footerDe: FooterGroup[] = [
         title: 'Blog',
       },
       {
-        title: 'Mission',
-        href: '/de/mission/',
-      },
-      {
         href: '/de/kontakt/',
         title: 'Kontakt',
       },
     ],
   },
   {
-    title: 'Artikel',
+    title: 'Highlights',
     items: [
       {
-        title: 'Restaurant Bestell App',
-        href: '/de/restaurant-bestell-app/',
+        title: 'Take Away und Delivery',
+        href: '/de/takeaway-delivery/',
       },
       {
-        title: 'Digitale Speisekarte',
-        href: '/de/digitale-speisekarte/',
+        title: 'Gäste-Rufsystem',
+        href: '/de/gaeste-rufsystem/',
+      },
+      {
+        title: 'Gaston oder Orderman',
+        href: '/de/orderman/',
+      },
+      {
+        title: 'Gaston oder Yoordi',
+        href: '/de/yoordi/',
+      },
+    ],
+  },
+  {
+    title: 'Dokumentation',
+    items: [
+      {
+        title: 'Bestell- und Zahlungsablauf',
+        href: '/de/bestell-und-zahlungs-ablauf-gastro-betriebe/',
+      },
+      {
+        title: 'Inbetriebnahme von Gaston',
+        href: '/de/dokumentation/inbetriebnahme-gaston/',
+      },
+      {
+        title: 'Speisekarte bearbeiten',
+        href: '/de/dokumentation/speisekarten-angebot-bearbeiten/',
       },
     ],
   },

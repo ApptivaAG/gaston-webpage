@@ -6,12 +6,12 @@ export interface Props {
 const { href, target } = Astro.props
 ---
 
-<a {href} {target}>
+<a class="button-link" href={href} target={target}>
   <slot />
 </a>
 
-<style lang="scss">
-  a {
+<style lang="scss" is:global>
+  a.button-link {
     display: inline-block;
     font-size: 1em;
     padding: 0.6em 2em;

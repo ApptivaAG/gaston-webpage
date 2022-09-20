@@ -1,4 +1,4 @@
-import { MarkdownInstance } from 'astro'
+import type { MarkdownInstance } from 'astro'
 
 export type Language = 'de' | 'en'
 
@@ -34,6 +34,12 @@ export type BlogPostFrontMatter = {
 }
 export type BlogPost = MarkdownInstance<BlogPostFrontMatter>[]
 
+export type TeamMember = {
+  name: string
+  role: Record<Language, string>
+  image: string
+}
+
 export type LandingPageFrontMatter = {
   lang: 'de' | 'en'
   title: string
@@ -42,3 +48,10 @@ export type LandingPageFrontMatter = {
   keyword: string
 }
 export type LandingPage = MarkdownInstance<LandingPageFrontMatter>[]
+
+export type DocumentationFrontMatter = {
+  lang: 'de' | 'en'
+  title: string
+  description: string
+}
+export type Documentation = MarkdownInstance<DocumentationFrontMatter>[]

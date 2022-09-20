@@ -1,6 +1,14 @@
+import 'solid-js'
+import type { JSX } from 'solid-js'
 import './Dialog.css'
 
-export default function Dialog({ children, openElement }) {
+export default function Dialog({
+  children,
+  openElement = 'open',
+}: {
+  children: JSX.Element
+  openElement?: JSX.Element
+}) {
   let dialogRef
 
   const open = () => {

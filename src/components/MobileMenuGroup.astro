@@ -11,8 +11,7 @@ export interface Props {
 }
 const { title, items } = Astro.props as Props;
 const hasDescriptions = items.some(({ description }) => !!description);
-const { pathname } = Astro.canonicalURL
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 
 const anySubItems = items.some(({ href }) => isCurrentPage(href))
 
@@ -26,7 +25,7 @@ const anySubItems = items.some(({ href }) => isCurrentPage(href))
   <div>
     <nav class={hasDescriptions ? 'descriptions' : '' }>
       {items.map(({ title, href }) => (
-      <a href={href} alt={title} aria-current={isCurrentPage(href)}>{title}</a>
+      <a href={href} title={title} aria-current={isCurrentPage(href)}>{title}</a>
       ))}
     </nav>
   </div>

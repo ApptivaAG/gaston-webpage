@@ -1,0 +1,46 @@
+---
+import Main from '@layouts/Main.astro'
+import Container from '@components/Container.astro'
+import type { DocumentationFrontMatter } from 'src/types'
+
+const docs = await Astro.glob<DocumentationFrontMatter>('./*.md')
+
+const description =
+  'Dokumentation von Gaston, der Bestell- und Zahlungsspeisekarte.'
+---
+
+<Main title="Dokumentation für Gaston" description={description}>
+  <Container size="small">
+    <h1>Dokumentation</h1>
+    {docs.map((post) => (
+    <article>
+      <a href={post.url + "/" }>
+        <h2>{post.frontmatter.title}</h2>
+      </a>
+      <p>{post.frontmatter.description}</p>
+    </article>
+    ))}
+  </Container>
+</Main>
+
+<style lang="scss">
+  article {
+    margin: 4em 0;
+  }
+
+  h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-block: 0.5em;
+  }
+
+  .meta {
+    color: gray;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+</style>

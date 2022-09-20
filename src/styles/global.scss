@@ -54,6 +54,7 @@ h6 {
 
 h1 {
   font-size: 2.5em;
+  line-height: 1.15em;
   color: var(--primary-color);
 
   @media (min-width: 40rem) {
@@ -70,8 +71,12 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5em;
   color: var(--primary-color);
+}
+
+h3,
+h4 {
+  font-size: 1.5em;
   margin-bottom: 0;
 
   .background & {
@@ -112,8 +117,8 @@ dialog {
   margin: auto;
 
   @media (max-width: 599px) {
-    max-inline-size: 100%;
-    max-block-size: 100%;
+    max-inline-size: calc(100% - 1em);
+    max-block-size: calc(100% - 1em);
     padding: 0.2em;
   }
 }
@@ -159,7 +164,6 @@ dialog {
 
     &::before {
       content: counter(ordered-list-counter) '. ';
-      margin-left: -1em;
     }
   }
 }
@@ -168,11 +172,13 @@ dialog {
   display: flex;
   flex-direction: column;
   gap: 4rem 2rem;
-  padding-inline-start: 0;
+  padding-inline-start: 3em;
+  margin-block-end: 4em;
 
   li {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
 
     .image-wrapper {
@@ -182,12 +188,21 @@ dialog {
     }
 
     .description-wrapper {
-      flex: 1 1 0%;
-      font-weight: 600;
+      position: relative;
+      flex: 1 1 10em;
       padding-left: 1em;
 
+      h3,
+      h4 {
+        font-weight: 600;
+        margin-top: 0;
+      }
+
       &::before {
-        margin-left: -1em;
+        position: absolute;
+        left: -1em;
+        font-size: 2.4em;
+        line-height: 1;
       }
     }
   }

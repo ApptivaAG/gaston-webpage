@@ -1,12 +1,14 @@
 ---
 import { callToActionLinksDe, callToActionLinksEn, footer } from 'src/config';
-import { mkIsCurrentPage } from '../utils.ts'
+import { mkIsCurrentPage } from '../utils.js'
 import CallToAction from './CallToAction.astro';
 import Container from './Container.astro';
+import Instagram from '@icons/Instagram.astro'
+import LinkedIn from '@icons/LinkedIn.astro'
+import Twitter from '@icons/Twitter.astro'
+import Facebook from '@icons/Facebook.astro'
 
-const { pathname } = Astro.canonicalURL
-
-const isCurrentPage = mkIsCurrentPage(pathname)
+const isCurrentPage = mkIsCurrentPage(Astro.url.pathname)
 const isDe = isCurrentPage('/de/')
 
 const links = isDe ? callToActionLinksDe : callToActionLinksEn
@@ -25,14 +27,23 @@ const footerInCurrentLanguage = isDe ? footer.de : footer.en
   </Container>
 
   <div class="columns">
-    <p>
-      © 2019 - {new Date().getFullYear()} Gaston
-      <br />
-      {isDe ? 'Eine Initiative von' : 'An initiative of'}
-      <a href="https://apptiva.ch">Apptiva</a>
-      <br />
-      Luzern • Schweiz
-    </p>
+    <div>
+      <p>
+        <a href="https://www.instagram.com/gastonsolution/"><Instagram /></a>&nbsp;
+        <a href="https://www.linkedin.com/in/gaston-solution/"><LinkedIn /></a>&nbsp;
+        <a href="https://twitter.com/gastonsolution"><Twitter /></a>&nbsp;
+        <a href="https://www.facebook.com/gastonsolution/"><Facebook /></a>
+      </p>
+
+      <p>
+        © 2019 - {new Date().getFullYear()} Gaston
+        <br />
+        {isDe ? 'Eine Initiative von' : 'An initiative of'}
+        <a href="https://apptiva.ch">Apptiva</a>
+        <br />
+        Luzern • Schweiz
+      </p>
+    </div>
     <p>
       {isDe ? 'Anfragen' : 'Inquiries'}&ensp;
       <a href="tel:+41413222626">+41 41 322 26 26</a> {isDe ? 'oder' : 'or'} <a href={isDe ? "/de/termin/"
@@ -54,6 +65,7 @@ const footerInCurrentLanguage = isDe ? footer.de : footer.en
     --primary-color: white;
     position: relative;
     grid-area: Footer;
+    margin-top: 4rem;
     padding: 6rem 1rem 1rem;
     color: var(--primary-color);
 
