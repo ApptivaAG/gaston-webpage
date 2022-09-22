@@ -73,7 +73,7 @@ const Plan = ({ children }: { children: JSX.Element }) => {
             <dd class="price">CHF {inputToPricePerTurnover[value].price}.-</dd>
           </dl>
           <div>
-            <a class="button-link" href={`order-pay/${value}`}>
+            <a class="button-link square" href={`order-pay/${value}/`}>
               Order|Pay anfragen
             </a>
           </div>

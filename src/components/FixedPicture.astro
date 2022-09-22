@@ -1,14 +1,36 @@
 ---
-import { getPicture, getImage } from '@astrojs/image';
+import { getPicture, getImage } from '@astrojs/image'
 
-const { height: propHeight, width: propWidth, ...pictureProps } = Astro.props;
+const {
+  height: propHeight,
+  width: propWidth,
+  loading = 'lazy',
+  ...pictureProps
+} = Astro.props
 
-const img = await getImage({ src: pictureProps.src, height: propHeight, width: propWidth })
-const image = await getPicture({ src: pictureProps.src, widths: [img.width as number, img.width as number * 2], formats: ["webp", "avif"] });
+const img = await getImage({
+  src: pictureProps.src,
+  height: propHeight,
+  width: propWidth,
+})
+const image = await getPicture({
+  src: pictureProps.src,
+  widths: [img.width as number, (img.width as number) * 2],
+  formats: ['webp', 'avif'],
+})
 ---
 
 <picture>
-  {image.sources.map( source =>
-  <source sizes={`${img.width}px`} {...source} />)}
-  <img loading="lazy" width={img.width} height={img.height} {...image.image} {...pictureProps} />
+  {
+    image.sources.map((source) => (
+      <source sizes={`${img.width}px`} {...source} />
+    ))
+  }
+  <img
+    loading={loading}
+    width={img.width}
+    height={img.height}
+    {...image.image}
+    {...pictureProps}
+  />
 </picture>

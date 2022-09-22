@@ -6,63 +6,29 @@ import FixedPicture from '@components/FixedPicture.astro'
 import { callToActionLinksEn, metaData } from 'src/config'
 import BlogTeaser from '@components/BlogTeaser.astro'
 import Hero from '@components/Hero.astro'
+import Customers from '@components/Customers.astro'
 
 const { en } = metaData
 
 const description =
   "Gaston the digital menu allows guests to order and pay quickly and easily. It doesn't matter if the guests are in their establishment, on the road or at home. Gaston supports ordering in your business, Take Away and delivery."
-
 ---
 
 <MainLayout title={en.claim} description={description}>
   <Container>
-    <Hero name={en.name} claim={en.claim} from="Developed in Lucerne."
-      animation={{src: '/assets/hero-gaston-vs-menu-en.svg' ,
-      alt: 'Ordering with menu tedious, with Gaston app quick and easy' }} links={callToActionLinksEn} />
-    <h2><small>Some of our customers</small></h2>
-    <ul class="image-list">
-      <li>
-        <FixedPicture src={import("../../images/customers/brauwerk-st-gallen.png")} alt="Restaurant Brauwerk"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/el-mosquito.png")} alt="El-Mosquito" placeholder={'tracedSVG'}
-          height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/gspan.jpg")} alt="Hotel Gspan" placeholder={'tracedSVG'}
-          height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/habsburg-bar.png")} alt="Habsburg-Bar"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/lamassu.png")} alt="Restaurant Lamassu"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/franz.png")} alt="Restaurant Franz" placeholder={'tracedSVG'}
-          height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/seehaus-grill.png")} alt="Seehaus-Grill"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/seehotel-kastanienbaum.png")} alt="Seehotel Kastanienbaum"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/sugoi-sushi-300.png")} alt="Sugoi Sushi"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-      <li>
-        <FixedPicture src={import("../../images/customers/zurwerkstatt-sg.png")} alt="Zur Werkstatt St. Gallen"
-          placeholder={'tracedSVG'} height={60} />
-      </li>
-    </ul>
+    <Hero
+      name={en.name}
+      claim={en.claim}
+      from="Developed in Lucerne."
+      animation={{
+        src: '/assets/hero-gaston-vs-menu-en.svg',
+        alt: 'Ordering with menu tedious, with Gaston app quick and easy',
+      }}
+      links={callToActionLinksEn}
+    />
   </Container>
+
+  <Customers />
 
   <section class="background">
     <Container>
@@ -72,25 +38,31 @@ const description =
     </Container>
   </section>
 
-
   <section id="partner-von-gaston">
     <Container>
       <h2>Our Partners</h2>
       <ul class="image-list high">
         <li>
           <a href="https://www.flm.ch/">
-            <FixedPicture src={import("../../images/partners/flm.png")} alt="FLM Kassensysteme" height={160}
-              layout={'fixed'} />
+            <FixedPicture
+              src={import('../../images/partners/flm.png')}
+              alt="FLM Kassensysteme"
+              height={160}
+              layout={'fixed'}
+            />
           </a>
         </li>
         <li>
-          <FixedPicture src={import("../../images/partners/digital-enterprise.png")} alt="Digital Enterprise"
-            height={60} layout={'fixed'} />
+          <FixedPicture
+            src={import('../../images/partners/digital-enterprise.png')}
+            alt="Digital Enterprise"
+            height={60}
+            layout={'fixed'}
+          />
         </li>
       </ul>
     </Container>
   </section>
-
 </MainLayout>
 
 <style lang="scss">
@@ -169,7 +141,6 @@ const description =
         height: 60px;
         width: 100%;
       }
-
     }
   }
 
@@ -192,8 +163,10 @@ const description =
       content: ' ';
       position: absolute;
       inset: -1em 0;
-      background-image: linear-gradient(rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0)),
+      background-image: linear-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0)
+        ),
         url(/assets/curve.svg);
       background-position: center;
       background-repeat: no-repeat;

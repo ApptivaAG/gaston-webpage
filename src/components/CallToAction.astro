@@ -1,5 +1,6 @@
 ---
-import ButtonLink from "./ButtonLink.astro";
+import ButtonLink from './ButtonLink.astro'
+import ButtonList from './ButtonList.astro'
 
 export type Props = {
   links: {
@@ -10,18 +11,6 @@ export type Props = {
 const { links } = Astro.props as Props
 ---
 
-<div>
-  {links.map((link) =>
-  <ButtonLink href={link.href}>{link.text}</ButtonLink>)
-  }
-</div>
-
-<style>
-  div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5em 1em;
-    font-size: 1em;
-  }
-</style>
+<ButtonList justify="center">
+  {links.map((link) => <ButtonLink href={link.href}>{link.text}</ButtonLink>)}
+</ButtonList>

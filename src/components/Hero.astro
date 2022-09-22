@@ -1,53 +1,70 @@
 ---
-import CallToAction from "./CallToAction.astro";
+import ButtonLink from './ButtonLink.astro'
+import ButtonList from './ButtonList.astro'
+import CallToAction from './CallToAction.astro'
 
 export interface Props {
-  name: string,
-  claim: string,
+  name: string
+  claim: string
   from: string
   animation: {
-    src: string,
-    alt: string,
+    src: string
+    alt: string
   }
   links: {
-    href: string,
+    href: string
     text: string
   }[]
 }
 const props = Astro.props as Props
 ---
 
-<div class="wrapper">
-  <div class="wrapper-left">
+<div class="layout">
+  <div class="value-proposition">
     <h1>{props.name}</h1>
     <p style="margin-bottom: 1rem;">{props.claim}</p>
-    <p style="font-size: 1rem; font-weight: 400; margin-bottom: 2em;"><img src="/assets/wappen.svg" alt="In Luzern (Schweiz) entwickelt" width="18px" /> {props.from}</p>
-    
+    <p style="font-size: 1rem; font-weight: 400;">
+      <img
+        src="/assets/wappen.svg"
+        alt="In Luzern (Schweiz) entwickelt"
+        width="18"
+        height="14"
+      />
+      {props.from}
+    </p>
   </div>
-  <div class="wrapper-right">
+  <div class="call-to-action">
+    <ButtonList>
+      {
+        props.links.map((link) => (
+          <ButtonLink href={link.href}>{link.text}</ButtonLink>
+        ))
+      }
+    </ButtonList>
+  </div>
+  <div class="animation-wrapper">
     <div class="animation">
-      <img src={props.animation.src} alt={props.animation.alt} height="150" width="204" />
+      <img
+        src={props.animation.src}
+        alt={props.animation.alt}
+        height="150"
+        width="204"
+      />
     </div>
   </div>
 </div>
-<div class="c2a-wrapper">
-  <CallToAction links={props.links} />
-</div>
 
 <style lang="scss">
-  @media (min-width: 768px) {
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6em;
-    }
-    div.wrapper-left p {
-      font-size: 2.5em;
-    }
+  .layout {
+    display: grid;
+    grid-template-areas: 'value-proposition' 'animation-wrapper' 'call-to-action';
+    align-items: center;
+    gap: 1em 6em;
+    margin-bottom: 1em;
   }
 
-  .wrapper-left {
+  .value-proposition {
+    grid-area: value-proposition;
     z-index: 0;
     flex: 60%;
 
@@ -55,7 +72,6 @@ const props = Astro.props as Props
       font-size: 4em;
       margin-block: 0 0.2em;
       line-height: 1.3em;
-      
     }
     p {
       font-size: 1.6em;
@@ -66,13 +82,13 @@ const props = Astro.props as Props
     }
   }
 
-
-  .wrapper-right {
+  .animation-wrapper {
+    grid-area: animation-wrapper;
     flex: 40%;
   }
 
   .animation {
-    margin: 0 max(-4em, -4vw) 0.2em;
+    margin: 0 max(-4em, -8vw) -1em;
 
     img {
       height: 100%;
@@ -81,7 +97,27 @@ const props = Astro.props as Props
     }
   }
 
-  .c2a-wrapper {
-    margin-block: 4rem 6rem;
+  .call-to-action {
+    grid-area: call-to-action;
+    :global(div) {
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .layout {
+      grid:
+        'value-proposition animation-wrapper '
+        'call-to-action animation-wrapper '
+        / 50fr 50fr;
+    }
+    div.value-proposition p {
+      font-size: 2.5em;
+    }
+    .call-to-action {
+      :global(div) {
+        justify-content: flex-start;
+      }
+    }
   }
 </style>

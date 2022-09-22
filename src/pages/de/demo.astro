@@ -3,6 +3,7 @@ import MainLayout from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
 import Demo from '@components/Demo.astro'
 import FixedPicture from '@components/FixedPicture.astro'
+import ButtonLink from '@components/ButtonLink.astro'
 
 const description =
   'Die Gaston-Demo vermittelt wie die Speisekarte dargestellt wird, der Bestellvorgang funktioniert und die Zahlungsabwicklung stattfindet.'
@@ -12,15 +13,22 @@ const description =
   <Container>
     <section>
       <h1>Demo der Bestell-App</h1>
-      <p>Die Gaston-Demo vermittelt wie die Speisekarte dargestellt wird, der Bestellvorgang funktioniert und die
-        Zahlungsabwicklung stattfindet.</p>
-      <p>Da Gaston sehr viele Einstellungsmöglichkeiten hat, sehen Sie bloss eine mögliche Konfiguration. Falls Sie
-        etwas
-        gerne anders haben möchten, besteht eine grosse Chance, dass dies heute bereits möglich ist. Nehmen Sie in dem
-        Fall <a href="/de/kontakt/">Kontakt</a> mit uns auf.</p>
+      <p>
+        Die Gaston-Demo vermittelt wie die Speisekarte dargestellt wird, der
+        Bestellvorgang funktioniert und die Zahlungsabwicklung stattfindet.
+      </p>
     </section>
     <section>
       <Demo />
+    </section>
+    <section>
+      <p>
+        Da Gaston sehr viele Einstellungsmöglichkeiten hat, sehen Sie bloss eine
+        mögliche Konfiguration. Falls Sie etwas gerne anders haben möchten,
+        besteht eine grosse Chance, dass dies heute bereits möglich ist. Nehmen
+        Sie in dem Fall Kontakt mit uns auf.
+      </p>
+      <ButtonLink href="/de/kontakt/">Kontakt aufnehmen</ButtonLink>
     </section>
   </Container>
 </MainLayout>

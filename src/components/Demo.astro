@@ -1,66 +1,109 @@
 ---
 import Dialog from '@components/Dialog'
+import ButtonLink from './ButtonLink.astro'
 import FixedPicture from './FixedPicture.astro'
-
 ---
 
 <div class="columns" style="align-items: start;">
   <div style=" flex: 1;">
-    <h2>Gaston Bestell App</h2>
-    <p>So sehen Ihre Gäste unsere Bestell App, direkt auf dem Handy oder auf Ihrer Webseite. Schlicht, einfach,
-      zuvorkommend. Alles
-      ohne Installation einer App und ohne Registrierung.
-    </p>
-    <p>Sie gestalten Ihre Speisekarte nach Ihrem Gusto, farbenfroh und mit Bilder oder einfach nur mit Text.</p>
+    <slot name="intro">
+      <h2>Gaston Bestell App</h2>
+      <p>
+        So sehen Ihre Gäste unsere Bestell App, direkt auf dem Handy oder auf
+        Ihrer Webseite. Schlicht, einfach, zuvorkommend. Alles ohne Installation
+        einer App und ohne Registrierung.
+      </p>
+      <p>
+        Sie gestalten Ihre Speisekarte nach Ihrem Gusto, farbenfroh und mit
+        Bilder oder einfach nur mit Text.
+      </p>
+      <ButtonLink href="/de/restaurant-bestell-app/"
+        >Weitere Informationen</ButtonLink
+      >
+    </slot>
 
     <div class="arrow">
-      <svg viewBox="0 0 600 105" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+      <svg
+        viewBox="0 0 600 105"
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+      >
         <path
-          d="M21.844 50.749c82.357 54.851 426.418 45.827 552.664-9.381 14.013-6.128-41.45-29.969-31.811-39.348 9.232-8.983 55.867 36.164 55.867 36.164s-6.209 71.094-20.957 62.459c-8.764-5.131 15.936-53.172 1.542-47.934C364.09 130.973 75.189 103.962 10.588 69.6-9.091 59.133 3.419 38.478 21.844 50.749Z" />
+          d="M21.844 50.749c82.357 54.851 426.418 45.827 552.664-9.381 14.013-6.128-41.45-29.969-31.811-39.348 9.232-8.983 55.867 36.164 55.867 36.164s-6.209 71.094-20.957 62.459c-8.764-5.131 15.936-53.172 1.542-47.934C364.09 130.973 75.189 103.962 10.588 69.6-9.091 59.133 3.419 38.478 21.844 50.749Z"
+        ></path>
       </svg>
     </div>
-    <p class="test-now">Hier ausprobieren!</p>
+    <p class="test-now"><slot name="try">Hier ausprobieren!</slot></p>
     <div class="desktop qr-code">
-      <p>... oder mit dem Handy den QR-Code scannen.</p>
-      <FixedPicture class="qr-code" alt="QR-Code" src={import("../images/qr-code-table-7.jpg")} height={160} />
+      <p>
+        <slot name="qr-code">... oder mit dem Handy den QR-Code scannen.</slot>
+      </p>
+      <FixedPicture
+        class="qr-code"
+        alt="QR-Code"
+        src={import('../images/qr-code-table-7.jpg')}
+        height={160}
+      />
     </div>
   </div>
   <div style="flex: 1; margin-block: 2em;">
     <div class="mobile-wrapper">
-      <iframe loading="lazy" src="https://demo.gastonsolution.com/811f84b2-15f8-440d-8074-58ce5cce13f8/?table=7"
+      <iframe
+        loading="lazy"
+        src="https://demo.gastonsolution.com/811f84b2-15f8-440d-8074-58ce5cce13f8/?table=7"
         frameborder="0"></iframe>
       <div class="overlay">
         <Dialog client:visible>
-          <button aria-label="Demo Starten"
+          <button
+            aria-label="Demo Starten"
             style="position: absolute; height: 100%; width: 100%; border: none; background: transparent; cursor: pointer; text-decoration: none;"
-            slot="openElement" />
+            slot="openElement"></button>
           <div class="full-screen-demo">
             <div class="description">
               <div class="desktop">
-                <h3>Gaston Demo</h3>
-                <p>Bei dieser Demo handelt es sich um ein Testsystem. Hier finden <b>keine echten Bestellungen
-                    oder
-                    Zahlungen</b> statt. Testen Sie Gaston entsprechend nach Lust und Laune.</p>
-                <ol>
-                  <li>Fügen Sie etwas zur Bestellung hinzu.</li>
-                  <li>Senden Sie die Bestellung ab.</li>
-                  <li>Klicken Sie bei der Zahlung z.B. auf Twint. Keine Angst, es findet keine echte Transaktion
-                    statt und
-                    entsprechend <b>wird kein Geld abgebucht.</b>
-                  </li>
-                </ol>
+                <slot name="desktop">
+                  <h3>Gaston Demo</h3>
+                  <p>
+                    Bei dieser Demo handelt es sich um ein Testsystem. Hier
+                    finden <b>keine echten Bestellungen oder Zahlungen</b> statt.
+                    Testen Sie Gaston entsprechend nach Lust und Laune.
+                  </p>
+                  <ol>
+                    <li>Fügen Sie etwas zur Bestellung hinzu.</li>
+                    <li>Senden Sie die Bestellung ab.</li>
+                    <li>
+                      Klicken Sie bei der Zahlung z.B. auf Twint. Keine Angst,
+                      es findet keine echte Transaktion statt und entsprechend <b
+                        >wird kein Geld abgebucht.</b
+                      >
+                    </li>
+                  </ol>
+                </slot>
                 <div class="large">
-                  <h3>Auf Ihrem Handy testen</h3>
-                  <FixedPicture alt="QR-Code" src={import("../images/qr-code-table-7.jpg")} height={100} />
+                  <h3>
+                    <slot name="test-with-qr-code">Auf Ihrem Handy testen</slot>
+                  </h3>
+                  <FixedPicture
+                    alt="QR-Code"
+                    src={import('../images/qr-code-table-7.jpg')}
+                    height={100}
+                  />
                 </div>
               </div>
               <div class="mobile">
-                <h3>Gaston Demo</h3>
-                <p>Wählen Sie bei der Zahlung z.B. Twint. Es wird kein Geld abgebucht.</p>
+                <slot name="mobile">
+                  <h3>Gaston Demo</h3>
+                  <p>
+                    Wählen Sie bei der Zahlung z.B. Twint. Es wird kein Geld
+                    abgebucht.
+                  </p>
+                </slot>
               </div>
             </div>
             <div class="gaston-wrapper">
-              <iframe loading="lazy" src="https://demo.gastonsolution.com/811f84b2-15f8-440d-8074-58ce5cce13f8/?table=7"
+              <iframe
+                loading="lazy"
+                src="https://demo.gastonsolution.com/811f84b2-15f8-440d-8074-58ce5cce13f8/?table=7"
                 frameborder="0"></iframe>
             </div>
           </div>
@@ -96,16 +139,16 @@ import FixedPicture from './FixedPicture.astro'
     filter: drop-shadow(2px 4px 10px #0008);
     pointer-events: none;
     fill: var(--primary-color);
-    
+
     svg {
       stroke-width: 3px;
       stroke: black;
-      
-      fill-rule:evenodd;
-      clip-rule:evenodd;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      stroke-miterlimit:1.5;
+
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 1.5;
     }
 
     @media (min-width: 768px) {
@@ -121,7 +164,9 @@ import FixedPicture from './FixedPicture.astro'
   }
 
   .test-now {
-    font-size: 2em; margin-top: 0.5em; margin-right: 3em;
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-right: 3em;
   }
 
   .qr-code {
@@ -129,7 +174,8 @@ import FixedPicture from './FixedPicture.astro'
       margin-top: 6em;
     }
     :global(img) {
-      padding: 1em; background: white;
+      padding: 1em;
+      background: white;
     }
   }
 
@@ -137,7 +183,7 @@ import FixedPicture from './FixedPicture.astro'
     position: relative;
     max-block-size: 80vh;
     margin-inline: auto;
-    aspect-ratio: 0.60;
+    aspect-ratio: 0.6;
     border-inline-width: 0.6em;
     border-block-width: 1em;
     border-style: solid;
@@ -180,17 +226,14 @@ import FixedPicture from './FixedPicture.astro'
     @media (min-width: 768px) {
       flex-direction: row;
     }
-
   }
 
   .large {
-
     h3 {
       margin-block: 2em 1em;
     }
 
-    @media (max-width: 1080px),
-    (max-height: 800px) {
+    @media (max-width: 1080px), (max-height: 800px) {
       display: none;
     }
   }
@@ -203,7 +246,6 @@ import FixedPicture from './FixedPicture.astro'
     }
 
     .mobile {
-
       padding-inline: 0.8em;
 
       h3,
@@ -219,7 +261,6 @@ import FixedPicture from './FixedPicture.astro'
 
     @media (min-width: 768px) {
       flex: 0 5 30rem;
-
     }
   }
 
@@ -227,7 +268,7 @@ import FixedPicture from './FixedPicture.astro'
     position: relative;
     flex: 1;
     max-inline-size: 100%;
-    aspect-ratio: 0.60;
+    aspect-ratio: 0.6;
     margin-inline: auto;
     border-inline-width: 0.6em;
     border-block-width: 1em;

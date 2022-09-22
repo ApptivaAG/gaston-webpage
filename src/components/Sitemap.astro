@@ -1,0 +1,67 @@
+---
+import { footer } from 'src/config'
+import type { Language } from 'src/types'
+
+type Props = {
+  lang: Language
+}
+const { lang } = Astro.props as Props
+
+const footerInCurrentLanguage = lang === 'de' ? footer.de : footer.en
+---
+
+<div class="columns link-groups">
+  {
+    footerInCurrentLanguage.map((group) => (
+      <div>
+        <h2>{group.title}</h2>
+        <ul>
+          {group.items.map((item) => (
+            <li>
+              <a href={item.href}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  h2 {
+    font-size: 1.4em;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .link-groups li {
+    margin-bottom: 0;
+  }
+
+  .columns {
+    a[aria-current] {
+      font-weight: bold;
+    }
+  }
+
+  .link-groups {
+    margin-block: 3em;
+  }
+
+  @media (min-width: 40rem) {
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+
+    .link-groups {
+      align-items: flex-start;
+    }
+  }
+</style>

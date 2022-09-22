@@ -1,0 +1,21 @@
+---
+export type Props = {
+  justify?: 'left' | 'center'
+}
+const { justify = 'left' } = Astro.props as Props
+---
+
+<div class={justify}>
+  <slot />
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+  .center {
+    justify-content: center;
+  }
+</style>

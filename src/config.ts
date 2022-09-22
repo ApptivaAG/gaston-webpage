@@ -23,12 +23,12 @@ export const metaData: MetaData = {
 }
 
 export const callToActionLinksDe: CallToAction[] = [
-  { href: '/de/demo/', text: 'Demo starten' },
+  { href: '/de/demo/', text: 'Demo ausprobieren' },
   { href: '/de/preise/', text: 'Unverbindliches Angebot' },
 ]
 export const callToActionLinksEn: CallToAction[] = [
-  { href: '/en/demo/', text: 'Start demo' },
-  { href: '/en/contact/', text: 'Order now' },
+  { href: '/en/demo/', text: 'Try demo' },
+  { href: '/en/contact/', text: 'Request a quote' },
 ]
 
 export const generalTitle = ({ name }: Product) => `${name}`
@@ -201,10 +201,6 @@ const footerDe: FooterGroup[] = [
       {
         title: 'Gaston oder Orderman',
         href: '/de/orderman/',
-      },
-      {
-        title: 'Gaston oder Yoordi',
-        href: '/de/yoordi/',
       },
     ],
   },

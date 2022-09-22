@@ -1,0 +1,133 @@
+---
+import FixedPicture from './FixedPicture.astro'
+
+type Customer = {
+  image: string
+  alt: string
+}
+
+const customers: Customer[] = [
+  {
+    image: 'habsburg-bar',
+    alt: 'Habsburg-Bar',
+  },
+  {
+    image: 'el-mosquito',
+    alt: 'El-Mosquito',
+  },
+  {
+    image: 'sugoi-sushi-300',
+    alt: 'Sugoi Sushi',
+  },
+  {
+    image: 'seehaus-grill',
+    alt: 'Seehaus-Grill',
+  },
+  {
+    image: 'franz',
+    alt: 'Restaurant Franz',
+  },
+  {
+    image: 'seehotel-kastanienbaum',
+    alt: 'Seehotel Kastanienbaum',
+  },
+  {
+    image: 'brasserie-chez-lok',
+    alt: 'Brasserie chez Lok',
+  },
+  {
+    image: 'zurwerkstatt-sg',
+    alt: 'Zur Werkstatt St. Gallen',
+  },
+  {
+    image: 'brauwerk-st-gallen',
+    alt: 'Restaurant Brauwerk',
+  },
+  {
+    image: 'gspan',
+    alt: 'Hotel Gspan',
+  },
+  {
+    image: 'lamassu',
+    alt: 'Restaurant Lamassu',
+  },
+  {
+    image: 'gasthaus-badhof',
+    alt: 'Gasthaus Badhof',
+  },
+]
+---
+
+<div class="wrapper">
+  <div class="marquee">
+    <ul>
+      {
+        customers.map((customer) => (
+          <li>
+            <FixedPicture
+              src={import(`../images/customers/${customer.image}.png`)}
+              alt={customer.alt}
+              placeholder={'tracedSVG'}
+              height={50}
+              loading="eager"
+            />
+          </li>
+        ))
+      }
+    </ul>
+    <ul style="translate: 100%; position: absolute; inset: 0;">
+      {
+        customers.map((customer) => (
+          <li>
+            <FixedPicture
+              src={import(`../images/customers/${customer.image}.png`)}
+              alt={customer.alt}
+              placeholder={'tracedSVG'}
+              height={50}
+              loading="eager"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  div :global(img) {
+    filter: grayscale(20%);
+  }
+
+  .wrapper {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  .marquee {
+    width: clamp(140rem, 250%, 220rem);
+    margin-block: 1rem 4rem;
+    position: relative;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    animation: slide 50s linear infinite;
+    margin: 0;
+    padding: 1em 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translate(0%);
+    }
+
+    100% {
+      transform: translate(-100%);
+    }
+  }
+</style>

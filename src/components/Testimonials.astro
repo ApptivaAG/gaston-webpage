@@ -2,128 +2,176 @@
 type Testimonial = {
   name: string
   avatar: 'male' | 'female'
-  statement: string,
-  restaurant: string,
+  statement: string
+  restaurant: string
 }
 const testimonials: Testimonial[] = [
   {
-    name: "Lara",
+    name: 'Lara',
     avatar: 'female',
-    statement: "Geht sehr schnell und ist übersichtlich.",
-    restaurant: "Seehaus"
+    statement: 'Geht sehr schnell und ist übersichtlich.',
+    restaurant: 'Seehaus',
   },
   {
-    name: "Tom",
+    name: 'Tom',
     avatar: 'male',
-    statement: "Bequem und ohne Stress auswählen.",
-    restaurant: "Habsburg"
+    statement: 'Bequem und ohne Stress auswählen.',
+    restaurant: 'Habsburg',
   },
   {
-    name: "Peter",
+    name: 'Peter',
     avatar: 'male',
-    statement: "Schnell und einfach. Einige Beschreibungen zum Essen wären aber noch gut.",
-    restaurant: "Franz"
+    statement:
+      'Schnell und einfach. Einige Beschreibungen zum Essen wären aber noch gut.',
+    restaurant: 'Franz',
   },
   {
-    name: "Nina",
+    name: 'Nina',
     avatar: 'female',
-    statement: "Wir haben Zeit um die Karte zu studieren.",
-    restaurant: "Sugoi Sushi"
+    statement: 'Wir haben Zeit um die Karte zu studieren.',
+    restaurant: 'Sugoi Sushi',
   },
   {
-    name: "Jenny",
+    name: 'Jenny',
     avatar: 'female',
-    statement: "Sehr einfach, man muss nicht auf die Bedienung warten.",
-    restaurant: "Seehaus"
+    statement: 'Sehr einfach, man muss nicht auf die Bedienung warten.',
+    restaurant: 'Seehaus',
   },
   {
-    name: "Marco",
+    name: 'Marco',
     avatar: 'male',
-    statement: "Super das man gleich zahlen kann, dann kann man gehen wann man will.",
-    restaurant: "El-Mosquito"
+    statement:
+      'Super das man gleich zahlen kann, dann kann man gehen wann man will.',
+    restaurant: 'El-Mosquito',
   },
   {
-    name: "Petra",
+    name: 'Petra',
     avatar: 'female',
-    statement: "Bargeldlos zahlen. 😍",
-    restaurant: "Seehaus"
+    statement: 'Bargeldlos zahlen. 😍',
+    restaurant: 'Seehaus',
   },
   {
-    name: "Reto",
+    name: 'Reto',
     avatar: 'male',
-    statement: "Einfach und unkompliziert. ✌🏼",
-    restaurant: "Sugoi Sushi"
+    statement: 'Einfach und unkompliziert. ✌🏼',
+    restaurant: 'Sugoi Sushi',
   },
   {
-    name: "Kate",
+    name: 'Kate',
     avatar: 'female',
-    statement: "Super Idee, sehr einfach und schnell. Bilder in der Karte wären noch top.",
-    restaurant: "El-Mosquito"
+    statement:
+      'Super Idee, sehr einfach und schnell. Bilder in der Karte wären noch top.',
+    restaurant: 'El-Mosquito',
   },
   {
-    name: "Charlie",
+    name: 'Charlie',
     avatar: 'male',
-    statement: "Ich kann Extrawünsche einfacher [...] äussern.",
-    restaurant: "Habsburg"
+    statement: 'Ich kann Extrawünsche einfacher [...] äussern.',
+    restaurant: 'Habsburg',
   },
   {
-    name: "Julia",
+    name: 'Julia',
     avatar: 'female',
-    statement: "Unkompliziert und man kan einfach bestellen wenn man will. 😊",
-    restaurant: "Seehaus"
+    statement: 'Unkompliziert und man kan einfach bestellen wenn man will. 😊',
+    restaurant: 'Seehaus',
   },
   {
-    name: "Xavier",
+    name: 'Xavier',
     avatar: 'male',
-    statement: "Trinkgeldoptionen zu spärlich.",
-    restaurant: "Habsburg"
+    statement: 'Trinkgeldoptionen zu spärlich.',
+    restaurant: 'Habsburg',
   },
   {
-    name: "Hanna",
+    name: 'Hanna',
     avatar: 'female',
-    statement: "Praktisch, aber cooler Kontakt zu den Angestellten ist auch nett. 😁",
-    restaurant: "Franz"
+    statement:
+      'Praktisch, aber cooler Kontakt zu den Angestellten ist auch nett. 😁',
+    restaurant: 'Franz',
   },
   {
-    name: "Dani",
+    name: 'Dani',
     avatar: 'male',
-    statement: "Ist sehr langsam und mühsam! Vor allem wenn man angetrunken ist. 🤣",
-    restaurant: "Habsburg"
+    statement:
+      'Ist sehr langsam und mühsam! Vor allem wenn man angetrunken ist. 🤣',
+    restaurant: 'Habsburg',
   },
 ]
 ---
 
-<div class="columns">
-  <p class="introduction">Bei den Gästen kommt Gaston insgesamt sehr gut an. Bei einer Umfrage mit <b>über 600
-      Personen</b> haben <b>85.1%</b> gesagt, dass sie <b>wieder mit Gaston bestellen</b> würden!</p>
-  <div class="rating">
-    <img style="max-width: 300px;" src="/assets/stars.svg" alt="4.25 Sterne" />
-    <p>85.1%</p>
+<div class="wrapper">
+  <div class="marquee">
+    <ul>
+      {
+        testimonials.map(({ name, avatar, statement, restaurant }) => (
+          <li>
+            <img
+              src={`/assets/${avatar}-avatar.svg`}
+              alt={avatar === 'female' ? 'Frau' : 'Mann'}
+            />
+            <p class="statement">{statement}</p>
+            <p class="details">
+              <b>{name}</b> im Restaurant <b>{restaurant}</b>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+    <ul style="translate: 100%; position: absolute; inset: 0;">
+      {
+        testimonials.map(({ name, avatar, statement, restaurant }) => (
+          <li>
+            <img
+              src={`/assets/${avatar}-avatar.svg`}
+              alt={avatar === 'female' ? 'Frau' : 'Mann'}
+            />
+            <p class="statement">{statement}</p>
+            <p class="details">
+              <b>{name}</b> im Restaurant <b>{restaurant}</b>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </div>
-<ul>
-  {testimonials.map(({name, avatar, statement, restaurant}) => <li>
-    <img src={`/assets/${avatar}-avatar.svg`} alt={avatar==='female' ? 'Frau' : 'Mann' } />
-    <p class="statement">{statement}</p>
-    <p class="details"><b>{name}</b> im Restaurant <b>{restaurant}</b></p>
-  </li>)}
-</ul>
 
 <style>
+  .wrapper {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 100%;
+  }
+  .marquee {
+    width: 270rem;
+    margin-block: 2rem 4rem;
+    position: relative;
+  }
+
   ul {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0;
+    justify-content: space-around;
+    padding: 0 0 0 1em;
+    margin: 0;
     list-style: none;
     gap: 1em;
+    animation: slide 50s linear infinite;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translate(0%);
+    }
+
+    100% {
+      transform: translate(-100%);
+    }
   }
 
   li {
     display: grid;
     grid-template:
-      "avatar statement" 1fr
-      "avatar details" auto
+      'avatar statement' 1fr
+      'avatar details' auto
       / auto 1fr;
     gap: 0.2em 1em;
     width: 100%;
@@ -164,27 +212,5 @@ const testimonials: Testimonial[] = [
     grid-area: details;
     opacity: 0.7;
     font-size: 0.7em;
-  }
-
-  .columns {
-    align-items: center;
-    margin-bottom: 4em;
-    gap: 5em;
-  }
-
-  .introduction {
-    flex: 2;
-    margin-block: 1em;
-  }
-
-  .rating {
-    flex: 1;
-    text-align: center;
-  }
-
-  .rating p {
-    font-size: 2em;
-    font-weight: bold;
-    margin-block: 0;
   }
 </style>

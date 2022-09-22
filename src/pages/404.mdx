@@ -1,0 +1,23 @@
+---
+lang: de
+title: Nicht gefunden
+description: Leider konnten wir die gewünschte Seite nicht finden.
+image: icon.png
+layout: '@layouts/LandingPage.astro'
+---
+
+import Sitemap from '@components/Sitemap.astro'
+import Figure from '@components/Figure.astro'
+
+Sie sind auf Gaston gelandet, der digitalen Speisekarte und Bestell-/Bezahllösung für gastronomische Betriebe.
+
+<Figure
+  caption="Speisekarte und Restaurant Bestell App."
+  src={import('../images/restaurant-bestell-app.png')}
+/>
+
+&nbsp;
+
+Leider wurde Ihr gewünschter Artikel nicht gefunden. Vielleicht finden Sie unten etwas Passendes.
+
+<Sitemap lang="de" />

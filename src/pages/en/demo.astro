@@ -3,6 +3,7 @@ import MainLayout from '@layouts/Main.astro'
 import Container from '@components/Container.astro'
 import Demo from '@components/Demo.astro'
 import FixedPicture from '@components/FixedPicture.astro'
+import ButtonLink from '@components/ButtonLink.astro'
 
 const description =
   'The Gaston demo shows how the menu is displayed, how the ordering process works and how payments are processed.'
@@ -12,19 +13,61 @@ const description =
   <Container>
     <section>
       <h1>Demo of the order app</h1>
-      <p>The Gaston demo shows how the menu is displayed, how the ordering process works and how the payment processing
-        takes place.</p>
-      <p>Since Gaston has a lot of configuration options, you can see only one possible configuration. If you need
-        something to be different, there is a big chance that this is already possible today. <a
-          href="/en/contact/">Contact</a> us in that case.</p>
+      <p>
+        The Gaston demo shows how the menu is displayed, how the ordering
+        process works and how the payment processing takes place.
+      </p>
     </section>
     <section>
-      <Demo />
+      <Demo>
+        <Fragment slot="intro">
+          <h2>Gaston Order App</h2>
+          <p>
+            This is how your guests will see our ordering app, directly on their
+            cell phone or on your website. Simple, easy, courteous. All without
+            installation of an app and without registration.
+          </p>
+          <p>
+            You design your menu according to your taste, colorful and with
+            pictures or simply with text.
+          </p>
+        </Fragment>
+        <Fragment slot="try">Try now!</Fragment>
+        <Fragment slot="qr-code"
+          >... or scan the QR code with your mobile phone.</Fragment
+        >
+        <Fragment slot="desktop">
+          <h3>Gaston Demo</h3>
+          <p>
+            This demo is on a test system. <b>No real orders or payments</b> take
+            place. Test Gaston without hesitation.
+          </p>
+          <ol>
+            <li>Add something to the order.</li>
+            <li>Submit the order.</li>
+            <li>
+              Click on Twint when making a payment. Do not worry, no real
+              transaction takes place and therefore <b
+                >no money will be transfererd.</b
+              >
+            </li>
+          </ol>
+        </Fragment>
+        <Fragment slot="test-with-qr-code">Test on your mobile</Fragment>
+        <Fragment slot="mobile">
+          <h3>Gaston Demo</h3>
+          <p>Choose Twint as payment. No money will be debited.</p>
+        </Fragment>
+      </Demo>
     </section>
     <section>
-      <h2>Test on your cell phone</h2>
-      <p>Scan the QR code in the directly on your phone to experience Gaston as if you were in the restaurant.</p>
-      <FixedPicture alt="QR-Code" src={import("../../images/qr-code-table-7.jpg")} height={120} />
+      <p>
+        Since Gaston has a lot of configuration options, you can see only one
+        possible configuration. If you need something to be different, there is
+        a big chance that this is already possible today. Contact us in that
+        case.
+      </p>
+      <ButtonLink href="/de/contact/">Contact us</ButtonLink>
     </section>
   </Container>
 </MainLayout>

@@ -10,6 +10,7 @@ layout: '@layouts/LandingPage.astro'
 
 import Figure from '@components/Figure.astro'
 import ButtonLink from '@components/ButtonLink.astro'
+import ButtonList from '@components/ButtonList.astro'
 
 <Figure
   caption="Speisekarte in Restaurant Bestell App."
@@ -58,10 +59,20 @@ Je nach Konfiguration der App bezahlen die Gäste bei jeder Bestellung oder erst
 
 Am Ende der Bezahlung in der App können die Gäste die Quittung herunterladen.
 
+<ButtonList>
+  <ButtonLink href="/de/funktionsumfang/">Funktionsumfang der App</ButtonLink>
+  {/* prettier-ignore */}
+  <ButtonLink href="/de/bestell-und-zahlungs-ablauf-gastro-betriebe/">Bestell- &amp; Zahlungsablauf</ButtonLink>
+</ButtonList>
+
 ## Demo: Restaurant Bestell App
 
 Mit Gaston haben Sie eine App, mit der Ihre Gäste einfach bestellen und bezahlen können. Dabei achten wir besonders auf eine intuitive Bedienung und attraktive Präsentation. So hoffen wir, dass auch Ihre Gäste von Gaston in Ihrem Restaurant begeistert sind.
 
 Verschaffen Sie sich einen Eindruck der App mit unserer Demo. Hier können Sie in einer Test-Umgebung nach Lust und Laune unsere Bestell-App in einem fiktiven Restaurant ausprobieren. Machen Sie eine Bestellung!
 
-<ButtonLink href="/de/demo/">Zur Demo der App</ButtonLink>
+<ButtonList>
+  <ButtonLink href="/de/demo/">Demo</ButtonLink>
+  <ButtonLink href="/de/preise/">Preise &amp; Angebot</ButtonLink>
+  <ButtonLink href="/de/kontakt/">Kontakt</ButtonLink>
+</ButtonList>

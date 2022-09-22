@@ -72,7 +72,8 @@ const description =
       <p>
         Gewählter Plan:
         <b>
-          <a href={turnover ? `../?turnover=${plan.split('/').at(-1)}` : '..'}
+          <a
+            href={turnover ? `../../?turnover=${plan.split('/').at(-1)}` : '..'}
             >{planTitle}
           </a>
         </b>
