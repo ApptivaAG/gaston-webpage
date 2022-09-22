@@ -22,8 +22,9 @@ const images = await heroImages(url, image, Astro.site.origin)
         src={images.image}
         alt=""
         sizes="100vw"
-        widths={[350, 700, 1400]}
+        widths={[350, 720, 1440]}
         aspectRatio={2}
+        class="hero"
       />
     )
   }
@@ -45,6 +46,16 @@ const images = await heroImages(url, image, Astro.site.origin)
 </Main>
 
 <style lang="scss" is:global>
+  picture.hero {
+    display: block;
+    text-align: center;
+    background-color: var(--light-background-color);
+    img {
+      display: block;
+      margin-inline: auto;
+    }
+  }
+
   .blog-post {
     li {
       margin-bottom: 0.8em;
