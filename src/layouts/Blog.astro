@@ -1,18 +1,29 @@
 ---
 import Main from './Main.astro'
 import Container from '@components/Container.astro'
-import type { BlogPostFrontMatter } from 'src/types'
+import type { BlogPost } from 'src/types'
+import { Picture } from '@astrojs/image/components'
+import { heroImages } from 'src/utils'
 
-export type Props = {
-  content: BlogPostFrontMatter
-}
-
-const { content } = Astro.props as Props
-const { title: blogTitle, description, lang, date, author } = content
+const { frontmatter, url } = Astro.props as BlogPost
+const { title: blogTitle, description, lang, date, author, image } = frontmatter
 const title = `${blogTitle} • Blog`
+
+const images = await heroImages(url, image, Astro.site.origin)
 ---
 
-<Main title={title} description={description}>
+<Main title={title} description={description} image={images?.fixed}>
+  {
+    images?.image && (
+      <Picture
+        src={images.image}
+        alt=""
+        sizes="100vw"
+        widths={[350, 700, 1400]}
+        aspectRatio={2}
+      />
+    )
+  }
   <Container size="small">
     <article class="blog-post">
       <h1>{blogTitle}</h1>

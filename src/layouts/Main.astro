@@ -12,9 +12,10 @@ import { addSlashToEndIfMissing, mkIsCurrentPage } from 'src/utils'
 export type Props = {
   title: string
   description: string
+  image?: string
 }
 
-const { title, description } = Astro.props as Props
+const { title, description, image } = Astro.props as Props
 
 const canonicalURL = addSlashToEndIfMissing(
   new URL(Astro.url.pathname, Astro.site).toString()
@@ -30,7 +31,7 @@ const openGraph = {
     title: `${title} • ${translatedMetaData.name} • ${translatedMetaData.description}`,
     type: 'webpage',
     url: canonicalURL,
-    image: 'https://gastonsolution.com/gaston-bestell-app.png',
+    image: image ?? 'https://gastonsolution.com/gaston-bestell-app.png',
   },
   optional: { description },
   image: {

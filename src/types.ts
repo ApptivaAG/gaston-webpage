@@ -32,7 +32,7 @@ export type BlogPostFrontMatter = {
   date: string
   author: string
 }
-export type BlogPost = MarkdownInstance<BlogPostFrontMatter>[]
+export type BlogPost = MarkdownInstance<BlogPostFrontMatter>
 
 export type TeamMember = {
   name: string
