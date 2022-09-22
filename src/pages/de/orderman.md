@@ -2,7 +2,6 @@
 lang: de
 title: Können Gaston und Orderman koexistieren?
 description: Orderman ist ein in der Gastronomie weitverbreitetes Bestellaufnahme-System. Gaston ist eine digitale Speisekarte. Ist es möglich, die Vorteile beider Produkte im selben Betrieb zu nutzen?
-image: icon.png
 keyword: orderman
 layout: '@layouts/LandingPage.astro'
 ---

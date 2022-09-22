@@ -3,11 +3,14 @@ import Main from './Main.astro'
 import Container from '@components/Container.astro'
 import type { BlogPost } from 'src/types'
 import { Picture } from '@astrojs/image/components'
-import { heroImages } from 'src/utils'
+import { getImage } from '@astrojs/image'
+import { mkHeroImages } from 'src/utils'
 
 const { frontmatter, url } = Astro.props as BlogPost
 const { title: blogTitle, description, lang, date, author, image } = frontmatter
 const title = `${blogTitle} • Blog`
+
+const heroImages = mkHeroImages(getImage)
 
 const images = await heroImages(url, image, Astro.site.origin)
 ---

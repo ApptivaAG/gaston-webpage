@@ -2,7 +2,6 @@
 lang: de
 title: Speisekarte bearbeiten
 description: Gaston erlaubt es Ihnen jederzeit innerhalb Minuten das Angebot auf Ihrer Speisekarte selber anzupassen. So können Sie Speisen und Getränke erfassen, anpassen oder auch entfernen. Wie dies im Detail geht, erfahren Sie hier.
-image: icon.png
 layout: '@layouts/Documentation.astro'
 ---
 

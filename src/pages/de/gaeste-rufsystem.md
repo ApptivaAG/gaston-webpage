@@ -2,7 +2,6 @@
 lang: de
 title: Gaston als Gäste-Rufsystem
 description: Elektronische Rufsysteme gehören für viele gastronomische Betriebe längst zum Alltag. Der praktische Nutzen im Arbeitsalltag macht ein solches System für die moderne Gastronomie unverzichtbar.
-image: icon.png
 keyword: gäste-rufsystem
 layout: '@layouts/LandingPage.astro'
 ---
