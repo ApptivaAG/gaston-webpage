@@ -6,20 +6,24 @@ import { takeSortedBlogPosts } from 'src/utils'
 
 const blogs = await Astro.glob<BlogPostFrontMatter>('./blog/**/*.mdx')
 const sortedBlogs = takeSortedBlogPosts(blogs, 'en')
-
 ---
 
-<Main title="Blog: News from Gaston" description="Get the latest news from Gaston.">
+<Main
+  title="Blog: News from Gaston"
+  description="Get the latest news from Gaston."
+>
   <Container size="small">
     <h1>News from Gaston</h1>
-    {sortedBlogs.map((post) => (
-    <article>
-      <a href={post.url + "/" }>
-        <h2>{post.frontmatter.title}</h2>
-      </a>
-      <p>{post.frontmatter.description}</p>
-    </article>
-    ))}
+    {
+      sortedBlogs.map((post) => (
+        <article>
+          <a href={post.url}>
+            <h2>{post.frontmatter.title}</h2>
+          </a>
+          <p>{post.frontmatter.description}</p>
+        </article>
+      ))
+    }
   </Container>
 </Main>
 

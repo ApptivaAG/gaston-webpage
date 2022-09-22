@@ -20,6 +20,7 @@ export default defineConfig(
   {
     // Enable the Solid renderer to support Solid JSX components.
     site: 'https://gastonsolution.com',
+    trailingSlash: 'always',
     integrations: [
       solid(),
       /* partytown(),*/

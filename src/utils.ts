@@ -48,7 +48,7 @@ export const mkHeroImages =
       return undefined
     }
     const img = (
-      await import(`./pages/de/blog/${slug.split('/').pop()}/${name}.jpg`)
+      await import(`./pages/de/blog/${slug.split('/').at(-2)}/${name}.jpg`)
     ).default
 
     const { src } = await getImage({
