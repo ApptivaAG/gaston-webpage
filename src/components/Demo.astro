@@ -1,7 +1,6 @@
 ---
 import Dialog from '@components/Dialog'
-import ButtonLink from './ButtonLink.astro'
-import FixedPicture from './FixedPicture.astro'
+import Button from './Button.astro'
 ---
 
 <div class="columns" style="align-items: start;">
@@ -17,36 +16,62 @@ import FixedPicture from './FixedPicture.astro'
         Sie gestalten Ihre Speisekarte nach Ihrem Gusto, farbenfroh und mit
         Bilder oder einfach nur mit Text.
       </p>
-      <ButtonLink href="/de/restaurant-bestell-app/"
-        >Weitere Informationen</ButtonLink
-      >
     </slot>
 
-    <div class="arrow">
-      <svg
-        viewBox="0 0 600 105"
-        xmlns="http://www.w3.org/2000/svg"
-        xml:space="preserve"
-      >
-        <path
-          d="M21.844 50.749c82.357 54.851 426.418 45.827 552.664-9.381 14.013-6.128-41.45-29.969-31.811-39.348 9.232-8.983 55.867 36.164 55.867 36.164s-6.209 71.094-20.957 62.459c-8.764-5.131 15.936-53.172 1.542-47.934C364.09 130.973 75.189 103.962 10.588 69.6-9.091 59.133 3.419 38.478 21.844 50.749Z"
-        ></path>
-      </svg>
-    </div>
-    <p class="test-now"><slot name="try">Hier ausprobieren!</slot></p>
-    <div class="desktop qr-code">
+    <Dialog client:visible>
+      <Button slot="openElement">
+        <p class="test-now">
+          <slot name="try">Hier ausprobieren!</slot>
+        </p>
+      </Button>
+      <div class="full-screen-demo">
+        <div class="description">
+          <div class="desktop">
+            <slot name="desktop">
+              <h3>Gaston Demo</h3>
+              <p>
+                Bei dieser Demo handelt es sich um ein Testsystem. Hier finden <b
+                  >keine echten Bestellungen oder Zahlungen</b
+                > statt. Testen Sie Gaston entsprechend nach Lust und Laune.
+              </p>
+              <ol>
+                <li>Fügen Sie etwas zur Bestellung hinzu.</li>
+                <li>Senden Sie die Bestellung ab.</li>
+                <li>
+                  Klicken Sie bei der Zahlung z.B. auf Twint. Keine Angst, es
+                  findet keine echte Transaktion statt und entsprechend <b
+                    >wird kein Geld abgebucht.</b
+                  >
+                </li>
+              </ol>
+            </slot>
+          </div>
+          <div class="mobile">
+            <slot name="mobile">
+              <h3>Gaston Demo</h3>
+              <p>
+                Wählen Sie bei der Zahlung z.B. Twint. Es wird kein Geld
+                abgebucht.
+              </p>
+            </slot>
+          </div>
+        </div>
+        <div class="gaston-wrapper">
+          <iframe
+            loading="lazy"
+            src="https://demo.gastonsolution.com/811f84b2-15f8-440d-8074-58ce5cce13f8/?table=7"
+            frameborder="0"></iframe>
+        </div>
+      </div>
+    </Dialog>
+
+    <div class="desktop">
       <p>
         <slot name="qr-code">... oder mit dem Handy den QR-Code scannen.</slot>
       </p>
-      <FixedPicture
-        class="qr-code"
-        alt="QR-Code"
-        src={import('../images/qr-code-table-7.jpg')}
-        height={160}
-      />
     </div>
   </div>
-  <div style="flex: 1; margin-block: 2em;">
+  <div style="flex: 1; margin-block: 2em; position: relative;">
     <div class="mobile-wrapper">
       <iframe
         loading="lazy"
@@ -79,16 +104,6 @@ import FixedPicture from './FixedPicture.astro'
                     </li>
                   </ol>
                 </slot>
-                <div class="large">
-                  <h3>
-                    <slot name="test-with-qr-code">Auf Ihrem Handy testen</slot>
-                  </h3>
-                  <FixedPicture
-                    alt="QR-Code"
-                    src={import('../images/qr-code-table-7.jpg')}
-                    height={100}
-                  />
-                </div>
               </div>
               <div class="mobile">
                 <slot name="mobile">
@@ -110,6 +125,13 @@ import FixedPicture from './FixedPicture.astro'
         </Dialog>
       </div>
     </div>
+    <img
+      style="position: absolute;"
+      class="desktop qr-code"
+      src="/assets/qr-code.svg"
+      alt="QR Code zur Demo"
+      loading="lazy"
+    />
   </div>
 </div>
 
@@ -133,50 +155,9 @@ import FixedPicture from './FixedPicture.astro'
     }
   }
 
-  .arrow {
-    z-index: 5;
-    position: relative;
-    filter: drop-shadow(2px 4px 10px #0008);
-    pointer-events: none;
-    fill: var(--primary-color);
-
-    svg {
-      stroke-width: 3px;
-      stroke: black;
-
-      fill-rule: evenodd;
-      clip-rule: evenodd;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 1.5;
-    }
-
-    @media (min-width: 768px) {
-      transform: translateX(min(20vw, 16rem));
-    }
-
-    @media (max-width: 767px) {
-      transform: rotate(90deg) translateX(100%) scaleY(-1.4);
-      max-width: 70%;
-      transform-origin: right;
-      right: -15px;
-    }
-  }
-
   .test-now {
-    font-size: 2em;
-    margin-top: 0.5em;
-    margin-right: 3em;
-  }
-
-  .qr-code {
-    p {
-      margin-top: 6em;
-    }
-    :global(img) {
-      padding: 1em;
-      background: white;
-    }
+    font-size: 1.5em;
+    margin: 0;
   }
 
   .mobile-wrapper {
@@ -293,5 +274,14 @@ import FixedPicture from './FixedPicture.astro'
       block-size: 100%;
       inline-size: 100%;
     }
+  }
+
+  .qr-code {
+    position: absolute;
+    bottom: 3em;
+    left: 0;
+    width: 14em;
+    rotate: -15deg;
+    filter: drop-shadow(0.5em 0.5em 1.2em #0006);
   }
 </style>

@@ -1,7 +1,6 @@
 ---
 lang: de
 title: Über uns
-image: icon.png
 layout: '@layouts/LandingPage.astro'
 ---
 

@@ -2,7 +2,6 @@
 lang: de
 title: Take Away- und Delivery-Bestellungen mit Gaston
 description: Setzen Sie Gaston ein, um die Bestellung und Bezahlung von Take Away und Delivery zu digitalisieren.
-image: icon.png
 keyword: take away und delivery
 layout: '@layouts/LandingPage.astro'
 ---

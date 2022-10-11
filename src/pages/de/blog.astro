@@ -15,15 +15,20 @@ const description =
 <Main title="Blog: Neuigkeiten zu Gaston" description={description}>
   <Container size="small">
     <h1>Blog: Neuigkeiten zu Gaston</h1>
-    {sortedBlogs.map((post) => (
-    <article>
-      <a href={post.url + "/" }>
-        <h2>{post.frontmatter.title}</h2>
-      </a>
-      <p>{post.frontmatter.description}</p>
-      <p class="meta">{new Date(post.frontmatter.date).toLocaleDateString('de')} - {post.frontmatter.author}</p>
-    </article>
-    ))}
+    {
+      sortedBlogs.map((post) => (
+        <article>
+          <a href={post.url}>
+            <h2>{post.frontmatter.title}</h2>
+          </a>
+          <p>{post.frontmatter.description}</p>
+          <p class="meta">
+            {new Date(post.frontmatter.date).toLocaleDateString('de')} -{' '}
+            {post.frontmatter.author}
+          </p>
+        </article>
+      ))
+    }
   </Container>
 </Main>
 

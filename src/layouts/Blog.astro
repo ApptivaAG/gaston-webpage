@@ -1,18 +1,33 @@
 ---
 import Main from './Main.astro'
 import Container from '@components/Container.astro'
-import type { BlogPostFrontMatter } from 'src/types'
+import type { BlogPost } from 'src/types'
+import { Picture } from '@astrojs/image/components'
+import { getImage } from '@astrojs/image'
+import { mkHeroImages } from 'src/utils'
 
-export type Props = {
-  content: BlogPostFrontMatter
-}
-
-const { content } = Astro.props as Props
-const { title: blogTitle, description, lang, date, author } = content
+const { frontmatter, url } = Astro.props as BlogPost
+const { title: blogTitle, description, lang, date, author, image } = frontmatter
 const title = `${blogTitle} • Blog`
+
+const heroImages = mkHeroImages(getImage)
+
+const images = await heroImages(url, image, Astro.site.origin)
 ---
 
-<Main title={title} description={description}>
+<Main title={title} description={description} image={images?.fixed}>
+  {
+    images?.image && (
+      <Picture
+        src={images.image}
+        alt=""
+        sizes="100vw"
+        widths={[350, 720, 1440]}
+        aspectRatio={2}
+        class="hero"
+      />
+    )
+  }
   <Container size="small">
     <article class="blog-post">
       <h1>{blogTitle}</h1>
@@ -31,6 +46,19 @@ const title = `${blogTitle} • Blog`
 </Main>
 
 <style lang="scss" is:global>
+  picture.hero {
+    display: block;
+    text-align: center;
+    background-color: var(--light-background-color);
+    img {
+      display: block;
+      margin-inline: auto;
+      max-height: 60vh;
+      min-height: 30vh;
+      object-fit: cover;
+    }
+  }
+
   .blog-post {
     li {
       margin-bottom: 0.8em;

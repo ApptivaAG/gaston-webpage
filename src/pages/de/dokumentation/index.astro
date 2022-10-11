@@ -12,14 +12,16 @@ const description =
 <Main title="Dokumentation für Gaston" description={description}>
   <Container size="small">
     <h1>Dokumentation</h1>
-    {docs.map((post) => (
-    <article>
-      <a href={post.url + "/" }>
-        <h2>{post.frontmatter.title}</h2>
-      </a>
-      <p>{post.frontmatter.description}</p>
-    </article>
-    ))}
+    {
+      docs.map((post) => (
+        <article>
+          <a href={post.url}>
+            <h2>{post.frontmatter.title}</h2>
+          </a>
+          <p>{post.frontmatter.description}</p>
+        </article>
+      ))
+    }
   </Container>
 </Main>
 

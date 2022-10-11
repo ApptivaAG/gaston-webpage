@@ -1,4 +1,5 @@
 import type { BlogPost, Language } from './types'
+import type { getImage as GetImage } from '@astrojs/image/dist/lib/get-image'
 
 export const mkIsCurrentPage =
   (currentPathname: string) =>
@@ -9,7 +10,7 @@ export const mkIsCurrentPage =
   }
 
 export const takeSortedBlogPosts = (
-  blogPosts: BlogPost,
+  blogPosts: BlogPost[],
   language: Language,
   take?: number
 ) =>
@@ -29,3 +30,33 @@ export const currency = Intl.NumberFormat('de-CH', {
   notation: 'compact',
   compactDisplay: 'short',
 })
+
+type Images =
+  | {
+      image: ImageMetadata
+      fixed: string
+    }
+  | undefined
+export const mkHeroImages =
+  (getImage: typeof GetImage) =>
+  async (
+    slug: string,
+    name: string | undefined,
+    base: string
+  ): Promise<Images> => {
+    if (name === undefined) {
+      return undefined
+    }
+    const img = (
+      await import(`./pages/de/blog/${slug.split('/').at(-2)}/${name}.jpg`)
+    ).default
+
+    const { src } = await getImage({
+      src: img,
+      width: 1200,
+      height: 630,
+    })
+    const openGraphImage = new URL(src, base)
+
+    return { image: img, fixed: openGraphImage.href }
+  }

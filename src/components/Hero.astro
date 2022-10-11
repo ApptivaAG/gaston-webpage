@@ -1,7 +1,6 @@
 ---
 import ButtonLink from './ButtonLink.astro'
 import ButtonList from './ButtonList.astro'
-import CallToAction from './CallToAction.astro'
 
 export interface Props {
   name: string
@@ -24,13 +23,14 @@ const props = Astro.props as Props
     <h1>{props.name}</h1>
     <p style="margin-bottom: 1rem;">{props.claim}</p>
     <p style="font-size: 1rem; font-weight: 400;">
+      {props.from}
       <img
         src="/assets/wappen.svg"
         alt="In Luzern (Schweiz) entwickelt"
-        width="18"
-        height="14"
+        width="22"
+        height="16.5"
+        style="margin-left: 0.2em; translate: 0 0.1em;"
       />
-      {props.from}
     </p>
   </div>
   <div class="call-to-action">
