@@ -6,7 +6,7 @@ image: online-speisekarte
 date: 2022-10-20
 author: Mariana Barbosa
 keyword: online speisekarte
-layout: '@layouts/Blog.astro'
+layout: '@layouts/LandingPage.astro'
 ---
 
 Vor Jahren war die Mund-Mund-Propaganda der einfachste und meistgenutzte Weg, anderen von einem neuen Betrieb zu erzählen. Heutzutage ist dies immer noch gültig (und wie!), aber es gibt auch andere grosse Variablen: soziale Medien, digitale Produkte und Google.
