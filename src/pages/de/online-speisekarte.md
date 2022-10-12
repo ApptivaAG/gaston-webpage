@@ -2,7 +2,6 @@
 lang: de
 title: Was kann man von einer online Speisekarte erwarten?
 description: In diesem Artikel befassen wir uns mit der Rolle der online Speisekarte im Internet. Wir wollen klären, was eine online Speisekarte ist, wie diese das Image Ihres Betriebs repräsentiert, wie sie Ihnen hilft, zu wachsen und mehr Kunden zu gewinnen, und vieles mehr.
-author: Mariana Barbosa
 keyword: online speisekarte
 layout: '@layouts/LandingPage.astro'
 ---
