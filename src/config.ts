@@ -195,6 +195,10 @@ const footerDe: FooterGroup[] = [
         href: '/de/takeaway-delivery/',
       },
       {
+        title: 'Online Speisekarte',
+        href: '/de/online-speisekarte/',
+      },
+      {
         title: 'Gäste-Rufsystem',
         href: '/de/gaeste-rufsystem/',
       },
