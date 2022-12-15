@@ -21,6 +21,7 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'Header'
+    'Announcement'
     'Content'
     'Footer';
   min-height: 100vh;
