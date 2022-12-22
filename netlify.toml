@@ -4,42 +4,7 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/"
-  to = "/de/"
+  from = "/*"
+  to = "https://payflink.netlify.app/:splat"
   force = true
-  status = 302
-  conditions = {Language = ["de"]}
-
-[[redirects]]
-  from = "/"
-  to = "/en/"
-  force = true
-  status = 302
-
-[[redirects]]
-  from = "/de/offer"
-  to = "/de/preise/"
-
-[[redirects]]
-  from = "/en/offer"
-  to = "/en/prices/"
-
-[[redirects]]
-  from = "/en/about"
-  to = "/en/team/"
-
-[[redirects]]
-  from = "/de/about"
-  to = "/de/team/"
-
-[[redirects]]
-  from = "/de/contact"
-  to = "/de/kontakt/"
-
-[[redirects]]
-  from = "/de/qr-code-demo"
-  to = "/de/demo/"
-
-[[redirects]]
-  from = "/en/qr-code-demo"
-  to = "/en/demo/"
+  status = 301
