@@ -5,6 +5,6 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://payflink.netlify.app/:splat"
+  to = "https://payflink.com/:splat"
   force = true
   status = 301
